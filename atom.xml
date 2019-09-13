@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ainiya.xyz/"/>
-  <updated>2019-09-13T11:19:49.464Z</updated>
+  <updated>2019-09-13T13:20:09.184Z</updated>
   <id>https://ainiya.xyz/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://ainiya.xyz/2019/09/06/2019-misc-ti-jie/"/>
     <id>https://ainiya.xyz/2019/09/06/2019-misc-ti-jie/</id>
     <published>2019-09-06T04:32:09.000Z</published>
-    <updated>2019-09-13T11:19:49.464Z</updated>
+    <updated>2019-09-13T13:20:09.184Z</updated>
     
     <summary type="html">
     
@@ -40,6 +40,8 @@
     
       <category term="CTF" scheme="https://ainiya.xyz/tags/CTF/"/>
     
+      <category term="竞赛" scheme="https://ainiya.xyz/tags/%E7%AB%9E%E8%B5%9B/"/>
+    
   </entry>
   
   <entry>
@@ -47,7 +49,7 @@
     <link href="https://ainiya.xyz/2019/08/22/2019-wechall-lian-xi/"/>
     <id>https://ainiya.xyz/2019/08/22/2019-wechall-lian-xi/</id>
     <published>2019-08-22T04:32:09.000Z</published>
-    <updated>2019-09-13T11:19:49.468Z</updated>
+    <updated>2019-09-13T13:20:09.187Z</updated>
     
     <summary type="html">
     
@@ -65,6 +67,8 @@
     
     
       <category term="CTF" scheme="https://ainiya.xyz/tags/CTF/"/>
+    
+      <category term="竞赛" scheme="https://ainiya.xyz/tags/%E7%AB%9E%E8%B5%9B/"/>
     
   </entry>
   
@@ -125,7 +129,7 @@
     <link href="https://ainiya.xyz/2019/07/26/2019-scipy/"/>
     <id>https://ainiya.xyz/2019/07/26/2019-scipy/</id>
     <published>2019-07-26T10:32:09.000Z</published>
-    <updated>2019-09-13T11:17:53.965Z</updated>
+    <updated>2019-09-13T11:29:55.951Z</updated>
     
     <summary type="html">
     
@@ -151,7 +155,7 @@
     <link href="https://ainiya.xyz/2019/07/24/2019-matplotlib/"/>
     <id>https://ainiya.xyz/2019/07/24/2019-matplotlib/</id>
     <published>2019-07-24T10:32:09.000Z</published>
-    <updated>2019-09-13T11:19:49.471Z</updated>
+    <updated>2019-09-13T13:20:09.194Z</updated>
     
     <summary type="html">
     
@@ -168,6 +172,8 @@
       <category term="python" scheme="https://ainiya.xyz/categories/python/"/>
     
     
+      <category term="python" scheme="https://ainiya.xyz/tags/python/"/>
+    
       <category term="数据分析" scheme="https://ainiya.xyz/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
   </entry>
@@ -177,7 +183,7 @@
     <link href="https://ainiya.xyz/2019/07/22/2019-numpy/"/>
     <id>https://ainiya.xyz/2019/07/22/2019-numpy/</id>
     <published>2019-07-22T10:32:09.000Z</published>
-    <updated>2019-09-13T11:17:53.951Z</updated>
+    <updated>2019-09-13T13:20:09.200Z</updated>
     
     <summary type="html">
     
@@ -193,6 +199,8 @@
     
       <category term="python" scheme="https://ainiya.xyz/categories/python/"/>
     
+    
+      <category term="python" scheme="https://ainiya.xyz/tags/python/"/>
     
       <category term="数据分析" scheme="https://ainiya.xyz/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
@@ -229,7 +237,7 @@
     <link href="https://ainiya.xyz/2019/06/02/2019-ubuntu-vscode-c-huan-jing/"/>
     <id>https://ainiya.xyz/2019/06/02/2019-ubuntu-vscode-c-huan-jing/</id>
     <published>2019-06-02T10:32:09.000Z</published>
-    <updated>2019-09-13T11:17:53.976Z</updated>
+    <updated>2019-09-13T13:20:09.215Z</updated>
     
     <summary type="html">
     
@@ -243,8 +251,6 @@
     
     </summary>
     
-      <category term="环境配置" scheme="https://ainiya.xyz/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
-    
     
       <category term="环境配置" scheme="https://ainiya.xyz/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
     
@@ -255,7 +261,7 @@
     <link href="https://ainiya.xyz/2019/05/13/2019-python-xian-cheng-nei-bu-han-shu-chuan-can/"/>
     <id>https://ainiya.xyz/2019/05/13/2019-python-xian-cheng-nei-bu-han-shu-chuan-can/</id>
     <published>2019-05-13T10:32:09.000Z</published>
-    <updated>2019-09-13T11:17:53.960Z</updated>
+    <updated>2019-09-13T13:20:09.206Z</updated>
     
     <summary type="html">
     
@@ -274,6 +280,8 @@
     
       <category term="计科" scheme="https://ainiya.xyz/tags/%E8%AE%A1%E7%A7%91/"/>
     
+      <category term="python" scheme="https://ainiya.xyz/tags/python/"/>
+    
   </entry>
   
   <entry>
@@ -281,7 +289,7 @@
     <link href="https://ainiya.xyz/2019/05/06/2019-python-xlrd-jian-dan-zong-jie/"/>
     <id>https://ainiya.xyz/2019/05/06/2019-python-xlrd-jian-dan-zong-jie/</id>
     <published>2019-05-06T10:32:09.000Z</published>
-    <updated>2019-09-13T11:17:53.957Z</updated>
+    <updated>2019-09-13T13:20:09.203Z</updated>
     
     <summary type="html">
     
@@ -300,6 +308,8 @@
     
       <category term="数据处理" scheme="https://ainiya.xyz/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
     
+      <category term="python" scheme="https://ainiya.xyz/tags/python/"/>
+    
   </entry>
   
   <entry>
@@ -316,32 +326,6 @@
         
         
           &lt;h1 id=&quot;训练-开发-测试集&quot;&gt;&lt;a href=&quot;#训练-开发-测试集&quot; class=&quot;headerlink&quot; title=&quot;训练/开发/测试集&quot;&gt;&lt;/a&gt;训练/开发/测试集&lt;/h1&gt;&lt;h2 id=&quot;训练时一般需要调试的参数&quot;&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="机器学习" scheme="https://ainiya.xyz/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="吴恩达深度学习笔记" scheme="https://ainiya.xyz/tags/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>1.2偏差与方差</title>
-    <link href="https://ainiya.xyz/2019/04/09/2019-pian-chai-yu-fang-chai/"/>
-    <id>https://ainiya.xyz/2019/04/09/2019-pian-chai-yu-fang-chai/</id>
-    <published>2019-04-09T04:32:09.000Z</published>
-    <updated>2019-09-13T11:17:53.891Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;1-2-偏差与方差&quot;&gt;&lt;a href=&quot;#1-2-偏差与方差&quot; class=&quot;headerlink&quot; title=&quot;1.2 偏差与方差&quot;&gt;&lt;/a&gt;1.2 偏差与方差&lt;/h2&gt;&lt;h3 id=&quot;二者在深度学习上的现状&quot;&gt;&lt;a href=&quot;#二者在深度学习上的现状&quot;
         
       
     
@@ -381,11 +365,37 @@
   </entry>
   
   <entry>
+    <title>1.2偏差与方差</title>
+    <link href="https://ainiya.xyz/2019/04/09/2019-pian-chai-yu-fang-chai/"/>
+    <id>https://ainiya.xyz/2019/04/09/2019-pian-chai-yu-fang-chai/</id>
+    <published>2019-04-09T04:32:09.000Z</published>
+    <updated>2019-09-13T11:17:53.891Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1-2-偏差与方差&quot;&gt;&lt;a href=&quot;#1-2-偏差与方差&quot; class=&quot;headerlink&quot; title=&quot;1.2 偏差与方差&quot;&gt;&lt;/a&gt;1.2 偏差与方差&lt;/h2&gt;&lt;h3 id=&quot;二者在深度学习上的现状&quot;&gt;&lt;a href=&quot;#二者在深度学习上的现状&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="机器学习" scheme="https://ainiya.xyz/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="吴恩达深度学习笔记" scheme="https://ainiya.xyz/tags/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>螺旋序列的输出</title>
     <link href="https://ainiya.xyz/2019/04/03/2019-suan-fa-ri-chang-luo-xuan-xu-lie/"/>
     <id>https://ainiya.xyz/2019/04/03/2019-suan-fa-ri-chang-luo-xuan-xu-lie/</id>
     <published>2019-04-03T04:32:09.000Z</published>
-    <updated>2019-09-13T11:17:53.907Z</updated>
+    <updated>2019-09-13T13:20:05.275Z</updated>
     
     <summary type="html">
     
@@ -401,6 +411,8 @@
     
       <category term="算法" scheme="https://ainiya.xyz/categories/%E7%AE%97%E6%B3%95/"/>
     
+    
+      <category term="PAT" scheme="https://ainiya.xyz/tags/PAT/"/>
     
       <category term="算法" scheme="https://ainiya.xyz/tags/%E7%AE%97%E6%B3%95/"/>
     
@@ -489,7 +501,7 @@
     <link href="https://ainiya.xyz/2019/03/26/2019-str-bytes/"/>
     <id>https://ainiya.xyz/2019/03/26/2019-str-bytes/</id>
     <published>2019-03-26T10:32:09.000Z</published>
-    <updated>2019-09-13T11:17:53.969Z</updated>
+    <updated>2019-09-13T13:20:09.212Z</updated>
     
     <summary type="html">
     
@@ -508,6 +520,8 @@
     
     
       <category term="填坑" scheme="https://ainiya.xyz/tags/%E5%A1%AB%E5%9D%91/"/>
+    
+      <category term="python" scheme="https://ainiya.xyz/tags/python/"/>
     
   </entry>
   

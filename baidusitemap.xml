@@ -1,37 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://ainiya.xyz/2019/03/22/2019-pa-chong-zong-jie/</loc>
-    <lastmod>2019-09-13</lastmod>
-  </url>  <url>
-    <loc>https://ainiya.xyz/2019/07/24/2019-matplotlib/</loc>
-    <lastmod>2019-09-13</lastmod>
-  </url>  <url>
-    <loc>https://ainiya.xyz/2019/08/22/2019-wechall-lian-xi/</loc>
-    <lastmod>2019-09-13</lastmod>
-  </url>  <url>
-    <loc>https://ainiya.xyz/2019/09/06/2019-misc-ti-jie/</loc>
-    <lastmod>2019-09-13</lastmod>
-  </url>  <url>
-    <loc>https://ainiya.xyz/2019/02/19/2019-zheng-ze-biao-da-shi/</loc>
-    <lastmod>2019-09-13</lastmod>
-  </url>  <url>
     <loc>https://ainiya.xyz/2019/03/22/2019-jia-su-pa-chong/</loc>
-    <lastmod>2019-09-13</lastmod>
-  </url>  <url>
-    <loc>https://ainiya.xyz/2019/08/06/2019-dian-nao-fan-ge-qiang/</loc>
     <lastmod>2019-09-13</lastmod>
   </url>  <url>
     <loc>https://ainiya.xyz/2019/06/02/2019-ubuntu-vscode-c-huan-jing/</loc>
     <lastmod>2019-09-13</lastmod>
   </url>  <url>
-    <loc>https://ainiya.xyz/2019/06/29/2019-tcp-san-ci-wo-shou/</loc>
-    <lastmod>2019-09-13</lastmod>
-  </url>  <url>
     <loc>https://ainiya.xyz/2019/03/26/2019-str-bytes/</loc>
-    <lastmod>2019-09-13</lastmod>
-  </url>  <url>
-    <loc>https://ainiya.xyz/2019/07/26/2019-scipy/</loc>
     <lastmod>2019-09-13</lastmod>
   </url>  <url>
     <loc>https://ainiya.xyz/2019/05/13/2019-python-xian-cheng-nei-bu-han-shu-chuan-can/</loc>
@@ -40,22 +16,52 @@
     <loc>https://ainiya.xyz/2019/05/06/2019-python-xlrd-jian-dan-zong-jie/</loc>
     <lastmod>2019-09-13</lastmod>
   </url>  <url>
-    <loc>https://ainiya.xyz/2019/02/26/2019-patb1024/</loc>
-    <lastmod>2019-09-13</lastmod>
-  </url>  <url>
     <loc>https://ainiya.xyz/2019/07/22/2019-numpy/</loc>
     <lastmod>2019-09-13</lastmod>
   </url>  <url>
     <loc>https://ainiya.xyz/2019/03/19/2019-myfirstblog/</loc>
     <lastmod>2019-09-13</lastmod>
   </url>  <url>
-    <loc>https://ainiya.xyz/2019/04/01/2019-html5/</loc>
+    <loc>https://ainiya.xyz/2019/07/24/2019-matplotlib/</loc>
     <lastmod>2019-09-13</lastmod>
   </url>  <url>
     <loc>https://ainiya.xyz/2019/03/20/2019-github-bo-ke/</loc>
     <lastmod>2019-09-13</lastmod>
   </url>  <url>
+    <loc>https://ainiya.xyz/2019/08/22/2019-wechall-lian-xi/</loc>
+    <lastmod>2019-09-13</lastmod>
+  </url>  <url>
+    <loc>https://ainiya.xyz/2019/09/06/2019-misc-ti-jie/</loc>
+    <lastmod>2019-09-13</lastmod>
+  </url>  <url>
+    <loc>https://ainiya.xyz/2019/01/22/2019-zheng-ze-hua/</loc>
+    <lastmod>2019-09-13</lastmod>
+  </url>  <url>
+    <loc>https://ainiya.xyz/2019/02/19/2019-zheng-ze-biao-da-shi/</loc>
+    <lastmod>2019-09-13</lastmod>
+  </url>  <url>
     <loc>https://ainiya.xyz/2019/02/18/2019-you-qu-de-ti/</loc>
+    <lastmod>2019-09-13</lastmod>
+  </url>  <url>
+    <loc>https://ainiya.xyz/2019/04/03/2019-suan-fa-ri-chang-luo-xuan-xu-lie/</loc>
+    <lastmod>2019-09-13</lastmod>
+  </url>  <url>
+    <loc>https://ainiya.xyz/2019/07/26/2019-scipy/</loc>
+    <lastmod>2019-09-13</lastmod>
+  </url>  <url>
+    <loc>https://ainiya.xyz/2019/03/22/2019-pa-chong-zong-jie/</loc>
+    <lastmod>2019-09-13</lastmod>
+  </url>  <url>
+    <loc>https://ainiya.xyz/2019/08/06/2019-dian-nao-fan-ge-qiang/</loc>
+    <lastmod>2019-09-13</lastmod>
+  </url>  <url>
+    <loc>https://ainiya.xyz/2019/06/29/2019-tcp-san-ci-wo-shou/</loc>
+    <lastmod>2019-09-13</lastmod>
+  </url>  <url>
+    <loc>https://ainiya.xyz/2019/02/26/2019-patb1024/</loc>
+    <lastmod>2019-09-13</lastmod>
+  </url>  <url>
+    <loc>https://ainiya.xyz/2019/04/01/2019-html5/</loc>
     <lastmod>2019-09-13</lastmod>
   </url>  <url>
     <loc>https://ainiya.xyz/2019/04/11/2019-xun-lian-kai-fa-ce-shi-ji/</loc>
@@ -65,9 +71,6 @@
     <lastmod>2019-09-13</lastmod>
   </url>  <url>
     <loc>https://ainiya.xyz/2019/04/02/2019-suan-fa-ri-chang-wan-quan-ping-fang/</loc>
-    <lastmod>2019-09-13</lastmod>
-  </url>  <url>
-    <loc>https://ainiya.xyz/2019/04/03/2019-suan-fa-ri-chang-luo-xuan-xu-lie/</loc>
     <lastmod>2019-09-13</lastmod>
   </url>  <url>
     <loc>https://ainiya.xyz/2019/04/02/2019-suan-fa-ri-chang-jie-cheng-qu-mo/</loc>
@@ -89,9 +92,6 @@
     <lastmod>2019-09-13</lastmod>
   </url>  <url>
     <loc>https://ainiya.xyz/2019/02/17/2019-kuai-su-su-shu-pan-duan-suan-fa/</loc>
-    <lastmod>2019-09-13</lastmod>
-  </url>  <url>
-    <loc>https://ainiya.xyz/2019/01/22/2019-zheng-ze-hua/</loc>
     <lastmod>2019-09-13</lastmod>
   </url>
 </urlset>
