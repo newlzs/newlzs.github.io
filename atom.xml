@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>韦阳的博客</title>
+  <title>子实的博客</title>
   
   <subtitle>godweiyang</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://godweiyang.com/"/>
+  <link href="https://ainiya.xyz/"/>
   <updated>2019-09-13T02:25:07.568Z</updated>
-  <id>https://godweiyang.com/</id>
+  <id>https://ainiya.xyz/</id>
   
   <author>
-    <name>韦阳</name>
+    <name>子实</name>
     
   </author>
   
@@ -18,8 +18,8 @@
   
   <entry>
     <title>artical title</title>
-    <link href="https://godweiyang.com/2019/09/13/artical-title/"/>
-    <id>https://godweiyang.com/2019/09/13/artical-title/</id>
+    <link href="https://ainiya.xyz/2019/09/13/artical-title/"/>
+    <id>https://ainiya.xyz/2019/09/13/artical-title/</id>
     <published>2019-09-13T02:21:48.000Z</published>
     <updated>2019-09-13T02:25:07.568Z</updated>
     
@@ -41,8 +41,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="https://godweiyang.com/2019/09/13/hello-world/"/>
-    <id>https://godweiyang.com/2019/09/13/hello-world/</id>
+    <link href="https://ainiya.xyz/2019/09/13/hello-world/"/>
+    <id>https://ainiya.xyz/2019/09/13/hello-world/</id>
     <published>2019-09-13T01:38:47.892Z</published>
     <updated>2019-09-13T01:38:47.893Z</updated>
     
@@ -63,8 +63,8 @@
   
   <entry>
     <title>二零一七年终总结</title>
-    <link href="https://godweiyang.com/2018/01/22/2017-conclusion/"/>
-    <id>https://godweiyang.com/2018/01/22/2017-conclusion/</id>
+    <link href="https://ainiya.xyz/2018/01/22/2017-conclusion/"/>
+    <id>https://ainiya.xyz/2018/01/22/2017-conclusion/</id>
     <published>2018-01-22T04:32:09.000Z</published>
     <updated>2019-08-20T16:26:12.000Z</updated>
     
@@ -80,10 +80,10 @@
     
     </summary>
     
-      <category term="随笔" scheme="https://godweiyang.com/categories/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://ainiya.xyz/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
-      <category term="随笔" scheme="https://godweiyang.com/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://ainiya.xyz/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
