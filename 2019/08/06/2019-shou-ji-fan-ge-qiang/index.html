@@ -4,11 +4,12 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="TCP的三次握手, NEUQ  CTF 子实  ZiShi 计算机科学与技术 网络安全">
+    <meta name="keywords" content="手机翻墙, NEUQ  CTF 子实  ZiShi 计算机科学与技术 网络安全">
     <meta name="baidu-site-verification" content>
     <meta name="google-site-verification" content>
-    <meta name="description" content="TCP三次握手TCP/IP协议简介TCP/IP协议是一个协议族，里面包括了IP协议，IMCP协议，TCP协议，以及我们更加熟悉的http、ftp、pop3协议等等，这些协议类似于国际语言，大家在交流时同一使用的语言。  
-TCP/IP协议的">
+    <meta name="description" content="跨越长城-手机版应用换个手机把，结果把之前好不容易收集翻墙软件都给弄丢了，于是乎决定写个博客，记录下自己使用过的翻墙软件，谁由好的翻墙软件欢迎评论区留言哦，我会随时更新的，不能用的软件也欢迎大家评论提醒哦。  
+
+注：本文所用应用同一明明为">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +17,7 @@ TCP/IP协议的">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>TCP的三次握手 | 子实的博客</title>
+    <title>手机翻墙 | 子实的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -290,13 +291,13 @@ TCP/IP协议的">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        TCP的三次握手
+                        手机翻墙
                     </div>
                 </div>
             </div>
@@ -318,8 +319,8 @@ TCP/IP协议的">
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/计算机网络/" target="_blank">
-                            <span class="chip bg-color">计算机网络</span>
+                        <a href="/tags/翻个墙/" target="_blank">
+                            <span class="chip bg-color">翻个墙</span>
                         </a>
                         
                     </div>
@@ -330,8 +331,8 @@ TCP/IP协议的">
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/计科/" class="post-category" target="_blank">
-                            计科
+                        <a href="/categories/搞事情/" class="post-category" target="_blank">
+                            搞事情
                         </a>
                         
                     </div>
@@ -342,7 +343,7 @@ TCP/IP协议的">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-06-29
+                    2019-08-06
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -356,14 +357,14 @@ TCP/IP协议的">
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    810
+                    446
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
                 
@@ -379,69 +380,20 @@ TCP/IP协议的">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="TCP三次握手"><a href="#TCP三次握手" class="headerlink" title="TCP三次握手"></a>TCP三次握手</h1><h2 id="TCP-IP协议"><a href="#TCP-IP协议" class="headerlink" title="TCP/IP协议"></a>TCP/IP协议</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>TCP/IP协议是一个协议族，里面包括了IP协议，IMCP协议，TCP协议，以及我们更加熟悉的http、ftp、pop3协议等等，这些协议类似于国际语言，大家在交流时同一使用的语言。  </p>
-<h3 id="TCP-IP协议的分层"><a href="#TCP-IP协议的分层" class="headerlink" title="TCP/IP协议的分层"></a>TCP/IP协议的分层</h3><h4 id="OSI参考模型自上而下分别是"><a href="#OSI参考模型自上而下分别是" class="headerlink" title="OSI参考模型自上而下分别是"></a>OSI参考模型自上而下分别是</h4><table>
-<thead>
-<tr>
-<th align="center">OSI参考模型</th>
-<th align="center">TCP/IP五层模型</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">应用层，表示层，会话层，传输层</td>
-<td align="center">应用层</td>
-</tr>
-<tr>
-<td align="center">传输层</td>
-<td align="center">传输层</td>
-</tr>
-<tr>
-<td align="center">网络层</td>
-<td align="center">网络层</td>
-</tr>
-<tr>
-<td align="center">数据链路层</td>
-<td align="center">数据链路层</td>
-</tr>
-<tr>
-<td align="center">物理层</td>
-<td align="center">物理层</td>
-</tr>
-</tbody></table>
-<h4 id="各层的作用"><a href="#各层的作用" class="headerlink" title="各层的作用"></a>各层的作用</h4><ul>
-<li>应用层  <ul>
-<li>向用户提供常用的应用程序，比如电子邮件（pop3），文件传输（FTP），远程登录（TELNET）等。  </li>
-</ul>
-</li>
-<li>传输层  <ul>
-<li>提供应用程序间的通信。功能包括：1、格式化信息流；2、提供可靠传输服务。为实现后者，传输层协议规定接收端必须返回确认信息，如果分组丢失，必须重新发送。  </li>
-</ul>
-</li>
-<li>网络层  <ul>
-<li>负责相邻计算机之间的通信。功能包括三方面  <ol>
-<li>处理来自传输层的分组发送请求，收到请求后，将分组装入IP数据报，填充报头，选择去往信宿机的路径，然后将数据报发往适当的网络接口。  </li>
-<li>处理输入数据报：首先检查合法性，然后进行寻径–假如该数据报已到达信宿机则去掉报头，将剩下的部分交给适当的传输协议；假如该数据报未到达信宿，则转发数据报。  </li>
-<li>处理路径、流控、拥塞等问题。  </li>
-</ol>
-</li>
-</ul>
-</li>
-<li>数据链路层  <ul>
-<li>一般用来处理连接硬件的部分，包括控制网卡，硬件相关的设备驱动等。传输单位数据帧。  </li>
-</ul>
-</li>
-</ul>
-<h2 id="TCP三次握手-1"><a href="#TCP三次握手-1" class="headerlink" title="TCP三次握手"></a>TCP三次握手</h2><ol>
-<li>Client 将标志SYN置为1， 随机产生一个seq=J， 并将该数据包发送各Server，Client进入SYN_SENT状态，等待Server确认  </li>
-<li>Server接收到client的SYN后，把这个连接信息放到半连接队列中，由标志位syn=1知道client请求建立连接，Server将标志位SYN和ACK都置为1，ack=J+1，随机产生一个seq=k， 并将该数据包发送给client已确认连接请求, server 进入SYN_RCVD状态。  <blockquote>
-<p>syn floor 攻击就是针对半连接队列，攻击方不停的连接，但是连接只做第一步，第二步中攻击方收到server的syn+ack后故意扔掉什么也不做， 导致server上这个队列满，其他正常请求无法进来。  </p>
+                <h2 id="跨越长城-手机版应用"><a href="#跨越长城-手机版应用" class="headerlink" title="跨越长城-手机版应用"></a>跨越长城-手机版应用</h2><p>换个手机把，结果把之前好不容易收集翻墙软件都给弄丢了，于是乎决定写个博客，记录下自己使用过的翻墙软件，谁由好的翻墙软件欢迎评论区留言哦，我会随时更新的，不能用的软件也欢迎大家评论提醒哦。<br>  </p>
+<blockquote>
+<p>注：本文所用应用同一明明为base.apk,因为好多的网盘都吧翻墙软件给禁了。  </p>
 </blockquote>
-</li>
-<li>client收到确认后，检查ack是否位J+1， ACK是否为1， 如果正确则标志位ACK置为1， ack=K+1， 并将该数据包发送给server， server检查ack是否为K+1， ACK是否为1，如果正确则建立连接成功，将连接信息从半连接队列中拿出放入全连接队列中。 client和server进入ESTABLISHED状态，完成三次握手，随后client和server之间便可以开始传数据了。  <blockquote>
-<p>如果此时全连接队列已满并且tcp_abort_on_overflow是0的话,server过一段时间会再次发送syn+ack给client(也就是重走第二步), 如果client的超时等待不叫段的, client就很容易异常了。  </p>
+<h3 id="Tom-VPN"><a href="#Tom-VPN" class="headerlink" title="Tom VPN"></a>Tom VPN</h3><p>免费，绿色，屏蔽了绝大多数的不好的网站，很适合大众使用，首先推荐使用它<br><a href="https://pan.baidu.com/s/1zKC8Thue3IlP16cu8As6qw" target="_blank" rel="noopener">https://pan.baidu.com/s/1zKC8Thue3IlP16cu8As6qw</a>  </p>
+<h3 id="小明VPN"><a href="#小明VPN" class="headerlink" title="小明VPN"></a>小明VPN</h3><p>和Tom VPN差不多，但速度更快，也是屏蔽了一些网站<br><a href="https://pan.baidu.com/s/1FHe0-gt70a5dWMeShSmDpQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1FHe0-gt70a5dWMeShSmDpQ</a>  </p>
+<h3 id="Wuma-VPN"><a href="#Wuma-VPN" class="headerlink" title="Wuma VPN"></a>Wuma VPN</h3><p>免费，速度比不上Tom vpn 但是节点可以自选，可控性比较强<br><a href="https://pan.baidu.com/s/1dtYwp_Tw4bkqVb4GcEGpIg" target="_blank" rel="noopener">https://pan.baidu.com/s/1dtYwp_Tw4bkqVb4GcEGpIg</a>  </p>
+<h3 id="Thunder-VPN"><a href="#Thunder-VPN" class="headerlink" title="Thunder VPN"></a>Thunder VPN</h3><p>免费，速度还行，可以开通会员，充钱使你强大<br><a href="https://pan.baidu.com/s/1lNFYJlZ4LbIWeA8fjA56Cw" target="_blank" rel="noopener">https://pan.baidu.com/s/1lNFYJlZ4LbIWeA8fjA56Cw</a>  </p>
+<h3 id="Secuer-VPN"><a href="#Secuer-VPN" class="headerlink" title="Secuer VPN"></a>Secuer VPN</h3><p>和Thunder VPN好像用的是一个应用框架，也可以充钱开会员，不过免费的平时搜个东西是够了。<br><a href="https://pan.baidu.com/s/1eg0u74EhPaG1rCw5uitloQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1eg0u74EhPaG1rCw5uitloQ</a>  </p>
+<h3 id="旋风加速器"><a href="#旋风加速器" class="headerlink" title="旋风加速器"></a>旋风加速器</h3><p>网速快，YouTube看视频无压力，关键是免费，但是呢广告比较，emmmm，不太适合女孩子使用。而且还有限时。<br><a href="https://pan.baidu.com/s/142rYD4akTnsz9bTXj0AHhQ" target="_blank" rel="noopener">https://pan.baidu.com/s/142rYD4akTnsz9bTXj0AHhQ</a>  </p>
+<blockquote>
+<p>翻墙千万不要发表对祖国不好的言论,人在做，天在看，国外着几年对大陆的网名都有着洗脑倾向，翻墙不要看新闻，千万不要，看个视频，看个明星就行了。<br>未特殊说明，所有软件的解压密码均为本站网址 <code>ainiya.xyz</code>  </p>
 </blockquote>
-</li>
-</ol>
+<p>写个博客不容易，可怜可怜博主，点个广告再走呗(✿◕‿◕✿)。</p>
 
             </div>
             <hr />
@@ -600,9 +552,9 @@ TCP/IP协议的">
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《TCP的三次握手》
+                    《手机翻墙》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/06/29/2019-tcp-san-ci-wo-shou/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/08/06/2019-shou-ji-fan-ge-qiang/" property="cc:attributionName"
                rel="cc:attributionURL">
                 ZS
             </a> 采用
@@ -643,7 +595,7 @@ TCP/IP协议的">
         repo: 'newlzs.github.io',
         owner: 'newlzs',
         admin: "newlzs",
-        id: '2019/06/29/2019-tcp-san-ci-wo-shou/',
+        id: '2019/08/06/2019-shou-ji-fan-ge-qiang/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -668,25 +620,75 @@ TCP/IP协议的">
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/07/22/2019-numpy/">
+                <a href="/2019/08/06/2019-dian-nao-fan-ge-qiang/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Numpy">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="翻个墙电脑">
                         
-                        <span class="card-title">Numpy</span>
+                        <span class="card-title">翻个墙电脑</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Numpy详解ndarray 是多维数组对象， 也是numpy最核心的对象。 在numpy中数组的维度(dimensions)叫做轴(axes), 轴的个数叫做秩(rank). 通常, 夜歌numpy数组的所有元素都是同一类型的数据, 而这
+                            翻个墙墙-电脑应用翻墙的电脑应用目前我知道到有两个，一个是小飞机一个是v2ray，不过最近v2ray的服务器太少了，应用好像也凉了，我就只简绍小飞机露。  
+服务器订阅地址https://raw.githubusercontent.com/
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-22
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-06
                         </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/搞事请/" class="post-category" target="_blank">
+                                    搞事请
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/翻墙/" target="_blank">
+                        <span class="chip bg-color">翻墙</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/07/26/2019-scipy/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Scipy">
+                        
+                        <span class="card-title">Scipy</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Scipynumpy 其实是scipy的一部分，后来才从scipy中分离出来。scipy函数库在numpy库的基础上征集了众多数学、科学以及工程计算中常用的函数库。例如线性代数、常微分方程值求解、信号处理、图形处理、稀疏矩阵等等。由于其中涉
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-26
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -704,62 +706,6 @@ TCP/IP协议的">
                     
                     <a href="/tags/数据分析/" target="_blank">
                         <span class="chip bg-color">数据分析</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/06/02/2019-ubuntu-vscode-c-huan-jing/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="vs的c++环境配置">
-                        
-                        <span class="card-title">vs的c++环境配置</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            在ubuntu中 配置vscode 的 C++ 环境安装C++环境
-sudo apt install gcc  
-sudo apt install g++  
-
-配置vscode
-点击左侧齿轮按纽，点击弹出窗口的齿轮按钮添加环境  
-
-然后
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-02
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/环境配置/" class="post-category" target="_blank">
-                                    环境配置
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/环境配置/" target="_blank">
-                        <span class="chip bg-color">环境配置</span>
                     </a>
                     
                 </div>

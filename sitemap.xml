@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://ainiya.xyz/2019/08/06/2019-shou-ji-fan-ge-qiang/</loc>
+    
+    <lastmod>2019-09-13T10:12:30.064Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://ainiya.xyz/2019/08/22/2019-wechall-lian-xi/</loc>
     
     <lastmod>2019-09-13T10:10:47.789Z</lastmod>
@@ -191,13 +198,6 @@
   </url>
   
   <url>
-    <loc>https://ainiya.xyz/2019/07/22/2019-shou-ji-fan-ge-qiang/</loc>
-    
-    <lastmod>2019-09-13T09:41:16.393Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://ainiya.xyz/2019/02/17/2019-kuai-su-su-shu-pan-duan-suan-fa/</loc>
     
     <lastmod>2019-09-13T09:36:07.632Z</lastmod>
@@ -226,14 +226,7 @@
   </url>
   
   <url>
-    <loc>https://ainiya.xyz/404.html</loc>
-    
-    <lastmod>2019-08-20T16:26:12.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://ainiya.xyz/about/index.html</loc>
+    <loc>https://ainiya.xyz/tags/index.html</loc>
     
     <lastmod>2019-08-20T16:26:12.000Z</lastmod>
     
@@ -247,7 +240,21 @@
   </url>
   
   <url>
+    <loc>https://ainiya.xyz/about/index.html</loc>
+    
+    <lastmod>2019-08-20T16:26:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://ainiya.xyz/categories/index.html</loc>
+    
+    <lastmod>2019-08-20T16:26:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ainiya.xyz/friends/index.html</loc>
     
     <lastmod>2019-08-20T16:26:12.000Z</lastmod>
     
@@ -261,14 +268,7 @@
   </url>
   
   <url>
-    <loc>https://ainiya.xyz/tags/index.html</loc>
-    
-    <lastmod>2019-08-20T16:26:12.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://ainiya.xyz/friends/index.html</loc>
+    <loc>https://ainiya.xyz/404.html</loc>
     
     <lastmod>2019-08-20T16:26:12.000Z</lastmod>
     

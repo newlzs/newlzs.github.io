@@ -95,6 +95,32 @@
   </entry>
   
   <entry>
+    <title>手机翻墙</title>
+    <link href="https://ainiya.xyz/2019/08/06/2019-shou-ji-fan-ge-qiang/"/>
+    <id>https://ainiya.xyz/2019/08/06/2019-shou-ji-fan-ge-qiang/</id>
+    <published>2019-08-06T04:32:09.000Z</published>
+    <updated>2019-09-13T10:12:30.064Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;跨越长城-手机版应用&quot;&gt;&lt;a href=&quot;#跨越长城-手机版应用&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="搞事情" scheme="https://ainiya.xyz/categories/%E6%90%9E%E4%BA%8B%E6%83%85/"/>
+    
+    
+      <category term="翻个墙" scheme="https://ainiya.xyz/tags/%E7%BF%BB%E4%B8%AA%E5%A2%99/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Scipy</title>
     <link href="https://ainiya.xyz/2019/07/26/2019-scipy/"/>
     <id>https://ainiya.xyz/2019/07/26/2019-scipy/</id>
@@ -169,32 +195,6 @@
     
     
       <category term="数据分析" scheme="https://ainiya.xyz/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>手机翻墙</title>
-    <link href="https://ainiya.xyz/2019/07/22/2019-shou-ji-fan-ge-qiang/"/>
-    <id>https://ainiya.xyz/2019/07/22/2019-shou-ji-fan-ge-qiang/</id>
-    <published>2019-07-22T04:32:09.000Z</published>
-    <updated>2019-09-13T09:41:16.393Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;跨越长城-手机版应用&quot;&gt;&lt;a href=&quot;#跨越长城-手机版应用&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="搞事情" scheme="https://ainiya.xyz/categories/%E6%90%9E%E4%BA%8B%E6%83%85/"/>
-    
-    
-      <category term="翻个墙" scheme="https://ainiya.xyz/tags/%E7%BF%BB%E4%B8%AA%E5%A2%99/"/>
     
   </entry>
   
@@ -355,32 +355,6 @@
   </entry>
   
   <entry>
-    <title>1.2偏差与方差</title>
-    <link href="https://ainiya.xyz/2019/04/09/2019-pian-chai-yu-fang-chai/"/>
-    <id>https://ainiya.xyz/2019/04/09/2019-pian-chai-yu-fang-chai/</id>
-    <published>2019-04-09T04:32:09.000Z</published>
-    <updated>2019-09-13T09:41:26.922Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;1-2-偏差与方差&quot;&gt;&lt;a href=&quot;#1-2-偏差与方差&quot; class=&quot;headerlink&quot; title=&quot;1.2 偏差与方差&quot;&gt;&lt;/a&gt;1.2 偏差与方差&lt;/h2&gt;&lt;h3 id=&quot;二者在深度学习上的现状&quot;&gt;&lt;a href=&quot;#二者在深度学习上的现状&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="机器学习" scheme="https://ainiya.xyz/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="吴恩达深度学习笔记" scheme="https://ainiya.xyz/tags/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
     <title>深层神经网络</title>
     <link href="https://ainiya.xyz/2019/04/09/2019-shen-ceng-shen-jing-wang-luo/"/>
     <id>https://ainiya.xyz/2019/04/09/2019-shen-ceng-shen-jing-wang-luo/</id>
@@ -394,6 +368,32 @@
         
         
           &lt;h1 id=&quot;第四周作业&quot;&gt;&lt;a href=&quot;#第四周作业&quot; class=&quot;headerlink&quot; title=&quot;第四周作业&quot;&gt;&lt;/a&gt;第四周作业&lt;/h1&gt;&lt;h2 id=&quot;知识回顾&quot;&gt;&lt;a href=&quot;#知识回顾&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="机器学习" scheme="https://ainiya.xyz/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="吴恩达深度学习笔记" scheme="https://ainiya.xyz/tags/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>1.2偏差与方差</title>
+    <link href="https://ainiya.xyz/2019/04/09/2019-pian-chai-yu-fang-chai/"/>
+    <id>https://ainiya.xyz/2019/04/09/2019-pian-chai-yu-fang-chai/</id>
+    <published>2019-04-09T04:32:09.000Z</published>
+    <updated>2019-09-13T09:41:26.922Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1-2-偏差与方差&quot;&gt;&lt;a href=&quot;#1-2-偏差与方差&quot; class=&quot;headerlink&quot; title=&quot;1.2 偏差与方差&quot;&gt;&lt;/a&gt;1.2 偏差与方差&lt;/h2&gt;&lt;h3 id=&quot;二者在深度学习上的现状&quot;&gt;&lt;a href=&quot;#二者在深度学习上的现状&quot;
         
       
     
