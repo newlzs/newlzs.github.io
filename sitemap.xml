@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://ainiya.xyz/2019/01/22/2019-misc-ti-jie/</loc>
+    
+    <lastmod>2019-09-13T05:07:02.018Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://ainiya.xyz/2019/09/13/artical-title/</loc>
     
     <lastmod>2019-09-13T02:25:07.568Z</lastmod>
@@ -23,7 +30,7 @@
   </url>
   
   <url>
-    <loc>https://ainiya.xyz/about/index.html</loc>
+    <loc>https://ainiya.xyz/archives/index.html</loc>
     
     <lastmod>2019-08-20T16:26:12.000Z</lastmod>
     
@@ -44,14 +51,7 @@
   </url>
   
   <url>
-    <loc>https://ainiya.xyz/categories/index.html</loc>
-    
-    <lastmod>2019-08-20T16:26:12.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://ainiya.xyz/archives/index.html</loc>
+    <loc>https://ainiya.xyz/about/index.html</loc>
     
     <lastmod>2019-08-20T16:26:12.000Z</lastmod>
     
@@ -65,7 +65,7 @@
   </url>
   
   <url>
-    <loc>https://ainiya.xyz/tags/index.html</loc>
+    <loc>https://ainiya.xyz/categories/index.html</loc>
     
     <lastmod>2019-08-20T16:26:12.000Z</lastmod>
     
@@ -73,6 +73,13 @@
   
   <url>
     <loc>https://ainiya.xyz/friends/index.html</loc>
+    
+    <lastmod>2019-08-20T16:26:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ainiya.xyz/tags/index.html</loc>
     
     <lastmod>2019-08-20T16:26:12.000Z</lastmod>
     
