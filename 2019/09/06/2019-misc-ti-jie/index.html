@@ -4,15 +4,12 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="训练/开发/测试集, NEUQ  CTF 子实  ZiShi 计算机科学与技术 网络安全">
+    <meta name="keywords" content="攻防世界：misc题解, NEUQ  CTF 子实  ZiShi 计算机科学与技术 网络安全">
     <meta name="baidu-site-verification" content>
     <meta name="google-site-verification" content>
-    <meta name="description" content="训练/开发/测试集训练时一般需要调试的参数
-layers 层数  
-hidden units 每层多少个隐藏单元  
-learning rate 学习率时多少  
-activation functions 每层选取什么激活函数  
-。。。。">
+    <meta name="description" content="攻防世界：misc题解this_is_flagMost flags are in the form flag{xxx}, for example:flag{th1s_!s_a_d4m0_4la9}  
+
+答案：flag{th1s_!s_a_">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +17,7 @@ activation functions 每层选取什么激活函数
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>训练/开发/测试集 | 子实的博客</title>
+    <title>攻防世界：misc题解 | 子实的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -294,13 +291,13 @@ activation functions 每层选取什么激活函数
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        训练/开发/测试集
+                        攻防世界：misc题解
                     </div>
                 </div>
             </div>
@@ -310,10 +307,99 @@ activation functions 每层选取什么激活函数
 
 
 
-<main class="container content">
+<main class="post-container content">
 
     
-    <!-- 文章内容详情 -->
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -322,8 +408,8 @@ activation functions 每层选取什么激活函数
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/吴恩达深度学习笔记/" target="_blank">
-                            <span class="chip bg-color">吴恩达深度学习笔记</span>
+                        <a href="/tags/CTF/" target="_blank">
+                            <span class="chip bg-color">CTF</span>
                         </a>
                         
                     </div>
@@ -334,8 +420,8 @@ activation functions 每层选取什么激活函数
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/机器学习/" class="post-category" target="_blank">
-                            机器学习
+                        <a href="/categories/网络安全/" class="post-category" target="_blank">
+                            网络安全
                         </a>
                         
                     </div>
@@ -346,7 +432,7 @@ activation functions 每层选取什么激活函数
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-04-11
+                    2019-09-06
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -360,14 +446,14 @@ activation functions 每层选取什么激活函数
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    242
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    5 分
                 </div>
                 
                 
@@ -383,21 +469,198 @@ activation functions 每层选取什么激活函数
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="训练-开发-测试集"><a href="#训练-开发-测试集" class="headerlink" title="训练/开发/测试集"></a>训练/开发/测试集</h1><h2 id="训练时一般需要调试的参数"><a href="#训练时一般需要调试的参数" class="headerlink" title="训练时一般需要调试的参数"></a>训练时一般需要调试的参数</h2><ul>
-<li>layers 层数  </li>
-<li>hidden units 每层多少个隐藏单元  </li>
-<li>learning rate 学习率时多少  </li>
-<li>activation functions 每层选取什么激活函数  </li>
-<li>。。。。。。  </li>
-<li>对于参数的调试，实际上是一个不断尝试与修正的过程，调试-&gt;代码更改-&gt;实验-&gt;调试。  </li>
+                <h1 id="攻防世界：misc题解"><a href="#攻防世界：misc题解" class="headerlink" title="攻防世界：misc题解"></a>攻防世界：misc题解</h1><h3 id="this-is-flag"><a href="#this-is-flag" class="headerlink" title="this_is_flag"></a>this_is_flag</h3><p><code>Most flags are in the form flag{xxx}, for example:flag{th1s_!s_a_d4m0_4la9}</code>  </p>
+<ul>
+<li><p>答案：flag{th1s_!s_a_d4m0_4la9}  </p>
+</li>
+<li><p>喂到嘴里的答案我就是吃不到，菜  </p>
+</li>
 </ul>
-<h2 id="验证集与测试集"><a href="#验证集与测试集" class="headerlink" title="验证集与测试集"></a>验证集与测试集</h2><ul>
-<li>小规模数据一般7：3 或者 6：2：2  </li>
-<li>大规模数据，比如百万级数据，一般训练集高达95%，验证集3%，测试集2%，验证集与测试集可能还会更小  </li>
-<li>还有就是训练验证集一定会有，而训练测试集不一定有，但是人们一般习惯如果只把数据分成两份的话，其中一份会被称为训练测试集，这样不太专业，实际上应该叫做训练验证集。  </li>
-<li>尽量保证验证集与测试集来自同一分布。  </li>
+<h3 id="ext3"><a href="#ext3" class="headerlink" title="ext3"></a>ext3</h3><p><code>今天是菜狗的生日，他收到了一个linux系统光盘</code>  </p>
+<ul>
+<li>下载文件  </li>
+<li>查找flag关键字  </li>
+<li>装载文件  </li>
+<li>打开包含flag的文件，找到密文  </li>
+<li>base64编码解密  </li>
+<li><img src="https://ae01.alicdn.com/kf/H007c5173db724aca8fd6304ae901c2e07.jpg" alt>  </li>
 </ul>
-<p><img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1083249931,1842019217&fm=26&gp=0.jpg" alt="滑稽">   </p>
+<h3 id="give-you-flag"><a href="#give-you-flag" class="headerlink" title="give_you_flag"></a>give_you_flag</h3><p><code>菜狗找到了文件中的彩蛋很开心，给菜猫发了个表情包</code>  </p>
+<ul>
+<li>给我，你倒是给我啊，批个图批半天，恶心死我了，还好最后能扫了，为自己感动  </li>
+<li>用ps抽帧，找到二维码  </li>
+<li>用画图工具补全二维码  </li>
+<li><img src="https://ae01.alicdn.com/kf/H62bdfa88adc243728a133b962404b89al.jpg" alt>  </li>
+<li><img src="https://ae01.alicdn.com/kf/H2df00906cb744edbb4d542428d0e583d5.jpg" alt>  </li>
+</ul>
+<h3 id="pdf"><a href="#pdf" class="headerlink" title="pdf"></a>pdf</h3><p><code>菜猫给了菜狗一张图，说图下面什么都没有</code>  </p>
+<ul>
+<li>下载图片，用比较高级一点的pdf编辑器，移除图片，出现flag  </li>
+<li><img src="https://ae01.alicdn.com/kf/H4d53257d6d264c9083f884845f539d5dm.jpg" alt>  </li>
+</ul>
+<h3 id="stegano"><a href="#stegano" class="headerlink" title="stegano"></a>stegano</h3><p><code>菜狗收到了图后很开心，玩起了pdf 提交格式为flag{xxx}</code>  </p>
+<ul>
+<li>下载了一个pdf，用谷歌浏览器打开，CTRL+A  -》 CTRL+C，粘贴到txt文件中  <ul>
+<li><img src="https://ae01.alicdn.com/kf/H8656e219d64a4f1c8ca232fdb4cbbba4l.jpg" alt>  </li>
+<li>有一串ab编码，看起来像摩尔斯点码  </li>
+</ul>
+</li>
+<li>把A换成<code>.</code>,B换成<code>_</code>,得到一个串  <ul>
+<li><img src="https://ae01.alicdn.com/kf/Hc01b76cda0a74a039eaafa49f6094f3fd.jpg" alt>  </li>
+<li><code>-.-. --- -. --. .-. .- - ..- .-.. .- - .. --- -. ... --..-- ..-. .-.. .- --. ---... .---- -. ...- .---- ..... .---- -... .-.. ...-- -- ...-- ..... ..... ....- --. ...--</code>  </li>
+</ul>
+</li>
+<li>‘<a href="http://ctf.ssleye.com/morse.html&#39;" target="_blank" rel="noopener">http://ctf.ssleye.com/morse.html&#39;</a> 在这里进行解码的到 <code>congratulations,flag:1nv151bl3m3554g3</code>   <ul>
+<li>答案 <code>flag{1nv151bl3m3554g3}</code>  </li>
+</ul>
+</li>
+</ul>
+<h3 id="SimpleRAR"><a href="#SimpleRAR" class="headerlink" title="SimpleRAR"></a>SimpleRAR</h3><p><code>菜狗最近学会了拼图，这是他刚拼好的，可是却搞错了一块(ps:双图层)</code>  </p>
+<ul>
+<li><p>解压缩文件报错  </p>
+<ul>
+<li><img src="https://ae01.alicdn.com/kf/H142016aa71b44b65a4202449b92393a00.jpg" alt>  </li>
+</ul>
+</li>
+<li><p>ue打开  </p>
+<ul>
+<li><img src="https://ae01.alicdn.com/kf/Ha04a9012b1e94f3ab729299858fa3a5fw.jpg" alt>  </li>
+<li>rar对png的文件类型编码是74，就在flag.txt文件结束，原来是7A，改成了74.  </li>
+</ul>
+</li>
+<li><p>再解压的到了一整啥都没有的图片emmmmm，有问题  </p>
+</li>
+<li><p>ps打开  </p>
+<ul>
+<li>尼玛，不是png格式的打不开，那只能用ue打开看看了  </li>
+<li><img src="https://ae01.alicdn.com/kf/H450c64ff57b74e42be3396e326c13115Y.jpg" alt>  </li>
+<li>原来是gif，玩我，很好，改后缀.gif, 提取每一帧的图片，用stegsolve打开看看，发现半截二维码，他的另一半应该在另一半图片里（艹，我的呢，哭了）  <ul>
+<li><img src="https://ae01.alicdn.com/kf/H45bfb65cf6564b3094f8f46f859948cbP.jpg" alt>  </li>
+<li>另一半<img src="https://ae01.alicdn.com/kf/Hd42dd24a44544db5955a6ddcdb3e1fd7w.jpg" alt>  </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>又要批图了，giao  </p>
+<ul>
+<li><img src="https://ae01.alicdn.com/kf/H07323c83cf71454392dd593026b2bc4fN.jpg" alt>  </li>
+</ul>
+</li>
+<li><p>扫描出结果  </p>
+<ul>
+<li><img src="https://ae01.alicdn.com/kf/H7aebd361b15b4797b6bd7d7dab484cd9r.jpg" alt>  </li>
+<li>答案：<code>flag{yanji4n_bu_we1shi}</code>  </li>
+</ul>
+</li>
+</ul>
+<h3 id="坚持60s"><a href="#坚持60s" class="headerlink" title="坚持60s"></a>坚持60s</h3><p><code>菜狗发现最近菜猫不爱理他，反而迷上了菜鸡</code>  </p>
+<ul>
+<li>下载了一个jar包，打开看一看，出题人又玩我，行，你nb  <ul>
+<li><img src="https://ae01.alicdn.com/kf/Hea0764505fcf4b389aa9cd2724d45a25f.jpg" alt>  </li>
+</ul>
+</li>
+<li>反编译jar包，找到了一个flag  <ul>
+<li></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://ae01.alicdn.com/kf/H74045ebb56114cd6a92287e085d656b32.jpg" alt>  </p>
+<ul>
+<li>开心的填了上去，不对，giao，又进行了加密，base64解密得到答案  <ul>
+<li><code>flag{DajiDali_JinwanChiji}</code>  </li>
+</ul>
+</li>
+</ul>
+<h3 id="gif"><a href="#gif" class="headerlink" title="gif"></a>gif</h3><p><code>菜狗截获了一张菜鸡发给菜猫的动态图，却发现另有玄机</code>  </p>
+<ul>
+<li>下载了一个压缩包，解压后发现了一个文件夹，里面又很多图片，哦一黑一白，真像01编码啊，原来是二进制啊，白色代表0黑色代表1，写出来  </li>
+<li><img src="https://ae01.alicdn.com/kf/H820513c9a7c74eda9513b47eb7c447956.jpg" alt>  <ul>
+<li>得到答案<code>flag{FuN_giF}</code>  </li>
+</ul>
+</li>
+</ul>
+<h3 id="掀桌子"><a href="#掀桌子" class="headerlink" title="掀桌子"></a>掀桌子</h3><p><code>菜狗截获了一份报文如下c8e9aca0c6f2e5f3e8c4efe7a1a0d4e8e5a0e6ece1e7a0e9f3baa0e8eafae3f9e4eafae2eae4e3eaebfaebe3f5e7e9f3e4e3e8eaf9eaf3e2e4e6f2，生气地掀翻了桌子(╯°□°）╯︵ ┻━┻</code>  </p>
+<ul>
+<li>获取了一个字符串，一看只有0-9，a-f, 啊刚好是16进制啊，尝试各种解码失败，什么base16都整上了，蠢。  </li>
+<li>16进制转成整数吧，两个一组发现最大的数250， 最小的160，而ascii的可显示字符从32开始，ascii的最大为128，猜想减去128，刚好最小的到32，试一试，成了  </li>
+<li><img src="https://ae01.alicdn.com/kf/H40795c0337f041e98ea411243cec3d5cz.jpg" alt>  <ul>
+<li>答案：<code>flag{hjzcydjzbjdcjkzkcugisdchjyjsbdfr}</code>  </li>
+</ul>
+</li>
+</ul>
+<h3 id="如来十三掌"><a href="#如来十三掌" class="headerlink" title="如来十三掌"></a>如来十三掌</h3><p><code>菜狗为了打败菜猫，学了一套如来十三掌。</code>  </p>
+<ul>
+<li>下载了一个word文件，打开看到了一堆看不懂的‘汉字’，不止所措，看起来像佛语（当然我看不出来）  </li>
+<li>找到了一个网站<code>http://www.keyfc.net/bbs/tools/tudoucode.aspx</code>,填入佛语，得到一个字符串  <ul>
+<li><code>MzkuM3gvMUAwnzuvn3cgozMlMTuvqzAenJchMUAeqzWenzEmLJW9</code>  </li>
+</ul>
+</li>
+<li>十三掌，，rot13加密。。。emmmm这谁想得到啊  <ul>
+<li>解密得到<code>ZmxhZ3tiZHNjamhia3ptbmZyZGhidmNraWpuZHNrdmJramRzYWJ9</code>  </li>
+</ul>
+</li>
+<li>还是看不懂，base64解密得到<code>flag{bdscjhbkzmnfrdhbvckijndskvbkjdsab}</code>  </li>
+<li>这谁想得到啊，啊啊啊啊啊啊啊啊啊啊啊啊啊，又搞了两个小时  </li>
+</ul>
+<h3 id="base64stego"><a href="#base64stego" class="headerlink" title="base64stego"></a>base64stego</h3><p><code>菜狗经过几天的学习，终于发现了如来十三掌最后一步的精髓</code>  </p>
+<ul>
+<li><p>下载了一个文件，解压后发现需要密码，winrar修复了一下发现居然能打开了。记住这个套路了。  </p>
+</li>
+<li><p>解压打开后得到一个txt文件  </p>
+<ul>
+<li><img src="https://ae01.alicdn.com/kf/H19b0140e80fb4b5787f1b942e2b6520cy.jpg" alt>  </li>
+<li>明显的base64加密，在线解密后发现是一个介绍base64隐写的字符串  </li>
+</ul>
+</li>
+<li><p>啊啊啊啊啊啊啊，恶心的隐写，花了快2个小时才搞懂是啥，又花了两个小时敲代码，我佛了，代码献上  </p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">"G://桌面//stego.txt"</span><span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>  
+    a <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'\n'</span><span class="token punctuation">)</span>  
+s_d <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>  
+<span class="token keyword">for</span> each <span class="token keyword">in</span> a<span class="token punctuation">:</span>  
+    <span class="token keyword">if</span> each<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'=='</span><span class="token punctuation">:</span>  
+        each <span class="token operator">=</span> each<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">]</span>  
+        m <span class="token operator">=</span> b64_mapping<span class="token punctuation">[</span>each<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span>  
+        mid <span class="token operator">=</span> <span class="token string">'{0:06b}'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>m<span class="token punctuation">)</span>  
+        s_d<span class="token punctuation">.</span>append<span class="token punctuation">(</span>mid<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">4</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  
+    <span class="token keyword">elif</span> each<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'='</span><span class="token punctuation">:</span>  
+        each <span class="token operator">=</span> each<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>  
+        m <span class="token operator">=</span> b64_mapping<span class="token punctuation">[</span>each<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span>  
+        mid <span class="token operator">=</span> <span class="token string">'{0:06b}'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>m<span class="token punctuation">)</span>  
+        s_d<span class="token punctuation">.</span>append<span class="token punctuation">(</span>mid<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  
+s <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>s_d<span class="token punctuation">)</span>  
+answer <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">[</span>chr<span class="token punctuation">(</span>int<span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token punctuation">:</span>i<span class="token operator">+</span><span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>len<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  
+<span class="token keyword">print</span><span class="token punctuation">(</span>answer<span class="token punctuation">)</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>答案<code>flag{Base_sixty_four_point_five}</code>  </li>
+</ul>
+</li>
+<li><p>总结：付出总会有收获的对吧^_^,加油啊  </p>
+</li>
+</ul>
+<h3 id="功夫再高也怕菜刀"><a href="#功夫再高也怕菜刀" class="headerlink" title="功夫再高也怕菜刀"></a>功夫再高也怕菜刀</h3><ul>
+<li>下载一个文件，一看格式不知道是啥，用foremost分离得到一个压缩包  <ul>
+<li>安利这个博主写的foremost使用教程，贼好用<code>https://www.cnblogs.com/cnnnnnn/p/8994362.html</code>  </li>
+</ul>
+</li>
+<li>压缩包里面有一个<strong>flag.txt</strong>文件还需要密码，那就要找密码喽  <ul>
+<li>用wireshark分析流量包，是打开原始文件，分组字节流查找flag，找到了一个名为6666.jpg的文件流  <ul>
+<li><img src="https://ae01.alicdn.com/kf/He1a66d285e464723a044f5e50879a4a7R.jpg" alt>  </li>
+</ul>
+</li>
+<li>追踪该TCP流，jpg以FFD8开始，以最后一个FFD9结尾，  <ul>
+<li><img src="https://ae01.alicdn.com/kf/Hc4abb24097274db0b50c86a6c4dd5cfaH.jpg" alt>  </li>
+</ul>
+</li>
+<li>还要获取到该图片，复制中间的字符串，粘贴到winhex中，注意粘贴时选择ASCII Hex格式，保存为.jpg。  <ul>
+<li><img src="https://ae01.alicdn.com/kf/H6e410f904ffb4585ae78d1258a1a369fn.jpg" alt>  </li>
+</ul>
+</li>
+<li>最后的到的图片，密码<code>Th1s_1s_p4sswd_!!!</code><img src="https://ae01.alicdn.com/kf/H930292aa07cb425d881e43c78d90b204K.jpg" alt>  </li>
+</ul>
+</li>
+<li>压缩包输入密码，得到<code>flag.txt</code>中的答案<code>flag{3OpWdJ-JP6FzK-koCMAK-VkfWBq-75Un2z}</code>  </li>
+<li>两个小时不多不少，哎有收获就行，加油呀，路还很长^_^。  </li>
+</ul>
 
             </div>
             <hr />
@@ -556,9 +819,9 @@ activation functions 每层选取什么激活函数
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《训练/开发/测试集》
+                    《攻防世界：misc题解》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/04/11/2019-xun-lian-kai-fa-ce-shi-ji/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/06/2019-misc-ti-jie/" property="cc:attributionName"
                rel="cc:attributionURL">
                 ZS
             </a> 采用
@@ -599,7 +862,7 @@ activation functions 每层选取什么激活函数
         repo: 'newlzs.github.io',
         owner: 'newlzs',
         admin: "newlzs",
-        id: '2019/04/11/2019-xun-lian-kai-fa-ce-shi-ji/',
+        id: '2019/09/06/2019-misc-ti-jie/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -620,49 +883,48 @@ activation functions 每层选取什么激活函数
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/04/14/2019-jardon-ju-zhen-zong-jie/">
+                <a href="/2019/09/06/2019-misc-ti-jie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="jardon标准型转化">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="攻防世界：misc题解">
                         
-                        <span class="card-title">jardon标准型转化</span>
+                        <span class="card-title">攻防世界：misc题解</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            jardon标准型总结行列式因子和不变因子  
-shimish标准型和不变因子   
-jardon标准型求解  
-
+                            大二了，决定正式开始学习网络安全，要坚持啊。
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-14
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-06
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/数学/" class="post-category" target="_blank">
-                                    数学
+                            <a href="/categories/网络安全/" class="post-category" target="_blank">
+                                    网络安全
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/矩阵论/" target="_blank">
-                        <span class="chip bg-color">矩阵论</span>
+                    <a href="/tags/CTF/" target="_blank">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                 </div>
@@ -676,42 +938,45 @@ jardon标准型求解
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/04/09/2019-pian-chai-yu-fang-chai/">
+                <a href="/2019/08/22/2019-wechall-lian-xi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="1.2偏差与方差">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="WeChall 刷题">
                         
-                        <span class="card-title">1.2偏差与方差</span>
+                        <span class="card-title">WeChall 刷题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1.2 偏差与方差二者在深度学习上的现状
-一般将二者分开考虑，并不考虑二者的权衡  
-
-偏差
-偏差高，欠拟合  
-描述的是训练集的测试结果和事实标签之间的差距  
-
-方差
-方差高，过拟合  
-描述的是训练集与验证集之间的准确性的差距  
+                            WeChall 入门练习题目链接  
+Get Sourced
+检查网页源代码，滑到最下面得到答案  
+  
+html_sourcecode  
 
 
+
+ASCII
+给了ASCII的整数子，将其转换为对应的字符即可  
+  
+
+
+
+Encodi
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-09
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-22
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/机器学习/" class="post-category" target="_blank">
-                                    机器学习
+                            <a href="/categories/网络安全/" class="post-category" target="_blank">
+                                    网络安全
                                 </a>
                             
                             
@@ -721,8 +986,8 @@ jardon标准型求解
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/吴恩达深度学习笔记/" target="_blank">
-                        <span class="chip bg-color">吴恩达深度学习笔记</span>
+                    <a href="/tags/CTF/" target="_blank">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                 </div>
@@ -772,6 +1037,99 @@ jardon标准型求解
     });
 </script>
 
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
     
 
 </main>
