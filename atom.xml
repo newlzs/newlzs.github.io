@@ -129,7 +129,7 @@
     <link href="https://ainiya.xyz/2019/07/26/2019-scipy/"/>
     <id>https://ainiya.xyz/2019/07/26/2019-scipy/</id>
     <published>2019-07-26T10:32:09.000Z</published>
-    <updated>2019-09-13T11:29:55.951Z</updated>
+    <updated>2019-09-13T17:51:55.207Z</updated>
     
     <summary type="html">
     
@@ -278,9 +278,9 @@
       <category term="python" scheme="https://ainiya.xyz/categories/python/"/>
     
     
-      <category term="python" scheme="https://ainiya.xyz/tags/python/"/>
-    
       <category term="计科" scheme="https://ainiya.xyz/tags/%E8%AE%A1%E7%A7%91/"/>
+    
+      <category term="python" scheme="https://ainiya.xyz/tags/python/"/>
     
   </entry>
   
@@ -306,9 +306,9 @@
       <category term="python" scheme="https://ainiya.xyz/categories/python/"/>
     
     
-      <category term="数据处理" scheme="https://ainiya.xyz/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
-    
       <category term="python" scheme="https://ainiya.xyz/tags/python/"/>
+    
+      <category term="数据处理" scheme="https://ainiya.xyz/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
     
   </entry>
   
