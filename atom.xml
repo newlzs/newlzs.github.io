@@ -303,32 +303,6 @@
   </entry>
   
   <entry>
-    <title>jardon标准型转化</title>
-    <link href="https://ainiya.xyz/2019/04/14/2019-jardon-ju-zhen-zong-jie/"/>
-    <id>https://ainiya.xyz/2019/04/14/2019-jardon-ju-zhen-zong-jie/</id>
-    <published>2019-04-14T10:32:09.000Z</published>
-    <updated>2019-09-13T11:17:53.933Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;jardon标准型总结&quot;&gt;&lt;a href=&quot;#jardon标准型总结&quot; class=&quot;headerlink&quot; title=&quot;jardon标准型总结&quot;&gt;&lt;/a&gt;jardon标准型总结&lt;/h2&gt;&lt;h3 id=&quot;行列式因子和不变因子&quot;&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="数学" scheme="https://ainiya.xyz/categories/%E6%95%B0%E5%AD%A6/"/>
-    
-    
-      <category term="矩阵论" scheme="https://ainiya.xyz/tags/%E7%9F%A9%E9%98%B5%E8%AE%BA/"/>
-    
-  </entry>
-  
-  <entry>
     <title>训练/开发/测试集</title>
     <link href="https://ainiya.xyz/2019/04/11/2019-xun-lian-kai-fa-ce-shi-ji/"/>
     <id>https://ainiya.xyz/2019/04/11/2019-xun-lian-kai-fa-ce-shi-ji/</id>
@@ -534,6 +508,34 @@
     
     
       <category term="填坑" scheme="https://ainiya.xyz/tags/%E5%A1%AB%E5%9D%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>神经网络</title>
+    <link href="https://ainiya.xyz/2019/03/25/2019-shuang-ceng-shen-jing-wang-luo/"/>
+    <id>https://ainiya.xyz/2019/03/25/2019-shuang-ceng-shen-jing-wang-luo/</id>
+    <published>2019-03-25T04:32:09.000Z</published>
+    <updated>2019-09-13T11:17:53.901Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;///&lt;a href=&quot;https://blog.csdn.net/u013733326/article/details/79702148&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;参考资料中文&lt;/a&gt;////&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="机器学习" scheme="https://ainiya.xyz/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="吴恩达深度学习笔记" scheme="https://ainiya.xyz/tags/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="神经网络" scheme="https://ainiya.xyz/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
