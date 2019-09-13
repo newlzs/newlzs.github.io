@@ -1,0 +1,1236 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Numpy, NEUQ  CTF 子实  ZiShi 计算机科学与技术 网络安全">
+    <meta name="baidu-site-verification" content>
+    <meta name="google-site-verification" content>
+    <meta name="description" content="Numpy详解ndarray 是多维数组对象， 也是numpy最核心的对象。 在numpy中数组的维度(dimensions)叫做轴(axes), 轴的个数叫做秩(rank). 通常, 夜歌numpy数组的所有元素都是同一类型的数据, 而这">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Numpy | 子实的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?46e79e71af0709a5b9106bf20cecc493";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">子实的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/contact" class="waves-effect waves-light">
+            
+            <span>留言板</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">子实的博客</div>
+        <div class="logo-desc">
+            
+            东北大学秦皇岛分校 | 计算机科学与技术 | 网络安全
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-link"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-link"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-link"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-link"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-link"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-link"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        <li>
+            <a href="/contact" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-link"></i>
+                
+                留言板
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/godweiyang" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/godweiyang" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        Numpy
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                        <a href="/tags/数据分析/" target="_blank">
+                            <span class="chip bg-color">数据分析</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                        <a href="/categories/python/" class="post-category" target="_blank">
+                            python
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-07-22
+                </div>
+
+                <div class="post-author info-break-policy">
+                    <i class="fa fa-user-o fa-fw"></i>作者:&nbsp;&nbsp;
+                    
+                    ZS
+                    
+                </div>
+
+                
+                
+                <div class="info-break-policy">
+                    <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.4k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    15 分
+                </div>
+                
+                
+
+                
+                <div id="busuanzi_container_page_pv" class="info-break-policy">
+                    <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                    <span id="busuanzi_value_page_pv"></span>
+                </div>
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="Numpy详解"><a href="#Numpy详解" class="headerlink" title="Numpy详解"></a>Numpy详解</h1><p>ndarray 是多维数组对象， 也是numpy最核心的对象。 在numpy中数组的维度(dimensions)叫做轴(axes), 轴的个数叫做秩(rank). 通常, 夜歌numpy数组的所有元素都是同一类型的数据, 而这些数据的存储和数组的形式无关。  </p>
+<p>下面的例子， 创建了一个三维数组（numpy 导入时 简化为 np）  </p>
+<h2 id="1-数组对象"><a href="#1-数组对象" class="headerlink" title="1 数组对象"></a>1 数组对象</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np  
+a <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  
+<span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre><code>[[1 2 3]  
+ [4 5 6]  
+ [7 8 9]]  </code></pre><h3 id="1-1-数据类型"><a href="#1-1-数据类型" class="headerlink" title="1.1 数据类型"></a>1.1 数据类型</h3><p>numpy支持比python原生更多的数据类型，常用数据类型[链接]  </p>
+<h3 id="1-2-创建数组"><a href="#1-2-创建数组" class="headerlink" title="1.2 创建数组"></a>1.2 创建数组</h3><p>通常np.array(), 一维数组:np.arange()或者np.linspace()的方法. np.zeros()、np.ones()、np.eys()则可以创建特殊的数据。np.random.randint()和np.random.random()可以构造随机数数组  </p>
+<pre class="line-numbers language-python"><code class="language-python">np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>     <span class="token comment" spellcheck="true"># 默认类型为int32  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([[1, 2, 3],  
+       [4, 5, 6]])  </code></pre><pre class="line-numbers language-python"><code class="language-python">np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> dtype<span class="token operator">=</span>np<span class="token punctuation">.</span>int8<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 指定元素类型为int8  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([[1, 2, 3],  
+       [4, 5, 6]], dtype=int8)  </code></pre><pre class="line-numbers language-python"><code class="language-python">np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>      <span class="token comment" spellcheck="true"># 默认指定元素为int32  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([0, 1, 2, 3, 4])  </code></pre><pre class="line-numbers language-python"><code class="language-python">np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> dtype<span class="token operator">=</span>np<span class="token punctuation">.</span>int8<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 指定类型为int8  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([3, 4, 5, 6, 7], dtype=int8)  </code></pre><pre class="line-numbers language-python"><code class="language-python">np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 改变shape  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([[ 0,  1,  2,  3],  
+       [ 4,  5,  6,  7],  
+       [ 8,  9, 10, 11]])  </code></pre><pre class="line-numbers language-python"><code class="language-python">np<span class="token punctuation">.</span>linspace<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true"># 从1到2生成5个浮点数  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([1.  , 1.25, 1.5 , 1.75, 2.  ])  </code></pre><pre class="line-numbers language-python"><code class="language-python">np<span class="token punctuation">.</span>zeros<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 全0数组  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([[0., 0., 0.],  
+       [0., 0., 0.]])  </code></pre><pre class="line-numbers language-python"><code class="language-python">np<span class="token punctuation">.</span>ones<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 全一数组  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([[1., 1., 1.],  
+       [1., 1., 1.]])  </code></pre><pre class="line-numbers language-python"><code class="language-python">np<span class="token punctuation">.</span>eye<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 主对角线为一， 其他元素为0  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([[1., 0., 0.],  
+       [0., 1., 0.],  
+       [0., 0., 1.]])  </code></pre><pre class="line-numbers language-python"><code class="language-python">np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>random<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 生成[0, 1) 之间的随机浮点数  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([[0.05146009, 0.05024011, 0.67549961],  
+       [0.3244844 , 0.24009114, 0.71975804]])  </code></pre><pre class="line-numbers language-python"><code class="language-python">np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">3</span> <span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 生成[0, 10) 之间的随机整数  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([[5, 7],  
+       [1, 2],  
+       [9, 7]])  </code></pre><h3 id="1-3-构建复杂数组"><a href="#1-3-构建复杂数组" class="headerlink" title="1.3 构建复杂数组"></a>1.3 构建复杂数组</h3><p>很多时候，我们需要从简单的数据结构，构造出复杂的数组。例如，用一维的数据生成二维的数据  </p>
+<h4 id="1-3-1-重复数组：tile"><a href="#1-3-1-重复数组：tile" class="headerlink" title="1.3.1 重复数组：tile"></a>1.3.1 重复数组：tile</h4><pre class="line-numbers language-python"><code class="language-python">a <span class="token operator">=</span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>  
+a  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre><code>array([0, 1, 2, 3, 4])  </code></pre><pre class="line-numbers language-python"><code class="language-python">np<span class="token punctuation">.</span>tile<span class="token punctuation">(</span>a<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([0, 1, 2, 3, 4, 0, 1, 2, 3, 4])  </code></pre><pre class="line-numbers language-python"><code class="language-python">np<span class="token punctuation">.</span>tile<span class="token punctuation">(</span>a<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([[0, 1, 2, 3, 4, 0, 1, 2, 3, 4],  
+       [0, 1, 2, 3, 4, 0, 1, 2, 3, 4],  
+       [0, 1, 2, 3, 4, 0, 1, 2, 3, 4]])  </code></pre><h4 id="1-3-2-一维数组网格化：meshgrid"><a href="#1-3-2-一维数组网格化：meshgrid" class="headerlink" title="1.3.2 一维数组网格化：meshgrid"></a>1.3.2 一维数组网格化：meshgrid</h4><pre class="line-numbers language-python"><code class="language-python">a <span class="token operator">=</span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>  
+b <span class="token operator">=</span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span>  
+np<span class="token punctuation">.</span>meshgrid<span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre><code>[array([[0, 1, 2, 3, 4],  
+        [0, 1, 2, 3, 4],  
+        [0, 1, 2, 3, 4],  
+        [0, 1, 2, 3, 4],  
+        [0, 1, 2, 3, 4]]), array([[5, 5, 5, 5, 5],  
+        [6, 6, 6, 6, 6],  
+        [7, 7, 7, 7, 7],  
+        [8, 8, 8, 8, 8],  
+        [9, 9, 9, 9, 9]])]  </code></pre><h4 id="1-3-3-指定范围和分割方式的网格化：mgrid"><a href="#1-3-3-指定范围和分割方式的网格化：mgrid" class="headerlink" title="1.3.3 指定范围和分割方式的网格化：mgrid"></a>1.3.3 指定范围和分割方式的网格化：mgrid</h4><pre class="line-numbers language-python"><code class="language-python">np<span class="token punctuation">.</span>mgrid<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token number">2j</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token number">3j</span><span class="token punctuation">]</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([[[0. , 0. , 0. ],  
+        [1. , 1. , 1. ]],  
+
+       [[1. , 1.5, 2. ],  
+        [1. , 1.5, 2. ]]])  </code></pre><pre class="line-numbers language-python"><code class="language-python">np<span class="token punctuation">.</span>mgrid<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token number">0.3</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token number">0.4</span><span class="token punctuation">]</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([[[0. , 0. , 0. ],  
+        [0.3, 0.3, 0.3],  
+        [0.6, 0.6, 0.6],  
+        [0.9, 0.9, 0.9]],  
+
+       [[1. , 1.4, 1.8],  
+        [1. , 1.4, 1.8],  
+        [1. , 1.4, 1.8],  
+        [1. , 1.4, 1.8]]])  </code></pre><p>上述例子中用到了虚数。构造虚数的方法如下：  </p>
+<pre class="line-numbers language-python"><code class="language-python">complex<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>(2+5j)  </code></pre><h3 id="1-4-数组的属性"><a href="#1-4-数组的属性" class="headerlink" title="1.4 数组的属性"></a>1.4 数组的属性</h3><p>numpy的数组除了一些常规的属性外，也有几个类似转置、扁平迭代器等看起来更像是方法的属性。扁平迭代器也许是遍历多为数组的一个简明方法，下面的代码给出了一个例子。  </p>
+<pre class="line-numbers language-python"><code class="language-python">a <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  
+a<span class="token punctuation">.</span>dtype    <span class="token comment" spellcheck="true"># 数组元素的数据类型  </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre><code>dtype(&#39;int32&#39;)  </code></pre><pre class="line-numbers language-python"><code class="language-python">a<span class="token punctuation">.</span>dtype<span class="token punctuation">.</span>itemsize  <span class="token comment" spellcheck="true">#数组元素占据的内存字节数  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>4  </code></pre><pre class="line-numbers language-python"><code class="language-python">a<span class="token punctuation">.</span>shape   <span class="token comment" spellcheck="true"># 数组的维度  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>(2, 3)  </code></pre><pre class="line-numbers language-python"><code class="language-python">a<span class="token punctuation">.</span>size <span class="token comment" spellcheck="true"># 数组元素的个数  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>6  </code></pre><pre class="line-numbers language-python"><code class="language-python">a<span class="token punctuation">.</span>T   <span class="token comment" spellcheck="true"># 数组行变列，类似于矩阵的转置  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([[1, 4],  
+       [2, 5],  
+       [3, 6]])  </code></pre><pre class="line-numbers language-python"><code class="language-python">a<span class="token punctuation">.</span>flat <span class="token comment" spellcheck="true"># 返回一个扁平迭代器，用于遍历多维数组  </span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span>flat<span class="token punctuation">)</span>  
+<span class="token keyword">for</span> item <span class="token keyword">in</span> a<span class="token punctuation">.</span>flat<span class="token punctuation">:</span>  
+    <span class="token keyword">print</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre><code>&lt;numpy.flatiter object at 0x00000287DCA5DC60&gt;  
+1  
+2  
+3  
+4  
+5  
+6  </code></pre><h3 id="1-5-改变数组的维度"><a href="#1-5-改变数组的维度" class="headerlink" title="1.5 改变数组的维度"></a>1.5 改变数组的维度</h3><p>numpy数组的存储顺序和数组的维度是不相干的，一次改变数组的维度是非常便捷的操作，除resize()外，这一类操作不会改变所操作的数组本身的存储顺序。  </p>
+<pre class="line-numbers language-python"><code class="language-python">a <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  
+<span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span>shape<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 查看数组维度  </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre><code>(2, 3)  </code></pre><pre class="line-numbers language-python"><code class="language-python">a<span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 返回3行2列的数组  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([[1, 2],  
+       [3, 4],  
+       [5, 6]])  </code></pre><pre class="line-numbers language-python"><code class="language-python">a<span class="token punctuation">.</span>ravel<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 返回一维数组  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([1, 2, 3, 4, 5, 6])  </code></pre><pre class="line-numbers language-python"><code class="language-python">a<span class="token punctuation">.</span>resize<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 类似于reshape，但会改变所操作的数组  </span>
+a  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre><code>array([[1, 2],  
+       [3, 4],  
+       [5, 6]])  </code></pre><h3 id="1-6-索引与切片"><a href="#1-6-索引与切片" class="headerlink" title="1.6 索引与切片"></a>1.6 索引与切片</h3><p>对于一维数组的索引和切片，numpy和python的list一样，甚至更灵活  </p>
+<pre class="line-numbers language-python"><code class="language-python">a <span class="token operator">=</span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span>  
+a<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true">#最后一个元素  </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre><code>8  </code></pre><pre class="line-numbers language-python"><code class="language-python">a<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">]</span>    <span class="token comment" spellcheck="true"># 返回第2到第5个元素  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([2, 3, 4])  </code></pre><pre class="line-numbers language-python"><code class="language-python">a<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">7</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true"># 返回第0到第7个元素，步长为3  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([0, 3, 6])  </code></pre><pre class="line-numbers language-python"><code class="language-python">a<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>  <span class="token comment" spellcheck="true"># 返回逆序数组  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([8, 7, 6, 5, 4, 3, 2, 1, 0])  </code></pre><p>假设有一栋2层楼，每层楼内的房间都是3排4列，那我们可以用一个三维数组来保存每个房间的居住人数（当然，也可以是房间面积等其他数值信息）。  </p>
+<pre class="line-numbers language-python"><code class="language-python">a <span class="token operator">=</span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">24</span><span class="token punctuation">)</span><span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true"># 2层3排4列  </span>
+a  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre><code>array([[[ 0,  1,  2,  3],  
+        [ 4,  5,  6,  7],  
+        [ 8,  9, 10, 11]],  
+
+       [[12, 13, 14, 15],  
+        [16, 17, 18, 19],  
+        [20, 21, 22, 23]]])  </code></pre><pre class="line-numbers language-python"><code class="language-python">a<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>      <span class="token comment" spellcheck="true">#虽然可以这样  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>23  </code></pre><pre class="line-numbers language-python"><code class="language-python">a<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span>        <span class="token comment" spellcheck="true"># 但这才是规范的用法  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>23  </code></pre><pre class="line-numbers language-python"><code class="language-python">a<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true">#所有楼层的1排1列  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([ 0, 12])  </code></pre><pre class="line-numbers language-python"><code class="language-python">a<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token punctuation">:</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true">#一楼所用房间，等价于a[0]或a[0,...]  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([[ 0,  1,  2,  3],  
+       [ 4,  5,  6,  7],  
+       [ 8,  9, 10, 11]])  </code></pre><pre class="line-numbers language-python"><code class="language-python">a<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">]</span>   <span class="token comment" spellcheck="true">#所有楼层所有排的第2到4列  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([[[ 1,  2],  
+        [ 5,  6],  
+        [ 9, 10]],  
+
+       [[13, 14],  
+        [17, 18],  
+        [21, 22]]])  </code></pre><pre class="line-numbers language-python"><code class="language-python">a<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>   <span class="token comment" spellcheck="true"># 2层每一排的最后一个房间  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([15, 19, 23])  </code></pre><h3 id="1-7-数组合并"><a href="#1-7-数组合并" class="headerlink" title="1.7 数组合并"></a>1.7 数组合并</h3><p>数组合并触雷下面介绍的水平合并、垂直合并、深度合并外，还有行合并、列合并，以及concatenat()等方式。假如你比我还懒，那就只了解前三种方法，足够用了  </p>
+<pre class="line-numbers language-python"><code class="language-python">a <span class="token operator">=</span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>  
+b <span class="token operator">=</span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">)</span><span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-python"><code class="language-python">a  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([[0, 1, 2],  
+       [3, 4, 5],  
+       [6, 7, 8]])  </code></pre><pre class="line-numbers language-python"><code class="language-python">b  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([[ 9, 10, 11],  
+       [12, 13, 14],  
+       [15, 16, 17]])  </code></pre><pre class="line-numbers language-python"><code class="language-python">np<span class="token punctuation">.</span>hstack<span class="token punctuation">(</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 水平合并  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([[ 0,  1,  2,  9, 10, 11],  
+       [ 3,  4,  5, 12, 13, 14],  
+       [ 6,  7,  8, 15, 16, 17]])  </code></pre><pre class="line-numbers language-python"><code class="language-python">np<span class="token punctuation">.</span>vstack<span class="token punctuation">(</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 垂直合并  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([[ 0,  1,  2],  
+       [ 3,  4,  5],  
+       [ 6,  7,  8],  
+       [ 9, 10, 11],  
+       [12, 13, 14],  
+       [15, 16, 17]])  </code></pre><pre class="line-numbers language-python"><code class="language-python">np<span class="token punctuation">.</span>dstack<span class="token punctuation">(</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true"># 深度合并  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([[[ 0,  9],  
+        [ 1, 10],  
+        [ 2, 11]],  
+
+       [[ 3, 12],  
+        [ 4, 13],  
+        [ 5, 14]],  
+
+       [[ 6, 15],  
+        [ 7, 16],  
+        [ 8, 17]]])  </code></pre><h3 id="1-8-数组拆分"><a href="#1-8-数组拆分" class="headerlink" title="1.8 数组拆分"></a>1.8 数组拆分</h3><pre class="line-numbers language-python"><code class="language-python">a <span class="token operator">=</span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-python"><code class="language-python">np<span class="token punctuation">.</span>hsplit<span class="token punctuation">(</span>a<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#水平拆分，返回list  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>[array([[0],  
+        [3],  
+        [6]]), array([[1],  
+        [4],  
+        [7]]), array([[2],  
+        [5],  
+        [8]])]  </code></pre><pre class="line-numbers language-python"><code class="language-python">np<span class="token punctuation">.</span>vsplit<span class="token punctuation">(</span>a<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true"># 垂直拆分，返回list  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>[array([[0, 1, 2]]), array([[3, 4, 5]]), array([[6, 7, 8]])]  </code></pre><pre class="line-numbers language-python"><code class="language-python">a <span class="token operator">=</span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">27</span><span class="token punctuation">)</span><span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>  
+np<span class="token punctuation">.</span>dsplit<span class="token punctuation">(</span>a<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#深度拆分，返回list  </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre><code>[array([[[ 0],  
+         [ 3],  
+         [ 6]],  
+
+        [[ 9],  
+         [12],  
+         [15]],  
+
+        [[18],  
+         [21],  
+         [24]]]), array([[[ 1],  
+         [ 4],  
+         [ 7]],  
+
+        [[10],  
+         [13],  
+         [16]],  
+
+        [[19],  
+         [22],  
+         [25]]]), array([[[ 2],  
+         [ 5],  
+         [ 8]],  
+
+        [[11],  
+         [14],  
+         [17]],  
+
+        [[20],  
+         [23],  
+         [26]]])]  </code></pre><h3 id="1-9-数组运算"><a href="#1-9-数组运算" class="headerlink" title="1.9 数组运算"></a>1.9 数组运算</h3><p>数组和常数的四则运算，是数组的每一个元素分别和常数运算；数组和数组的四则运算则是两个数组对应元素的运算（两个数组有相同的shape，否则抛出异常）  </p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np  
+a <span class="token operator">=</span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> dtype<span class="token operator">=</span>np<span class="token punctuation">.</span>float32<span class="token punctuation">)</span><span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>  
+b <span class="token operator">=</span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> dtype<span class="token operator">=</span>np<span class="token punctuation">.</span>float32<span class="token punctuation">)</span><span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-python"><code class="language-python">a <span class="token operator">+</span> <span class="token number">2</span>     <span class="token comment" spellcheck="true"># 数组和常数可以进行四则运算  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([[2., 3.],  
+       [4., 5.]], dtype=float32)  </code></pre><pre class="line-numbers language-python"><code class="language-python">a <span class="token operator">/</span> b    <span class="token comment" spellcheck="true"># 数组和数组可以进行四则运算  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([[0.        , 0.2       ],  
+       [0.33333334, 0.42857143]], dtype=float32)  </code></pre><pre class="line-numbers language-python"><code class="language-python">a <span class="token operator">==</span> b    <span class="token comment" spellcheck="true"># 最神奇的是， 数组可以判断对应元素是否相等  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([[False, False],  
+       [False, False]])  </code></pre><pre class="line-numbers language-python"><code class="language-python"><span class="token punctuation">(</span>a <span class="token operator">==</span> b<span class="token punctuation">)</span><span class="token punctuation">.</span>all<span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true"># 判断数组是否相等  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>False  </code></pre><p><strong>特别提示</strong>：如果相对数组内符合特定条件的元素做特殊处理，下面的代码也许有用  </p>
+<pre class="line-numbers language-python"><code class="language-python">a <span class="token operator">=</span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  
+a  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre><code>array([[0, 1, 2],  
+       [3, 4, 5]])  </code></pre><pre class="line-numbers language-python"><code class="language-python"><span class="token punctuation">(</span>a <span class="token operator">></span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">&amp;</span><span class="token punctuation">(</span>a<span class="token operator">&lt;=</span><span class="token number">4</span><span class="token punctuation">)</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([[False, False, False],  
+       [ True,  True, False]])  </code></pre><pre class="line-numbers language-python"><code class="language-python">a<span class="token punctuation">[</span><span class="token punctuation">(</span>a<span class="token operator">></span><span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">&amp;</span><span class="token punctuation">(</span>a<span class="token operator">&lt;=</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true"># a中满足条件的数组成的数组  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([3, 4])  </code></pre><pre class="line-numbers language-python"><code class="language-python">a<span class="token punctuation">[</span><span class="token punctuation">(</span>a<span class="token operator">></span><span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">&amp;</span><span class="token punctuation">(</span><span class="token punctuation">(</span>a<span class="token operator">&lt;=</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">10</span>  <span class="token comment" spellcheck="true"># 满足条件的进行后面的运算  </span>
+a  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre><code>array([[ 0,  1,  2],  
+       [13, 14,  5]])  </code></pre><h3 id="1-10-数组方法和常用函数"><a href="#1-10-数组方法和常用函数" class="headerlink" title="1.10 数组方法和常用函数"></a>1.10 数组方法和常用函数</h3><p>数组对象本身提供了计算算数平均值、求最大值最小值等内置方法，numpy也提供了很多实用的函数。为了缩减篇幅，下面的代码仅以一维数组为例，展示了这些方法和函数的用法。事实上，大多是情况下这些方法和函数对于多维数组同样有效，只有少数例外，比如compress函数。  </p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np  
+a <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-python"><code class="language-python">a<span class="token punctuation">.</span>sum<span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true"># 所有元素之和  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>9  </code></pre><pre class="line-numbers language-python"><code class="language-python">a<span class="token punctuation">.</span>prod<span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true">#所有元素的乘积  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>24  </code></pre><pre class="line-numbers language-python"><code class="language-python">a<span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true">#所有元素的算数平均值  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>3.0  </code></pre><pre class="line-numbers language-python"><code class="language-python">a<span class="token punctuation">.</span>max<span class="token punctuation">(</span><span class="token punctuation">)</span>     <span class="token comment" spellcheck="true"># 所有元素的最大值  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>4  </code></pre><pre class="line-numbers language-python"><code class="language-python">a<span class="token punctuation">.</span>min<span class="token punctuation">(</span><span class="token punctuation">)</span>     <span class="token comment" spellcheck="true"># 所有元素的最小值  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>2  </code></pre><pre class="line-numbers language-python"><code class="language-python">a<span class="token punctuation">.</span>clip<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true"># 小于3的元素替换为3，大于4的元素替换为4  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([3, 3, 4])  </code></pre><pre class="line-numbers language-python"><code class="language-python">a<span class="token punctuation">.</span>compress<span class="token punctuation">(</span>a<span class="token operator">></span><span class="token number">2</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true"># 返回大于2的元素构成的数组  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([3, 4])  </code></pre><pre class="line-numbers language-python"><code class="language-python">a<span class="token punctuation">.</span>tolist<span class="token punctuation">(</span><span class="token punctuation">)</span>     <span class="token comment" spellcheck="true"># 返回python的list  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>[3, 2, 4]  </code></pre><pre class="line-numbers language-python"><code class="language-python">a<span class="token punctuation">.</span>var<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true"># 计算方差（元素与均值之差的平方的均值）  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>0.6666666666666666  </code></pre><pre class="line-numbers language-python"><code class="language-python">a<span class="token punctuation">.</span>std<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true"># 计算标准差  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>0.816496580927726  </code></pre><pre class="line-numbers language-python"><code class="language-python">a<span class="token punctuation">.</span>ptp<span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true"># 返回数组的最大值和最小值之差  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>2  </code></pre><pre class="line-numbers language-python"><code class="language-python">a<span class="token punctuation">.</span>argmin<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true"># 返回最小值在扁平数组中的索引  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>1  </code></pre><pre class="line-numbers language-python"><code class="language-python">a<span class="token punctuation">.</span>argmax<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true"># 返回最大值在扁平数组中的索引  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>2  </code></pre><pre class="line-numbers language-python"><code class="language-python">np<span class="token punctuation">.</span>where<span class="token punctuation">(</span>a <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true"># 返回所有值为2的元素的索引  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>(array([1], dtype=int64),)  </code></pre><pre class="line-numbers language-python"><code class="language-python">np<span class="token punctuation">.</span>diff<span class="token punctuation">(</span>a<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true"># 返回相邻元素的差  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([-1,  2])  </code></pre><pre class="line-numbers language-python"><code class="language-python">np<span class="token punctuation">.</span>log<span class="token punctuation">(</span>a<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true"># 返回对数数组  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([1.09861229, 0.69314718, 1.38629436])  </code></pre><pre class="line-numbers language-python"><code class="language-python">np<span class="token punctuation">.</span>exp<span class="token punctuation">(</span>a<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true"># 返回指数数组  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([20.08553692,  7.3890561 , 54.59815003])  </code></pre><pre class="line-numbers language-python"><code class="language-python">np<span class="token punctuation">.</span>sqrt<span class="token punctuation">(</span>a<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true"># 返回开方数组  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([1.73205081, 1.41421356, 2.        ])  </code></pre><pre class="line-numbers language-python"><code class="language-python">np<span class="token punctuation">.</span>msort<span class="token punctuation">(</span>a<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true"># 数组排序  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([2, 3, 4])  </code></pre><pre class="line-numbers language-python"><code class="language-python">a <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  
+b <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  
+np<span class="token punctuation">.</span>maximum<span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span>     <span class="token comment" spellcheck="true"># 返回多个数组中对应位置元素的最大值数组  </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre><code>array([8, 5, 7])  </code></pre><pre class="line-numbers language-python"><code class="language-python">np<span class="token punctuation">.</span>minimum<span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true"># 返回多个数组中对应位置元素的最小值  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([1, 4, 2])  </code></pre><pre class="line-numbers language-python"><code class="language-python">np<span class="token punctuation">.</span>true_divide<span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span>     <span class="token comment" spellcheck="true"># 对整数实现真正的数学除法运算  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([0.125, 0.8  , 3.5  ])  </code></pre><h2 id="2-矩阵对象"><a href="#2-矩阵对象" class="headerlink" title="2 矩阵对象"></a>2 矩阵对象</h2><p>矩阵有的特性可以加速运算, matrix是矩阵对象，继承自ndarray类型，因此含有ndarray的所有数据属性和方法，不过当你吧矩阵对象当作数组操作时需要注意以下几点：  </p>
+<ul>
+<li><strong>matrix对象总是二维的，即使是展平（ravel函数）操作或者是成员选择，返回值也是二维的</strong>  </li>
+<li><strong>matrix队形和darray对象回合的运算总是返回matrix对象</strong>  </li>
+</ul>
+<h3 id="2-1-创建矩阵"><a href="#2-1-创建矩阵" class="headerlink" title="2.1 创建矩阵"></a>2.1 创建矩阵</h3><p>matrix对象可以使用一个matlab风格的字符串来创建（以空格分隔列，已分号分隔行的字符床），也可以用数组来创建。  </p>
+<pre class="line-numbers language-python"><code class="language-python">np<span class="token punctuation">.</span>mat<span class="token punctuation">(</span><span class="token string">'1 4 5; 2 3 5; 56 3 1'</span><span class="token punctuation">)</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>matrix([[ 1,  4,  5],  
+        [ 2,  3,  5],  
+        [56,  3,  1]])  </code></pre><pre class="line-numbers language-python"><code class="language-python">np<span class="token punctuation">.</span>mat<span class="token punctuation">(</span>np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>matrix([[1, 2, 3],  
+        [4, 5, 6],  
+        [7, 8, 9]])  </code></pre><h3 id="2-2-矩阵特有的属性"><a href="#2-2-矩阵特有的属性" class="headerlink" title="2.2 矩阵特有的属性"></a>2.2 矩阵特有的属性</h3><pre class="line-numbers language-python"><code class="language-python">m <span class="token operator">=</span> np<span class="token punctuation">.</span>mat<span class="token punctuation">(</span>np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  
+m  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre><code>matrix([[1, 2, 3],  
+        [4, 5, 6],  
+        [7, 8, 9]])  </code></pre><pre class="line-numbers language-python"><code class="language-python">m<span class="token punctuation">.</span>T <span class="token comment" spellcheck="true"># 返回矩阵的转置  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>matrix([[1, 4, 7],  
+        [2, 5, 8],  
+        [3, 6, 9]])  </code></pre><pre class="line-numbers language-python"><code class="language-python">m<span class="token punctuation">.</span>H <span class="token comment" spellcheck="true"># 返回矩阵的共轭转置  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>matrix([[1, 4, 7],  
+        [2, 5, 8],  
+        [3, 6, 9]])  </code></pre><pre class="line-numbers language-python"><code class="language-python">m<span class="token punctuation">.</span>I <span class="token comment" spellcheck="true"># 返回自身的逆矩阵  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>matrix([[ 3.15251974e+15, -6.30503948e+15,  3.15251974e+15],  
+        [-6.30503948e+15,  1.26100790e+16, -6.30503948e+15],  
+        [ 3.15251974e+15, -6.30503948e+15,  3.15251974e+15]])  </code></pre><pre class="line-numbers language-python"><code class="language-python">m<span class="token punctuation">.</span>A <span class="token comment" spellcheck="true">#返回自身数据的二维数组的一个视图  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([[1, 2, 3],  
+       [4, 5, 6],  
+       [7, 8, 9]])  </code></pre><h3 id="2-3-矩阵乘法"><a href="#2-3-矩阵乘法" class="headerlink" title="2.3 矩阵乘法"></a>2.3 矩阵乘法</h3><p>对ndarray对象而言，星号是按元素相乘，dot()函数则当作矩阵相乘。对于matrix而言，星号和dot()函数都是矩阵相乘。特别的，对于一维数组，dot()函数实现的是向量点乘，但星号实现的却不是叉乘  </p>
+<pre class="line-numbers language-python"><code class="language-python">a <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  
+b <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  
+a <span class="token operator">*</span> b <span class="token comment" spellcheck="true"># 一维数组元素相乘  </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre><code>array([ 4, 10, 18])  </code></pre><pre class="line-numbers language-python"><code class="language-python">np<span class="token punctuation">.</span>dot<span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 一维数组元素相乘，再求和  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>32  </code></pre><pre class="line-numbers language-python"><code class="language-python">a <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  
+b <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  
+a <span class="token operator">*</span> b <span class="token comment" spellcheck="true"># 多维数组，元素相乘  </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre><code>array([[ 5, 12],  
+       [21, 32]])  </code></pre><pre class="line-numbers language-python"><code class="language-python">np<span class="token punctuation">.</span>dot<span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#多维数组，实现矩阵相乘  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>array([[19, 22],  
+       [43, 50]])  </code></pre><pre class="line-numbers language-python"><code class="language-python">m <span class="token operator">=</span> np<span class="token punctuation">.</span>mat<span class="token punctuation">(</span>a<span class="token punctuation">)</span>  
+n <span class="token operator">=</span> np<span class="token punctuation">.</span>mat<span class="token punctuation">(</span>b<span class="token punctuation">)</span>  
+np<span class="token punctuation">.</span>dot<span class="token punctuation">(</span>m<span class="token punctuation">,</span> n<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 矩阵相乘  </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre><code>matrix([[19, 22],  
+        [43, 50]])  </code></pre><pre class="line-numbers language-python"><code class="language-python">m <span class="token operator">*</span> n <span class="token comment" spellcheck="true"># 矩阵相乘  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>matrix([[19, 22],  
+        [43, 50]])  </code></pre><h2 id="3-线性代数模块"><a href="#3-线性代数模块" class="headerlink" title="3 线性代数模块"></a>3 线性代数模块</h2><p>numpy.linalg是numpy的线性代数模块， 可以用来解决逆矩阵、特征值、线性方程组以及行列式等问题  </p>
+<h3 id="3-1-计算逆矩阵"><a href="#3-1-计算逆矩阵" class="headerlink" title="3.1 计算逆矩阵"></a>3.1 计算逆矩阵</h3><p>尽管matrix对象本身有逆矩阵属性，但用numpy.linalg模块来求解矩阵的逆，也是非常简单的。  </p>
+<pre class="line-numbers language-python"><code class="language-python">m <span class="token operator">=</span> np<span class="token punctuation">.</span>mat<span class="token punctuation">(</span><span class="token string">'0 1 2; 1 0 3; 4 -3 8'</span><span class="token punctuation">)</span>  
+mi <span class="token operator">=</span> np<span class="token punctuation">.</span>linalg<span class="token punctuation">.</span>inv<span class="token punctuation">(</span>m<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># mi即为m的逆矩阵  </span>
+m <span class="token operator">*</span> mi  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre><code>matrix([[1., 0., 0.],  
+        [0., 1., 0.],  
+        [0., 0., 1.]])  </code></pre><h3 id="3-2-计算行列式"><a href="#3-2-计算行列式" class="headerlink" title="3.2 计算行列式"></a>3.2 计算行列式</h3><pre class="line-numbers language-python"><code class="language-python">m <span class="token operator">=</span> np<span class="token punctuation">.</span>mat<span class="token punctuation">(</span><span class="token string">'0 1 2; 1 0 3; 4 -3 8'</span><span class="token punctuation">)</span>  
+np<span class="token punctuation">.</span>linalg<span class="token punctuation">.</span>det<span class="token punctuation">(</span>m<span class="token punctuation">)</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre><code>-2.0  </code></pre><h3 id="3-3-计算特征值和特征向量"><a href="#3-3-计算特征值和特征向量" class="headerlink" title="3.3 计算特征值和特征向量"></a>3.3 计算特征值和特征向量</h3><pre class="line-numbers language-python"><code class="language-python">m <span class="token operator">=</span> np<span class="token punctuation">.</span>mat<span class="token punctuation">(</span><span class="token string">'0 1 2; 1 0 3; 4 -3 8'</span><span class="token punctuation">)</span>  
+np<span class="token punctuation">.</span>linalg<span class="token punctuation">.</span>eigvals<span class="token punctuation">(</span>m<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 计算特征值  </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre><code>array([ 7.96850246, -0.48548592,  0.51698346])  </code></pre><pre class="line-numbers language-python"><code class="language-python">np<span class="token punctuation">.</span>linalg<span class="token punctuation">.</span>eig<span class="token punctuation">(</span>m<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 返回特征值及其对应的特征向量的元组  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>(array([ 7.96850246, -0.48548592,  0.51698346]),  
+ matrix([[ 0.26955165,  0.90772191, -0.74373492],  
+         [ 0.36874217,  0.24316331, -0.65468206],  
+         [ 0.88959042, -0.34192476,  0.13509171]]))  </code></pre><h3 id="3-4-求解线性方程组"><a href="#3-4-求解线性方程组" class="headerlink" title="3.4 求解线性方程组"></a>3.4 求解线性方程组</h3><p>x - 2y + z = 0<br><br>2y - 8z = 8<br><br>-4x + 5y + 9z = -9  </p>
+<pre class="line-numbers language-python"><code class="language-python">A <span class="token operator">=</span> np<span class="token punctuation">.</span>mat<span class="token punctuation">(</span><span class="token string">'1 -2 1; 0 2 -8; -4 5 9'</span><span class="token punctuation">)</span>  
+b <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  
+np<span class="token punctuation">.</span>linalg<span class="token punctuation">.</span>solve<span class="token punctuation">(</span>A<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># x = 29, y=16, z=3  </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre><code>array([29., 16.,  3.])  </code></pre><p>写个博客不容易，可怜可怜博主，点个广告再走呗(✿◕‿◕✿)。</p>
+
+            </div>
+            <hr />
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">写作不易，客官能否打赏一杯奶茶？</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        <p class="reprint-tip">
+            <i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;
+            <span>转载规则</span>
+        </p>
+        
+            <div class="center-align">
+                <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                    <img alt=""
+                         style="border-width:0"
+                         src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
+                </a>
+            </div>
+            <br/>
+            <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title" rel="dct:type">
+                    《Numpy》
+                </span> 由
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/07/22/2019-numpy/" property="cc:attributionName"
+               rel="cc:attributionURL">
+                ZS
+            </a> 采用
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                知识共享署名 4.0 国际许可协议
+            </a>进行许可。
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+        </div>
+    </div>
+
+    
+    <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '0ec96340c73d93f2ef96',
+        clientSecret: '5fc147935bb296ad377b62699db728084af6d56e',
+        repo: 'newlzs.github.io',
+        owner: 'newlzs',
+        admin: "newlzs",
+        id: '2019/07/22/2019-numpy/',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2019/07/24/2019-matplotlib/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/28.jpg" class="responsive-img" alt="Matplotlib">
+                        
+                        <span class="card-title">Matplotlib</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Matplotlibmatplotlib 提供了一整套和Matlab相似的命令API，十分适合交互式地进行绘图。而且也可以方便的将它最为绘图控件，嵌入GUI应用中。matplotlib可以绘制多种形式的图包括普通的线图，直方图，饼图，散点图
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-24
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/python/" class="post-category" target="_blank">
+                                    python
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/数据分析/" target="_blank">
+                        <span class="chip bg-color">数据分析</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/07/22/2019-shou-ji-fan-ge-qiang/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="手机翻墙">
+                        
+                        <span class="card-title">手机翻墙</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            跨越长城-手机版应用换个手机把，结果把之前好不容易收集翻墙软件都给弄丢了，于是乎决定写个博客，记录下自己使用过的翻墙软件，谁由好的翻墙软件欢迎评论区留言哦，我会随时更新的，不能用的软件也欢迎大家评论提醒哦。  
+
+注：本文所用应用同一明明为
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/搞事情/" class="post-category" target="_blank">
+                                    搞事情
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/翻个墙/" target="_blank">
+                        <span class="chip bg-color">翻个墙</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 子实的博客<br />'
+            + '作者: 子实<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () { bodyElement.removeChild(newdiv); }, 200);
+    });
+</script>
+
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            &copy; 2019 WeiYang. All Rights Reserved.
+
+            
+            &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+            <span class="white-color">27.9k</span>
+            
+
+            <br>
+            <span id="sitetime"></span>
+
+            
+            
+            <br>
+            
+            <span id="busuanzi_container_site_pv" style='display:none'>
+                <i class="fa fa-heart-o"></i>
+                本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv" style='display:none'>
+                人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+            </span>
+            
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/godweiyang" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:weiyang@godweiyang.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="https://zhihu.com/people/godweiyang" class="tooltipped" target="_blank" data-tooltip="访问我的知乎" data-position="top" data-delay="50">
+        <i class="fa fa-inverse">知</i>
+    </a>
+
+
+
+    <a href="https://user.qzone.qq.com/792321264" class="tooltipped" target="_blank" data-tooltip="访问我的QQ空间" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+    <a href="https://weibo.com/godweiyang" class="tooltipped" target="_blank" data-tooltip="关注我的微博" data-position="top" data-delay="50">
+        <i class="fa fa-weibo"></i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+    $(document).ready(function () {
+
+        var int = setInterval(fixCount, 50);
+        var pvcountOffset = 80000;
+        var uvcountOffset = 20000;
+
+        function fixCount() {
+            if (document.getElementById("busuanzi_container_site_pv").style.display != "none") {
+                $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + pvcountOffset);
+                clearInterval(int);
+            }
+            if ($("#busuanzi_container_site_pv").css("display") != "none") {
+                $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + uvcountOffset); // 加上初始数据 
+                clearInterval(int);
+            }
+        }
+    });
+</script>
+
+<script language=javascript>
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+        year - 作为date对象的年份，为4位年份值
+        month - 0-11之间的整数，做为date对象的月份
+        day - 1-31之间的整数，做为date对象的天数
+        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+        minutes - 0-59之间的整数，做为date对象的分钟数
+        seconds - 0-59之间的整数，做为date对象的秒数
+        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+        var t1 = Date.UTC(2018, 12, 11, 00, 00, 00); //北京时间2018-2-13 00:00:00
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+        var diff = t2 - t1;
+        var diffYears = Math.floor(diff / years);
+        var diffDays = Math.floor((diff / days) - diffYears * 365);
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+        document.getElementById("sitetime").innerHTML = "本站已运行 " + diffYears + " 年 " + diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+    }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+    siteTime();
+</script>
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', '');
+</script>
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

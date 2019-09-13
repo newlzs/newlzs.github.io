@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ainiya.xyz/"/>
-  <updated>2019-09-13T06:15:26.252Z</updated>
+  <updated>2019-09-13T09:43:35.240Z</updated>
   <id>https://ainiya.xyz/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://ainiya.xyz/2019/08/22/2019-wechall-lian-xi/"/>
     <id>https://ainiya.xyz/2019/08/22/2019-wechall-lian-xi/</id>
     <published>2019-08-22T04:32:09.000Z</published>
-    <updated>2019-09-13T06:15:26.252Z</updated>
+    <updated>2019-09-13T09:43:35.240Z</updated>
     
     <summary type="html">
     
@@ -43,11 +43,11 @@
   </entry>
   
   <entry>
-    <title>二零一七年终总结</title>
-    <link href="https://ainiya.xyz/2019/01/22/2019-misc-ti-jie/"/>
-    <id>https://ainiya.xyz/2019/01/22/2019-misc-ti-jie/</id>
-    <published>2019-01-22T04:32:09.000Z</published>
-    <updated>2019-09-13T05:07:02.018Z</updated>
+    <title>翻个墙电脑</title>
+    <link href="https://ainiya.xyz/2019/08/06/2019-dian-nao-fan-ge-qiang/"/>
+    <id>https://ainiya.xyz/2019/08/06/2019-dian-nao-fan-ge-qiang/</id>
+    <published>2019-08-06T10:32:09.000Z</published>
+    <updated>2019-09-13T09:55:29.786Z</updated>
     
     <summary type="html">
     
@@ -55,16 +55,487 @@
       
         
         
-          &lt;h1 id=&quot;攻防世界：misc题解&quot;&gt;&lt;a href=&quot;#攻防世界：misc题解&quot; class=&quot;headerlink&quot; title=&quot;攻防世界：misc题解&quot;&gt;&lt;/a&gt;攻防世界：misc题解&lt;/h1&gt;&lt;h3 id=&quot;this-is-flag&quot;&gt;&lt;a
+          &lt;h2 id=&quot;翻个墙墙-电脑应用&quot;&gt;&lt;a href=&quot;#翻个墙墙-电脑应用&quot; class=&quot;headerlink&quot;
         
       
     
     </summary>
     
-      <category term="CTF" scheme="https://ainiya.xyz/categories/CTF/"/>
+      <category term="搞事请" scheme="https://ainiya.xyz/categories/%E6%90%9E%E4%BA%8B%E8%AF%B7/"/>
     
     
-      <category term="CTF" scheme="https://ainiya.xyz/tags/CTF/"/>
+      <category term="翻墙" scheme="https://ainiya.xyz/tags/%E7%BF%BB%E5%A2%99/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Scipy</title>
+    <link href="https://ainiya.xyz/2019/07/26/2019-scipy/"/>
+    <id>https://ainiya.xyz/2019/07/26/2019-scipy/</id>
+    <published>2019-07-26T10:32:09.000Z</published>
+    <updated>2019-09-13T09:50:59.178Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Scipy&quot;&gt;&lt;a href=&quot;#Scipy&quot; class=&quot;headerlink&quot; title=&quot;Scipy&quot;&gt;&lt;/a&gt;Scipy&lt;/h1&gt;&lt;p&gt;numpy
+        
+      
+    
+    </summary>
+    
+      <category term="python" scheme="https://ainiya.xyz/categories/python/"/>
+    
+    
+      <category term="数据分析" scheme="https://ainiya.xyz/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Matplotlib</title>
+    <link href="https://ainiya.xyz/2019/07/24/2019-matplotlib/"/>
+    <id>https://ainiya.xyz/2019/07/24/2019-matplotlib/</id>
+    <published>2019-07-24T10:32:09.000Z</published>
+    <updated>2019-09-13T09:45:29.820Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Matplotlib&quot;&gt;&lt;a href=&quot;#Matplotlib&quot; class=&quot;headerlink&quot; title=&quot;Matplotlib&quot;&gt;&lt;/a&gt;Matplotlib&lt;/h1&gt;&lt;p&gt;matplotlib
+        
+      
+    
+    </summary>
+    
+      <category term="python" scheme="https://ainiya.xyz/categories/python/"/>
+    
+    
+      <category term="数据分析" scheme="https://ainiya.xyz/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Numpy</title>
+    <link href="https://ainiya.xyz/2019/07/22/2019-numpy/"/>
+    <id>https://ainiya.xyz/2019/07/22/2019-numpy/</id>
+    <published>2019-07-22T10:32:09.000Z</published>
+    <updated>2019-09-13T09:47:09.192Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Numpy详解&quot;&gt;&lt;a href=&quot;#Numpy详解&quot; class=&quot;headerlink&quot; title=&quot;Numpy详解&quot;&gt;&lt;/a&gt;Numpy详解&lt;/h1&gt;&lt;p&gt;ndarray 是多维数组对象， 也是numpy最核心的对象。
+        
+      
+    
+    </summary>
+    
+      <category term="python" scheme="https://ainiya.xyz/categories/python/"/>
+    
+    
+      <category term="数据分析" scheme="https://ainiya.xyz/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>手机翻墙</title>
+    <link href="https://ainiya.xyz/2019/07/22/2019-shou-ji-fan-ge-qiang/"/>
+    <id>https://ainiya.xyz/2019/07/22/2019-shou-ji-fan-ge-qiang/</id>
+    <published>2019-07-22T04:32:09.000Z</published>
+    <updated>2019-09-13T09:41:16.393Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;跨越长城-手机版应用&quot;&gt;&lt;a href=&quot;#跨越长城-手机版应用&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="搞事情" scheme="https://ainiya.xyz/categories/%E6%90%9E%E4%BA%8B%E6%83%85/"/>
+    
+    
+      <category term="翻个墙" scheme="https://ainiya.xyz/tags/%E7%BF%BB%E4%B8%AA%E5%A2%99/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>TCP的三次握手</title>
+    <link href="https://ainiya.xyz/2019/06/29/2019-tcp-san-ci-wo-shou/"/>
+    <id>https://ainiya.xyz/2019/06/29/2019-tcp-san-ci-wo-shou/</id>
+    <published>2019-06-29T10:32:09.000Z</published>
+    <updated>2019-09-13T09:53:32.295Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;TCP三次握手&quot;&gt;&lt;a href=&quot;#TCP三次握手&quot; class=&quot;headerlink&quot; title=&quot;TCP三次握手&quot;&gt;&lt;/a&gt;TCP三次握手&lt;/h1&gt;&lt;h2 id=&quot;TCP-IP协议&quot;&gt;&lt;a href=&quot;#TCP-IP协议&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="计科" scheme="https://ainiya.xyz/categories/%E8%AE%A1%E7%A7%91/"/>
+    
+    
+      <category term="计算机网络" scheme="https://ainiya.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vs的c++环境配置</title>
+    <link href="https://ainiya.xyz/2019/06/02/2019-ubuntu-vscode-c-huan-jing/"/>
+    <id>https://ainiya.xyz/2019/06/02/2019-ubuntu-vscode-c-huan-jing/</id>
+    <published>2019-06-02T10:32:09.000Z</published>
+    <updated>2019-09-13T09:55:35.823Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;在ubuntu中-配置vscode-的-C-环境&quot;&gt;&lt;a href=&quot;#在ubuntu中-配置vscode-的-C-环境&quot; class=&quot;headerlink&quot; title=&quot;在ubuntu中 配置vscode 的 C++ 环境&quot;&gt;&lt;/a&gt;在ubuntu中
+        
+      
+    
+    </summary>
+    
+      <category term="环境配置" scheme="https://ainiya.xyz/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    
+    
+      <category term="环境配置" scheme="https://ainiya.xyz/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>线程全局变量ThreadLocal</title>
+    <link href="https://ainiya.xyz/2019/05/13/2019-python-xian-cheng-nei-bu-han-shu-chuan-can/"/>
+    <id>https://ainiya.xyz/2019/05/13/2019-python-xian-cheng-nei-bu-han-shu-chuan-can/</id>
+    <published>2019-05-13T10:32:09.000Z</published>
+    <updated>2019-09-13T09:49:59.737Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;线程内的全局变量-ThreadLocal&quot;&gt;&lt;a href=&quot;#线程内的全局变量-ThreadLocal&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="python" scheme="https://ainiya.xyz/categories/python/"/>
+    
+    
+      <category term="计科" scheme="https://ainiya.xyz/tags/%E8%AE%A1%E7%A7%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python-xlrd</title>
+    <link href="https://ainiya.xyz/2019/05/06/2019-python-xlrd-jian-dan-zong-jie/"/>
+    <id>https://ainiya.xyz/2019/05/06/2019-python-xlrd-jian-dan-zong-jie/</id>
+    <published>2019-05-06T10:32:09.000Z</published>
+    <updated>2019-09-13T09:48:38.420Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;python-xlrd&quot;&gt;&lt;a href=&quot;#python-xlrd&quot; class=&quot;headerlink&quot; title=&quot;python-xlrd&quot;&gt;&lt;/a&gt;python-xlrd&lt;/h2&gt;&lt;h3 id=&quot;打开&quot;&gt;&lt;a href=&quot;#打开&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="python" scheme="https://ainiya.xyz/categories/python/"/>
+    
+    
+      <category term="数据处理" scheme="https://ainiya.xyz/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>jardon标准型转化</title>
+    <link href="https://ainiya.xyz/2019/04/14/2019-jardon-ju-zhen-zong-jie/"/>
+    <id>https://ainiya.xyz/2019/04/14/2019-jardon-ju-zhen-zong-jie/</id>
+    <published>2019-04-14T10:32:09.000Z</published>
+    <updated>2019-09-13T09:41:26.012Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;jardon标准型总结&quot;&gt;&lt;a href=&quot;#jardon标准型总结&quot; class=&quot;headerlink&quot; title=&quot;jardon标准型总结&quot;&gt;&lt;/a&gt;jardon标准型总结&lt;/h2&gt;&lt;h3 id=&quot;行列式因子和不变因子&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="数学" scheme="https://ainiya.xyz/categories/%E6%95%B0%E5%AD%A6/"/>
+    
+    
+      <category term="矩阵论" scheme="https://ainiya.xyz/tags/%E7%9F%A9%E9%98%B5%E8%AE%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>训练/开发/测试集</title>
+    <link href="https://ainiya.xyz/2019/04/11/2019-xun-lian-kai-fa-ce-shi-ji/"/>
+    <id>https://ainiya.xyz/2019/04/11/2019-xun-lian-kai-fa-ce-shi-ji/</id>
+    <published>2019-04-11T10:32:09.000Z</published>
+    <updated>2019-09-13T09:44:31.903Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;训练-开发-测试集&quot;&gt;&lt;a href=&quot;#训练-开发-测试集&quot; class=&quot;headerlink&quot; title=&quot;训练/开发/测试集&quot;&gt;&lt;/a&gt;训练/开发/测试集&lt;/h1&gt;&lt;h2 id=&quot;训练时一般需要调试的参数&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="机器学习" scheme="https://ainiya.xyz/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="吴恩达深度学习笔记" scheme="https://ainiya.xyz/tags/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>深层神经网络</title>
+    <link href="https://ainiya.xyz/2019/04/09/2019-shen-ceng-shen-jing-wang-luo/"/>
+    <id>https://ainiya.xyz/2019/04/09/2019-shen-ceng-shen-jing-wang-luo/</id>
+    <published>2019-04-09T04:32:09.000Z</published>
+    <updated>2019-09-13T09:33:19.333Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;第四周作业&quot;&gt;&lt;a href=&quot;#第四周作业&quot; class=&quot;headerlink&quot; title=&quot;第四周作业&quot;&gt;&lt;/a&gt;第四周作业&lt;/h1&gt;&lt;h2 id=&quot;知识回顾&quot;&gt;&lt;a href=&quot;#知识回顾&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="机器学习" scheme="https://ainiya.xyz/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="吴恩达深度学习笔记" scheme="https://ainiya.xyz/tags/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>1.2偏差与方差</title>
+    <link href="https://ainiya.xyz/2019/04/09/2019-pian-chai-yu-fang-chai/"/>
+    <id>https://ainiya.xyz/2019/04/09/2019-pian-chai-yu-fang-chai/</id>
+    <published>2019-04-09T04:32:09.000Z</published>
+    <updated>2019-09-13T09:41:26.922Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1-2-偏差与方差&quot;&gt;&lt;a href=&quot;#1-2-偏差与方差&quot; class=&quot;headerlink&quot; title=&quot;1.2 偏差与方差&quot;&gt;&lt;/a&gt;1.2 偏差与方差&lt;/h2&gt;&lt;h3 id=&quot;二者在深度学习上的现状&quot;&gt;&lt;a href=&quot;#二者在深度学习上的现状&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="机器学习" scheme="https://ainiya.xyz/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="吴恩达深度学习笔记" scheme="https://ainiya.xyz/tags/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>螺旋序列的输出</title>
+    <link href="https://ainiya.xyz/2019/04/03/2019-suan-fa-ri-chang-luo-xuan-xu-lie/"/>
+    <id>https://ainiya.xyz/2019/04/03/2019-suan-fa-ri-chang-luo-xuan-xu-lie/</id>
+    <published>2019-04-03T04:32:09.000Z</published>
+    <updated>2019-09-13T09:56:50.182Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;我的算法日常-—-螺旋数字串&quot;&gt;&lt;a href=&quot;#我的算法日常-—-螺旋数字串&quot; class=&quot;headerlink&quot; title=&quot;我的算法日常 — 螺旋数字串&quot;&gt;&lt;/a&gt;我的算法日常 — 螺旋数字串&lt;/h2&gt;&lt;h3 id=&quot;描述&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="算法" scheme="https://ainiya.xyz/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="算法" scheme="https://ainiya.xyz/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>判断完全平方数</title>
+    <link href="https://ainiya.xyz/2019/04/02/2019-suan-fa-ri-chang-wan-quan-ping-fang/"/>
+    <id>https://ainiya.xyz/2019/04/02/2019-suan-fa-ri-chang-wan-quan-ping-fang/</id>
+    <published>2019-04-02T10:32:09.000Z</published>
+    <updated>2019-09-13T09:41:19.071Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;我的算法日常—判断完全平方数&quot;&gt;&lt;a href=&quot;#我的算法日常—判断完全平方数&quot; class=&quot;headerlink&quot; title=&quot;我的算法日常—判断完全平方数&quot;&gt;&lt;/a&gt;我的算法日常—判断完全平方数&lt;/h1&gt;&lt;h2 id=&quot;思路&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="算法" scheme="https://ainiya.xyz/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="算法" scheme="https://ainiya.xyz/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>阶乘取模</title>
+    <link href="https://ainiya.xyz/2019/04/02/2019-suan-fa-ri-chang-jie-cheng-qu-mo/"/>
+    <id>https://ainiya.xyz/2019/04/02/2019-suan-fa-ri-chang-jie-cheng-qu-mo/</id>
+    <published>2019-04-02T04:32:09.000Z</published>
+    <updated>2019-09-13T09:41:18.160Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;我的算法日常-—-超大的阶乘取模&quot;&gt;&lt;a href=&quot;#我的算法日常-—-超大的阶乘取模&quot; class=&quot;headerlink&quot; title=&quot;我的算法日常 — 超大的阶乘取模&quot;&gt;&lt;/a&gt;我的算法日常 — 超大的阶乘取模&lt;/h2&gt;&lt;h3 id=&quot;描述&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="算法" scheme="https://ainiya.xyz/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="算法" scheme="https://ainiya.xyz/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTML5</title>
+    <link href="https://ainiya.xyz/2019/04/01/2019-html5/"/>
+    <id>https://ainiya.xyz/2019/04/01/2019-html5/</id>
+    <published>2019-04-01T10:32:09.000Z</published>
+    <updated>2019-09-13T09:41:20.932Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;HTML&quot;&gt;&lt;a href=&quot;#HTML&quot; class=&quot;headerlink&quot; title=&quot;HTML&quot;&gt;&lt;/a&gt;HTML&lt;/h1&gt;&lt;h2 id=&quot;视频&quot;&gt;&lt;a href=&quot;#视频&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="https://ainiya.xyz/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="html" scheme="https://ainiya.xyz/tags/html/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>str-bytes</title>
+    <link href="https://ainiya.xyz/2019/03/26/2019-str-bytes/"/>
+    <id>https://ainiya.xyz/2019/03/26/2019-str-bytes/</id>
+    <published>2019-03-26T10:32:09.000Z</published>
+    <updated>2019-09-13T09:52:21.460Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;PS: 这个坑踩了无数遍，填了它😀😜😜   &lt;/p&gt;
+&lt;h2 id=&quot;python-字节型数据与字符串的转换&quot;&gt;&lt;a href=&quot;#python-字节型数据与字符串的转换&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="python" scheme="https://ainiya.xyz/categories/python/"/>
+    
+    
+      <category term="填坑" scheme="https://ainiya.xyz/tags/%E5%A1%AB%E5%9D%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>神经网络</title>
+    <link href="https://ainiya.xyz/2019/03/25/2019-shuang-ceng-shen-jing-wang-luo/"/>
+    <id>https://ainiya.xyz/2019/03/25/2019-shuang-ceng-shen-jing-wang-luo/</id>
+    <published>2019-03-25T04:32:09.000Z</published>
+    <updated>2019-09-13T09:41:16.908Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;///&lt;a href=&quot;https://blog.csdn.net/u013733326/article/details/79702148&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;参考资料中文&lt;/a&gt;////&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="吴恩达深度学习笔记" scheme="https://ainiya.xyz/categories/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="深度学习" scheme="https://ainiya.xyz/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="神经网络" scheme="https://ainiya.xyz/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
