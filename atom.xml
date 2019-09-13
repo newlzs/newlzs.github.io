@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ainiya.xyz/"/>
-  <updated>2019-09-10T11:46:01.118Z</updated>
+  <updated>2019-09-13T06:15:26.252Z</updated>
   <id>https://ainiya.xyz/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="https://ainiya.xyz/2019/09/13/2019-wechall-lian-xi/"/>
-    <id>https://ainiya.xyz/2019/09/13/2019-wechall-lian-xi/</id>
-    <published>2019-09-13T04:50:48.978Z</published>
-    <updated>2019-09-10T11:46:01.118Z</updated>
+    <title>WeChall 刷题</title>
+    <link href="https://ainiya.xyz/2019/08/22/2019-wechall-lian-xi/"/>
+    <id>https://ainiya.xyz/2019/08/22/2019-wechall-lian-xi/</id>
+    <published>2019-08-22T04:32:09.000Z</published>
+    <updated>2019-09-13T06:15:26.252Z</updated>
     
     <summary type="html">
     
@@ -29,58 +29,16 @@
       
         
         
-          &lt;hr&gt;
-&lt;p&gt;layout:     post                    # 使用的布局（不需要改）&lt;br&gt;title:      WeChall 刷题               # 标题&lt;br&gt;subtitle:    WeChall 入门练习        
+          &lt;h1 id=&quot;WeChall-入门练习&quot;&gt;&lt;a href=&quot;#WeChall-入门练习&quot; class=&quot;headerlink&quot; title=&quot;WeChall 入门练习&quot;&gt;&lt;/a&gt;WeChall 入门练习&lt;/h1&gt;&lt;p&gt;&lt;a
         
       
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>artical title</title>
-    <link href="https://ainiya.xyz/2019/09/13/artical-title/"/>
-    <id>https://ainiya.xyz/2019/09/13/artical-title/</id>
-    <published>2019-09-13T02:21:48.000Z</published>
-    <updated>2019-09-13T02:25:07.568Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;asdfasdf&lt;br&gt;asdfasdfasdfasdf&lt;br&gt;asdfasdfasdfasdfasdf&lt;br&gt;asdfasdfasdfasdfasdf&lt;/p&gt;
-
-        
-      
-    
-    </summary>
+      <category term="CTF" scheme="https://ainiya.xyz/categories/CTF/"/>
     
     
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="https://ainiya.xyz/2019/09/13/hello-world/"/>
-    <id>https://ainiya.xyz/2019/09/13/hello-world/</id>
-    <published>2019-09-13T01:38:47.892Z</published>
-    <updated>2019-09-13T01:38:47.893Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
-        
-      
-    
-    </summary>
-    
+      <category term="CTF" scheme="https://ainiya.xyz/tags/CTF/"/>
     
   </entry>
   
@@ -107,32 +65,6 @@
     
     
       <category term="CTF" scheme="https://ainiya.xyz/tags/CTF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>二零一七年终总结</title>
-    <link href="https://ainiya.xyz/2018/01/22/2017-conclusion/"/>
-    <id>https://ainiya.xyz/2018/01/22/2017-conclusion/</id>
-    <published>2018-01-22T04:32:09.000Z</published>
-    <updated>2019-08-20T16:26:12.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;div align=&quot;middle&quot;&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;330&quot; height=&quot;86&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="随笔" scheme="https://ainiya.xyz/categories/%E9%9A%8F%E7%AC%94/"/>
-    
-    
-      <category term="随笔" scheme="https://ainiya.xyz/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
