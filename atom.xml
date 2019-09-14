@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ainiya.xyz/"/>
-  <updated>2019-09-13T17:08:37.862Z</updated>
+  <updated>2019-09-14T12:25:35.106Z</updated>
   <id>https://ainiya.xyz/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>攻防世界：misc题解</title>
-    <link href="https://ainiya.xyz/2019/09/06/2019-misc-ti-jie/"/>
-    <id>https://ainiya.xyz/2019/09/06/2019-misc-ti-jie/</id>
-    <published>2019-09-06T04:32:09.000Z</published>
-    <updated>2019-09-13T17:08:37.862Z</updated>
+    <title>攻防世界-pwn入门练习</title>
+    <link href="https://ainiya.xyz/2019/09/14/2019-gong-fang-shi-jie-pwn-ru-men-lian-xi/"/>
+    <id>https://ainiya.xyz/2019/09/14/2019-gong-fang-shi-jie-pwn-ru-men-lian-xi/</id>
+    <published>2019-09-14T04:32:09.000Z</published>
+    <updated>2019-09-14T12:25:35.106Z</updated>
     
     <summary type="html">
     
@@ -29,7 +29,35 @@
       
         
         
-          &lt;h1 id=&quot;攻防世界：misc题解&quot;&gt;&lt;a href=&quot;#攻防世界：misc题解&quot; class=&quot;headerlink&quot; title=&quot;攻防世界：misc题解&quot;&gt;&lt;/a&gt;攻防世界：misc题解&lt;/h1&gt;&lt;h2 id=&quot;this-is-flag&quot;&gt;&lt;a
+          &lt;h1 id=&quot;攻防世界-pwn入门练习&quot;&gt;&lt;a href=&quot;#攻防世界-pwn入门练习&quot; class=&quot;headerlink&quot; title=&quot;攻防世界-pwn入门练习&quot;&gt;&lt;/a&gt;攻防世界-pwn入门练习&lt;/h1&gt;&lt;h2 id=&quot;get-shell&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="网络安全" scheme="https://ainiya.xyz/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
+    
+    
+      <category term="CTF" scheme="https://ainiya.xyz/tags/CTF/"/>
+    
+      <category term="竞赛" scheme="https://ainiya.xyz/tags/%E7%AB%9E%E8%B5%9B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>攻防世界：misc题解(新手)</title>
+    <link href="https://ainiya.xyz/2019/09/06/2019-gong-fang-shi-jie-misc-ti-jie/"/>
+    <id>https://ainiya.xyz/2019/09/06/2019-gong-fang-shi-jie-misc-ti-jie/</id>
+    <published>2019-09-06T04:32:09.000Z</published>
+    <updated>2019-09-14T12:25:57.777Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;攻防世界：misc题解-新手&quot;&gt;&lt;a href=&quot;#攻防世界：misc题解-新手&quot; class=&quot;headerlink&quot; title=&quot;攻防世界：misc题解(新手)&quot;&gt;&lt;/a&gt;攻防世界：misc题解(新手)&lt;/h1&gt;&lt;h2
         
       
     
@@ -49,7 +77,7 @@
     <link href="https://ainiya.xyz/2019/08/22/2019-wechall-lian-xi/"/>
     <id>https://ainiya.xyz/2019/08/22/2019-wechall-lian-xi/</id>
     <published>2019-08-22T04:32:09.000Z</published>
-    <updated>2019-09-13T13:20:09.187Z</updated>
+    <updated>2019-09-14T12:13:00.663Z</updated>
     
     <summary type="html">
     
@@ -306,9 +334,9 @@
       <category term="python" scheme="https://ainiya.xyz/categories/python/"/>
     
     
-      <category term="数据处理" scheme="https://ainiya.xyz/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
-    
       <category term="python" scheme="https://ainiya.xyz/tags/python/"/>
+    
+      <category term="数据处理" scheme="https://ainiya.xyz/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
     
   </entry>
   
@@ -522,34 +550,6 @@
       <category term="填坑" scheme="https://ainiya.xyz/tags/%E5%A1%AB%E5%9D%91/"/>
     
       <category term="python" scheme="https://ainiya.xyz/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>神经网络</title>
-    <link href="https://ainiya.xyz/2019/03/25/2019-shuang-ceng-shen-jing-wang-luo/"/>
-    <id>https://ainiya.xyz/2019/03/25/2019-shuang-ceng-shen-jing-wang-luo/</id>
-    <published>2019-03-25T04:32:09.000Z</published>
-    <updated>2019-09-13T11:17:53.901Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;///&lt;a href=&quot;https://blog.csdn.net/u013733326/article/details/79702148&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;参考资料中文&lt;/a&gt;////&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="机器学习" scheme="https://ainiya.xyz/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="吴恩达深度学习笔记" scheme="https://ainiya.xyz/tags/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="神经网络" scheme="https://ainiya.xyz/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   

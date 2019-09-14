@@ -4,13 +4,12 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="简单爬虫总结, NEUQ  CTF 子实  ZiShi 计算机科学与技术 网络安全">
+    <meta name="keywords" content="攻防世界：misc题解(新手), NEUQ  CTF 子实  ZiShi 计算机科学与技术 网络安全">
     <meta name="baidu-site-verification" content>
     <meta name="google-site-verification" content>
-    <meta name="description" content="简单爬虫总结网页加载加载方法
-urlopen  
-from urllib.request import urlopen  
-html = urlopen(&amp;#39;网址&amp;#39;).read().decode(&amp;#39;utf-8&amp;#39;">
+    <meta name="description" content="攻防世界：misc题解(新手)this_is_flagMost flags are in the form flag{xxx}, for example:flag{th1s_!s_a_d4m0_4la9}  
+
+答案：flag{th1s_!">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +17,7 @@ html = urlopen(&amp;#39;网址&amp;#39;).read().decode(&amp;#39;utf-8&amp;#39;">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>简单爬虫总结 | ZS BLOG</title>
+    <title>攻防世界：misc题解(新手) | ZS BLOG</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -292,13 +291,13 @@ html = urlopen(&amp;#39;网址&amp;#39;).read().decode(&amp;#39;utf-8&amp;#39;">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        简单爬虫总结
+                        攻防世界：misc题解(新手)
                     </div>
                 </div>
             </div>
@@ -409,12 +408,12 @@ html = urlopen(&amp;#39;网址&amp;#39;).read().decode(&amp;#39;utf-8&amp;#39;">
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/python/" target="_blank">
-                            <span class="chip bg-color">python</span>
+                        <a href="/tags/CTF/" target="_blank">
+                            <span class="chip bg-color">CTF</span>
                         </a>
                         
-                        <a href="/tags/爬虫/" target="_blank">
-                            <span class="chip bg-color">爬虫</span>
+                        <a href="/tags/竞赛/" target="_blank">
+                            <span class="chip bg-color">竞赛</span>
                         </a>
                         
                     </div>
@@ -425,8 +424,8 @@ html = urlopen(&amp;#39;网址&amp;#39;).read().decode(&amp;#39;utf-8&amp;#39;">
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/python/" class="post-category" target="_blank">
-                            python
+                        <a href="/categories/网络安全/" class="post-category" target="_blank">
+                            网络安全
                         </a>
                         
                     </div>
@@ -437,7 +436,7 @@ html = urlopen(&amp;#39;网址&amp;#39;).read().decode(&amp;#39;utf-8&amp;#39;">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-03-22
+                    2019-09-06
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -451,14 +450,14 @@ html = urlopen(&amp;#39;网址&amp;#39;).read().decode(&amp;#39;utf-8&amp;#39;">
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    493
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    5 分
                 </div>
                 
                 
@@ -474,94 +473,198 @@ html = urlopen(&amp;#39;网址&amp;#39;).read().decode(&amp;#39;utf-8&amp;#39;">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="简单爬虫总结"><a href="#简单爬虫总结" class="headerlink" title="简单爬虫总结"></a>简单爬虫总结</h1><h2 id="网页加载"><a href="#网页加载" class="headerlink" title="网页加载"></a>网页加载</h2><h3 id="加载方法"><a href="#加载方法" class="headerlink" title="加载方法"></a>加载方法</h3><ul>
-<li>urlopen  <ul>
-<li><code>from urllib.request import urlopen</code>  </li>
-<li><code>html = urlopen(&#39;网址&#39;).read().decode(&#39;utf-8&#39;)</code>  </li>
-<li><code>#返回的是网页的源码，字符串</code>  </li>
-</ul>
-</li>
-<li>requests  <ul>
-<li><code>import requests</code>  </li>
-<li><code>html = requests.get(&#39;网址&#39;)#返回的是requests的对象</code>  </li>
-<li><code>html.text #可以得到文字</code>   </li>
-</ul>
-</li>
-</ul>
-<h3 id="浏览器伪装"><a href="#浏览器伪装" class="headerlink" title="浏览器伪装"></a>浏览器伪装</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> requests  
-headers <span class="token operator">=</span> <span class="token punctuation">{</span>  
-    <span class="token string">'User-Agent'</span><span class="token punctuation">:</span> <span class="token string">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)\Chrome/64.0.3282.140 Safari/537.36 Edge/18.17763"</span>  
-<span class="token punctuation">}</span>  
-html <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'网址'</span><span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">)</span><span class="token punctuation">.</span>text  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="网页解析"><a href="#网页解析" class="headerlink" title="网页解析"></a>网页解析</h2><h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><ul>
-<li><code>import re</code>  </li>
-<li><code>re.findall(r&#39;条件&#39;, html)</code>  </li>
-<li><code>#返回搜索结果构成的列表</code>  </li>
-<li><em><a href="https://ainiya.xyz/2019/02/19/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">详见</a></em>  </li>
-</ul>
-<h3 id="BeautifulSoup模块"><a href="#BeautifulSoup模块" class="headerlink" title="BeautifulSoup模块"></a>BeautifulSoup模块</h3><ul>
-<li><p><code>from bs4 import BeautifulSoup</code>  </p>
-</li>
-<li><p><code>soup = BeautifulSoup(html, features=&#39;lxml&#39;)</code> #构建对象,选取解析方式  </p>
-</li>
-<li><p>点域访问  </p>
+                <h1 id="攻防世界：misc题解-新手"><a href="#攻防世界：misc题解-新手" class="headerlink" title="攻防世界：misc题解(新手)"></a>攻防世界：misc题解(新手)</h1><h2 id="this-is-flag"><a href="#this-is-flag" class="headerlink" title="this_is_flag"></a>this_is_flag</h2><p><code>Most flags are in the form flag{xxx}, for example:flag{th1s_!s_a_d4m0_4la9}</code>  </p>
 <ul>
-<li>soup + ‘.’ + 标签(head, h1, p….)  </li>
-</ul>
+<li><p>答案：flag{th1s_!s_a_d4m0_4la9}  </p>
 </li>
-<li><p>find_all <em>只能对一个元素进行查找</em>  </p>
+<li><p>喂到嘴里的答案我就是吃不到，菜  </p>
+</li>
+</ul>
+<h2 id="ext3"><a href="#ext3" class="headerlink" title="ext3"></a>ext3</h2><p><code>今天是菜狗的生日，他收到了一个linux系统光盘</code>  </p>
 <ul>
-<li>find_all(‘标签’) #返回所有标签构成的列表  </li>
-<li>对于每个标签内部可以使用类似字典的方式访问每个关键字描述  <pre class="line-numbers language-python"><code class="language-python"> all_href <span class="token operator">=</span> soup<span class="token punctuation">.</span>find_all<span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span>  
- <span class="token keyword">for</span> i <span class="token keyword">in</span> all_href<span class="token punctuation">:</span>  
-   <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">[</span><span class="token string">'href'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-</li>
+<li>下载文件  </li>
+<li>查找flag关键字  </li>
+<li>装载文件  </li>
+<li>打开包含flag的文件，找到密文  </li>
+<li>base64编码解密  </li>
+<li><img src="https://ae01.alicdn.com/kf/H007c5173db724aca8fd6304ae901c2e07.jpg" alt>  </li>
 </ul>
-</li>
-<li><p>高级find_all  </p>
+<h2 id="give-you-flag"><a href="#give-you-flag" class="headerlink" title="give_you_flag"></a>give_you_flag</h2><p><code>菜狗找到了文件中的彩蛋很开心，给菜猫发了个表情包</code>  </p>
 <ul>
-<li><p><code>month = soup.find_all(&#39;标签&#39;, {&#39;关键子&#39;:&#39;描述&#39;,....})</code>   </p>
+<li>给我，你倒是给我啊，批个图批半天，恶心死我了，还好最后能扫了，为自己感动  </li>
+<li>用ps抽帧，找到二维码  </li>
+<li>用画图工具补全二维码  </li>
+<li><img src="https://ae01.alicdn.com/kf/H62bdfa88adc243728a133b962404b89al.jpg" alt>  </li>
+<li><img src="https://ae01.alicdn.com/kf/H2df00906cb744edbb4d542428d0e583d5.jpg" alt>  </li>
+</ul>
+<h2 id="pdf"><a href="#pdf" class="headerlink" title="pdf"></a>pdf</h2><p><code>菜猫给了菜狗一张图，说图下面什么都没有</code>  </p>
 <ul>
-<li><p>只要关键字描述中识别到了描述条件便符合匹配,返回构成的列表,<em>如</em>:  </p>
-<pre class="line-numbers language-python"><code class="language-python">  month <span class="token operator">=</span> soup<span class="token punctuation">.</span>find_all<span class="token punctuation">(</span><span class="token string">'li'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token string">'class'</span><span class="token punctuation">:</span><span class="token string">'month'</span><span class="token punctuation">}</span><span class="token punctuation">)</span>  
-  <span class="token keyword">print</span><span class="token punctuation">(</span>month<span class="token punctuation">)</span>  
-
-  <span class="token punctuation">[</span><span class="token operator">&lt;</span>li <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"month"</span><span class="token operator">></span>一月<span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">></span><span class="token punctuation">,</span> <span class="token operator">&lt;</span>li <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"feb month"</span><span class="token operator">></span>二月<span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">></span><span class="token punctuation">,</span> <span class="token operator">&lt;</span>li <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"month"</span><span class="token operator">></span>三月<span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">></span><span class="token punctuation">,</span> <span class="token operator">&lt;</span>li <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"month"</span><span class="token operator">></span>四月<span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">></span><span class="token punctuation">,</span> <span class="token operator">&lt;</span>li <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"month"</span><span class="token operator">></span>五月<span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">></span><span class="token punctuation">]</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+<li>下载图片，用比较高级一点的pdf编辑器，移除图片，出现flag  </li>
+<li><img src="https://ae01.alicdn.com/kf/H4d53257d6d264c9083f884845f539d5dm.jpg" alt>  </li>
 </ul>
-</li>
-<li><p>描述使用正则表达式  </p>
+<h2 id="stegano"><a href="#stegano" class="headerlink" title="stegano"></a>stegano</h2><p><code>菜狗收到了图后很开心，玩起了pdf 提交格式为flag{xxx}</code>  </p>
 <ul>
-<li>对条件格式化 <code>re.compile(&#39;正则条件&#39;)</code>  </li>
+<li>下载了一个pdf，用谷歌浏览器打开，CTRL+A  -》 CTRL+C，粘贴到txt文件中  <ul>
+<li><img src="https://ae01.alicdn.com/kf/H8656e219d64a4f1c8ca232fdb4cbbba4l.jpg" alt>  </li>
+<li>有一串ab编码，看起来像摩尔斯点码  </li>
+</ul>
+</li>
+<li>把A换成<code>.</code>,B换成<code>_</code>,得到一个串  <ul>
+<li><img src="https://ae01.alicdn.com/kf/Hc01b76cda0a74a039eaafa49f6094f3fd.jpg" alt>  </li>
+<li><code>-.-. --- -. --. .-. .- - ..- .-.. .- - .. --- -. ... --..-- ..-. .-.. .- --. ---... .---- -. ...- .---- ..... .---- -... .-.. ...-- -- ...-- ..... ..... ....- --. ...--</code>  </li>
+</ul>
+</li>
+<li>‘<a href="http://ctf.ssleye.com/morse.html&#39;" target="_blank" rel="noopener">http://ctf.ssleye.com/morse.html&#39;</a> 在这里进行解码的到 <code>congratulations,flag:1nv151bl3m3554g3</code>   <ul>
+<li>答案 <code>flag{1nv151bl3m3554g3}</code>  </li>
+</ul>
+</li>
+</ul>
+<h2 id="SimpleRAR"><a href="#SimpleRAR" class="headerlink" title="SimpleRAR"></a>SimpleRAR</h2><p><code>菜狗最近学会了拼图，这是他刚拼好的，可是却搞错了一块(ps:双图层)</code>  </p>
+<ul>
+<li><p>解压缩文件报错  </p>
+<ul>
+<li><img src="https://ae01.alicdn.com/kf/H142016aa71b44b65a4202449b92393a00.jpg" alt>  </li>
+</ul>
+</li>
+<li><p>ue打开  </p>
+<ul>
+<li><img src="https://ae01.alicdn.com/kf/Ha04a9012b1e94f3ab729299858fa3a5fw.jpg" alt>  </li>
+<li>rar对png的文件类型编码是74，就在flag.txt文件结束，原来是7A，改成了74.  </li>
+</ul>
+</li>
+<li><p>再解压的到了一整啥都没有的图片emmmmm，有问题  </p>
+</li>
+<li><p>ps打开  </p>
+<ul>
+<li>尼玛，不是png格式的打不开，那只能用ue打开看看了  </li>
+<li><img src="https://ae01.alicdn.com/kf/H450c64ff57b74e42be3396e326c13115Y.jpg" alt>  </li>
+<li>原来是gif，玩我，很好，改后缀.gif, 提取每一帧的图片，用stegsolve打开看看，发现半截二维码，他的另一半应该在另一半图片里（艹，我的呢，哭了）  <ul>
+<li><img src="https://ae01.alicdn.com/kf/H45bfb65cf6564b3094f8f46f859948cbP.jpg" alt>  </li>
+<li>另一半<img src="https://ae01.alicdn.com/kf/Hd42dd24a44544db5955a6ddcdb3e1fd7w.jpg" alt>  </li>
 </ul>
 </li>
 </ul>
 </li>
+<li><p>又要批图了，giao  </p>
+<ul>
+<li><img src="https://ae01.alicdn.com/kf/H07323c83cf71454392dd593026b2bc4fN.jpg" alt>  </li>
 </ul>
-<h2 id="文件下载"><a href="#文件下载" class="headerlink" title="文件下载"></a>文件下载</h2><h3 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> os  
-os<span class="token punctuation">.</span>markdirs<span class="token punctuation">(</span><span class="token string">'路径文件夹'</span><span class="token punctuation">,</span> exist_ok<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 建立路径,如果已经存在则直接访问  </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><ul>
-<li><p>urlretrieve  </p>
-<pre class="line-numbers language-python"><code class="language-python">  <span class="token keyword">from</span> rullib<span class="token punctuation">.</span>request <span class="token keyword">import</span> rulretrieve  
-  url  
-  urlretrieve<span class="token punctuation">(</span>IMAGE_RUL<span class="token punctuation">,</span> <span class="token string">'路径与文件名'</span><span class="token punctuation">)</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>requests  </p>
-<pre class="line-numbers language-python"><code class="language-python">  <span class="token keyword">import</span> requests  
-  r <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>IMAGE_RUL<span class="token punctuation">)</span>  
-  <span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">'路径与文件名'</span><span class="token punctuation">,</span> <span class="token string">'wb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>  
-      f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>r<span class="token punctuation">.</span>content<span class="token punctuation">)</span>      <span class="token comment" spellcheck="true"># whole document  </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>大文将处理(边下边存)  </p>
-<pre class="line-numbers language-python"><code class="language-python">  r <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>IMAGE_RUL<span class="token punctuation">,</span> stream<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># stream loading  </span>
-
-  <span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">"路径与文件名"</span><span class="token punctuation">,</span> <span class="token string">'wb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>  
-      <span class="token keyword">for</span> chunk <span class="token keyword">in</span> r<span class="token punctuation">.</span>iter_content<span class="token punctuation">(</span>chunk_size<span class="token operator">=</span><span class="token number">32</span><span class="token punctuation">)</span><span class="token punctuation">:</span>  
-          f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>chunk<span class="token punctuation">)</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>  <em>练习下载美图</em><a href="https://github.com/newlzs/python_tools/tree/master/爬虫" target="_blank" rel="noopener">源码</a>  </p>
+<li><p>扫描出结果  </p>
+<ul>
+<li><img src="https://ae01.alicdn.com/kf/H7aebd361b15b4797b6bd7d7dab484cd9r.jpg" alt>  </li>
+<li>答案：<code>flag{yanji4n_bu_we1shi}</code>  </li>
+</ul>
 </li>
 </ul>
-<h2 id="加速爬虫"><a href="#加速爬虫" class="headerlink" title="加速爬虫"></a>加速爬虫</h2><p>  <a href="https://ainiya.xyz/2019/03/22/%E5%8A%A0%E9%80%9F%E7%88%AC%E8%99%AB/">传送门</a>  </p>
+<h2 id="坚持60s"><a href="#坚持60s" class="headerlink" title="坚持60s"></a>坚持60s</h2><p><code>菜狗发现最近菜猫不爱理他，反而迷上了菜鸡</code>  </p>
+<ul>
+<li>下载了一个jar包，打开看一看，出题人又玩我，行，你nb  <ul>
+<li><img src="https://ae01.alicdn.com/kf/Hea0764505fcf4b389aa9cd2724d45a25f.jpg" alt>  </li>
+</ul>
+</li>
+<li>反编译jar包，找到了一个flag  <ul>
+<li></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://ae01.alicdn.com/kf/H74045ebb56114cd6a92287e085d656b32.jpg" alt>  </p>
+<ul>
+<li>开心的填了上去，不对，giao，又进行了加密，base64解密得到答案  <ul>
+<li><code>flag{DajiDali_JinwanChiji}</code>  </li>
+</ul>
+</li>
+</ul>
+<h2 id="gif"><a href="#gif" class="headerlink" title="gif"></a>gif</h2><p><code>菜狗截获了一张菜鸡发给菜猫的动态图，却发现另有玄机</code>  </p>
+<ul>
+<li>下载了一个压缩包，解压后发现了一个文件夹，里面又很多图片，哦一黑一白，真像01编码啊，原来是二进制啊，白色代表0黑色代表1，写出来  </li>
+<li><img src="https://ae01.alicdn.com/kf/H820513c9a7c74eda9513b47eb7c447956.jpg" alt>  <ul>
+<li>得到答案<code>flag{FuN_giF}</code>  </li>
+</ul>
+</li>
+</ul>
+<h2 id="掀桌子"><a href="#掀桌子" class="headerlink" title="掀桌子"></a>掀桌子</h2><p><code>菜狗截获了一份报文如下c8e9aca0c6f2e5f3e8c4efe7a1a0d4e8e5a0e6ece1e7a0e9f3baa0e8eafae3f9e4eafae2eae4e3eaebfaebe3f5e7e9f3e4e3e8eaf9eaf3e2e4e6f2，生气地掀翻了桌子(╯°□°）╯︵ ┻━┻</code>  </p>
+<ul>
+<li>获取了一个字符串，一看只有0-9，a-f, 啊刚好是16进制啊，尝试各种解码失败，什么base16都整上了，蠢。  </li>
+<li>16进制转成整数吧，两个一组发现最大的数250， 最小的160，而ascii的可显示字符从32开始，ascii的最大为128，猜想减去128，刚好最小的到32，试一试，成了  </li>
+<li><img src="https://ae01.alicdn.com/kf/H40795c0337f041e98ea411243cec3d5cz.jpg" alt>  <ul>
+<li>答案：<code>flag{hjzcydjzbjdcjkzkcugisdchjyjsbdfr}</code>  </li>
+</ul>
+</li>
+</ul>
+<h2 id="如来十三掌"><a href="#如来十三掌" class="headerlink" title="如来十三掌"></a>如来十三掌</h2><p><code>菜狗为了打败菜猫，学了一套如来十三掌。</code>  </p>
+<ul>
+<li>下载了一个word文件，打开看到了一堆看不懂的‘汉字’，不止所措，看起来像佛语（当然我看不出来）  </li>
+<li>找到了一个网站<code>http://www.keyfc.net/bbs/tools/tudoucode.aspx</code>,填入佛语，得到一个字符串  <ul>
+<li><code>MzkuM3gvMUAwnzuvn3cgozMlMTuvqzAenJchMUAeqzWenzEmLJW9</code>  </li>
+</ul>
+</li>
+<li>十三掌，，rot13加密。。。emmmm这谁想得到啊  <ul>
+<li>解密得到<code>ZmxhZ3tiZHNjamhia3ptbmZyZGhidmNraWpuZHNrdmJramRzYWJ9</code>  </li>
+</ul>
+</li>
+<li>还是看不懂，base64解密得到<code>flag{bdscjhbkzmnfrdhbvckijndskvbkjdsab}</code>  </li>
+<li>这谁想得到啊，啊啊啊啊啊啊啊啊啊啊啊啊啊，又搞了两个小时  </li>
+</ul>
+<h2 id="base64stego"><a href="#base64stego" class="headerlink" title="base64stego"></a>base64stego</h2><p><code>菜狗经过几天的学习，终于发现了如来十三掌最后一步的精髓</code>  </p>
+<ul>
+<li><p>下载了一个文件，解压后发现需要密码，winrar修复了一下发现居然能打开了。记住这个套路了。  </p>
+</li>
+<li><p>解压打开后得到一个txt文件  </p>
+<ul>
+<li><img src="https://ae01.alicdn.com/kf/H19b0140e80fb4b5787f1b942e2b6520cy.jpg" alt>  </li>
+<li>明显的base64加密，在线解密后发现是一个介绍base64隐写的字符串  </li>
+</ul>
+</li>
+<li><p>啊啊啊啊啊啊啊，恶心的隐写，花了快2个小时才搞懂是啥，又花了两个小时敲代码，我佛了，代码献上  </p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">"G://桌面//stego.txt"</span><span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>  
+    a <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'\n'</span><span class="token punctuation">)</span>  
+s_d <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>  
+<span class="token keyword">for</span> each <span class="token keyword">in</span> a<span class="token punctuation">:</span>  
+    <span class="token keyword">if</span> each<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'=='</span><span class="token punctuation">:</span>  
+        each <span class="token operator">=</span> each<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">]</span>  
+        m <span class="token operator">=</span> b64_mapping<span class="token punctuation">[</span>each<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span>  
+        mid <span class="token operator">=</span> <span class="token string">'{0:06b}'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>m<span class="token punctuation">)</span>  
+        s_d<span class="token punctuation">.</span>append<span class="token punctuation">(</span>mid<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">4</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  
+    <span class="token keyword">elif</span> each<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'='</span><span class="token punctuation">:</span>  
+        each <span class="token operator">=</span> each<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>  
+        m <span class="token operator">=</span> b64_mapping<span class="token punctuation">[</span>each<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span>  
+        mid <span class="token operator">=</span> <span class="token string">'{0:06b}'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>m<span class="token punctuation">)</span>  
+        s_d<span class="token punctuation">.</span>append<span class="token punctuation">(</span>mid<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  
+s <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>s_d<span class="token punctuation">)</span>  
+answer <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">[</span>chr<span class="token punctuation">(</span>int<span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token punctuation">:</span>i<span class="token operator">+</span><span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>len<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  
+<span class="token keyword">print</span><span class="token punctuation">(</span>answer<span class="token punctuation">)</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>答案<code>flag{Base_sixty_four_point_five}</code>  </li>
+</ul>
+</li>
+<li><p>总结：付出总会有收获的对吧^_^,加油啊  </p>
+</li>
+</ul>
+<h2 id="功夫再高也怕菜刀"><a href="#功夫再高也怕菜刀" class="headerlink" title="功夫再高也怕菜刀"></a>功夫再高也怕菜刀</h2><ul>
+<li>下载一个文件，一看格式不知道是啥，用foremost分离得到一个压缩包  <ul>
+<li>安利这个博主写的foremost使用教程，贼好用<code>https://www.cnblogs.com/cnnnnnn/p/8994362.html</code>  </li>
+</ul>
+</li>
+<li>压缩包里面有一个<strong>flag.txt</strong>文件还需要密码，那就要找密码喽  <ul>
+<li>用wireshark分析流量包，是打开原始文件，分组字节流查找flag，找到了一个名为6666.jpg的文件流  <ul>
+<li><img src="https://ae01.alicdn.com/kf/He1a66d285e464723a044f5e50879a4a7R.jpg" alt>  </li>
+</ul>
+</li>
+<li>追踪该TCP流，jpg以FFD8开始，以最后一个FFD9结尾，  <ul>
+<li><img src="https://ae01.alicdn.com/kf/Hc4abb24097274db0b50c86a6c4dd5cfaH.jpg" alt>  </li>
+</ul>
+</li>
+<li>还要获取到该图片，复制中间的字符串，粘贴到winhex中，注意粘贴时选择ASCII Hex格式，保存为.jpg。  <ul>
+<li><img src="https://ae01.alicdn.com/kf/H6e410f904ffb4585ae78d1258a1a369fn.jpg" alt>  </li>
+</ul>
+</li>
+<li>最后的到的图片，密码<code>Th1s_1s_p4sswd_!!!</code><img src="https://ae01.alicdn.com/kf/H930292aa07cb425d881e43c78d90b204K.jpg" alt>  </li>
+</ul>
+</li>
+<li>压缩包输入密码，得到<code>flag.txt</code>中的答案<code>flag{3OpWdJ-JP6FzK-koCMAK-VkfWBq-75Un2z}</code>  </li>
+<li>两个小时不多不少，哎有收获就行，加油呀，路还很长^_^。  </li>
+</ul>
 
             </div>
             <hr />
@@ -720,9 +823,9 @@ os<span class="token punctuation">.</span>markdirs<span class="token punctuation
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《简单爬虫总结》
+                    《攻防世界：misc题解(新手)》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/03/22/2019-pa-chong-zong-jie/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/06/2019-gong-fang-shi-jie-misc-ti-jie/" property="cc:attributionName"
                rel="cc:attributionURL">
                 ZS
             </a> 采用
@@ -763,7 +866,7 @@ os<span class="token punctuation">.</span>markdirs<span class="token punctuation
         repo: 'newlzs.github.io',
         owner: 'newlzs',
         admin: "newlzs",
-        id: '2019/03/22/2019-pa-chong-zong-jie/',
+        id: '2019/09/06/2019-gong-fang-shi-jie-misc-ti-jie/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -788,31 +891,31 @@ os<span class="token punctuation">.</span>markdirs<span class="token punctuation
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/03/25/2019-shuang-ceng-shen-jing-wang-luo/">
+                <a href="/2019/09/14/2019-gong-fang-shi-jie-pwn-ru-men-lian-xi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/28.jpg" class="responsive-img" alt="神经网络">
+                        <img src="/medias/featureimages/25.jpg" class="responsive-img" alt="攻防世界-pwn入门练习">
                         
-                        <span class="card-title">神经网络</span>
+                        <span class="card-title">攻防世界-pwn入门练习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            花了一个晚上终于搞定了第三周的作业，下周也要加油啊！😁
+                            逆向还是有点套路的，但是呢过程就比较复杂了，记住套路还要敢猜感想
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-25
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-14
                         </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/机器学习/" class="post-category" target="_blank">
-                                    机器学习
+                            <a href="/categories/网络安全/" class="post-category" target="_blank">
+                                    网络安全
                                 </a>
                             
                             
@@ -822,12 +925,12 @@ os<span class="token punctuation">.</span>markdirs<span class="token punctuation
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/吴恩达深度学习笔记/" target="_blank">
-                        <span class="chip bg-color">吴恩达深度学习笔记</span>
+                    <a href="/tags/CTF/" target="_blank">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
-                    <a href="/tags/神经网络/" target="_blank">
-                        <span class="chip bg-color">神经网络</span>
+                    <a href="/tags/竞赛/" target="_blank">
+                        <span class="chip bg-color">竞赛</span>
                     </a>
                     
                 </div>
@@ -841,34 +944,31 @@ os<span class="token punctuation">.</span>markdirs<span class="token punctuation
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/03/22/2019-jia-su-pa-chong/">
+                <a href="/2019/08/22/2019-wechall-lian-xi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="加速爬虫-分布，多进程">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="WeChall 刷题">
                         
-                        <span class="card-title">加速爬虫-分布，多进程</span>
+                        <span class="card-title">WeChall 刷题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            加速爬虫多进程分布式准备import multiprocessing as mp  
-import time  
-from urllib.request import urlopen, urljoin  
-from bs4 import B
+                            为了参见网络安全实验班，刷牙刷牙题。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-22
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-22
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/python/" class="post-category" target="_blank">
-                                    python
+                            <a href="/categories/网络安全/" class="post-category" target="_blank">
+                                    网络安全
                                 </a>
                             
                             
@@ -878,12 +978,12 @@ from bs4 import B
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python/" target="_blank">
-                        <span class="chip bg-color">python</span>
+                    <a href="/tags/CTF/" target="_blank">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
-                    <a href="/tags/爬虫/" target="_blank">
-                        <span class="chip bg-color">爬虫</span>
+                    <a href="/tags/竞赛/" target="_blank">
+                        <span class="chip bg-color">竞赛</span>
                     </a>
                     
                 </div>

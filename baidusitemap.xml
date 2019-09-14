@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://ainiya.xyz/2019/09/06/2019-gong-fang-shi-jie-misc-ti-jie/</loc>
+    <lastmod>2019-09-14</lastmod>
+  </url>  <url>
+    <loc>https://ainiya.xyz/2019/09/14/2019-gong-fang-shi-jie-pwn-ru-men-lian-xi/</loc>
+    <lastmod>2019-09-14</lastmod>
+  </url>  <url>
+    <loc>https://ainiya.xyz/2019/02/19/2019-zheng-ze-biao-da-shi/</loc>
+    <lastmod>2019-09-14</lastmod>
+  </url>  <url>
+    <loc>https://ainiya.xyz/2019/08/22/2019-wechall-lian-xi/</loc>
+    <lastmod>2019-09-14</lastmod>
+  </url>  <url>
     <loc>https://ainiya.xyz/2019/05/13/2019-python-xian-cheng-nei-bu-han-shu-chuan-can/</loc>
     <lastmod>2019-09-14</lastmod>
   </url>  <url>
@@ -25,9 +37,6 @@
     <loc>https://ainiya.xyz/2019/03/20/2019-github-bo-ke/</loc>
     <lastmod>2019-09-13</lastmod>
   </url>  <url>
-    <loc>https://ainiya.xyz/2019/09/06/2019-misc-ti-jie/</loc>
-    <lastmod>2019-09-13</lastmod>
-  </url>  <url>
     <loc>https://ainiya.xyz/2019/08/06/2019-dian-nao-fan-ge-qiang/</loc>
     <lastmod>2019-09-13</lastmod>
   </url>  <url>
@@ -43,13 +52,7 @@
     <loc>https://ainiya.xyz/2019/07/24/2019-matplotlib/</loc>
     <lastmod>2019-09-13</lastmod>
   </url>  <url>
-    <loc>https://ainiya.xyz/2019/08/22/2019-wechall-lian-xi/</loc>
-    <lastmod>2019-09-13</lastmod>
-  </url>  <url>
     <loc>https://ainiya.xyz/2019/01/22/2019-zheng-ze-hua/</loc>
-    <lastmod>2019-09-13</lastmod>
-  </url>  <url>
-    <loc>https://ainiya.xyz/2019/02/19/2019-zheng-ze-biao-da-shi/</loc>
     <lastmod>2019-09-13</lastmod>
   </url>  <url>
     <loc>https://ainiya.xyz/2019/02/18/2019-you-qu-de-ti/</loc>

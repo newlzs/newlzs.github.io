@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://ainiya.xyz/2019/09/06/2019-gong-fang-shi-jie-misc-ti-jie/</loc>
+    
+    <lastmod>2019-09-14T12:25:57.777Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ainiya.xyz/2019/09/14/2019-gong-fang-shi-jie-pwn-ru-men-lian-xi/</loc>
+    
+    <lastmod>2019-09-14T12:25:35.106Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ainiya.xyz/2019/02/19/2019-zheng-ze-biao-da-shi/</loc>
+    
+    <lastmod>2019-09-14T12:20:34.873Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ainiya.xyz/2019/08/22/2019-wechall-lian-xi/</loc>
+    
+    <lastmod>2019-09-14T12:13:00.663Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://ainiya.xyz/2019/05/13/2019-python-xian-cheng-nei-bu-han-shu-chuan-can/</loc>
     
     <lastmod>2019-09-14T01:18:36.164Z</lastmod>
@@ -58,13 +86,6 @@
   </url>
   
   <url>
-    <loc>https://ainiya.xyz/2019/09/06/2019-misc-ti-jie/</loc>
-    
-    <lastmod>2019-09-13T17:08:37.862Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://ainiya.xyz/about/index.html</loc>
     
     <lastmod>2019-09-13T14:12:37.053Z</lastmod>
@@ -107,23 +128,9 @@
   </url>
   
   <url>
-    <loc>https://ainiya.xyz/2019/08/22/2019-wechall-lian-xi/</loc>
-    
-    <lastmod>2019-09-13T13:20:09.187Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://ainiya.xyz/2019/01/22/2019-zheng-ze-hua/</loc>
     
     <lastmod>2019-09-13T13:20:09.182Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://ainiya.xyz/2019/02/19/2019-zheng-ze-biao-da-shi/</loc>
-    
-    <lastmod>2019-09-13T13:20:09.179Z</lastmod>
     
   </url>
   
@@ -247,14 +254,14 @@
   </url>
   
   <url>
-    <loc>https://ainiya.xyz/categories/index.html</loc>
+    <loc>https://ainiya.xyz/archives/index.html</loc>
     
     <lastmod>2019-08-20T16:26:12.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://ainiya.xyz/archives/index.html</loc>
+    <loc>https://ainiya.xyz/categories/index.html</loc>
     
     <lastmod>2019-08-20T16:26:12.000Z</lastmod>
     
