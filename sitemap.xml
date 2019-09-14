@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://ainiya.xyz/2019/05/13/2019-python-xian-cheng-nei-bu-han-shu-chuan-can/</loc>
+    
+    <lastmod>2019-09-14T01:18:36.164Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ainiya.xyz/2019/05/06/2019-python-xlrd-jian-dan-zong-jie/</loc>
+    
+    <lastmod>2019-09-14T01:18:16.752Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ainiya.xyz/2019/02/26/2019-patb1024/</loc>
+    
+    <lastmod>2019-09-14T01:17:58.878Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ainiya.xyz/2019/03/26/2019-str-bytes/</loc>
+    
+    <lastmod>2019-09-14T01:17:27.958Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ainiya.xyz/2019/03/19/2019-myfirstblog/</loc>
+    
+    <lastmod>2019-09-14T01:16:50.105Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://ainiya.xyz/2019/03/22/2019-pa-chong-zong-jie/</loc>
     
     <lastmod>2019-09-13T17:53:04.978Z</lastmod>
@@ -12,13 +47,6 @@
     <loc>https://ainiya.xyz/2019/07/26/2019-scipy/</loc>
     
     <lastmod>2019-09-13T17:51:55.207Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://ainiya.xyz/2019/02/26/2019-patb1024/</loc>
-    
-    <lastmod>2019-09-13T17:46:11.518Z</lastmod>
     
   </url>
   
@@ -65,37 +93,9 @@
   </url>
   
   <url>
-    <loc>https://ainiya.xyz/2019/03/26/2019-str-bytes/</loc>
-    
-    <lastmod>2019-09-13T13:20:09.212Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://ainiya.xyz/2019/05/13/2019-python-xian-cheng-nei-bu-han-shu-chuan-can/</loc>
-    
-    <lastmod>2019-09-13T13:20:09.206Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://ainiya.xyz/2019/05/06/2019-python-xlrd-jian-dan-zong-jie/</loc>
-    
-    <lastmod>2019-09-13T13:20:09.203Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://ainiya.xyz/2019/07/22/2019-numpy/</loc>
     
     <lastmod>2019-09-13T13:20:09.200Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://ainiya.xyz/2019/03/19/2019-myfirstblog/</loc>
-    
-    <lastmod>2019-09-13T13:20:09.197Z</lastmod>
     
   </url>
   

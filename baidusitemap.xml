@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://ainiya.xyz/2019/05/13/2019-python-xian-cheng-nei-bu-han-shu-chuan-can/</loc>
+    <lastmod>2019-09-14</lastmod>
+  </url>  <url>
+    <loc>https://ainiya.xyz/2019/05/06/2019-python-xlrd-jian-dan-zong-jie/</loc>
+    <lastmod>2019-09-14</lastmod>
+  </url>  <url>
+    <loc>https://ainiya.xyz/2019/02/26/2019-patb1024/</loc>
+    <lastmod>2019-09-14</lastmod>
+  </url>  <url>
+    <loc>https://ainiya.xyz/2019/03/26/2019-str-bytes/</loc>
+    <lastmod>2019-09-14</lastmod>
+  </url>  <url>
+    <loc>https://ainiya.xyz/2019/03/19/2019-myfirstblog/</loc>
+    <lastmod>2019-09-14</lastmod>
+  </url>  <url>
     <loc>https://ainiya.xyz/2019/03/22/2019-pa-chong-zong-jie/</loc>
     <lastmod>2019-09-13</lastmod>
   </url>  <url>
     <loc>https://ainiya.xyz/2019/07/26/2019-scipy/</loc>
-    <lastmod>2019-09-13</lastmod>
-  </url>  <url>
-    <loc>https://ainiya.xyz/2019/02/26/2019-patb1024/</loc>
     <lastmod>2019-09-13</lastmod>
   </url>  <url>
     <loc>https://ainiya.xyz/2019/03/20/2019-github-bo-ke/</loc>
@@ -25,19 +37,7 @@
     <loc>https://ainiya.xyz/2019/06/02/2019-ubuntu-vscode-c-huan-jing/</loc>
     <lastmod>2019-09-13</lastmod>
   </url>  <url>
-    <loc>https://ainiya.xyz/2019/03/26/2019-str-bytes/</loc>
-    <lastmod>2019-09-13</lastmod>
-  </url>  <url>
-    <loc>https://ainiya.xyz/2019/05/13/2019-python-xian-cheng-nei-bu-han-shu-chuan-can/</loc>
-    <lastmod>2019-09-13</lastmod>
-  </url>  <url>
-    <loc>https://ainiya.xyz/2019/05/06/2019-python-xlrd-jian-dan-zong-jie/</loc>
-    <lastmod>2019-09-13</lastmod>
-  </url>  <url>
     <loc>https://ainiya.xyz/2019/07/22/2019-numpy/</loc>
-    <lastmod>2019-09-13</lastmod>
-  </url>  <url>
-    <loc>https://ainiya.xyz/2019/03/19/2019-myfirstblog/</loc>
     <lastmod>2019-09-13</lastmod>
   </url>  <url>
     <loc>https://ainiya.xyz/2019/07/24/2019-matplotlib/</loc>
