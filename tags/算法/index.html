@@ -25,6 +25,9 @@
     <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
+    
+    <link rel="stylesheet" href="/live2d/css/live2d.css">
+    
     <style type="text/css">
         
     </style>
@@ -360,10 +363,10 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 </a>
                 
                 
-                <a href="/tags/计科/" title="计科: 1">
+                <a href="/tags/计算机网络/" title="计算机网络: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="计科" style="background-color: #F8F9F9;">计科
+                            data-tagname="计算机网络" style="background-color: #F8F9F9;">计算机网络
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -378,29 +381,11 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 </a>
                 
                 
-                <a href="/tags/计算机网络/" title="计算机网络: 1">
+                <a href="/tags/计科/" title="计科: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="计算机网络" style="background-color: #D7BDE2;">计算机网络
+                            data-tagname="计科" style="background-color: #D7BDE2;">计科
                         <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/吴恩达深度学习笔记/" title="吴恩达深度学习笔记: 4">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="吴恩达深度学习笔记" style="background-color: #A3E4D7;">吴恩达深度学习笔记
-                        <span class="tag-length">4</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/爬虫/" title="爬虫: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="爬虫" style="background-color: #85C1E9;">爬虫
-                        <span class="tag-length">2</span>
                     </span>
                 </a>
                 
@@ -408,8 +393,17 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 <a href="/tags/算法/" title="算法: 5">
                     <span class="chip center-align waves-effect waves-light
                              chip-active "
-                            data-tagname="算法" style="background-color: #F8C471;">算法
+                            data-tagname="算法" style="background-color: #A3E4D7;">算法
                         <span class="tag-length">5</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/吴恩达深度学习笔记/" title="吴恩达深度学习笔记: 4">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="吴恩达深度学习笔记" style="background-color: #85C1E9;">吴恩达深度学习笔记
+                        <span class="tag-length">4</span>
                     </span>
                 </a>
                 
@@ -417,8 +411,17 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 <a href="/tags/翻个墙/" title="翻个墙: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="翻个墙" style="background-color: #F9E79F;">翻个墙
+                            data-tagname="翻个墙" style="background-color: #F8C471;">翻个墙
                         <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/爬虫/" title="爬虫: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="爬虫" style="background-color: #F9E79F;">爬虫
+                        <span class="tag-length">2</span>
                     </span>
                 </a>
                 
@@ -679,6 +682,25 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 
 
 <footer class="page-footer bg-color">
+    <!-- 血小板 -->
+    <div id="landlord">
+        <div class="message" style="opacity:0"></div>
+        <canvas id="live2d" width="560" height="500" class="live2d"></canvas>
+        <div class="hide-button">隐藏</div>
+    </div>
+    <!-- live2d 血小板 -->
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        var message_Path = '/live2d/'
+        var home_Path = 'https://haremu.com/'
+    </script>
+    <script type="text/javascript" src="/live2d/js/live2d.js"></script>
+    <script type="text/javascript" src="/live2d/js/message.js"></script>
+    <script type="text/javascript">
+        loadlive2d("live2d", "/live2d/model/xiaoban/model.json");
+    </script>
+    
+    
     <div class="container row center-align">
         <div class="col s12 m8 l8 copy-right">
             &copy; 2019 WeiYang. All Rights Reserved.

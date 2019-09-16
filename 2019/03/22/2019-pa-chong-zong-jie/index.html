@@ -28,6 +28,9 @@ html = urlopen(&amp;#39;网址&amp;#39;).read().decode(&amp;#39;utf-8&amp;#39;">
     <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
+    
+    <link rel="stylesheet" href="/live2d/css/live2d.css">
+    
     <style type="text/css">
         
     </style>
@@ -788,6 +791,59 @@ os<span class="token punctuation">.</span>markdirs<span class="token punctuation
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
+                <a href="/2019/03/25/2019-shuang-ceng-shen-jing-wang-luo/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/28.jpg" class="responsive-img" alt="神经网络">
+                        
+                        <span class="card-title">神经网络</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            花了一个晚上终于搞定了第三周的作业，下周也要加油啊！😁
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-25
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/机器学习/" class="post-category" target="_blank">
+                                    机器学习
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/吴恩达深度学习笔记/" target="_blank">
+                        <span class="chip bg-color">吴恩达深度学习笔记</span>
+                    </a>
+                    
+                    <a href="/tags/神经网络/" target="_blank">
+                        <span class="chip bg-color">神经网络</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
                 <a href="/2019/03/22/2019-jia-su-pa-chong/">
                     <div class="card-image">
                         
@@ -807,9 +863,9 @@ from bs4 import B
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-22
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-22
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -831,51 +887,6 @@ from bs4 import B
                     
                     <a href="/tags/爬虫/" target="_blank">
                         <span class="chip bg-color">爬虫</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/03/20/2019-github-bo-ke/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="GitHub 第一坑">
-                        
-                        <span class="card-title">GitHub 第一坑</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            GitHub 第一坑为什么自己在GitHub写的博客换行不正常
-这几天快被GitHub的博客给坑死了,今天填了这个坑,愿我们永不落坑  
-
-原因其实很简单GitHub对你用markdown写的文档编译成html时,只有当行末有至少两个空格时
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-20
-                            </span>
-                        <span class="publish-author">
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/填坑/" target="_blank">
-                        <span class="chip bg-color">填坑</span>
                     </a>
                     
                 </div>
@@ -1024,6 +1035,25 @@ from bs4 import B
 
 
 <footer class="page-footer bg-color">
+    <!-- 血小板 -->
+    <div id="landlord">
+        <div class="message" style="opacity:0"></div>
+        <canvas id="live2d" width="560" height="500" class="live2d"></canvas>
+        <div class="hide-button">隐藏</div>
+    </div>
+    <!-- live2d 血小板 -->
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        var message_Path = '/live2d/'
+        var home_Path = 'https://haremu.com/'
+    </script>
+    <script type="text/javascript" src="/live2d/js/live2d.js"></script>
+    <script type="text/javascript" src="/live2d/js/message.js"></script>
+    <script type="text/javascript">
+        loadlive2d("live2d", "/live2d/model/xiaoban/model.json");
+    </script>
+    
+    
     <div class="container row center-align">
         <div class="col s12 m8 l8 copy-right">
             &copy; 2019 WeiYang. All Rights Reserved.
