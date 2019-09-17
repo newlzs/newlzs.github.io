@@ -41,7 +41,7 @@ sudo apt install g++
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
     <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-
+	<!-- 百度分析 -->
     <script>
         var _hmt = _hmt || [];
         (function() {
@@ -50,6 +50,15 @@ sudo apt install g++
           var s = document.getElementsByTagName("script")[0]; 
           s.parentNode.insertBefore(hm, s);
         })();
+    </script>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136533117-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-136533117-2');
     </script>
 
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
@@ -840,12 +849,12 @@ ThreadLocal解决方案
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python/" target="_blank">
-                        <span class="chip bg-color">python</span>
-                    </a>
-                    
                     <a href="/tags/计科/" target="_blank">
                         <span class="chip bg-color">计科</span>
+                    </a>
+                    
+                    <a href="/tags/python/" target="_blank">
+                        <span class="chip bg-color">python</span>
                     </a>
                     
                 </div>
