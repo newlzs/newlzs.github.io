@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ainiya.xyz/"/>
-  <updated>2019-09-16T12:52:34.584Z</updated>
+  <updated>2019-09-17T01:45:48.873Z</updated>
   <id>https://ainiya.xyz/</id>
   
   <author>
@@ -17,11 +17,33 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>攻防世界：web题(新手)</title>
+    <link href="https://ainiya.xyz/2019/09/17/2019-gong-fang-shi-jie-web-ti-xin-shou/"/>
+    <id>https://ainiya.xyz/2019/09/17/2019-gong-fang-shi-jie-web-ti-xin-shou/</id>
+    <published>2019-09-17T04:32:09.000Z</published>
+    <updated>2019-09-17T01:45:48.873Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="网络安全" scheme="https://ainiya.xyz/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
+    
+    
+      <category term="CTF" scheme="https://ainiya.xyz/tags/CTF/"/>
+    
+      <category term="竞赛" scheme="https://ainiya.xyz/tags/%E7%AB%9E%E8%B5%9B/"/>
+    
+      <category term="web" scheme="https://ainiya.xyz/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
     <title>攻防世界-pwn入门练习</title>
     <link href="https://ainiya.xyz/2019/09/14/2019-gong-fang-shi-jie-pwn-ru-men-lian-xi/"/>
     <id>https://ainiya.xyz/2019/09/14/2019-gong-fang-shi-jie-pwn-ru-men-lian-xi/</id>
     <published>2019-09-14T04:32:09.000Z</published>
-    <updated>2019-09-16T12:52:34.584Z</updated>
+    <updated>2019-09-17T01:49:18.360Z</updated>
     
     <summary type="html">
     
@@ -42,6 +64,8 @@
     
       <category term="竞赛" scheme="https://ainiya.xyz/tags/%E7%AB%9E%E8%B5%9B/"/>
     
+      <category term="pwn" scheme="https://ainiya.xyz/tags/pwn/"/>
+    
   </entry>
   
   <entry>
@@ -49,7 +73,7 @@
     <link href="https://ainiya.xyz/2019/09/06/2019-gong-fang-shi-jie-misc-ti-jie/"/>
     <id>https://ainiya.xyz/2019/09/06/2019-gong-fang-shi-jie-misc-ti-jie/</id>
     <published>2019-09-06T04:32:09.000Z</published>
-    <updated>2019-09-14T12:25:57.777Z</updated>
+    <updated>2019-09-17T01:49:40.267Z</updated>
     
     <summary type="html">
     
@@ -69,6 +93,8 @@
       <category term="CTF" scheme="https://ainiya.xyz/tags/CTF/"/>
     
       <category term="竞赛" scheme="https://ainiya.xyz/tags/%E7%AB%9E%E8%B5%9B/"/>
+    
+      <category term="misc" scheme="https://ainiya.xyz/tags/misc/"/>
     
   </entry>
   
@@ -367,32 +393,6 @@
   </entry>
   
   <entry>
-    <title>1.2偏差与方差</title>
-    <link href="https://ainiya.xyz/2019/04/09/2019-pian-chai-yu-fang-chai/"/>
-    <id>https://ainiya.xyz/2019/04/09/2019-pian-chai-yu-fang-chai/</id>
-    <published>2019-04-09T04:32:09.000Z</published>
-    <updated>2019-09-13T11:17:53.891Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;1-2-偏差与方差&quot;&gt;&lt;a href=&quot;#1-2-偏差与方差&quot; class=&quot;headerlink&quot; title=&quot;1.2 偏差与方差&quot;&gt;&lt;/a&gt;1.2 偏差与方差&lt;/h2&gt;&lt;h3 id=&quot;二者在深度学习上的现状&quot;&gt;&lt;a href=&quot;#二者在深度学习上的现状&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="机器学习" scheme="https://ainiya.xyz/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="吴恩达深度学习笔记" scheme="https://ainiya.xyz/tags/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
     <title>深层神经网络</title>
     <link href="https://ainiya.xyz/2019/04/09/2019-shen-ceng-shen-jing-wang-luo/"/>
     <id>https://ainiya.xyz/2019/04/09/2019-shen-ceng-shen-jing-wang-luo/</id>
@@ -406,6 +406,32 @@
         
         
           &lt;h1 id=&quot;第四周作业&quot;&gt;&lt;a href=&quot;#第四周作业&quot; class=&quot;headerlink&quot; title=&quot;第四周作业&quot;&gt;&lt;/a&gt;第四周作业&lt;/h1&gt;&lt;h2 id=&quot;知识回顾&quot;&gt;&lt;a href=&quot;#知识回顾&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="机器学习" scheme="https://ainiya.xyz/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="吴恩达深度学习笔记" scheme="https://ainiya.xyz/tags/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>1.2偏差与方差</title>
+    <link href="https://ainiya.xyz/2019/04/09/2019-pian-chai-yu-fang-chai/"/>
+    <id>https://ainiya.xyz/2019/04/09/2019-pian-chai-yu-fang-chai/</id>
+    <published>2019-04-09T04:32:09.000Z</published>
+    <updated>2019-09-13T11:17:53.891Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1-2-偏差与方差&quot;&gt;&lt;a href=&quot;#1-2-偏差与方差&quot; class=&quot;headerlink&quot; title=&quot;1.2 偏差与方差&quot;&gt;&lt;/a&gt;1.2 偏差与方差&lt;/h2&gt;&lt;h3 id=&quot;二者在深度学习上的现状&quot;&gt;&lt;a href=&quot;#二者在深度学习上的现状&quot;
         
       
     
@@ -521,35 +547,6 @@
     
     
       <category term="html" scheme="https://ainiya.xyz/tags/html/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>str-bytes</title>
-    <link href="https://ainiya.xyz/2019/03/26/2019-str-bytes/"/>
-    <id>https://ainiya.xyz/2019/03/26/2019-str-bytes/</id>
-    <published>2019-03-26T10:32:09.000Z</published>
-    <updated>2019-09-14T01:17:27.958Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;PS: 这个坑踩了无数遍，填了它😀😜😜   &lt;/p&gt;
-&lt;h2 id=&quot;python-字节型数据与字符串的转换&quot;&gt;&lt;a href=&quot;#python-字节型数据与字符串的转换&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="python" scheme="https://ainiya.xyz/categories/python/"/>
-    
-    
-      <category term="填坑" scheme="https://ainiya.xyz/tags/%E5%A1%AB%E5%9D%91/"/>
-    
-      <category term="python" scheme="https://ainiya.xyz/tags/python/"/>
     
   </entry>
   
