@@ -34,15 +34,17 @@
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
     <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+
     <script>
         var _hmt = _hmt || [];
-        (function () {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?46e79e71af0709a5b9106bf20cecc493";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?565fade86908947330ff1e379e1ce450";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
         })();
     </script>
+
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -364,12 +366,12 @@ names = data.sheet_names()
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/数据处理/" target="_blank">
-                            <span class="chip bg-color">数据处理</span>
-                        </a>
-                        
                         <a href="/tags/python/" target="_blank">
                             <span class="chip bg-color">python</span>
+                        </a>
+                        
+                        <a href="/tags/数据处理/" target="_blank">
+                            <span class="chip bg-color">数据处理</span>
                         </a>
                         
                     </div>
@@ -431,29 +433,31 @@ activation functions 每层选取什么激活函数
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/04/09/2019-shen-ceng-shen-jing-wang-luo/" target="_blank">
+                    <a href="/2019/04/09/2019-pian-chai-yu-fang-chai/" target="_blank">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="深层神经网络">
+                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="1.2偏差与方差">
                             
-                            <span class="card-title">深层神经网络</span>
+                            <span class="card-title">1.2偏差与方差</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                            第四周作业知识回顾步骤
-初始化网络参数  
+                            1.2 偏差与方差二者在深度学习上的现状
+一般将二者分开考虑，并不考虑二者的权衡  
 
-前向传播 2.1 计算一层的中线性求和的部分  
- 2.2 计算激活函数的部分（ReLU使用L-1次，Sigmod使用1次）  
- 2.3 结合线性求和与激活函数  
+偏差
+偏差高，欠拟合  
+描述的是训练集的测试结果和事实标签之间的差距  
 
-计算误差  
+方差
+方差高，过拟合  
+描述的是训练集与验证集之间的准确性的差距  
 
-反向传播
+
                             
                         </div>
                         <div class="publish-info">
@@ -487,31 +491,29 @@ activation functions 每层选取什么激活函数
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/04/09/2019-pian-chai-yu-fang-chai/" target="_blank">
+                    <a href="/2019/04/09/2019-shen-ceng-shen-jing-wang-luo/" target="_blank">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="1.2偏差与方差">
+                            <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="深层神经网络">
                             
-                            <span class="card-title">1.2偏差与方差</span>
+                            <span class="card-title">深层神经网络</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                            1.2 偏差与方差二者在深度学习上的现状
-一般将二者分开考虑，并不考虑二者的权衡  
+                            第四周作业知识回顾步骤
+初始化网络参数  
 
-偏差
-偏差高，欠拟合  
-描述的是训练集的测试结果和事实标签之间的差距  
+前向传播 2.1 计算一层的中线性求和的部分  
+ 2.2 计算激活函数的部分（ReLU使用L-1次，Sigmod使用1次）  
+ 2.3 结合线性求和与激活函数  
 
-方差
-方差高，过拟合  
-描述的是训练集与验证集之间的准确性的差距  
+计算误差  
 
-
+反向传播
                             
                         </div>
                         <div class="publish-info">
@@ -1031,7 +1033,7 @@ from bs4 import B
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">34.9k</span>
+            <span class="white-color">35.1k</span>
             
 
             <br>
