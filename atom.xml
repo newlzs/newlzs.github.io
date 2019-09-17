@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ainiya.xyz/"/>
-  <updated>2019-09-17T15:53:51.835Z</updated>
+  <updated>2019-09-17T15:56:44.804Z</updated>
   <id>https://ainiya.xyz/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://ainiya.xyz/2019/09/17/2019-gong-fang-shi-jie-web-ti-xin-shou/"/>
     <id>https://ainiya.xyz/2019/09/17/2019-gong-fang-shi-jie-web-ti-xin-shou/</id>
     <published>2019-09-17T04:32:09.000Z</published>
-    <updated>2019-09-17T15:53:51.835Z</updated>
+    <updated>2019-09-17T15:56:44.804Z</updated>
     
     <summary type="html">
     
@@ -401,32 +401,6 @@
   </entry>
   
   <entry>
-    <title>深层神经网络</title>
-    <link href="https://ainiya.xyz/2019/04/09/2019-shen-ceng-shen-jing-wang-luo/"/>
-    <id>https://ainiya.xyz/2019/04/09/2019-shen-ceng-shen-jing-wang-luo/</id>
-    <published>2019-04-09T04:32:09.000Z</published>
-    <updated>2019-09-13T11:17:53.894Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;第四周作业&quot;&gt;&lt;a href=&quot;#第四周作业&quot; class=&quot;headerlink&quot; title=&quot;第四周作业&quot;&gt;&lt;/a&gt;第四周作业&lt;/h1&gt;&lt;h2 id=&quot;知识回顾&quot;&gt;&lt;a href=&quot;#知识回顾&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="机器学习" scheme="https://ainiya.xyz/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="吴恩达深度学习笔记" scheme="https://ainiya.xyz/tags/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
     <title>1.2偏差与方差</title>
     <link href="https://ainiya.xyz/2019/04/09/2019-pian-chai-yu-fang-chai/"/>
     <id>https://ainiya.xyz/2019/04/09/2019-pian-chai-yu-fang-chai/</id>
@@ -440,6 +414,32 @@
         
         
           &lt;h2 id=&quot;1-2-偏差与方差&quot;&gt;&lt;a href=&quot;#1-2-偏差与方差&quot; class=&quot;headerlink&quot; title=&quot;1.2 偏差与方差&quot;&gt;&lt;/a&gt;1.2 偏差与方差&lt;/h2&gt;&lt;h3 id=&quot;二者在深度学习上的现状&quot;&gt;&lt;a href=&quot;#二者在深度学习上的现状&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="机器学习" scheme="https://ainiya.xyz/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="吴恩达深度学习笔记" scheme="https://ainiya.xyz/tags/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>深层神经网络</title>
+    <link href="https://ainiya.xyz/2019/04/09/2019-shen-ceng-shen-jing-wang-luo/"/>
+    <id>https://ainiya.xyz/2019/04/09/2019-shen-ceng-shen-jing-wang-luo/</id>
+    <published>2019-04-09T04:32:09.000Z</published>
+    <updated>2019-09-13T11:17:53.894Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;第四周作业&quot;&gt;&lt;a href=&quot;#第四周作业&quot; class=&quot;headerlink&quot; title=&quot;第四周作业&quot;&gt;&lt;/a&gt;第四周作业&lt;/h1&gt;&lt;h2 id=&quot;知识回顾&quot;&gt;&lt;a href=&quot;#知识回顾&quot; class=&quot;headerlink&quot;
         
       
     
