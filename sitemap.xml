@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://ainiya.xyz/2019/09/17/2019-gong-fang-shi-jie-web-ti-xin-shou/</loc>
+    
+    <lastmod>2019-09-17T05:34:02.831Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://ainiya.xyz/2019/09/06/2019-gong-fang-shi-jie-misc-ti-jie/</loc>
     
     <lastmod>2019-09-17T01:49:40.267Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>https://ainiya.xyz/2019/09/14/2019-gong-fang-shi-jie-pwn-ru-men-lian-xi/</loc>
     
     <lastmod>2019-09-17T01:49:18.360Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://ainiya.xyz/2019/09/17/2019-gong-fang-shi-jie-web-ti-xin-shou/</loc>
-    
-    <lastmod>2019-09-17T01:45:48.873Z</lastmod>
     
   </url>
   
@@ -261,14 +261,14 @@
   </url>
   
   <url>
-    <loc>https://ainiya.xyz/categories/index.html</loc>
+    <loc>https://ainiya.xyz/archives/index.html</loc>
     
     <lastmod>2019-08-20T16:26:12.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://ainiya.xyz/archives/index.html</loc>
+    <loc>https://ainiya.xyz/categories/index.html</loc>
     
     <lastmod>2019-08-20T16:26:12.000Z</lastmod>
     

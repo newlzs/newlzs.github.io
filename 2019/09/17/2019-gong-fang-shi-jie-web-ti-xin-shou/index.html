@@ -7,7 +7,16 @@
     <meta name="keywords" content="攻防世界：web题(新手), NEUQ  CTF 子实  ZiShi 计算机科学与技术 网络安全">
     <meta name="baidu-site-verification" content>
     <meta name="google-site-verification" content>
-    <meta name="description" content="攻防世界：web题(新手) | ZS BLOG">
+    <meta name="description" content="攻防世界 web题（新手）view_source
+获取在线场景，进入网页
+
+由于右键没法使用，直接从设置里进入
+
+
+得到flag，so easy…….
+
+
+看别人的博客发现还可通过view-source:的方法来访问源码：view-sour">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -455,7 +464,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    231
                 </div>
                 
 
@@ -478,7 +487,43 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="攻防世界-web题（新手）"><a href="#攻防世界-web题（新手）" class="headerlink" title="攻防世界 web题（新手）"></a>攻防世界 web题（新手）</h1><h2 id="view-source"><a href="#view-source" class="headerlink" title="view_source"></a>view_source</h2><ul>
+<li><p>获取在线场景，进入网页</p>
+</li>
+<li><p>由于右键没法使用，直接从设置里进入</p>
+<p><img src="https://ae01.alicdn.com/kf/H9197afd8fc364427ac263ef85fce5b7eE.jpg" alt></p>
+</li>
+<li><p>得到flag，so easy…….</p>
+</li>
+<li><blockquote>
+<p>看别人的博客发现还可通过view-source:的方法来访问源码：<code>view-source:url</code></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="get-post"><a href="#get-post" class="headerlink" title="get_post"></a>get_post</h2><ul>
+<li><p>打开场景网页，显示让我们使用get方式提交一个a值为1的数据，那么可以直接再链接后面添加<code>?a=1</code>即可</p>
+</li>
+<li><p>又让我们使用post方式提交数据，可以写一个简单的包含form表单的页面来实现</p>
+<pre class="line-numbers language-html"><code class="language-html"><span class="token doctype">&lt;!DOCTYPE html></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>POST<span class="token punctuation">"</span></span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://111.198.29.45:55483/?a<span class="token punctuation">=</span>1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>b<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>打开页面点击提交即可。</p>
+</li>
+<li><p>得到答案：<code>cyberpeace{5bb0e92a4c1b563c6ae7b2190d27f12d}</code></p>
+</li>
+<li><p>当然使用浏览器的插件更加方便，懒得下载了，以后没办法了再说吧。。。。。</p>
+</li>
+</ul>
+
             </div>
             <hr />
 
@@ -980,7 +1025,7 @@
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">34.6k</span>
+            <span class="white-color">34.9k</span>
             
 
             <br>
