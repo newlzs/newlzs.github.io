@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://ainiya.xyz/2019/09/18/2019-burpsuite-xiao-bai-ru-men-an-zhuang-yu-shi-yong/</loc>
+    
+    <lastmod>2019-09-18T14:00:08.206Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://ainiya.xyz/2019/09/17/2019-gong-fang-shi-jie-web-ti-xin-shou/</loc>
     
-    <lastmod>2019-09-17T15:56:44.804Z</lastmod>
+    <lastmod>2019-09-18T12:46:18.384Z</lastmod>
     
   </url>
   
@@ -261,13 +268,6 @@
   </url>
   
   <url>
-    <loc>https://ainiya.xyz/categories/index.html</loc>
-    
-    <lastmod>2019-08-20T16:26:12.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://ainiya.xyz/archives/index.html</loc>
     
     <lastmod>2019-08-20T16:26:12.000Z</lastmod>
@@ -276,6 +276,13 @@
   
   <url>
     <loc>https://ainiya.xyz/tags/index.html</loc>
+    
+    <lastmod>2019-08-20T16:26:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ainiya.xyz/categories/index.html</loc>
     
     <lastmod>2019-08-20T16:26:12.000Z</lastmod>
     

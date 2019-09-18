@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ainiya.xyz/"/>
-  <updated>2019-09-17T15:56:44.804Z</updated>
+  <updated>2019-09-18T14:00:08.206Z</updated>
   <id>https://ainiya.xyz/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>BurpSuite小白安装与使用教程</title>
+    <link href="https://ainiya.xyz/2019/09/18/2019-burpsuite-xiao-bai-ru-men-an-zhuang-yu-shi-yong/"/>
+    <id>https://ainiya.xyz/2019/09/18/2019-burpsuite-xiao-bai-ru-men-an-zhuang-yu-shi-yong/</id>
+    <published>2019-09-18T13:32:09.000Z</published>
+    <updated>2019-09-18T14:00:08.206Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Burp-Suite-安装使用教程&quot;&gt;&lt;a href=&quot;#Burp-Suite-安装使用教程&quot; class=&quot;headerlink&quot; title=&quot;Burp Suite 安装使用教程&quot;&gt;&lt;/a&gt;Burp Suite 安装使用教程&lt;/h1&gt;&lt;h2
+        
+      
+    
+    </summary>
+    
+      <category term="网络安全" scheme="https://ainiya.xyz/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
+    
+    
+      <category term="工具" scheme="https://ainiya.xyz/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="web" scheme="https://ainiya.xyz/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
     <title>攻防世界：web题(新手)</title>
     <link href="https://ainiya.xyz/2019/09/17/2019-gong-fang-shi-jie-web-ti-xin-shou/"/>
     <id>https://ainiya.xyz/2019/09/17/2019-gong-fang-shi-jie-web-ti-xin-shou/</id>
     <published>2019-09-17T04:32:09.000Z</published>
-    <updated>2019-09-17T15:56:44.804Z</updated>
+    <updated>2019-09-18T12:46:18.384Z</updated>
     
     <summary type="html">
     
@@ -38,11 +66,11 @@
       <category term="网络安全" scheme="https://ainiya.xyz/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
     
     
+      <category term="web" scheme="https://ainiya.xyz/tags/web/"/>
+    
       <category term="CTF" scheme="https://ainiya.xyz/tags/CTF/"/>
     
       <category term="竞赛" scheme="https://ainiya.xyz/tags/%E7%AB%9E%E8%B5%9B/"/>
-    
-      <category term="web" scheme="https://ainiya.xyz/tags/web/"/>
     
   </entry>
   
@@ -340,9 +368,9 @@
       <category term="python" scheme="https://ainiya.xyz/categories/python/"/>
     
     
-      <category term="计科" scheme="https://ainiya.xyz/tags/%E8%AE%A1%E7%A7%91/"/>
-    
       <category term="python" scheme="https://ainiya.xyz/tags/python/"/>
+    
+      <category term="计科" scheme="https://ainiya.xyz/tags/%E8%AE%A1%E7%A7%91/"/>
     
   </entry>
   
@@ -529,32 +557,6 @@
     
     
       <category term="算法" scheme="https://ainiya.xyz/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTML5</title>
-    <link href="https://ainiya.xyz/2019/04/01/2019-html5/"/>
-    <id>https://ainiya.xyz/2019/04/01/2019-html5/</id>
-    <published>2019-04-01T10:32:09.000Z</published>
-    <updated>2019-09-13T11:17:53.939Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;HTML&quot;&gt;&lt;a href=&quot;#HTML&quot; class=&quot;headerlink&quot; title=&quot;HTML&quot;&gt;&lt;/a&gt;HTML&lt;/h1&gt;&lt;h2 id=&quot;视频&quot;&gt;&lt;a href=&quot;#视频&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="前端" scheme="https://ainiya.xyz/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="html" scheme="https://ainiya.xyz/tags/html/"/>
     
   </entry>
   
