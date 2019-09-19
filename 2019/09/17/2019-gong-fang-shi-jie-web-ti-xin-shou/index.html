@@ -476,14 +476,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    1.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    7 分
                 </div>
                 
                 
@@ -557,8 +557,8 @@ Disallow: f1ag_1s_h3re.php</code></pre></li>
 </ul>
 <h3 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h3><ul>
 <li>多试几次index.php的备份文件名，就行了</li>
-<li>访问：<code>http://111.198.29.45:54006/index.php.sava</code> 的到一个文件，用记事本打开的到答案</li>
-<li>答案：<code>flag=&quot;Cyberpeace{855A1C4B3401294CB6604CCC98BDE334}&quot;</code></li>
+<li>访问：<a href="http://111.198.29.45:54006/index.php.sava" target="_blank" rel="noopener">http://111.198.29.45:54006/index.php.sava</a> 的到一个文件，用记事本打开的到答案</li>
+<li>答案：flag=”Cyberpeace{855A1C4B3401294CB6604CCC98BDE334}”</li>
 </ul>
 <h2 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h2><p><code>X老师告诉小宁他在cookie里放了些东西，小宁疑惑地想：‘这是夹心饼干的意思吗?</code></p>
 <ul>
@@ -663,6 +663,49 @@ s <span class="token operator">=</span> <span class="token string">''</span><spa
 <blockquote>
 <p>下载地址：<a href="https://sourceforge.net/projects/zhongguocaidao/files/2011caidao.zip/download" target="_blank" rel="noopener">https://sourceforge.net/projects/zhongguocaidao/files/2011caidao.zip/download</a></p>
 </blockquote>
+</li>
+</ul>
+<h2 id="command-execution"><a href="#command-execution" class="headerlink" title="command_execution"></a>command_execution</h2><p><code>小宁写了个ping功能,但没有写waf,X老师告诉她这是非常危险的，你知道为什么吗。</code></p>
+<h3 id="Linux-命令行执行多条命令"><a href="#Linux-命令行执行多条命令" class="headerlink" title="Linux 命令行执行多条命令"></a>Linux 命令行执行多条命令</h3><ul>
+<li><p>command1 &amp;&amp; command2</p>
+<p>顺序执行，遇到执行失败的命令则终止</p>
+</li>
+<li><p>command1 || command2</p>
+<p>顺序执行，如果有命令执行成功则终止</p>
+</li>
+<li><p>command1 ; command2</p>
+<p>顺序执行，无论命令是否执行成功，直到执行完所有命令</p>
+</li>
+</ul>
+<h3 id="分析过程-1"><a href="#分析过程-1" class="headerlink" title="分析过程"></a>分析过程</h3><ul>
+<li><p>没有设置waf代表我们输入的任何东西会直接进入程序中</p>
+</li>
+<li><p>随意输入一个地址得到ping的结果发现程序应该是直接和系统的shell进行交互的</p>
+</li>
+<li><p>那么我们首先就是要构造命令查看当前目录下的文件</p>
+<p><code>adsf; ls</code></p>
+<p>发现就只有一个php文件</p>
+</li>
+<li><p>由于我们无法得到任何的文件夹名，只能向上查看文件夹中的内容，执行</p>
+<p><code>asdf; ls ../../../</code>可以查看向上三层的文件夹中的内容</p>
+</li>
+<li><p>发现了一个名为 home的文件夹，查看文件夹中的内容</p>
+<p><code>asdf; ls ../../../home</code>发现了flag.txt</p>
+</li>
+<li><p>执行<code>asdf; cat /home/flag.txt</code>获取到答案</p>
+<pre><code>cyberpeace{d02b8c511da6fc03c9851f347af4414f}</code></pre></li>
+</ul>
+<blockquote>
+<p>其实可以执行 <code>asdf; find / -name flag*</code>的到全部目录下所有以flag开头的文件</p>
+<p><a href="https://blog.csdn.net/wzzfeitian/article/details/40985549" target="_blank" rel="noopener">Linux下各种查找命令（find, grep, which, whereis, locate)</a></p>
+</blockquote>
+<h2 id="simple-php"><a href="#simple-php" class="headerlink" title="simple_php"></a>simple_php</h2><h3 id="is-numeric-绕过"><a href="#is-numeric-绕过" class="headerlink" title="is_numeric 绕过"></a>is_numeric 绕过</h3><ul>
+<li>isnumeric() 用来判断是否位数字，为数字则返回true, 由于php为弱类型语言，则将数字后面加上空格(%20) / 空白符(%00) 或者任意字符即可绕过</li>
+<li>当a=0%20 是，进行<code>if(a==0)</code>判断返回的结果还是true，但<code>if(a)</code> 的结果为非零也为真。</li>
+</ul>
+<h3 id="解题过程-1"><a href="#解题过程-1" class="headerlink" title="解题过程"></a>解题过程</h3><ul>
+<li><p>访问 <code>题目地址</code>+<code>/?a=0%20&amp;b=5555%20</code>即可得到答案</p>
+<p>Cyberpeace{647E37C7627CC3E4019EC69324F66C7C}</p>
 </li>
 </ul>
 
@@ -1161,7 +1204,7 @@ s <span class="token operator">=</span> <span class="token string">''</span><spa
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">36.5k</span>
+            <span class="white-color">36.9k</span>
             
 
             <br>
