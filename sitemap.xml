@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://ainiya.xyz/2019/08/22/2019-wechall-lian-xi/</loc>
+    
+    <lastmod>2019-09-20T14:13:10.849Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://ainiya.xyz/2019/09/17/2019-gong-fang-shi-jie-web-ti-xin-shou/</loc>
     
     <lastmod>2019-09-19T14:33:12.185Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>https://ainiya.xyz/2019/02/19/2019-zheng-ze-biao-da-shi/</loc>
     
     <lastmod>2019-09-14T12:20:34.873Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://ainiya.xyz/2019/08/22/2019-wechall-lian-xi/</loc>
-    
-    <lastmod>2019-09-14T12:13:00.663Z</lastmod>
     
   </url>
   
@@ -268,7 +268,7 @@
   </url>
   
   <url>
-    <loc>https://ainiya.xyz/archives/index.html</loc>
+    <loc>https://ainiya.xyz/categories/index.html</loc>
     
     <lastmod>2019-08-20T16:26:12.000Z</lastmod>
     
@@ -282,7 +282,7 @@
   </url>
   
   <url>
-    <loc>https://ainiya.xyz/categories/index.html</loc>
+    <loc>https://ainiya.xyz/archives/index.html</loc>
     
     <lastmod>2019-08-20T16:26:12.000Z</lastmod>
     

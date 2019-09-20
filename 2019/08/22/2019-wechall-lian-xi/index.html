@@ -477,14 +477,14 @@ Encodings: URL
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    2.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    8 分
                 </div>
                 
                 
@@ -655,6 +655,54 @@ s <span class="token operator">=</span> <span class="token string">""</span>
 <li><p>最后答案 <code>bitwarrior,LameStartup,HiddenIsConfig,RepeatingHistory,AndIknowchown,OhRightThePerms</code></p>
 </li>
 <li><p>wp 写的过程还是比较艰辛，比较负载，小白有点心累。加油呀o(<em>^▽^</em>)┛。</p>
+</li>
+</ul>
+<h2 id="Register-Globals"><a href="#Register-Globals" class="headerlink" title="Register Globals"></a>Register Globals</h2><p>这道题我是一直想通过post的方式对全局变量进行修改，从而忽略了php代码的执行顺序，由于么个判断时独立的，而获取答案的判断条件与前面的post获取变量的条件是不相关的。</p>
+<h3 id="全局变量覆盖"><a href="#全局变量覆盖" class="headerlink" title="全局变量覆盖"></a>全局变量覆盖</h3><blockquote>
+<p>要利用<a href="https://www.php.net/manual/zh/security.globals.php" target="_blank" rel="noopener">Register Global</a>的漏洞</p>
+</blockquote>
+<ul>
+<li><p>漏洞的大致内容如下：</p>
+<p>由于php变量不用初始化的问题并且设置了register_global=ON的情况下，导致php中的变量可以直接通过页面的表单，cookie等进入程序中。</p>
+</li>
+<li><p>实例</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>  
+<span class="token keyword">echo</span> <span class="token string">"Register_globals: "</span><span class="token punctuation">.</span><span class="token punctuation">(</span>int<span class="token punctuation">)</span><span class="token function">ini_get</span><span class="token punctuation">(</span><span class="token string">"register_globals"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token string">"&lt;br/>"</span><span class="token punctuation">;</span>  
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$auth</span><span class="token punctuation">)</span><span class="token punctuation">{</span>  
+   <span class="token keyword">echo</span> <span class="token string">"private!"</span><span class="token punctuation">;</span>  
+<span class="token punctuation">}</span>  
+<span class="token delimiter">?></span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>当Register Global为OFF时代码不会出现问题，但当register_golbal=ON时，提交请求URL<code>xxx.php?auth=1</code> 的结果为：</p>
+<p>Register_globals: 1</p>
+<p>private!;</p>
+<p>但如果上述程序中已经设置了auth=0，那么即使url中包含auth=1，也不会出现变量的覆盖，即不会大衣橱private；</p>
+<hr>
+<p>通过$GLOBALS获取的变量，也可能导致变量覆盖</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>  
+<span class="token keyword">echo</span> <span class="token string">"Register_globals:"</span><span class="token punctuation">.</span><span class="token punctuation">(</span>int<span class="token punctuation">)</span><span class="token function">ini_get</span><span class="token punctuation">(</span><span class="token string">"register_globals"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token string">"&lt;br/>"</span><span class="token punctuation">;</span>  
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">ini_get</span><span class="token punctuation">(</span><span class="token string">'register_globals'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">foreach</span><span class="token punctuation">(</span><span class="token variable">$_REQUEST</span> <span class="token keyword">as</span> <span class="token variable">$k</span><span class="token operator">=</span><span class="token operator">></span><span class="token variable">$v</span><span class="token punctuation">)</span> <span class="token function">unset</span><span class="token punctuation">(</span>$<span class="token punctuation">{</span><span class="token variable">$k</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+<span class="token keyword">print</span> <span class="token variable">$a</span><span class="token punctuation">;</span>  
+<span class="token keyword">print</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span>b<span class="token punctuation">]</span><span class="token punctuation">;</span>  
+<span class="token delimiter">?></span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>上面的程序变量$a未初始化，在register_globals=ON时，在尝试控制$a的值（xxx.php?a=1&amp;b=2），会因为这段代码而出错。</p>
+<p>而当尝试注入“GLOBALS[a]”来覆盖全局变量的值时（xxx.php?GLOBALS[a]=1&amp;b=2），则可以成功控制$a的值，这是因为unset()默认只会销毁局部变量，要销毁全局变量必须要使用$GLOBALS。而在register_globals=OFF时，则无法覆盖到全局变量。</p>
+<blockquote>
+<p>总结：register_globals的意思是注册为全局变量，所以当On的时候，传递过来的值会被直接注册为全局变量而直接使用，当为OFF的时候，就需要到特定的数组中去得到它。unset用于释放给定的变量</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><ul>
+<li><p>查看题目给的php代码，发现register_globals的为on，表示我们可以通过提交url地址来设置全局变量</p>
+</li>
+<li><p>往下面看发现只要login[0]=’admin’ 便可以成功以admin登录，而前面的 if 里面的login初始化由于我们post的密码一定是错误的随意并不会执行</p>
+<p><img src="https://ae01.alicdn.com/kf/H4e1f2cf55c8c4d2fa15e03d5b06b2b01l.jpg" alt></p>
+</li>
+<li><p>所以直接访问</p>
+<blockquote>
+<p><a href="https://www.wechall.net/challenge/training/php/globals/globals.php?login[0]=admin" target="_blank" rel="noopener">https://www.wechall.net/challenge/training/php/globals/globals.php?login[0]=admin</a></p>
+</blockquote>
+<p>即可通过本题。admin不要加引号。。。。。</p>
 </li>
 </ul>
 
@@ -1150,7 +1198,7 @@ s <span class="token operator">=</span> <span class="token string">""</span>
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">36.9k</span>
+            <span class="white-color">37.5k</span>
             
 
             <br>
