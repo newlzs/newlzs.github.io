@@ -4,19 +4,11 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="python-xlrd, NEUQ  CTF 子实  ZiShi 计算机科学与技术 网络安全">
+    <meta name="keywords" content="凤凰挽歌，黑客独白, NEUQ  CTF 子实  ZiShi 计算机科学与技术 网络安全">
     <meta name="baidu-site-verification" content>
     <meta name="google-site-verification" content>
-    <meta name="description" content="python-xlrd打开
-data = xlrd.open_workbook(path) # 打开表格  
-
-工作表
-获取所有工作表的名字  
-names = data.sheet_names()  
-
-
-获取工作表中有效的行数  
- n">
+    <meta name="description" content="这是一片很早转载自《黑客x档案》的一篇文章，是一篇影响我很深的文章，这个杂志已经停刊了，在博客中置顶表达我的敬意。
+还记得当年的5月1日—5月7日吗？美国黑客组织PoisonBox、Prophet、Hi-Tech等，对中国发动了来自网络的攻">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -24,7 +16,7 @@ names = data.sheet_names()
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>python-xlrd | ZS BLOG</title>
+    <title>凤凰挽歌，黑客独白 | ZS BLOG</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -312,13 +304,13 @@ names = data.sheet_names()
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        python-xlrd
+                        凤凰挽歌，黑客独白
                     </div>
                 </div>
             </div>
@@ -340,12 +332,8 @@ names = data.sheet_names()
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/数据处理/" target="_blank">
-                            <span class="chip bg-color">数据处理</span>
-                        </a>
-                        
-                        <a href="/tags/python/" target="_blank">
-                            <span class="chip bg-color">python</span>
+                        <a href="/tags/心情/" target="_blank">
+                            <span class="chip bg-color">心情</span>
                         </a>
                         
                     </div>
@@ -353,28 +341,19 @@ names = data.sheet_names()
                 </div>
                 <div class="col s5 right-align">
                     
-                    <div class="post-cate">
-                        <i class="fa fa-bookmark fa-fw icon-category"></i>
-                        
-                        <a href="/categories/python/" class="post-category" target="_blank">
-                            python
-                        </a>
-                        
-                    </div>
-                    
                 </div>
             </div>
 
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-05-06
+                    2019-09-25
                 </div>
 
                 <div class="post-author info-break-policy">
                     <i class="fa fa-user-o fa-fw"></i>作者:&nbsp;&nbsp;
                     
-                    ZS
+                    我是老鹰&炫凤舞
                     
                 </div>
 
@@ -382,14 +361,14 @@ names = data.sheet_names()
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    207
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
                 
@@ -405,59 +384,20 @@ names = data.sheet_names()
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="python-xlrd"><a href="#python-xlrd" class="headerlink" title="python-xlrd"></a>python-xlrd</h2><h3 id="打开"><a href="#打开" class="headerlink" title="打开"></a>打开</h3><blockquote>
-<p><code>data = xlrd.open_workbook(path)</code> # 打开表格  </p>
-</blockquote>
-<h3 id="工作表"><a href="#工作表" class="headerlink" title="工作表"></a>工作表</h3><ul>
-<li>获取所有工作表的名字  <blockquote>
-<p><code>names = data.sheet_names()</code>  </p>
-</blockquote>
-</li>
-<li>获取工作表中有效的行数  <blockquote>
-<p> <code>narows = table.nrows</code>  </p>
-</blockquote>
-</li>
-<li>获取工作表对象  <blockquote>
-<p><code>table = data.sheet_by_name(&#39;2019年05月上网流量&#39;)</code><br><code>tabel = data.sheets()[0]</code>  </p>
-</blockquote>
-</li>
-</ul>
-<h3 id="行列操作-行-row-列-col"><a href="#行列操作-行-row-列-col" class="headerlink" title="行列操作(行-row,列-col)"></a>行列操作(行-row,列-col)</h3><blockquote>
-<p>编号从<strong>0</strong>开始  </p>
-</blockquote>
-<ul>
-<li>获取行列数据  <blockquote>
-<p><code>onelist = table.row_slice(1)// table.row(1)</code>   # 返回该行组成的列表()  </p>
-</blockquote>
-</li>
-<li>获取行的每个单元格数据类型组成的列表  <blockquote>
-<p><code>typelist = table.row_types(2)</code>  </p>
-</blockquote>
-</li>
-<li>获取行的所有数据的值组成的列表  <blockquote>
-<p><code>datalist = table.row_values(2)</code>  </p>
-</blockquote>
-</li>
-<li>获取行中有效的单元格数(<strong>列</strong>没有这个方法)  <blockquote>
-<p><code>lenrow = table.row_len(2)</code>  </p>
-</blockquote>
-</li>
-</ul>
-<h3 id="单元格操作"><a href="#单元格操作" class="headerlink" title="单元格操作"></a>单元格操作</h3><ul>
-<li>返回单元格对象  <blockquote>
-<p><code>table.cell(rowx, colx)</code>  </p>
-</blockquote>
-</li>
-<li>返回单元格的数据类型  <blockquote>
-<p><code>table.cell_type(rowx, colx)</code>  </p>
-</blockquote>
-</li>
-<li>返回单元格中的数据  <blockquote>
-<p><code>table.cell_vale(rowx, colx)</code>  </p>
-</blockquote>
-</li>
-</ul>
+                <p><strong>这是一片很早转载自《黑客x档案》的一篇文章，是一篇影响我很深的文章，这个杂志已经停刊了，在博客中置顶表达我的敬意。</strong></p>
+<p>还记得当年的5月1日—5月7日吗？美国黑客组织PoisonBox、Prophet、Hi-Tech等，对中国发动了来自网络的攻击，为了捍卫祖国和民族的尊严，中国的黑客也进行了奋力还击，当看到美国白宫网站被挂上五星红旗，所有的爱国人士无不拍手称快。</p>
+<p>时至今日，我国的网络信息产业也得到了飞速的发展。在发展的同时，中国黑客，这一特殊的黑客群体也在茁壮成长着，从最初的“绿色兵团”到各大黑客组织的成立，中国的黑客一次又一次在捍卫祖国尊严的网络战场上展现了独一无二的魅力。</p>
+<p>黑客本身并不是贬义词，他们由于拥有高超的计算机水平、神出鬼没的行踪，使得人们对他们的映像大多是“神秘、高超”等。其实黑客并没有一个完整的定义，不过就现在的信息安全发展来看，黑客应该具备以下技能：精通计算机各项操作、能熟练使用各种工具并了解其原理、有高超的编程（汇编等）技术、又冷静沉着的心理素质、善于和别的黑客交流等等。由于其技术和道德品质的不同，黑客往往被分为两类：黑客和伪黑客（骇客）。</p>
+<p>有人将黑客比喻成药，在治愈疾病的同时也会带来副作用。黑客精神，是一种自由与共享，是深陷困境却寻求突破与解脱的追求，这是每一个走进黑客世界的人所向往的境界。但现今的社会，开始走向和平与稳定，这使得一些黑客失去了文争武斗的舞台。老一辈的黑客由于年纪较大，开始了“宅人”生活，他们大多以安全顾问以及安全公司的身份出现在网络中。</p>
+<p>在这样的背景下一群年轻人怀着对祖国的热爱核对黑客神秘的崇拜，开始了他们的追求，但跟多的则是沉迷于雕虫小技的卖弄，掉进了黑色经济的大染缸里……从打着“爱国主义”旗号、“保护自己信息安全”等旗号的伪黑客培训班到公开贩卖的所谓的“顶级”黑客工具。</p>
+<p>传统的黑客已近不多了，千百个网络流氓跳出来。利用拒绝服务攻击、盗号等手段进行敲诈、倒卖的“黑金效应”，湿的渴求利用黑客技术技术一夜暴富的流氓蜂拥而至。由于互联网本身的脆弱性和网络服务提供商的漏洞，使得这类黑色经济疯狂的滋长着。<br>一些注重自我得失而敢于铤而走险的年轻人，他们不再愤怒晋国神社扭曲历史，各大色情、赌博网站成了他们的聚居地，他们打着复制、抄袭、改写等“创新”而四处出击，各类程序上都留下了作者和联系方式，他们不再羞羞答答，而是唯恐天下不知的到处叫卖着自己所谓的作品。<br>黑客那种侠义的精神也许会在这些年轻人中间消失，他们跟多看中的是金钱、名誉、地位……他们忘记了当初自己为什么走进了黑客这个圈子，也许他们只是为了那些虚无的东西，技术只是让他们名利双收的工具罢了。<br>让我们带上耳机，听听那首《黑客独白》熟悉的旋律吧，为失去理想的黑客唱一首挽歌吧：</p>
+<pre><code>世界总是说你说我，
 
+难道就因为，我可以直接敲打他的心窝。
+
+黑夜也是生活，黑夜白天也一样过。
+
+不要说我是什么黑客，就因为我的黑夜比白天多......</code></pre>
             </div>
             <hr />
 
@@ -615,11 +555,11 @@ names = data.sheet_names()
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《python-xlrd》
+                    《凤凰挽歌，黑客独白》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/05/06/2019-python-xlrd-jian-dan-zong-jie/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/25/2019-feng-huang-wan-ge-hei-ke-du-bai/" property="cc:attributionName"
                rel="cc:attributionURL">
-                ZS
+                我是老鹰&炫凤舞
             </a> 采用
             <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
                 知识共享署名 4.0 国际许可协议
@@ -658,7 +598,7 @@ names = data.sheet_names()
         repo: 'newlzs.github.io',
         owner: 'newlzs',
         admin: "newlzs",
-        id: '2019/05/06/2019-python-xlrd-jian-dan-zong-jie/',
+        id: '2019/09/25/2019-feng-huang-wan-ge-hei-ke-du-bai/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -683,37 +623,31 @@ names = data.sheet_names()
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/05/13/2019-python-xian-cheng-nei-bu-han-shu-chuan-can/">
+                <a href="/2019/09/25/2019-gong-fang-shi-jie-web-jin-jie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="线程全局变量ThreadLocal">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="攻防世界web进阶">
                         
-                        <span class="card-title">线程全局变量ThreadLocal</span>
+                        <span class="card-title">攻防世界web进阶</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            线程内的全局变量-ThreadLocal
-对于每个线程获取变量值时， 只能使用函数进行传值，但对于多级函数，传参比较麻烦  
-
-ThreadLocal解决方案  
-  import threading  
-
-  # 创建全局ThreadLo
+                            成功加入了网络安全选修课，不能懈怠啊，加油刷题
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-13
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-25
                         </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/python/" class="post-category" target="_blank">
-                                    python
+                            <a href="/categories/网络安全/" class="post-category" target="_blank">
+                                    网络安全
                                 </a>
                             
                             
@@ -723,12 +657,16 @@ ThreadLocal解决方案
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python/" target="_blank">
-                        <span class="chip bg-color">python</span>
+                    <a href="/tags/web/" target="_blank">
+                        <span class="chip bg-color">web</span>
                     </a>
                     
-                    <a href="/tags/计科/" target="_blank">
-                        <span class="chip bg-color">计科</span>
+                    <a href="/tags/CTF/" target="_blank">
+                        <span class="chip bg-color">CTF</span>
+                    </a>
+                    
+                    <a href="/tags/竞赛/" target="_blank">
+                        <span class="chip bg-color">竞赛</span>
                     </a>
                     
                 </div>
@@ -742,36 +680,31 @@ ThreadLocal解决方案
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/04/11/2019-xun-lian-kai-fa-ce-shi-ji/">
+                <a href="/2019/09/18/2019-burpsuite-xiao-bai-ru-men-an-zhuang-yu-shi-yong/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="训练/开发/测试集">
+                        <img src="/medias/featureimages/24.jpg" class="responsive-img" alt="BurpSuite小白安装与使用教程">
                         
-                        <span class="card-title">训练/开发/测试集</span>
+                        <span class="card-title">BurpSuite小白安装与使用教程</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            训练/开发/测试集训练时一般需要调试的参数
-layers 层数  
-hidden units 每层多少个隐藏单元  
-learning rate 学习率时多少  
-activation functions 每层选取什么激活函数  
-。。。。
+                            我快被这个软件搞死了，小白一个，不过最终还是会了感谢期间查看的各种博客，特此为小白总结使用方法，大佬请绕道。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-11
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-18
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/机器学习/" class="post-category" target="_blank">
-                                    机器学习
+                            <a href="/categories/网络安全/" class="post-category" target="_blank">
+                                    网络安全
                                 </a>
                             
                             
@@ -781,8 +714,12 @@ activation functions 每层选取什么激活函数
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/吴恩达深度学习笔记/" target="_blank">
-                        <span class="chip bg-color">吴恩达深度学习笔记</span>
+                    <a href="/tags/工具/" target="_blank">
+                        <span class="chip bg-color">工具</span>
+                    </a>
+                    
+                    <a href="/tags/web/" target="_blank">
+                        <span class="chip bg-color">web</span>
                     </a>
                     
                 </div>
