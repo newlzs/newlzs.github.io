@@ -468,7 +468,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.4k
+                    2.5k
                 </div>
                 
 
@@ -518,7 +518,7 @@ rtt min/avg/max/mdev = 0.064/0.064/0.064/0.000 ms</code></pre><p>输入百度的
 <li><p>可以判断后台运行了两个应用，一个时php应用，一个Django用来处理php发来的请求。</p>
 </li>
 <li><p>我们可以通过报错信息setting中的database字段获取到数据库的信息</p>
-<p><img src="C:%5CUsers%5CMAIBENBEN%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1569379602047.png" alt="1569379602047"></p>
+<p><img src="https://pic.superbed.cn/item/5d8ca596451253d178e85323.png" alt></p>
 </li>
 <li><p>访问<em><a href="http://111.198.29.45:40859/index.php?url=@/opt/api/database.sqlite3" target="_blank" rel="noopener">http://111.198.29.45:40859/index.php?url=@/opt/api/database.sqlite3</a></em>的到新的报错信息，还是复制报错信息到新的html文件中，打开发现了File字符段，应该是数据库中的内容，尝试搜索<code>ctf / flag</code>等关键字找到flag</p>
 <p><img src="https://ae01.alicdn.com/kf/H2fadf0ab696b41c8ab3f9620cdfd2acbp.jpg" alt></p>
@@ -678,7 +678,7 @@ rtt min/avg/max/mdev = 0.064/0.064/0.064/0.000 ms</code></pre><p>输入百度的
 <p>使用burp project可以修改header</p>
 </li>
 <li><p>构造get 变量使其能够执行preg_replace函数的命令模式</p>
-<pre><code>?pat=/123/e&amp;rep=system(&quot;find+-name+flag*&quot;)&amp;sub=123</code></pre><p>“+”在url中会被解释为空格，当然也能够使用<code>%20</code>。</p>
+<pre><code>?pat=/123/e&amp;rep=system(&quot;find+-name+flag*&quot;)&amp;sub=123 </code></pre><p>“+”在url中会被解释为空格，当然也能够使用<code>%20</code>。</p>
 </li>
 <li><p>补充url，访问，使用burpproject进行修改x-forwarded-for</p>
 <p><img src="https://ae01.alicdn.com/kf/Hc908dc053cd54110a26aa7feb388300cZ.jpg" alt></p>
@@ -686,7 +686,7 @@ rtt min/avg/max/mdev = 0.064/0.064/0.064/0.000 ms</code></pre><p>输入百度的
 <p><img src="https://ae01.alicdn.com/kf/H375a7946d2b542a9af3b254c69ae0a47u.jpg" alt></p>
 </li>
 <li><p>再次构造get的变量</p>
-<pre><code>?pat=/123/e&amp;rep=system(&quot;cat+./s3chahahaDir/flag/flag.php&quot;)&amp;sub=123</code></pre><p>和上一步一样的访问步骤，修改x-forwarded-for, 最后查看网页源代码也可以查看burp project的http历史记录里面的响应</p>
+<pre><code>?pat=/123/e&amp;rep=system(&quot;cat+./s3chahahaDir/flag/flag.php&quot;)&amp;sub=123 </code></pre><p>和上一步一样的访问步骤，修改x-forwarded-for, 最后查看网页源代码也可以查看burp project的http历史记录里面的响应</p>
 <p><img src="https://ae01.alicdn.com/kf/He8e3b9ff04a54f20b997ffe152212d9bE.jpg" alt></p>
 </li>
 <li><p>答案：<code>cyberpeace{4b8c09620a7c82c9927c7c95f3f07d3d}</code></p>
@@ -700,6 +700,18 @@ rtt min/avg/max/mdev = 0.064/0.064/0.064/0.000 ms</code></pre><p>输入百度的
 <li><a href="https://www.cnblogs.com/dubhe-/p/9997842.html" target="_blank" rel="noopener">https://www.cnblogs.com/dubhe-/p/9997842.html</a></li>
 </ul>
 </blockquote>
+<h2 id="ics-06"><a href="#ics-06" class="headerlink" title="ics-06"></a>ics-06</h2><p>云平台报表中心收集了设备管理基础服务的数据，但是数据被删除了，只有一处留下了入侵者的痕迹。</p>
+<ul>
+<li><p>根据题意打开那个云台报表中心页面</p>
+<p><img src="https://ae01.alicdn.com/kf/H0e5353af4c4e4794a21aff2c4b96e93aQ.jpg" alt></p>
+<p>发现get了一个名为id的变量，感觉像是sql注入，尝试了了一下发现不行，题目提示送分题，直接进行爆破</p>
+</li>
+<li><p>bur porject对id进行爆破，0-5000爆破，发现id=2333的时候文件长度不一样。</p>
+<p><img src="https://ae01.alicdn.com/kf/H26da5ae39d8f4c07a77d9c69cc4d7599u.jpg" alt></p>
+</li>
+<li><p>答案：cyberpeace{f0aa51d11c3e11908c8b5ecca74ac81f}</p>
+</li>
+</ul>
 
             </div>
             <hr />
@@ -1187,7 +1199,7 @@ rtt min/avg/max/mdev = 0.064/0.064/0.064/0.000 ms</code></pre><p>输入百度的
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">41k</span>
+            <span class="white-color">41.1k</span>
             
 
             <br>
