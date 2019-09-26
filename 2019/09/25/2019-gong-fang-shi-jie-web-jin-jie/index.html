@@ -468,14 +468,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.5k
+                    2.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 分
+                    11 分
                 </div>
                 
                 
@@ -710,6 +710,43 @@ rtt min/avg/max/mdev = 0.064/0.064/0.064/0.000 ms</code></pre><p>输入百度的
 <p><img src="https://ae01.alicdn.com/kf/H26da5ae39d8f4c07a77d9c69cc4d7599u.jpg" alt></p>
 </li>
 <li><p>答案：cyberpeace{f0aa51d11c3e11908c8b5ecca74ac81f}</p>
+</li>
+</ul>
+<h2 id="lottery"><a href="#lottery" class="headerlink" title="lottery"></a>lottery</h2><h3 id="预备知识-2"><a href="#预备知识-2" class="headerlink" title="预备知识"></a>预备知识</h3><h4 id="git泄露"><a href="#git泄露" class="headerlink" title=".git泄露"></a>.git泄露</h4><p><img src="https://ae01.alicdn.com/kf/He585a0f097944dcaacbcb7983890591a9.jpg" alt></p>
+<p>如上图，可以通过url+.git的方式访问到服务器的.git文件（不一定是显示出来，只要是可以访问到即可）便可以通过 GitHack工具获取到网站的原始目录与文件，具体的原理就不赘述了。</p>
+<ul>
+<li><p>GitHack使用方法：</p>
+<blockquote>
+<p>python2 .\GitHack.py <a href="http://111.198.29.45:41105/.git/" target="_blank" rel="noopener">http://111.198.29.45:41105/.git/</a></p>
+</blockquote>
+</li>
+</ul>
+<h4 id="php弱类型"><a href="#php弱类型" class="headerlink" title="php弱类型"></a>php弱类型</h4><p>bool类型的true是可以和任何数据弱类型相等</p>
+<p>具体移步<a href="https://www.cnblogs.com/Mrsm1th/p/6745532.html" target="_blank" rel="noopener">php弱类型总结</a></p>
+<h3 id="题解-2"><a href="#题解-2" class="headerlink" title="题解"></a>题解</h3><ul>
+<li><p>访问页面，随便注册一个用户，发现是一个赌博游戏，点击Claim Your Prize发现可以用钱买flag，当然这个数目是巨大。</p>
+</li>
+<li><p>检查页面，尝试是否可以通过修改表单来改变我们的钱，发现我们的钱是存到服务器的数据库里的，只能通过那个猜数界面来进行改变，猜数界面也是通过服务器运行的，找不到bug。</p>
+</li>
+<li><p>尝试查看robots.txt文件，发现了有趣的东西</p>
+<p><img src="https://ae01.alicdn.com/kf/Hbd0bfa0d85e64226a7aba142f68117aa8.jpg" alt></p>
+<p>好像存在.git泄露</p>
+</li>
+<li><p>尝试使用GitHack获取网站文件</p>
+<p><img src="https://ae01.alicdn.com/kf/H7b21c9d59b8b4ab4abcc13b73c1aba4bs.jpg" alt></p>
+<p>成功获取。</p>
+</li>
+<li><p>之前我们检查可以发现，buy flag 和 猜数的那个界面都是指向api.php, 我们查看这个文件</p>
+<p><img src="https://ae01.alicdn.com/kf/H74a7259d90c14d039c1f6bc395891540i.jpg" alt></p>
+<p>发现了一个猜数的时候有一个弱类型漏洞，那么我们就可以利用这个漏洞来进行刷钱</p>
+</li>
+<li><p>Burp project 构建代理，拦截猜数页面，改变numbers的值，利用重发器进行重复刷钱。</p>
+<p><img src="https://ae01.alicdn.com/kf/Hc03161e68f20418b90fc25a32cfdb517g.jpg" alt></p>
+</li>
+<li><p>刷够了之后返回页面刷新发现钱多了好多，然后购买flag</p>
+<blockquote>
+<p> cyberpeace{27c59265cabca6858ba22713d7e175ad}</p>
+</blockquote>
 </li>
 </ul>
 
@@ -1199,7 +1236,7 @@ rtt min/avg/max/mdev = 0.064/0.064/0.064/0.000 ms</code></pre><p>输入百度的
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">41.1k</span>
+            <span class="white-color">41.5k</span>
             
 
             <br>
