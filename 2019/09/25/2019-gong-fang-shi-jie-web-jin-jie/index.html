@@ -468,14 +468,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.3k
+                    3.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    14 分
                 </div>
                 
                 
@@ -778,6 +778,43 @@ rtt min/avg/max/mdev = 0.064/0.064/0.064/0.000 ms</code></pre><p>输入百度的
 </li>
 </ul>
 <h3 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h3><p>以上均为傻瓜操作，具体的实现步骤和内部的过程还要进行深入的学习才能够掌握。</p>
+<h2 id="mfw"><a href="#mfw" class="headerlink" title="mfw"></a>mfw</h2><h3 id="预备知识-4"><a href="#预备知识-4" class="headerlink" title="预备知识"></a>预备知识</h3><ul>
+<li><p>php中的<code>assert()</code>会将括号里的字符串当作php命令命令来执行，如果命令执行成功就返回true，否则返回false。</p>
+</li>
+<li><p>.git 泄露</p>
+</li>
+</ul>
+<h3 id="题解-4"><a href="#题解-4" class="headerlink" title="题解"></a>题解</h3><ul>
+<li><p>打开网页，点击about，出现了Git字样，作者用到了git, 感觉应该是存在.git泄露，于是尝试访问了一下<a href="http://111.198.29.45:58382/.git/，结果还真是。" target="_blank" rel="noopener">http://111.198.29.45:58382/.git/，结果还真是。</a></p>
+</li>
+<li><p>用githack吧文件下载下来</p>
+<blockquote>
+<p>python2 .\GitHack.py <a href="http://111.198.29.45:58382/.git/" target="_blank" rel="noopener">http://111.198.29.45:58382/.git/</a></p>
+</blockquote>
+</li>
+<li><p>审计代码，在index.php里面发现了</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// I heard '..' is dangerous!</span>
+<span class="token function">assert</span><span class="token punctuation">(</span><span class="token string">"strpos('$file', '..') === false"</span><span class="token punctuation">)</span> or <span class="token function">die</span><span class="token punctuation">(</span><span class="token string">"Detected hacking attempt!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// TODO: Make this look nice</span>
+<span class="token function">assert</span><span class="token punctuation">(</span><span class="token string">"file_exists('$file')"</span><span class="token punctuation">)</span> or <span class="token function">die</span><span class="token punctuation">(</span><span class="token string">"That file doesn't exist!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>assert 之前也没有别的对file的过滤，于是可以尝试利用assert的漏洞，获取到我们的flag</p>
+</li>
+<li><p>在我们下载下来的文件中还有templates下的flag.php这个文件，但是打开后是空的，但是还是要尝试看看文件中的内容，毕竟暗示的太明显了</p>
+<p>构建payload：<em>?page=abc’) or system(“cat templates/flag.php”);//</em></p>
+</li>
+<li><p>访问题目网址+payload, 然后查看网页源代码的到flag</p>
+<p><img src="https://ae01.alicdn.com/kf/H79ff2cfa08714092a29abeed445e69369.jpg" alt></p>
+</li>
+<li><p>答案：cyberpeace{d67613f92f5b9db5aa431b01f1cf0d26}</p>
+</li>
+</ul>
+<h2 id="Training-WWW-Robots"><a href="#Training-WWW-Robots" class="headerlink" title="Training-WWW-Robots"></a>Training-WWW-Robots</h2><p>so easy，emmmmm</p>
+<ul>
+<li>访问网址，查看网站的robots.txt文件，即访问<a href="http://111.198.29.45:42194/robots.txt，" target="_blank" rel="noopener">http://111.198.29.45:42194/robots.txt，</a></li>
+<li>发现了有个f10g.php不让爬虫访问，有问题，接着访问<a href="http://111.198.29.45:42194//fl0g.php" target="_blank" rel="noopener">http://111.198.29.45:42194//fl0g.php</a></li>
+<li>得到flag： cyberpeace{fa6f80fa63a1c6be3519907c459ee696}</li>
+</ul>
 
             </div>
             <hr />
@@ -1265,7 +1302,7 @@ rtt min/avg/max/mdev = 0.064/0.064/0.064/0.000 ms</code></pre><p>输入百度的
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">41.9k</span>
+            <span class="white-color">42.2k</span>
             
 
             <br>
