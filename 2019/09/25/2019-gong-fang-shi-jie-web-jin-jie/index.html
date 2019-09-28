@@ -468,14 +468,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.9k
+                    3.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    11 分
+                    12 分
                 </div>
                 
                 
@@ -749,6 +749,35 @@ rtt min/avg/max/mdev = 0.064/0.064/0.064/0.000 ms</code></pre><p>输入百度的
 </blockquote>
 </li>
 </ul>
+<h2 id="NewsCenter"><a href="#NewsCenter" class="headerlink" title="NewsCenter"></a>NewsCenter</h2><h3 id="预备知识-3"><a href="#预备知识-3" class="headerlink" title="预备知识"></a>预备知识</h3><h4 id="sql注入"><a href="#sql注入" class="headerlink" title="sql注入"></a>sql注入</h4><p>在网页进行表单提交时，将特殊的语句提交到服务器，语句可以是数据库管理的命令，如果服务器端没有对我们提交的表单进行过滤或者过滤的条件不过严格，那么我们的命令便可以在服务器上进行执行。</p>
+<p>一般搜索窗口等可能会与服务器进行交互的存在sql注入漏洞的概率较大。</p>
+<p><a href="[https://baike.baidu.com/item/sql%E6%B3%A8%E5%85%A5/150289?fr=aladdin](https://baike.baidu.com/item/sql注入/150289?fr=aladdin)">sql注入百度百科</a></p>
+<p>一般可以直接使用sqlmap工具，进行一键检测，具体的使用方法，我也是刚接触，留个坑，有时间专门学习一下，在总结。在此放上<a href="https://www.freebuf.com/sectool/164608.html" target="_blank" rel="noopener">别人的总结</a></p>
+<h3 id="题解-3"><a href="#题解-3" class="headerlink" title="题解"></a>题解</h3><ul>
+<li><p>打开网页，发现了一个search窗口，可能是xss或者sql注入，针对xss尝试了几个简单的语句如：<em>\<script>alert("hey!")\</script></em>之后失败。</p>
+</li>
+<li><p>接着使用sqlmap，进行自动化检测</p>
+<p>首先随便输入几个字母，接着使用burpporject 截获请求头，</p>
+<p><img src="https://pic.superbed.cn/item/5d8ecef6451253d178988363.jpg" alt></p>
+<p>复制请求头并保存到header.txt</p>
+</li>
+<li><p>接着利用sqlamp自动化检测，执行</p>
+<blockquote>
+<p>python2 .\sqlmap.py -r header.txt –bds</p>
+</blockquote>
+<p><img src="https://ae01.alicdn.com/kf/H523168032d494cffb5262464f52abc1dz.jpg" alt></p>
+<p>发现了一个名为news的数据库，这就证明我们成功的进行了sql注入。</p>
+<p>接下啦就是要获取到news中的内容</p>
+<blockquote>
+<p>python2 .\sqlmap.py -r header.txt -D news –dump</p>
+</blockquote>
+<p>得到flag</p>
+<p><img src="https://ae01.alicdn.com/kf/H27559efc44714f55bbc7ed61f5af46508.jpg" alt></p>
+</li>
+<li><p>答案：QCTF{sq1_inJec7ion_ezzz}</p>
+</li>
+</ul>
+<h3 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h3><p>以上均为傻瓜操作，具体的实现步骤和内部的过程还要进行深入的学习才能够掌握。</p>
 
             </div>
             <hr />
@@ -1236,7 +1265,7 @@ rtt min/avg/max/mdev = 0.064/0.064/0.064/0.000 ms</code></pre><p>输入百度的
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">41.5k</span>
+            <span class="white-color">41.9k</span>
             
 
             <br>
