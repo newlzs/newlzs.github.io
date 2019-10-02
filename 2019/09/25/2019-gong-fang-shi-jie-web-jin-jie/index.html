@@ -468,14 +468,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.7k
+                    4.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    14 分
+                    16 分
                 </div>
                 
                 
@@ -814,6 +814,58 @@ rtt min/avg/max/mdev = 0.064/0.064/0.064/0.000 ms</code></pre><p>输入百度的
 <li>访问网址，查看网站的robots.txt文件，即访问<a href="http://111.198.29.45:42194/robots.txt，" target="_blank" rel="noopener">http://111.198.29.45:42194/robots.txt，</a></li>
 <li>发现了有个f10g.php不让爬虫访问，有问题，接着访问<a href="http://111.198.29.45:42194//fl0g.php" target="_blank" rel="noopener">http://111.198.29.45:42194//fl0g.php</a></li>
 <li>得到flag： cyberpeace{fa6f80fa63a1c6be3519907c459ee696}</li>
+</ul>
+<h2 id="NaNNaNNaNNaN-Batman"><a href="#NaNNaNNaNNaN-Batman" class="headerlink" title="NaNNaNNaNNaN-Batman"></a>NaNNaNNaNNaN-Batman</h2><h3 id="预备知识-5"><a href="#预备知识-5" class="headerlink" title="预备知识"></a>预备知识</h3><ul>
+<li><p>eval() </p>
+<p>JavaScript函数，会将执行字符串中的JavaScript语句。<em>a=”javascript语句”;eval(a);</em></p>
+</li>
+<li><p>alert()</p>
+<p>javascript函数，会将字符串的内容以弹窗的形式显示出来。当我们获取到的文件有编码问题时，一般可以通过此函数将正确的编码的形式显示出来。</p>
+</li>
+</ul>
+<h3 id="题解-5"><a href="#题解-5" class="headerlink" title="题解"></a>题解</h3><ul>
+<li><p>下载文件，使用记事本打开，发现时javascript语句，但是呢存在很多乱码。</p>
+</li>
+<li><p>直接修改文件的后缀名为.html，使用浏览器打开。得到了一个输入框</p>
+<p><img src="https://ae01.alicdn.com/kf/H99157d52636f42848bb19cead66513b5E.jpg" alt></p>
+</li>
+<li><p>在此查看源代码，发现最后有一个eval()函数，应该是用来执行前面字符串变量<code>_</code>中包含的JavaScript命令。但是由于函数中存在乱码，看不出什么东西。</p>
+</li>
+<li><p>把eval函数改为alert函数，从而将函数的内容以弹窗的形式显示出来。</p>
+<p><img src="https://ae01.alicdn.com/kf/H0631fadf7b8c49f5a50f088a4c070628u.jpg" alt></p>
+<p>乱码消失，为什么消失呢，看了网上很多的解释，我有对源码与弹窗的代码进行了对比，发现源码中的乱码所代表的是一些JavaScript的命令，如so对应if，我认为应该是浏览器的JavaScript模块特定的编码，当使用浏览器进行解析的时候可以正确的显示对应的字符，而使用普通的编辑器无法解析</p>
+<p><img src="https://ae01.alicdn.com/kf/H4857a9c54e584609896883510ad9c970E.jpg" alt></p>
+</li>
+<li><p>复制代码，对齐进行调整一下</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">var</span> e<span class="token operator">=</span>document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"c"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>value<span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>length<span class="token operator">==</span><span class="token number">16</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span><span class="token regex">/^be0f23/</span><span class="token punctuation">)</span><span class="token operator">!=</span><span class="token keyword">null</span><span class="token punctuation">)</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span><span class="token regex">/233ac/</span><span class="token punctuation">)</span><span class="token operator">!=</span><span class="token keyword">null</span><span class="token punctuation">)</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span><span class="token regex">/e98aa$/</span><span class="token punctuation">)</span><span class="token operator">!=</span><span class="token keyword">null</span><span class="token punctuation">)</span>
+                    <span class="token keyword">if</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span><span class="token regex">/c7be9/</span><span class="token punctuation">)</span><span class="token operator">!=</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                        <span class="token keyword">var</span> t<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">"fl"</span><span class="token punctuation">,</span><span class="token string">"s_a"</span><span class="token punctuation">,</span><span class="token string">"i"</span><span class="token punctuation">,</span><span class="token string">"e}"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+                        <span class="token keyword">var</span> n<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">"a"</span><span class="token punctuation">,</span><span class="token string">"_h0l"</span><span class="token punctuation">,</span><span class="token string">"n"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+                        <span class="token keyword">var</span> r<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">"g{"</span><span class="token punctuation">,</span><span class="token string">"e"</span><span class="token punctuation">,</span><span class="token string">"_0"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+                        <span class="token keyword">var</span> i<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">"it'"</span><span class="token punctuation">,</span><span class="token string">"_"</span><span class="token punctuation">,</span><span class="token string">"n"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+                        <span class="token keyword">var</span> s<span class="token operator">=</span><span class="token punctuation">[</span>t<span class="token punctuation">,</span>n<span class="token punctuation">,</span>r<span class="token punctuation">,</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> o<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>o<span class="token operator">&lt;</span><span class="token number">13</span><span class="token punctuation">;</span><span class="token operator">++</span>o<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                            document<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>o<span class="token operator">%</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                            s<span class="token punctuation">[</span>o<span class="token operator">%</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+                        <span class="token punctuation">}</span>
+                    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+document<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">'&lt;input id="c">&lt;button onclick=$()>Ok&lt;/button>'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">delete</span> _<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>就是对我们输入的字符进行正则匹配，如果都成功了就输出flag。</p>
+</li>
+<li><p>分析匹配的条件，发现使用<code>be0f233ac7be98aa</code>刚好16个字符，<code>^</code>与<code>&amp;</code>分别对应起始符和终止符不需要我们输入，也不算到长度里面。</p>
+</li>
+<li><p>输入字符达到答案<code>flag{it&#39;s_a_h0le_in_0ne}</code></p>
+</li>
 </ul>
 
             </div>
@@ -1302,7 +1354,7 @@ rtt min/avg/max/mdev = 0.064/0.064/0.064/0.000 ms</code></pre><p>输入百度的
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">42.2k</span>
+            <span class="white-color">42.8k</span>
             
 
             <br>
