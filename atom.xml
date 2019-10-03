@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ainiya.xyz/"/>
-  <updated>2019-10-02T13:54:38.583Z</updated>
+  <updated>2019-10-03T12:51:04.867Z</updated>
   <id>https://ainiya.xyz/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mysql常用命令</title>
+    <link href="https://ainiya.xyz/2019/10/03/2019-mysql-chang-yong-ming-ling/"/>
+    <id>https://ainiya.xyz/2019/10/03/2019-mysql-chang-yong-ming-ling/</id>
+    <published>2019-10-03T12:32:09.000Z</published>
+    <updated>2019-10-03T12:51:04.867Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;mysql&quot;&gt;&lt;a href=&quot;#mysql&quot; class=&quot;headerlink&quot; title=&quot;mysql&quot;&gt;&lt;/a&gt;mysql&lt;/h1&gt;&lt;h3 id=&quot;开启-关闭-登录mysql&quot;&gt;&lt;a href=&quot;#开启-关闭-登录mysql&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="网络安全" scheme="https://ainiya.xyz/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
+    
+    
+      <category term="web" scheme="https://ainiya.xyz/tags/web/"/>
+    
+      <category term="数据库" scheme="https://ainiya.xyz/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
   
   <entry>
     <title>攻防世界web进阶</title>
@@ -532,34 +560,6 @@
     
     
       <category term="吴恩达深度学习笔记" scheme="https://ainiya.xyz/tags/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>螺旋序列的输出</title>
-    <link href="https://ainiya.xyz/2019/04/03/2019-suan-fa-ri-chang-luo-xuan-xu-lie/"/>
-    <id>https://ainiya.xyz/2019/04/03/2019-suan-fa-ri-chang-luo-xuan-xu-lie/</id>
-    <published>2019-04-03T04:32:09.000Z</published>
-    <updated>2019-09-13T13:20:05.275Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;我的算法日常-—-螺旋数字串&quot;&gt;&lt;a href=&quot;#我的算法日常-—-螺旋数字串&quot; class=&quot;headerlink&quot; title=&quot;我的算法日常 — 螺旋数字串&quot;&gt;&lt;/a&gt;我的算法日常 — 螺旋数字串&lt;/h2&gt;&lt;h3 id=&quot;描述&quot;&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="算法" scheme="https://ainiya.xyz/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="PAT" scheme="https://ainiya.xyz/tags/PAT/"/>
-    
-      <category term="算法" scheme="https://ainiya.xyz/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
