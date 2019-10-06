@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://ainiya.xyz/2019/10/03/2019-mysql-chang-yong-ming-ling/</loc>
+    <loc>https://ainiya.xyz/2019/09/25/2019-gong-fang-shi-jie-web-jin-jie/</loc>
     
-    <lastmod>2019-10-03T13:06:48.379Z</lastmod>
+    <lastmod>2019-10-06T02:48:43.476Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://ainiya.xyz/2019/09/25/2019-gong-fang-shi-jie-web-jin-jie/</loc>
+    <loc>https://ainiya.xyz/2019/10/03/2019-mysql-chang-yong-ming-ling/</loc>
     
-    <lastmod>2019-10-02T13:54:38.583Z</lastmod>
+    <lastmod>2019-10-03T13:06:48.379Z</lastmod>
     
   </url>
   
@@ -289,13 +289,6 @@
   </url>
   
   <url>
-    <loc>https://ainiya.xyz/categories/index.html</loc>
-    
-    <lastmod>2019-08-20T16:26:12.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://ainiya.xyz/archives/index.html</loc>
     
     <lastmod>2019-08-20T16:26:12.000Z</lastmod>
@@ -304,6 +297,13 @@
   
   <url>
     <loc>https://ainiya.xyz/tags/index.html</loc>
+    
+    <lastmod>2019-08-20T16:26:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ainiya.xyz/categories/index.html</loc>
     
     <lastmod>2019-08-20T16:26:12.000Z</lastmod>
     

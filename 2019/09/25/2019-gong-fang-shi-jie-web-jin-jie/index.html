@@ -468,14 +468,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.7k
+                    5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    18 分
+                    19 分
                 </div>
                 
                 
@@ -913,6 +913,42 @@ document<span class="token punctuation">.</span><span class="token function">wri
 </li>
 </ul>
 <h3 id="总结-2"><a href="#总结-2" class="headerlink" title="总结"></a>总结</h3><p>对于这种找bug的题要敢于尝试，应当对每个页面都进行审查。</p>
+<h2 id="upload"><a href="#upload" class="headerlink" title="upload"></a>upload</h2><h3 id="预备知识-7"><a href="#预备知识-7" class="headerlink" title="预备知识"></a>预备知识</h3><ul>
+<li><p>mysql语句奇怪的执行顺序</p>
+<p><strong>select database()</strong> 显示当前操作的数据库的名称</p>
+<p><strong>select hex(database())</strong> 显示当前操作的数据库的名称字符的16进制格式</p>
+<pre class="line-numbers language-mysql"><code class="language-mysql">mysql> select hex(database());
++-----------------+
+| hex(database()) |
++-----------------+
+| 6C7A73716C      |
++-----------------+
+1 row in set (0.01 sec)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>select substr(hex(database()), 1, 8)</strong> 显示当前操作的数据库的名称的16进制格式的前八位</p>
+<pre class="line-numbers language-mysql"><code class="language-mysql">mysql> select substr(hex(database()), 1, 8);
++-------------------------------+
+| substr(hex(database()), 1, 8) |
++-------------------------------+
+| 6C7A7371                      |
++-------------------------------+
+1 row in set (0.00 sec)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>总结：mysql语句中关键字的优先级不一样，select database()的优先级最高，其次才是对其操作结果执行的命令，如hex， substr等</p>
+</blockquote>
+</li>
+<li><p><strong>CONV</strong></p>
+<p>和hex，substr属于同一类，可嵌套使用，conv(N, G1, G2)，将N从进制G1， 转换到进制G2。</p>
+<pre class="line-numbers language-mysql"><code class="language-mysql">mysql> select conv(11, 10, 16);
++------------------+
+| conv(11, 10, 16) |
++-----------------+
+| B                |
++------------------+
+1 row in set (0.00 sec)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ul>
+<h3 id="题解-7"><a href="#题解-7" class="headerlink" title="题解"></a>题解</h3><p>最开始我以为文件上传漏洞，找了半天，试了一句话木马都不行，大佬题解救我，由于过程较为冗杂，学习意义不大，在此直接放上大佬的题解。</p>
+<p><a href="https://www.cnblogs.com/sharpff/p/10728498.html" target="_blank" rel="noopener">https://www.cnblogs.com/sharpff/p/10728498.html</a></p>
 
             </div>
             <hr />
@@ -1394,7 +1430,7 @@ document<span class="token punctuation">.</span><span class="token function">wri
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">44.4k</span>
+            <span class="white-color">44.7k</span>
             
 
             <br>
