@@ -468,14 +468,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5k
+                    5.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    19 分
+                    20 分
                 </div>
                 
                 
@@ -949,6 +949,32 @@ document<span class="token punctuation">.</span><span class="token function">wri
 </ul>
 <h3 id="题解-7"><a href="#题解-7" class="headerlink" title="题解"></a>题解</h3><p>最开始我以为文件上传漏洞，找了半天，试了一句话木马都不行，大佬题解救我，由于过程较为冗杂，学习意义不大，在此直接放上大佬的题解。</p>
 <p><a href="https://www.cnblogs.com/sharpff/p/10728498.html" target="_blank" rel="noopener">https://www.cnblogs.com/sharpff/p/10728498.html</a></p>
+<h2 id="FlatScience"><a href="#FlatScience" class="headerlink" title="FlatScience"></a>FlatScience</h2><h3 id="预备知识-8"><a href="#预备知识-8" class="headerlink" title="预备知识"></a>预备知识</h3><p>sqlite自带的结构表sqlite_master，sql是sqlite_master中的一个字段，注入时经常用到的</p>
+<p>union 用于将两个查询语句的结果进行合并，但是一般要求查询的列数相等</p>
+<p>limit 可用于指定查询的其实位置和条数，比如limit 0,1 表示从0开始取一个</p>
+<h3 id="题解-8"><a href="#题解-8" class="headerlink" title="题解"></a>题解</h3><p><a href="https://blog.csdn.net/zz_Caleb/article/details/89323133" target="_blank" rel="noopener">https://blog.csdn.net/zz_Caleb/article/details/89323133</a></p>
+<p>懒得写了，以后有机会再补上吧，放上我自认为别人写的比较好的题解இ௰இ</p>
+<h2 id="web2"><a href="#web2" class="headerlink" title="web2"></a>web2</h2><p>这道题其实没什么弯，题目给的很明白，就是给了结果让我们来逆向算法，得到初始值</p>
+<ul>
+<li><p><a href="https://www.runoob.com/try/runcode.php?filename=demo_intro&type=php" target="_blank" rel="noopener">在线php环境</a> 调用<code>str_rot13</code>进行str_rot13解码与逆序</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token keyword">echo</span> <span class="token function">strrev</span><span class="token punctuation">(</span><span class="token function">str_rot13</span><span class="token punctuation">(</span><span class="token string">"a1zLbgQsCESEIqRLwuQAyMwLyq2L5VwBxqGA3RQAyumZ0tmMvSGM2ZwB4tws"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>随便找个base64解码的网站进行解码</p>
+<pre><code>~88:36e1bg8438e41757d:29cgeb6e48c`GUDTO|;hbmg</code></pre></li>
+<li><p>python 逆向编辑函数</p>
+<pre class="line-numbers language-python"><code class="language-python">_ <span class="token operator">=</span> <span class="token string">"~88:36e1bg8438e41757d:29cgeb6e48c`GUDTO|;hbmg"</span>
+_o <span class="token operator">=</span> <span class="token string">""</span>
+<span class="token keyword">while</span> len<span class="token punctuation">(</span>_<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    _c <span class="token operator">=</span> _<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+    _ <span class="token operator">=</span> _<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+
+    __ <span class="token operator">=</span> ord<span class="token punctuation">(</span>_c<span class="token punctuation">)</span>
+    _c <span class="token operator">=</span> chr<span class="token punctuation">(</span>__ <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+    _o <span class="token operator">+=</span> _c
+<span class="token keyword">print</span><span class="token punctuation">(</span>_o<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>的到flag：flag:{NSCTF_b73d5adfb819c64603d7237fa0d52977}</p>
+</li>
+</ul>
 
             </div>
             <hr />
@@ -1430,7 +1456,7 @@ document<span class="token punctuation">.</span><span class="token function">wri
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">44.7k</span>
+            <span class="white-color">44.9k</span>
             
 
             <br>
