@@ -468,14 +468,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.2k
+                    5.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    20 分
+                    22 分
                 </div>
                 
                 
@@ -975,6 +975,56 @@ _o <span class="token operator">=</span> <span class="token string">""</span>
 <p>的到flag：flag:{NSCTF_b73d5adfb819c64603d7237fa0d52977}</p>
 </li>
 </ul>
+<h2 id="PHP2"><a href="#PHP2" class="headerlink" title="PHP2"></a>PHP2</h2><h3 id="预备知识-9"><a href="#预备知识-9" class="headerlink" title="预备知识"></a>预备知识</h3><p>urldecode()：对已经过url编码的字符串进行解码</p>
+<p>常见利用：%2561，首先浏览器一般对其进行解码再传送给服务器%25解码得到%，于是乎传送给服务器的就是%61，服务器端再次利用urldecode()进行解码得到a。可以通过此种方式绕过一些判断。</p>
+<h3 id="题解-9"><a href="#题解-9" class="headerlink" title="题解"></a>题解</h3><ul>
+<li><p>得到链接，我从下手，看看robots.txt, .git， 没什么发现</p>
+</li>
+<li><p>尝试url+index.php，得到原来的网页，证明我们访问的就是index.php页面，之不过默认不指出index页面。</p>
+</li>
+<li><p>题目是php2，尝试url+index.php2，无果，尝试url+index.phps，返回源码（菜鸡的我又被虐到了）</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token string">"admin"</span><span class="token operator">===</span><span class="token variable">$_GET</span><span class="token punctuation">[</span>id<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">echo</span><span class="token punctuation">(</span><span class="token string">"&lt;p>not allowed!&lt;/p>"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">exit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token variable">$_GET</span><span class="token punctuation">[</span>id<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">urldecode</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span>id<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span>id<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"admin"</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">echo</span> <span class="token string">"&lt;p>Access granted!&lt;/p>"</span><span class="token punctuation">;</span>
+  <span class="token keyword">echo</span> <span class="token string">"&lt;p>Key: xxxxxxx &lt;/p>"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token delimiter">?></span>
+
+Can you anthenticate to this website<span class="token operator">?</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>首先要绕过第一个if，并且还有保证字符为admin，并且还利用到了urldecode()</p>
+<p>构造payload：url+?id=%2561dmin。得到答案</p>
+<pre class="line-numbers language-html"><code class="language-html">http://111.198.29.45:43764/?id=%2561dmin
+
+Access granted!
+
+Key: cyberpeace{11a35d67596e61866c858c6375715e62}
+
+Can you anthenticate to this website?<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ul>
+<blockquote>
+<p>看书真的有用啊，这个我在web实战中见过，还是要多读书</p>
+</blockquote>
+<h2 id="unserialize3"><a href="#unserialize3" class="headerlink" title="unserialize3"></a>unserialize3</h2><h3 id="php反序列化漏洞"><a href="#php反序列化漏洞" class="headerlink" title="php反序列化漏洞"></a>php反序列化漏洞</h3><p><a href="https://www.anquanke.com/post/id/159206#h2-1" target="_blank" rel="noopener">四个实例递进php反序列化突破理解</a></p>
+<p><a href="https://www.freebuf.com/news/172507.html" target="_blank" rel="noopener">从一道CTF题学习PHP反序列化漏洞</a></p>
+<h3 id="题解-10"><a href="#题解-10" class="headerlink" title="题解"></a>题解</h3><ul>
+<li><p>把题目给的类进行序列化，构造payload即可</p>
+<blockquote>
+<p><a href="http://111.198.29.45:39720/?code=O:4:&quot;xctf&quot;:1:{s:4:&quot;flag&quot;;s:2:&quot;111&quot;;}" target="_blank" rel="noopener">http://111.198.29.45:39720/?code=O:4:&quot;xctf&quot;:1:{s:4:&quot;flag&quot;;s:2:&quot;111&quot;;}</a></p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>php反序列化还是比较大的一块内容，看来要花一点时间学习一下啦</p>
+</blockquote>
 
             </div>
             <hr />
@@ -1456,7 +1506,7 @@ _o <span class="token operator">=</span> <span class="token string">""</span>
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">44.9k</span>
+            <span class="white-color">45.3k</span>
             
 
             <br>
