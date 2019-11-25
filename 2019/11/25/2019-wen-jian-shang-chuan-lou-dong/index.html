@@ -4,16 +4,18 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="正则化, NEUQ  CTF 子实  ZiShi 计算机科学与技术 网络安全">
+    <meta name="keywords" content="文件上传漏洞总结, NEUQ  CTF 子实  ZiShi 计算机科学与技术 网络安全">
     <meta name="baidu-site-verification" content>
     <meta name="google-site-verification" content>
-    <meta name="description" content="正则化正则化的目的
-神经网络过度拟合了数据  
-减小网络误差  
+    <meta name="description" content="文件上传漏洞本地js限制仅通过客户端的JavaScript代码对文件类型进行检测，服务端不进行检测
+绕过：
+修改需要上传的木马的文件名为.jpg等允许上传的格式
 
-正则化的作用原理逻辑回归中的正则化
-最小化误差函数时，添加一个新的参数D，这个参数是关于W的，而没有关于b的  
-因为W本身是一个高维参数矢量，已经可以表达高偏差问题，W本">
+上传，使用burp拦截，修改文件名
+
+为nosafe.php,
+
+然后放包，">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -21,7 +23,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>正则化 | ZS BLOG</title>
+    <title>文件上传漏洞总结 | ZS BLOG</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -309,13 +311,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        正则化
+                        文件上传漏洞总结
                     </div>
                 </div>
             </div>
@@ -426,12 +428,12 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/深度学习/" target="_blank">
-                            <span class="chip bg-color">深度学习</span>
+                        <a href="/tags/web/" target="_blank">
+                            <span class="chip bg-color">web</span>
                         </a>
                         
-                        <a href="/tags/基本概念/" target="_blank">
-                            <span class="chip bg-color">基本概念</span>
+                        <a href="/tags/CTF/" target="_blank">
+                            <span class="chip bg-color">CTF</span>
                         </a>
                         
                     </div>
@@ -442,8 +444,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/机器学习/" class="post-category" target="_blank">
-                            机器学习
+                        <a href="/categories/网络安全/" class="post-category" target="_blank">
+                            网络安全
                         </a>
                         
                     </div>
@@ -454,7 +456,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-01-22
+                    2019-11-25
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -468,14 +470,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    400
+                    710
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
                 
@@ -491,31 +493,75 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h1><h2 id="正则化的目的"><a href="#正则化的目的" class="headerlink" title="正则化的目的"></a>正则化的目的</h2><ul>
-<li>神经网络过度拟合了数据  </li>
-<li>减小网络误差  </li>
-</ul>
-<h2 id="正则化的作用原理"><a href="#正则化的作用原理" class="headerlink" title="正则化的作用原理"></a>正则化的作用原理</h2><h3 id="逻辑回归中的正则化"><a href="#逻辑回归中的正则化" class="headerlink" title="逻辑回归中的正则化"></a>逻辑回归中的正则化</h3><ul>
-<li>最小化误差函数时，添加一个新的参数D，这个参数是关于W的，而没有关于b的  </li>
-<li>因为W本身是一个高维参数矢量，已经可以表达高偏差问题，W本身包含很多参数而b仅仅是单个数字，加了b没有太大影响反而使运算变得复杂  </li>
-<li>L2正则化，表示取的是W的2-范数即<code>||W||2</code>， 所有元素的平方和再开根号  </li>
-<li>L1正则化，表示取的是W的1-范数即<code>||W||1</code>， 所有元素的和  </li>
-<li>更倾向于使用<strong>L2正则化</strong>，  </li>
-<li>参数 λ 使用验证集或交叉验证来配置， 尝试各种各样的数据来寻找最好的参数，一般设置的值比较小  </li>
-<li><img src="https://0d077ef9e74d8.cdn.sohucs.com/rphxWDP_jpg" alt="逻辑回归中的L2正则化.jpg">  </li>
-</ul>
-<h3 id="神经网络中的正则化"><a href="#神经网络中的正则化" class="headerlink" title="神经网络中的正则化"></a>神经网络中的正则化</h3><ul>
-<li>Wi的“佛罗贝尼乌斯范数” 取的是Wi中所有元素的平方和开根号， 其实就是L2范数，只是不这么叫  </li>
-<li>L2正则化已被称为权重衰减，因为反向传播后时Wi的权重会减小  </li>
-<li><img src="https://0d077ef9e74d8.cdn.sohucs.com/rphy6Vj_jpg" alt="神经网络的正则化.jpg">  </li>
-</ul>
-<h2 id="为什么正则化可以防止过拟合"><a href="#为什么正则化可以防止过拟合" class="headerlink" title="为什么正则化可以防止过拟合"></a>为什么正则化可以防止过拟合</h2><blockquote>
-<p>不好说，基本原理是减小部分神经元节点的权值，使整个神经网络更倾向于逻辑回归  </p>
-</blockquote>
-<blockquote>
-<p>λ增加，W减小，相应的节点权重减小, tanh 减小，在 0 附近近似为线性函数， 最后整体拟合程度下降<br>    <img src="https://0d077ef9e74d8.cdn.sohucs.com/rpiZfsu_jpg" alt></p>
-</blockquote>
+                <h1 id="文件上传漏洞"><a href="#文件上传漏洞" class="headerlink" title="文件上传漏洞"></a>文件上传漏洞</h1><h2 id="本地js限制"><a href="#本地js限制" class="headerlink" title="本地js限制"></a>本地js限制</h2><p>仅通过客户端的JavaScript代码对文件类型进行检测，服务端不进行检测</p>
+<h3 id="绕过："><a href="#绕过：" class="headerlink" title="绕过："></a>绕过：</h3><ol>
+<li><p>修改需要上传的木马的文件名为.jpg等允许上传的格式</p>
+</li>
+<li><p>上传，使用burp拦截，修改文件名</p>
+<p><strong><img src="https://pic3.superbed.cn/item/5ddb57de8e0e2e3ee94a26b1.jpg" alt></strong></p>
+<p>为nosafe.php,</p>
+</li>
+<li><p>然后放包，便将我们的木马成功上传到了服务器</p>
+</li>
+</ol>
+<h2 id="服务端仅对文件的MIME进行检查"><a href="#服务端仅对文件的MIME进行检查" class="headerlink" title="服务端仅对文件的MIME进行检查"></a>服务端仅对文件的MIME进行检查</h2><p>服务端仅检测客户端返回header的content-type的数据，符合格式要求即可</p>
+<h3 id="绕过"><a href="#绕过" class="headerlink" title="绕过"></a>绕过</h3><ol>
+<li><p>对上传进行拦截</p>
+</li>
+<li><p>修改content-type为符合格式要求</p>
+<p><img src="https://pic3.superbed.cn/item/5ddb57de8e0e2e3ee94a26b1.jpg" alt></p>
+</li>
+</ol>
+<h2 id="服务端黑名单检查"><a href="#服务端黑名单检查" class="headerlink" title="服务端黑名单检查"></a>服务端黑名单检查</h2><p>服务端通过设置黑名单对用户提交的文件类型进行检查，在黑名单里面的进行拒绝</p>
+<h3 id="文件别名绕过"><a href="#文件别名绕过" class="headerlink" title="文件别名绕过"></a>文件别名绕过</h3><p>许多文件有其别名，即使使用别名也可在服务器上执行</p>
+<table>
+<thead>
+<tr>
+<th>一般后缀</th>
+<th align="center">可用后缀</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>asp/aspx</td>
+<td align="center">asp,aspx,asa,asax,ascx,ashx,asmx,cer,aSp,aSpx,aSa,aSax,aScx,aShx,aSmx,cEr</td>
+</tr>
+<tr>
+<td>php</td>
+<td align="center">php,php5,php4,php3,php2,pHp,pHp5,pHp4,pHp3,pHp2,html,htm,phtml,pht,Html,Htm,pHtml</td>
+</tr>
+<tr>
+<td>jsp</td>
+<td align="center">jsp,jspa,jspx,jsw,jsv,jspf,jtml,jSp,jSpx,jSpa,jSw,jSv,jSpf,jHtml</td>
+</tr>
+<tr>
+<td>尝试使用不同的大小写进行绕过，windows系统对文件后缀的大小写不敏感，linux敏感。</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h3 id="利用windows-php的一些特性进行绕过"><a href="#利用windows-php的一些特性进行绕过" class="headerlink" title="利用windows+php的一些特性进行绕过"></a>利用windows+php的一些特性进行绕过</h3><ol>
+<li><p>尝试在后缀名末尾添加空格</p>
+</li>
+<li><p>尝试在后缀名末尾添加<code>.</code>，利用windows特性，会自动去掉后缀名中最后的”.”，可在后缀名中加”.”绕过。</p>
+</li>
+<li><p>在php+windows的情况下：如果文件名+”::$DATA”会把::$DATA之后的数据当成文件流处理,不会检测后缀名.且保持”::$DATA”之前的文件名</p>
+<p>burp 修改文件名为<em>info.php::$DATA</em>，实际上保存的文件的文件名为<em>info.php</em></p>
+</li>
+<li><p>主动构造文件后缀，使程序获得我们想让其获得的文件后缀，从而实现绕过对后缀的检测</p>
+<p><code>info.php. .</code>， 程序首先去除点号，变为<code>info.php.空格</code> ，然后截取文件后缀为<code>.空格</code>，这个没在黑名单里，于是乎通过。然后程序直接利用现有文件名进行保存，保存为<code>info.php.空格</code>。</p>
+</li>
+</ol>
+<h3 id="去除敏感词文件名绕过"><a href="#去除敏感词文件名绕过" class="headerlink" title="去除敏感词文件名绕过"></a>去除敏感词文件名绕过</h3><p>当文件名中出现php等字样时直接删除php，但此过程只执行一次，于是乎构造文件名</p>
+<p><code>info.pphphp</code> ，可以实现绕过。</p>
+<h3 id="htaccess-配置文件上传"><a href="#htaccess-配置文件上传" class="headerlink" title=".htaccess 配置文件上传"></a>.htaccess 配置文件上传</h3><p>.htaccess 是php的配置文件，可以控制默写文件类型以php类型的文件执行</p>
+<p>当黑名单里没有.htacess时可以上传我们的.htaccess文件，指定我们的文件以php形式执行</p>
+<p>方法一、.htaccess内容为</p>
+<pre><code>&lt;FilesMatch &quot;文件名&quot;&gt;
 
+  SetHandler application/x-httpd-php
+
+&lt;/FilesMatch&gt;</code></pre><p>按情况修改文件名</p>
+<p>方法二、.htaccess内容为</p>
+<pre><code>AddType    application/x-httpd-php    .jpg</code></pre>
             </div>
             <hr />
 
@@ -673,9 +719,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《正则化》
+                    《文件上传漏洞总结》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/01/22/2019-zheng-ze-hua/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/11/25/2019-wen-jian-shang-chuan-lou-dong/" property="cc:attributionName"
                rel="cc:attributionURL">
                 ZS
             </a> 采用
@@ -716,7 +762,7 @@
         repo: 'newlzs.github.io',
         owner: 'newlzs',
         admin: "newlzs",
-        id: '2019/01/22/2019-zheng-ze-hua/',
+        id: '2019/11/25/2019-wen-jian-shang-chuan-lou-dong/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -737,48 +783,52 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/02/17/2019-kuai-su-su-shu-pan-duan-suan-fa/">
+                <a href="/2019/11/25/2019-wen-jian-shang-chuan-lou-dong/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="快速素数判断算法">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="文件上传漏洞总结">
                         
-                        <span class="card-title">快速素数判断算法</span>
+                        <span class="card-title">文件上传漏洞总结</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            最近在复习之前做的编程练习题，素数判断一直没有掌握，今天看到了一种新的方法，感觉特别好，记下来。（第一次写博客，很开心呀）思想来源,看不懂我的,欢迎看原作  
-素数的一些性质吧
-素数的分布规律大于5的素数一定于6的倍数相邻,例如5和7,11
+                            好久没写了，最近有些携带。。。。，坚持啊
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-17
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-25
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/算法/" class="post-category" target="_blank">
-                                    算法
+                            <a href="/categories/网络安全/" class="post-category" target="_blank">
+                                    网络安全
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/PAT/" target="_blank">
-                        <span class="chip bg-color">PAT</span>
+                    <a href="/tags/web/" target="_blank">
+                        <span class="chip bg-color">web</span>
+                    </a>
+                    
+                    <a href="/tags/CTF/" target="_blank">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                 </div>
@@ -789,56 +839,49 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/01/22/2019-zheng-ze-hua/">
+                <a href="/2019/10/03/2019-mysql-chang-yong-ming-ling/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="正则化">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="mysql常用命令">
                         
-                        <span class="card-title">正则化</span>
+                        <span class="card-title">mysql常用命令</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            正则化正则化的目的
-神经网络过度拟合了数据  
-减小网络误差  
-
-正则化的作用原理逻辑回归中的正则化
-最小化误差函数时，添加一个新的参数D，这个参数是关于W的，而没有关于b的  
-因为W本身是一个高维参数矢量，已经可以表达高偏差问题，W本
+                            为了更好的了解sql注入，有大致看了一遍mysql的命令语句，总结一下方便查看。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-22
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-03
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/机器学习/" class="post-category" target="_blank">
-                                    机器学习
+                            <a href="/categories/网络安全/" class="post-category" target="_blank">
+                                    网络安全
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/深度学习/" target="_blank">
-                        <span class="chip bg-color">深度学习</span>
+                    <a href="/tags/web/" target="_blank">
+                        <span class="chip bg-color">web</span>
                     </a>
                     
-                    <a href="/tags/基本概念/" target="_blank">
-                        <span class="chip bg-color">基本概念</span>
+                    <a href="/tags/数据库/" target="_blank">
+                        <span class="chip bg-color">数据库</span>
                     </a>
                     
                 </div>
