@@ -470,14 +470,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    710
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    4 分
                 </div>
                 
                 
@@ -561,7 +561,41 @@
 
 &lt;/FilesMatch&gt;</code></pre><p>按情况修改文件名</p>
 <p>方法二、.htaccess内容为</p>
-<pre><code>AddType    application/x-httpd-php    .jpg</code></pre>
+<pre><code>AddType    application/x-httpd-php    .jpg</code></pre><h2 id="服务端白名单检查"><a href="#服务端白名单检查" class="headerlink" title="服务端白名单检查"></a>服务端白名单检查</h2><h3 id="00截断"><a href="#00截断" class="headerlink" title="%00截断"></a>%00截断</h3><p>当文件命名为<strong>info.php%00.jpg</strong> 时，保存文件的时候会从%00处截断，仅保留%00前面的字符。</p>
+<ol>
+<li><p>针对一般的白名单检查，检查文件的后缀名时截取.jpg，判断通过，然后保存时保存的是info.php。</p>
+</li>
+<li><p>需要了解的是，对于一般的文件上传，我们应该详细了解当我们上传图片的过程，浏览器像服务端提交的所有东西，例如是不是存在路径信息等。当我们提交的有路径信息而且服务端也是直接将文件名与路径进行拼接保存文件，那么此时我们可以直接通过修改路径，</p>
+<p>例如提交的是./upload/，而文件的保存路径是 ./upload/info.jpg 时，我们提交 ./upload/info.php%00，可以控制保存的路径为 ./upload/info.php。</p>
+<blockquote>
+<p> 对于服务端对我们的文件名进行随机化是也应该想到这种方法。</p>
+</blockquote>
+</li>
+<li><p>POST方法与GET方法提交 %00 的区别</p>
+<ul>
+<li><p>GET方法，会对%00进行自动编码，相当于使其保留原有的意思</p>
+</li>
+<li><p>POST不会对%00进行自动编码，直接通过传入%00字符，并不会有截断的意思，我们需要在二进制中进行更改。</p>
+<p><img src="https://pic3.superbed.cn/item/5ddfce768e0e2e3ee9f0af54.jpg" alt></p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="图片马上传"><a href="#图片马上传" class="headerlink" title="图片马上传"></a>图片马上传</h3><h4 id="利用场景"><a href="#利用场景" class="headerlink" title="利用场景"></a>利用场景</h4><p>当服务器端直接对文件的内容进行二进制检测的时候要用到这种方法，该方法应该与文件包含漏洞相结合，否则无法直接使用。</p>
+<p>服务器常用检测方法:</p>
+<ol>
+<li>使用文件的前两个字节来判断文件类型。</li>
+<li>使用 getimagesize 函数来获取文件类型。</li>
+<li>使用 php_exif 模块来判断文件类型。</li>
+<li>二次渲染，即使用用户上传的图片生成新图片。</li>
+</ol>
+<h4 id="图片马制作"><a href="#图片马制作" class="headerlink" title="图片马制作"></a>图片马制作</h4><ul>
+<li><p>命令行合并文件制作</p>
+<p><img src="https://pic2.superbed.cn/item/5ddfd7d98e0e2e3ee9f248bd.jpg" alt></p>
+<p>/b 表示二进制格式，/a表示ASCII码格式。合并到了webshell.jpg中。</p>
+</li>
+</ul>
+
             </div>
             <hr />
 
@@ -1055,7 +1089,7 @@
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">46.2k</span>
+            <span class="white-color">46.7k</span>
             
 
             <br>

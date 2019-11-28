@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ainiya.xyz/"/>
-  <updated>2019-11-25T10:10:32.415Z</updated>
+  <updated>2019-11-28T14:33:02.927Z</updated>
   <id>https://ainiya.xyz/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://ainiya.xyz/2019/11/25/2019-wen-jian-shang-chuan-lou-dong/"/>
     <id>https://ainiya.xyz/2019/11/25/2019-wen-jian-shang-chuan-lou-dong/</id>
     <published>2019-11-25T04:32:09.000Z</published>
-    <updated>2019-11-25T10:10:32.415Z</updated>
+    <updated>2019-11-28T14:33:02.927Z</updated>
     
     <summary type="html">
     
@@ -479,9 +479,9 @@
       <category term="python" scheme="https://ainiya.xyz/categories/python/"/>
     
     
-      <category term="计科" scheme="https://ainiya.xyz/tags/%E8%AE%A1%E7%A7%91/"/>
-    
       <category term="python" scheme="https://ainiya.xyz/tags/python/"/>
+    
+      <category term="计科" scheme="https://ainiya.xyz/tags/%E8%AE%A1%E7%A7%91/"/>
     
   </entry>
   
@@ -540,11 +540,11 @@
   </entry>
   
   <entry>
-    <title>深层神经网络</title>
-    <link href="https://ainiya.xyz/2019/04/09/2019-shen-ceng-shen-jing-wang-luo/"/>
-    <id>https://ainiya.xyz/2019/04/09/2019-shen-ceng-shen-jing-wang-luo/</id>
+    <title>1.2偏差与方差</title>
+    <link href="https://ainiya.xyz/2019/04/09/2019-pian-chai-yu-fang-chai/"/>
+    <id>https://ainiya.xyz/2019/04/09/2019-pian-chai-yu-fang-chai/</id>
     <published>2019-04-09T04:32:09.000Z</published>
-    <updated>2019-09-13T11:17:53.894Z</updated>
+    <updated>2019-09-13T11:17:53.891Z</updated>
     
     <summary type="html">
     
@@ -552,7 +552,7 @@
       
         
         
-          &lt;h1 id=&quot;第四周作业&quot;&gt;&lt;a href=&quot;#第四周作业&quot; class=&quot;headerlink&quot; title=&quot;第四周作业&quot;&gt;&lt;/a&gt;第四周作业&lt;/h1&gt;&lt;h2 id=&quot;知识回顾&quot;&gt;&lt;a href=&quot;#知识回顾&quot; class=&quot;headerlink&quot;
+          &lt;h2 id=&quot;1-2-偏差与方差&quot;&gt;&lt;a href=&quot;#1-2-偏差与方差&quot; class=&quot;headerlink&quot; title=&quot;1.2 偏差与方差&quot;&gt;&lt;/a&gt;1.2 偏差与方差&lt;/h2&gt;&lt;h3 id=&quot;二者在深度学习上的现状&quot;&gt;&lt;a href=&quot;#二者在深度学习上的现状&quot;
         
       
     
