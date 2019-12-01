@@ -470,14 +470,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    5 分
                 </div>
                 
                 
@@ -576,7 +576,7 @@
 <li><p>GET方法，会对%00进行自动编码，相当于使其保留原有的意思</p>
 </li>
 <li><p>POST不会对%00进行自动编码，直接通过传入%00字符，并不会有截断的意思，我们需要在二进制中进行更改。</p>
-<p><img src="https://pic3.superbed.cn/item/5ddfce768e0e2e3ee9f0af54.jpg" alt></p>
+<p><img src="https://ae01.alicdn.com/kf/H61522b0cf58548dfb1431f09684acf4fv.jpg" alt></p>
 </li>
 </ul>
 </li>
@@ -595,6 +595,29 @@
 <p>/b 表示二进制格式，/a表示ASCII码格式。合并到了webshell.jpg中。</p>
 </li>
 </ul>
+<h2 id="条件竞争"><a href="#条件竞争" class="headerlink" title="条件竞争"></a>条件竞争</h2><p>条件竞争漏洞属于服务器端的逻辑漏洞，由于服务器端在处理不同用户的请求时是并发进行的，因此，如果并发处理不当或相关操作逻辑顺序设计的不合理时，将会导致此类问题的发生。</p>
+<p>eg1：上传文件时，首先对文件进行了存储，之后才对文件进行审核</p>
+<h3 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h3><ol>
+<li><p>使用burp 的 intruder进行不断的上传，</p>
+</li>
+<li><p>同时使用python 代码对我们的上传的文件进行不断的访问。</p>
+<p>达到某一次的成功访问</p>
+</li>
+</ol>
+<ul>
+<li><p>尝试上传</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span> <span class="token function">fputs</span><span class="token punctuation">(</span><span class="token function">fopen</span><span class="token punctuation">(</span><span class="token string">"info.php"</span><span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"&lt;?php phpinfo(); ?>"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>当成功访问了我们上传的文件时，将写入服务器一个文件。</p>
+</li>
+</ul>
+<blockquote>
+<p>burp的配置 <a href="https://co0ontty.github.io/2019/04/12/batterupload.html" target="_blank" rel="noopener">结合 CTF 详解条件竞争漏洞</a></p>
+<p><a href="https://seaii-blog.com/index.php/2017/04/26/49.html" target="_blank" rel="noopener">Web中的条件竞争漏洞</a></p>
+</blockquote>
+<blockquote>
+<p>此处只做简单总结，具体的方法还要更具具体的测试，和代码的审计，其中有些会存在一些逻辑漏洞，如在进行字符串拆分成数组的时候，是不是可以直接传入输入数组，思维需要放的宽一点。</p>
+<p>要仔细的对浏览器和服务器进行交互的所有数据进行认真的阅读，尝试从中发现服务器端的处理逻辑。</p>
+</blockquote>
 
             </div>
             <hr />
@@ -1089,7 +1112,7 @@
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">46.7k</span>
+            <span class="white-color">47.1k</span>
             
 
             <br>
