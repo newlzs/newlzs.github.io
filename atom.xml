@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ainiya.xyz/"/>
-  <updated>2019-12-01T07:34:15.075Z</updated>
+  <updated>2019-12-06T17:25:36.423Z</updated>
   <id>https://ainiya.xyz/</id>
   
   <author>
@@ -17,11 +17,41 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Eric靶机渗透测试总结</title>
+    <link href="https://ainiya.xyz/2019/12/07/2019-eric-shen-tou-ce-shi-zong-jie/"/>
+    <id>https://ainiya.xyz/2019/12/07/2019-eric-shen-tou-ce-shi-zong-jie/</id>
+    <published>2019-12-07T04:32:09.000Z</published>
+    <updated>2019-12-06T17:25:36.423Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;环境配置&quot;&gt;&lt;a href=&quot;#环境配置&quot; class=&quot;headerlink&quot; title=&quot;环境配置&quot;&gt;&lt;/a&gt;环境配置&lt;/h1&gt;&lt;p&gt;直接将下载好的eric靶机文件使用vbox虚拟机导入，&lt;/p&gt;
+&lt;p&gt;问题：&lt;/p&gt;
+&lt;p&gt;由于我的
+        
+      
+    
+    </summary>
+    
+      <category term="网络安全" scheme="https://ainiya.xyz/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
+    
+    
+      <category term="web" scheme="https://ainiya.xyz/tags/web/"/>
+    
+      <category term="渗透测试" scheme="https://ainiya.xyz/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
     <title>文件上传漏洞总结</title>
     <link href="https://ainiya.xyz/2019/11/25/2019-wen-jian-shang-chuan-lou-dong/"/>
     <id>https://ainiya.xyz/2019/11/25/2019-wen-jian-shang-chuan-lou-dong/</id>
     <published>2019-11-25T04:32:09.000Z</published>
-    <updated>2019-12-01T07:34:15.075Z</updated>
+    <updated>2019-12-06T17:10:38.918Z</updated>
     
     <summary type="html">
     
@@ -73,6 +103,31 @@
   </entry>
   
   <entry>
+    <title>凤凰挽歌，黑客独白</title>
+    <link href="https://ainiya.xyz/2019/09/25/2019-feng-huang-wan-ge-hei-ke-du-bai/"/>
+    <id>https://ainiya.xyz/2019/09/25/2019-feng-huang-wan-ge-hei-ke-du-bai/</id>
+    <published>2019-09-25T04:32:09.000Z</published>
+    <updated>2019-09-25T12:05:56.605Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;strong&gt;这是一片很早转载自《黑客x档案》的一篇文章，是一篇影响我很深的文章，这个杂志已经停刊了，在博客中置顶表达我的敬意。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;还记得当年的5月1日—5月7日吗？美国黑客组织PoisonBox、Prophet、Hi-Tech等，对中国发动
+        
+      
+    
+    </summary>
+    
+    
+      <category term="心情" scheme="https://ainiya.xyz/tags/%E5%BF%83%E6%83%85/"/>
+    
+  </entry>
+  
+  <entry>
     <title>攻防世界web进阶</title>
     <link href="https://ainiya.xyz/2019/09/25/2019-gong-fang-shi-jie-web-jin-jie/"/>
     <id>https://ainiya.xyz/2019/09/25/2019-gong-fang-shi-jie-web-jin-jie/</id>
@@ -99,31 +154,6 @@
       <category term="CTF" scheme="https://ainiya.xyz/tags/CTF/"/>
     
       <category term="竞赛" scheme="https://ainiya.xyz/tags/%E7%AB%9E%E8%B5%9B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>凤凰挽歌，黑客独白</title>
-    <link href="https://ainiya.xyz/2019/09/25/2019-feng-huang-wan-ge-hei-ke-du-bai/"/>
-    <id>https://ainiya.xyz/2019/09/25/2019-feng-huang-wan-ge-hei-ke-du-bai/</id>
-    <published>2019-09-25T04:32:09.000Z</published>
-    <updated>2019-09-25T12:05:56.605Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;&lt;strong&gt;这是一片很早转载自《黑客x档案》的一篇文章，是一篇影响我很深的文章，这个杂志已经停刊了，在博客中置顶表达我的敬意。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;还记得当年的5月1日—5月7日吗？美国黑客组织PoisonBox、Prophet、Hi-Tech等，对中国发动
-        
-      
-    
-    </summary>
-    
-    
-      <category term="心情" scheme="https://ainiya.xyz/tags/%E5%BF%83%E6%83%85/"/>
     
   </entry>
   
@@ -330,7 +360,7 @@
     <link href="https://ainiya.xyz/2019/07/26/2019-scipy/"/>
     <id>https://ainiya.xyz/2019/07/26/2019-scipy/</id>
     <published>2019-07-26T10:32:09.000Z</published>
-    <updated>2019-09-13T17:51:55.207Z</updated>
+    <updated>2019-12-06T17:17:53.643Z</updated>
     
     <summary type="html">
     
@@ -527,32 +557,6 @@
         
         
           &lt;h1 id=&quot;训练-开发-测试集&quot;&gt;&lt;a href=&quot;#训练-开发-测试集&quot; class=&quot;headerlink&quot; title=&quot;训练/开发/测试集&quot;&gt;&lt;/a&gt;训练/开发/测试集&lt;/h1&gt;&lt;h2 id=&quot;训练时一般需要调试的参数&quot;&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="机器学习" scheme="https://ainiya.xyz/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="吴恩达深度学习笔记" scheme="https://ainiya.xyz/tags/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>1.2偏差与方差</title>
-    <link href="https://ainiya.xyz/2019/04/09/2019-pian-chai-yu-fang-chai/"/>
-    <id>https://ainiya.xyz/2019/04/09/2019-pian-chai-yu-fang-chai/</id>
-    <published>2019-04-09T04:32:09.000Z</published>
-    <updated>2019-09-13T11:17:53.891Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;1-2-偏差与方差&quot;&gt;&lt;a href=&quot;#1-2-偏差与方差&quot; class=&quot;headerlink&quot; title=&quot;1.2 偏差与方差&quot;&gt;&lt;/a&gt;1.2 偏差与方差&lt;/h2&gt;&lt;h3 id=&quot;二者在深度学习上的现状&quot;&gt;&lt;a href=&quot;#二者在深度学习上的现状&quot;
         
       
     

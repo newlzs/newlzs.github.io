@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://ainiya.xyz/2019/12/07/2019-eric-shen-tou-ce-shi-zong-jie/</loc>
+    <lastmod>2019-12-06</lastmod>
+  </url>  <url>
+    <loc>https://ainiya.xyz/2019/07/26/2019-scipy/</loc>
+    <lastmod>2019-12-06</lastmod>
+  </url>  <url>
     <loc>https://ainiya.xyz/2019/11/25/2019-wen-jian-shang-chuan-lou-dong/</loc>
-    <lastmod>2019-12-01</lastmod>
+    <lastmod>2019-12-06</lastmod>
   </url>  <url>
     <loc>https://ainiya.xyz/2019/09/17/2019-gong-fang-shi-jie-web-ti-xin-shou/</loc>
     <lastmod>2019-11-25</lastmod>
@@ -56,9 +62,6 @@
     <lastmod>2019-09-14</lastmod>
   </url>  <url>
     <loc>https://ainiya.xyz/2019/03/22/2019-pa-chong-zong-jie/</loc>
-    <lastmod>2019-09-13</lastmod>
-  </url>  <url>
-    <loc>https://ainiya.xyz/2019/07/26/2019-scipy/</loc>
     <lastmod>2019-09-13</lastmod>
   </url>  <url>
     <loc>https://ainiya.xyz/2019/03/20/2019-github-bo-ke/</loc>
