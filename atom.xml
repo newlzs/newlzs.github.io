@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ainiya.xyz/"/>
-  <updated>2019-12-06T17:25:36.423Z</updated>
+  <updated>2019-12-15T06:20:07.226Z</updated>
   <id>https://ainiya.xyz/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2018第十一届全国大学生信息安全竞赛writeup[转载]</title>
+    <link href="https://ainiya.xyz/2019/12/15/2019-2018-quan-guo-da-xue-sheng-xin-xi-an-quan-jing-sai/"/>
+    <id>https://ainiya.xyz/2019/12/15/2019-2018-quan-guo-da-xue-sheng-xin-xi-an-quan-jing-sai/</id>
+    <published>2019-12-15T04:32:09.000Z</published>
+    <updated>2019-12-15T06:20:07.226Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;了解了一下，发现国赛的难度真的好大，emmmmm&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://kongpingfan.me/2018/05/05/ciscn-2018-writeup/#crackme-c&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="网络安全" scheme="https://ainiya.xyz/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
+    
+    
+      <category term="CTF" scheme="https://ainiya.xyz/tags/CTF/"/>
+    
+  </entry>
   
   <entry>
     <title>Eric靶机渗透测试总结</title>
@@ -40,9 +67,9 @@
       <category term="网络安全" scheme="https://ainiya.xyz/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
     
     
-      <category term="web" scheme="https://ainiya.xyz/tags/web/"/>
-    
       <category term="渗透测试" scheme="https://ainiya.xyz/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
+    
+      <category term="web" scheme="https://ainiya.xyz/tags/web/"/>
     
   </entry>
   
@@ -68,9 +95,9 @@
       <category term="网络安全" scheme="https://ainiya.xyz/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
     
     
-      <category term="web" scheme="https://ainiya.xyz/tags/web/"/>
-    
       <category term="CTF" scheme="https://ainiya.xyz/tags/CTF/"/>
+    
+      <category term="web" scheme="https://ainiya.xyz/tags/web/"/>
     
   </entry>
   
@@ -103,6 +130,36 @@
   </entry>
   
   <entry>
+    <title>攻防世界web进阶</title>
+    <link href="https://ainiya.xyz/2019/09/25/2019-gong-fang-shi-jie-web-jin-jie/"/>
+    <id>https://ainiya.xyz/2019/09/25/2019-gong-fang-shi-jie-web-jin-jie/</id>
+    <published>2019-09-25T04:32:09.000Z</published>
+    <updated>2019-10-19T09:13:27.967Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;攻防世界web进阶&quot;&gt;&lt;a href=&quot;#攻防世界web进阶&quot; class=&quot;headerlink&quot; title=&quot;攻防世界web进阶&quot;&gt;&lt;/a&gt;攻防世界web进阶&lt;/h1&gt;&lt;h2 id=&quot;Cat&quot;&gt;&lt;a href=&quot;#Cat&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="网络安全" scheme="https://ainiya.xyz/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
+    
+    
+      <category term="CTF" scheme="https://ainiya.xyz/tags/CTF/"/>
+    
+      <category term="web" scheme="https://ainiya.xyz/tags/web/"/>
+    
+      <category term="竞赛" scheme="https://ainiya.xyz/tags/%E7%AB%9E%E8%B5%9B/"/>
+    
+  </entry>
+  
+  <entry>
     <title>凤凰挽歌，黑客独白</title>
     <link href="https://ainiya.xyz/2019/09/25/2019-feng-huang-wan-ge-hei-ke-du-bai/"/>
     <id>https://ainiya.xyz/2019/09/25/2019-feng-huang-wan-ge-hei-ke-du-bai/</id>
@@ -128,36 +185,6 @@
   </entry>
   
   <entry>
-    <title>攻防世界web进阶</title>
-    <link href="https://ainiya.xyz/2019/09/25/2019-gong-fang-shi-jie-web-jin-jie/"/>
-    <id>https://ainiya.xyz/2019/09/25/2019-gong-fang-shi-jie-web-jin-jie/</id>
-    <published>2019-09-25T04:32:09.000Z</published>
-    <updated>2019-10-19T09:13:27.967Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;攻防世界web进阶&quot;&gt;&lt;a href=&quot;#攻防世界web进阶&quot; class=&quot;headerlink&quot; title=&quot;攻防世界web进阶&quot;&gt;&lt;/a&gt;攻防世界web进阶&lt;/h1&gt;&lt;h2 id=&quot;Cat&quot;&gt;&lt;a href=&quot;#Cat&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="网络安全" scheme="https://ainiya.xyz/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
-    
-    
-      <category term="web" scheme="https://ainiya.xyz/tags/web/"/>
-    
-      <category term="CTF" scheme="https://ainiya.xyz/tags/CTF/"/>
-    
-      <category term="竞赛" scheme="https://ainiya.xyz/tags/%E7%AB%9E%E8%B5%9B/"/>
-    
-  </entry>
-  
-  <entry>
     <title>BurpSuite小白安装与使用教程</title>
     <link href="https://ainiya.xyz/2019/09/18/2019-burpsuite-xiao-bai-ru-men-an-zhuang-yu-shi-yong/"/>
     <id>https://ainiya.xyz/2019/09/18/2019-burpsuite-xiao-bai-ru-men-an-zhuang-yu-shi-yong/</id>
@@ -179,9 +206,9 @@
       <category term="网络安全" scheme="https://ainiya.xyz/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
     
     
-      <category term="工具" scheme="https://ainiya.xyz/tags/%E5%B7%A5%E5%85%B7/"/>
-    
       <category term="web" scheme="https://ainiya.xyz/tags/web/"/>
+    
+      <category term="工具" scheme="https://ainiya.xyz/tags/%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
@@ -207,9 +234,9 @@
       <category term="网络安全" scheme="https://ainiya.xyz/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
     
     
-      <category term="web" scheme="https://ainiya.xyz/tags/web/"/>
-    
       <category term="CTF" scheme="https://ainiya.xyz/tags/CTF/"/>
+    
+      <category term="web" scheme="https://ainiya.xyz/tags/web/"/>
     
       <category term="竞赛" scheme="https://ainiya.xyz/tags/%E7%AB%9E%E8%B5%9B/"/>
     
@@ -509,9 +536,9 @@
       <category term="python" scheme="https://ainiya.xyz/categories/python/"/>
     
     
-      <category term="python" scheme="https://ainiya.xyz/tags/python/"/>
-    
       <category term="计科" scheme="https://ainiya.xyz/tags/%E8%AE%A1%E7%A7%91/"/>
+    
+      <category term="python" scheme="https://ainiya.xyz/tags/python/"/>
     
   </entry>
   
@@ -537,35 +564,9 @@
       <category term="python" scheme="https://ainiya.xyz/categories/python/"/>
     
     
-      <category term="数据处理" scheme="https://ainiya.xyz/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
-    
       <category term="python" scheme="https://ainiya.xyz/tags/python/"/>
     
-  </entry>
-  
-  <entry>
-    <title>训练/开发/测试集</title>
-    <link href="https://ainiya.xyz/2019/04/11/2019-xun-lian-kai-fa-ce-shi-ji/"/>
-    <id>https://ainiya.xyz/2019/04/11/2019-xun-lian-kai-fa-ce-shi-ji/</id>
-    <published>2019-04-11T10:32:09.000Z</published>
-    <updated>2019-09-13T11:17:53.916Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;训练-开发-测试集&quot;&gt;&lt;a href=&quot;#训练-开发-测试集&quot; class=&quot;headerlink&quot; title=&quot;训练/开发/测试集&quot;&gt;&lt;/a&gt;训练/开发/测试集&lt;/h1&gt;&lt;h2 id=&quot;训练时一般需要调试的参数&quot;&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="机器学习" scheme="https://ainiya.xyz/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="吴恩达深度学习笔记" scheme="https://ainiya.xyz/tags/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="数据处理" scheme="https://ainiya.xyz/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
     
   </entry>
   

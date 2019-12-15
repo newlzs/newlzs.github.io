@@ -4,17 +4,12 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="vs的c++环境配置, NEUQ  CTF 子实  ZiShi 计算机科学与技术 网络安全">
+    <meta name="keywords" content="2018第十一届全国大学生信息安全竞赛writeup[转载], NEUQ  CTF 子实  ZiShi 计算机科学与技术 网络安全">
     <meta name="baidu-site-verification" content>
     <meta name="google-site-verification" content>
-    <meta name="description" content="在ubuntu中 配置vscode 的 C++ 环境安装C++环境
-sudo apt install gcc  
-sudo apt install g++  
-
-配置vscode
-点击左侧齿轮按纽，点击弹出窗口的齿轮按钮添加环境  
-
-然后">
+    <meta name="description" content="了解了一下，发现国赛的难度真的好大，emmmmm
+https://kongpingfan.me/2018/05/05/ciscn-2018-writeup/#crackme-c
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -22,7 +17,7 @@ sudo apt install g++
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>vs的c++环境配置 | ZS BLOG</title>
+    <title>2018第十一届全国大学生信息安全竞赛writeup[转载] | ZS BLOG</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -315,13 +310,13 @@ sudo apt install g++
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        vs的c++环境配置
+                        2018第十一届全国大学生信息安全竞赛writeup[转载]
                     </div>
                 </div>
             </div>
@@ -432,8 +427,8 @@ sudo apt install g++
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/环境配置/" target="_blank">
-                            <span class="chip bg-color">环境配置</span>
+                        <a href="/tags/CTF/" target="_blank">
+                            <span class="chip bg-color">CTF</span>
                         </a>
                         
                     </div>
@@ -441,13 +436,22 @@ sudo apt install g++
                 </div>
                 <div class="col s5 right-align">
                     
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                        <a href="/categories/网络安全/" class="post-category" target="_blank">
+                            网络安全
+                        </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
 
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-06-02
+                    2019-12-15
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -461,7 +465,7 @@ sudo apt install g++
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    298
+                    28
                 </div>
                 
 
@@ -484,60 +488,8 @@ sudo apt install g++
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="在ubuntu中-配置vscode-的-C-环境"><a href="#在ubuntu中-配置vscode-的-C-环境" class="headerlink" title="在ubuntu中 配置vscode 的 C++ 环境"></a>在ubuntu中 配置vscode 的 C++ 环境</h1><h2 id="安装C-环境"><a href="#安装C-环境" class="headerlink" title="安装C++环境"></a>安装C++环境</h2><ul>
-<li><code>sudo apt install gcc</code>  </li>
-<li><code>sudo apt install g++</code>  </li>
-</ul>
-<h2 id="配置vscode"><a href="#配置vscode" class="headerlink" title="配置vscode"></a>配置vscode</h2><ul>
-<li><p>点击左侧齿轮按纽，点击弹出窗口的齿轮按钮添加环境  </p>
-</li>
-<li><p>然后点击设置会生成一个后缀为json的文件，将其中的内容修改为  </p>
-<pre><code>  {  
-  // Use IntelliSense to learn about possible attributes.  
-  // Hover to view descriptions of existing attributes.  
-  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387  
-  &quot;version&quot;: &quot;0.2.0&quot;,  
-  &quot;configurations&quot;: [  
-      {  
-          &quot;name&quot;: &quot;(gdb) Launch&quot;,  
-          &quot;type&quot;: &quot;cppdbg&quot;,  
-          &quot;request&quot;: &quot;launch&quot;,  
-          &quot;program&quot;: &quot;${workspaceFolder}/${fileBasenameNoExtension}.out&quot;,  
-          &quot;args&quot;: [],  
-          &quot;stopAtEntry&quot;: true,  
-          &quot;cwd&quot;: &quot;${workspaceFolder}&quot;,  
-          &quot;environment&quot;: [],  
-          &quot;externalConsole&quot;: false,  
-          &quot;MIMode&quot;: &quot;gdb&quot;,  
-          &quot;preLaunchTask&quot;: &quot;build&quot;,  
-          &quot;setupCommands&quot;: [  
-              {  
-                  &quot;description&quot;: &quot;Enable pretty-printing for gdb&quot;,  
-                  &quot;text&quot;: &quot;-enable-pretty-printing&quot;,  
-                  &quot;ignoreFailures&quot;: true  
-              }  
-          ]  
-      }]  
-  }  </code></pre><ul>
-<li>在同一文件夹下创建名为<code>tasks.json</code>的文件,并将其修改为  <pre><code>{  
-    // See https://go.microsoft.com/fwlink/?LinkId=733558  
-    // for the documentation about the tasks.json format  
-    &quot;version&quot;: &quot;2.0.0&quot;,  
-    &quot;tasks&quot;: [  
-        {  
-            &quot;label&quot;: &quot;build&quot;,  
-            &quot;type&quot;: &quot;shell&quot;,  
-            &quot;command&quot;: &quot;g++&quot;,  
-            &quot;args&quot;: [&quot;-g&quot;, &quot;${file}&quot;, &quot;-std=c++11&quot;, &quot;-o&quot;, &quot;${fileBasenameNoExtension}.out&quot;]  
-        }  
-    ]  
-}  </code></pre></li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>这就配置好了,按f5就可以调试了  </p>
-</blockquote>
+                <p>了解了一下，发现国赛的难度真的好大，emmmmm</p>
+<p><a href="https://kongpingfan.me/2018/05/05/ciscn-2018-writeup/#crackme-c" target="_blank" rel="noopener">https://kongpingfan.me/2018/05/05/ciscn-2018-writeup/#crackme-c</a></p>
 
             </div>
             <hr />
@@ -696,9 +648,9 @@ sudo apt install g++
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《vs的c++环境配置》
+                    《2018第十一届全国大学生信息安全竞赛writeup[转载]》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/06/02/2019-ubuntu-vscode-c-huan-jing/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/12/15/2019-2018-quan-guo-da-xue-sheng-xin-xi-an-quan-jing-sai/" property="cc:attributionName"
                rel="cc:attributionURL">
                 ZS
             </a> 采用
@@ -739,7 +691,7 @@ sudo apt install g++
         repo: 'newlzs.github.io',
         owner: 'newlzs',
         admin: "newlzs",
-        id: '2019/06/02/2019-ubuntu-vscode-c-huan-jing/',
+        id: '2019/12/15/2019-2018-quan-guo-da-xue-sheng-xin-xi-an-quan-jing-sai/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -760,47 +712,48 @@ sudo apt install g++
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/06/29/2019-tcp-san-ci-wo-shou/">
+                <a href="/2019/12/15/2019-2018-quan-guo-da-xue-sheng-xin-xi-an-quan-jing-sai/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="TCP的三次握手">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="2018第十一届全国大学生信息安全竞赛writeup[转载]">
                         
-                        <span class="card-title">TCP的三次握手</span>
+                        <span class="card-title">2018第十一届全国大学生信息安全竞赛writeup[转载]</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            TCP三次握手TCP/IP协议简介TCP/IP协议是一个协议族，里面包括了IP协议，IMCP协议，TCP协议，以及我们更加熟悉的http、ftp、pop3协议等等，这些协议类似于国际语言，大家在交流时同一使用的语言。  
-TCP/IP协议的
+                            了解了一下，发现国赛的难度真的好大，emmmmm
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-29
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-12-15
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/计科/" class="post-category" target="_blank">
-                                    计科
+                            <a href="/categories/网络安全/" class="post-category" target="_blank">
+                                    网络安全
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/计算机网络/" target="_blank">
-                        <span class="chip bg-color">计算机网络</span>
+                    <a href="/tags/CTF/" target="_blank">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                 </div>
@@ -814,37 +767,31 @@ TCP/IP协议的
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/05/13/2019-python-xian-cheng-nei-bu-han-shu-chuan-can/">
+                <a href="/2019/12/07/2019-eric-shen-tou-ce-shi-zong-jie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="线程全局变量ThreadLocal">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Eric靶机渗透测试总结">
                         
-                        <span class="card-title">线程全局变量ThreadLocal</span>
+                        <span class="card-title">Eric靶机渗透测试总结</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            线程内的全局变量-ThreadLocal
-对于每个线程获取变量值时， 只能使用函数进行传值，但对于多级函数，传参比较麻烦  
-
-ThreadLocal解决方案  
-  import threading  
-
-  # 创建全局ThreadLo
+                            小白的第一次渗透测试，总结一下，问题还有很多，还有继续努力呀。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-13
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-12-07
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/python/" class="post-category" target="_blank">
-                                    python
+                            <a href="/categories/网络安全/" class="post-category" target="_blank">
+                                    网络安全
                                 </a>
                             
                             
@@ -854,12 +801,12 @@ ThreadLocal解决方案
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/计科/" target="_blank">
-                        <span class="chip bg-color">计科</span>
+                    <a href="/tags/渗透测试/" target="_blank">
+                        <span class="chip bg-color">渗透测试</span>
                     </a>
                     
-                    <a href="/tags/python/" target="_blank">
-                        <span class="chip bg-color">python</span>
+                    <a href="/tags/web/" target="_blank">
+                        <span class="chip bg-color">web</span>
                     </a>
                     
                 </div>
