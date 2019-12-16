@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ainiya.xyz/"/>
-  <updated>2019-12-15T06:20:07.226Z</updated>
+  <updated>2019-12-16T12:50:26.302Z</updated>
   <id>https://ainiya.xyz/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PHP学习笔记</title>
+    <link href="https://ainiya.xyz/2019/12/16/2019-php-xue-xi/"/>
+    <id>https://ainiya.xyz/2019/12/16/2019-php-xue-xi/</id>
+    <published>2019-12-16T04:32:09.000Z</published>
+    <updated>2019-12-16T12:50:26.302Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;php注释&quot;&gt;&lt;a href=&quot;#php注释&quot; class=&quot;headerlink&quot; title=&quot;php注释&quot;&gt;&lt;/a&gt;php注释&lt;/h1&gt;&lt;pre class=&quot;line-numbers language-php&quot;&gt;&lt;code
+        
+      
+    
+    </summary>
+    
+      <category term="后端学习" scheme="https://ainiya.xyz/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="PHP" scheme="https://ainiya.xyz/tags/PHP/"/>
+    
+  </entry>
   
   <entry>
     <title>2018第十一届全国大学生信息安全竞赛writeup[转载]</title>
@@ -67,9 +93,9 @@
       <category term="网络安全" scheme="https://ainiya.xyz/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
     
     
-      <category term="渗透测试" scheme="https://ainiya.xyz/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
-    
       <category term="web" scheme="https://ainiya.xyz/tags/web/"/>
+    
+      <category term="渗透测试" scheme="https://ainiya.xyz/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
@@ -206,9 +232,9 @@
       <category term="网络安全" scheme="https://ainiya.xyz/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
     
     
-      <category term="web" scheme="https://ainiya.xyz/tags/web/"/>
-    
       <category term="工具" scheme="https://ainiya.xyz/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="web" scheme="https://ainiya.xyz/tags/web/"/>
     
   </entry>
   
@@ -307,7 +333,7 @@
     <link href="https://ainiya.xyz/2019/08/22/2019-wechall-lian-xi/"/>
     <id>https://ainiya.xyz/2019/08/22/2019-wechall-lian-xi/</id>
     <published>2019-08-22T04:32:09.000Z</published>
-    <updated>2019-09-20T14:13:10.849Z</updated>
+    <updated>2019-12-16T12:49:36.542Z</updated>
     
     <summary type="html">
     
@@ -539,34 +565,6 @@
       <category term="计科" scheme="https://ainiya.xyz/tags/%E8%AE%A1%E7%A7%91/"/>
     
       <category term="python" scheme="https://ainiya.xyz/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python-xlrd</title>
-    <link href="https://ainiya.xyz/2019/05/06/2019-python-xlrd-jian-dan-zong-jie/"/>
-    <id>https://ainiya.xyz/2019/05/06/2019-python-xlrd-jian-dan-zong-jie/</id>
-    <published>2019-05-06T10:32:09.000Z</published>
-    <updated>2019-09-14T01:18:16.752Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;python-xlrd&quot;&gt;&lt;a href=&quot;#python-xlrd&quot; class=&quot;headerlink&quot; title=&quot;python-xlrd&quot;&gt;&lt;/a&gt;python-xlrd&lt;/h2&gt;&lt;h3 id=&quot;打开&quot;&gt;&lt;a href=&quot;#打开&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="python" scheme="https://ainiya.xyz/categories/python/"/>
-    
-    
-      <category term="python" scheme="https://ainiya.xyz/tags/python/"/>
-    
-      <category term="数据处理" scheme="https://ainiya.xyz/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
     
   </entry>
   
