@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ainiya.xyz/"/>
-  <updated>2020-01-09T16:25:46.119Z</updated>
+  <updated>2020-01-09T16:43:49.323Z</updated>
   <id>https://ainiya.xyz/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>sqli-labs环境配置及基础篇学习笔记</title>
-    <link href="https://ainiya.xyz/2019/12/28/2019-sqli-labs-ji-chu-pian-xue-xi-bi-ji/"/>
-    <id>https://ainiya.xyz/2019/12/28/2019-sqli-labs-ji-chu-pian-xue-xi-bi-ji/</id>
+    <title>sqli-labs配置及基础篇学习笔记</title>
+    <link href="https://ainiya.xyz/2019/12/28/2019-sqli-labs-ji-chu-pian/"/>
+    <id>https://ainiya.xyz/2019/12/28/2019-sqli-labs-ji-chu-pian/</id>
     <published>2019-12-28T04:32:09.000Z</published>
-    <updated>2020-01-09T16:25:46.119Z</updated>
+    <updated>2020-01-09T16:43:49.323Z</updated>
     
     <summary type="html">
     
@@ -38,6 +38,8 @@
     
       <category term="网络安全" scheme="https://ainiya.xyz/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
     
+    
+      <category term="环境配置" scheme="https://ainiya.xyz/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
     
       <category term="sql注入" scheme="https://ainiya.xyz/tags/sql%E6%B3%A8%E5%85%A5/"/>
     
@@ -120,9 +122,9 @@
       <category term="网络安全" scheme="https://ainiya.xyz/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
     
     
-      <category term="渗透测试" scheme="https://ainiya.xyz/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
-    
       <category term="web" scheme="https://ainiya.xyz/tags/web/"/>
+    
+      <category term="渗透测试" scheme="https://ainiya.xyz/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
@@ -148,9 +150,9 @@
       <category term="网络安全" scheme="https://ainiya.xyz/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
     
     
-      <category term="CTF" scheme="https://ainiya.xyz/tags/CTF/"/>
-    
       <category term="web" scheme="https://ainiya.xyz/tags/web/"/>
+    
+      <category term="CTF" scheme="https://ainiya.xyz/tags/CTF/"/>
     
   </entry>
   
@@ -204,9 +206,9 @@
       <category term="网络安全" scheme="https://ainiya.xyz/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
     
     
-      <category term="CTF" scheme="https://ainiya.xyz/tags/CTF/"/>
-    
       <category term="web" scheme="https://ainiya.xyz/tags/web/"/>
+    
+      <category term="CTF" scheme="https://ainiya.xyz/tags/CTF/"/>
     
       <category term="竞赛" scheme="https://ainiya.xyz/tags/%E7%AB%9E%E8%B5%9B/"/>
     
@@ -259,9 +261,9 @@
       <category term="网络安全" scheme="https://ainiya.xyz/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
     
     
-      <category term="web" scheme="https://ainiya.xyz/tags/web/"/>
-    
       <category term="工具" scheme="https://ainiya.xyz/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="web" scheme="https://ainiya.xyz/tags/web/"/>
     
   </entry>
   
@@ -287,9 +289,9 @@
       <category term="网络安全" scheme="https://ainiya.xyz/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
     
     
-      <category term="CTF" scheme="https://ainiya.xyz/tags/CTF/"/>
-    
       <category term="web" scheme="https://ainiya.xyz/tags/web/"/>
+    
+      <category term="CTF" scheme="https://ainiya.xyz/tags/CTF/"/>
     
       <category term="竞赛" scheme="https://ainiya.xyz/tags/%E7%AB%9E%E8%B5%9B/"/>
     
