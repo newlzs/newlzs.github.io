@@ -2,9 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://ainiya.xyz/2019/12/28/2019-sqli-labs-ji-chu-pian/</loc>
+    <loc>https://ainiya.xyz/2020/01/10/2020-sqli-labs-ji-chu-pian/</loc>
     
-    <lastmod>2020-01-09T16:43:49.323Z</lastmod>
+    <lastmod>2020-01-09T16:47:32.757Z</lastmod>
     
   </url>
   
@@ -324,13 +324,6 @@
   </url>
   
   <url>
-    <loc>https://ainiya.xyz/tags/index.html</loc>
-    
-    <lastmod>2019-08-20T16:26:12.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://ainiya.xyz/categories/index.html</loc>
     
     <lastmod>2019-08-20T16:26:12.000Z</lastmod>
@@ -339,6 +332,13 @@
   
   <url>
     <loc>https://ainiya.xyz/archives/index.html</loc>
+    
+    <lastmod>2019-08-20T16:26:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ainiya.xyz/tags/index.html</loc>
     
     <lastmod>2019-08-20T16:26:12.000Z</lastmod>
     
