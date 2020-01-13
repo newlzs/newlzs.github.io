@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://ainiya.xyz/2019/07/24/2019-matplotlib/</loc>
+    
+    <lastmod>2020-01-13T01:38:56.858Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://ainiya.xyz/2020/01/10/2020-sqli-labs-ji-chu-pian/</loc>
     
     <lastmod>2020-01-09T16:47:32.757Z</lastmod>
@@ -205,13 +212,6 @@
   </url>
   
   <url>
-    <loc>https://ainiya.xyz/2019/07/24/2019-matplotlib/</loc>
-    
-    <lastmod>2019-09-13T13:20:09.194Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://ainiya.xyz/2019/01/22/2019-zheng-ze-hua/</loc>
     
     <lastmod>2019-09-13T13:20:09.182Z</lastmod>
@@ -324,14 +324,14 @@
   </url>
   
   <url>
-    <loc>https://ainiya.xyz/categories/index.html</loc>
+    <loc>https://ainiya.xyz/archives/index.html</loc>
     
     <lastmod>2019-08-20T16:26:12.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://ainiya.xyz/archives/index.html</loc>
+    <loc>https://ainiya.xyz/categories/index.html</loc>
     
     <lastmod>2019-08-20T16:26:12.000Z</lastmod>
     

@@ -467,7 +467,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3k
+                    3.1k
                 </div>
                 
 
@@ -492,6 +492,14 @@
             <div id="articleContent">
                 <h1 id="Matplotlib"><a href="#Matplotlib" class="headerlink" title="Matplotlib"></a>Matplotlib</h1><p>matplotlib 提供了一整套和Matlab相似的命令API，十分适合交互式地进行绘图。而且也可以方便的将它最为绘图控件，嵌入GUI应用中。matplotlib可以绘制多种形式的图包括普通的线图，直方图，饼图，散点图以及误差曲线等；可以比较方便的定制图形的各种属性不如图线的颜色，粗细，字体的大小等，它能够很好地支持一部分TeX排版命令，可以美观的显示图中的数学公式  </p>
 <h2 id="1-pylab介绍"><a href="#1-pylab介绍" class="headerlink" title="1 pylab介绍"></a>1 pylab介绍</h2><p>matplotlib种包含几十个不同的模块，如matlob，mathtext，finance，dates等，而pylab则是其中最常用的模块  </p>
+<h3 id="1-1-设置图片渲染途径"><a href="#1-1-设置图片渲染途径" class="headerlink" title="1.1 设置图片渲染途径"></a>1.1 设置图片渲染途径</h3><p>IPython 支持两种形式的绘图</p>
+<p>终端输出图像<br>新窗口输出图像<br>方式 1 能够非常方便的保存输出记录（如将`IPython 终端输出转换成 Html 文件）</p>
+<p>方式 2 则可以交互式的放大、拖动图片，并且能将图片保存成不同的格式</p>
+<p>在终端窗口中输出图片的命令是：</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token operator">%</span>matplotlib inline<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>在图片窗口表现图片的命令是：</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token operator">%</span>matplotlib qt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>设置是持久有效的, 除非重新设置, 在图片show之前设置皆可</p>
 <h3 id="1-1-中文显示问题解决方案"><a href="#1-1-中文显示问题解决方案" class="headerlink" title="1.1 中文显示问题解决方案"></a>1.1 中文显示问题解决方案</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> pylab <span class="token keyword">import</span> mpl  
 mpl<span class="token punctuation">.</span>rcParams<span class="token punctuation">[</span><span class="token string">'font.sans-serif'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'FangSong'</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true"># 指定默认字体  </span>
 mpl<span class="token punctuation">.</span>rcParams<span class="token punctuation">[</span><span class="token string">'axes.unicode_minus'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">False</span> <span class="token comment" spellcheck="true"># 解决保存图像时‘-’显示为方块的问题  </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
@@ -1201,7 +1209,7 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">53k</span>
+            <span class="white-color">53.2k</span>
             
 
             <br>

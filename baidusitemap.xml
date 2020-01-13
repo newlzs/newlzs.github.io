@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://ainiya.xyz/2019/07/24/2019-matplotlib/</loc>
+    <lastmod>2020-01-13</lastmod>
+  </url>  <url>
     <loc>https://ainiya.xyz/2020/01/10/2020-sqli-labs-ji-chu-pian/</loc>
     <lastmod>2020-01-09</lastmod>
   </url>  <url>
@@ -83,9 +86,6 @@
     <lastmod>2019-09-13</lastmod>
   </url>  <url>
     <loc>https://ainiya.xyz/2019/06/02/2019-ubuntu-vscode-c-huan-jing/</loc>
-    <lastmod>2019-09-13</lastmod>
-  </url>  <url>
-    <loc>https://ainiya.xyz/2019/07/24/2019-matplotlib/</loc>
     <lastmod>2019-09-13</lastmod>
   </url>  <url>
     <loc>https://ainiya.xyz/2019/01/22/2019-zheng-ze-hua/</loc>
