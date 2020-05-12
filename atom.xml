@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ainiya.xyz/"/>
-  <updated>2020-04-07T04:20:21.582Z</updated>
+  <updated>2020-05-12T05:52:18.978Z</updated>
   <id>https://ainiya.xyz/</id>
   
   <author>
@@ -17,11 +17,42 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>mybatis-plus初步学习总结</title>
+    <link href="https://ainiya.xyz/2020/05/12/2020-mybatis-plus-chu-bu/"/>
+    <id>https://ainiya.xyz/2020/05/12/2020-mybatis-plus-chu-bu/</id>
+    <published>2020-05-12T04:32:09.000Z</published>
+    <updated>2020-05-12T05:52:18.978Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;mybatis-plus初步学习总结&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;看着网课， 敲了一边代码， 感觉mp提供的一些方法确实是方便。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;总结什么的就把写的代码放这里，有时间就看看。&lt;/p&gt;
+&lt;p&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="java" scheme="https://ainiya.xyz/categories/java/"/>
+    
+    
+      <category term="后端学习" scheme="https://ainiya.xyz/tags/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>NOWCODER 练习</title>
     <link href="https://ainiya.xyz/2020/03/04/2020-nowcoder-lian-xi/"/>
     <id>https://ainiya.xyz/2020/03/04/2020-nowcoder-lian-xi/</id>
     <published>2020-03-04T04:32:09.000Z</published>
-    <updated>2020-04-07T04:20:21.582Z</updated>
+    <updated>2020-04-12T16:03:29.432Z</updated>
     
     <summary type="html">
     
@@ -542,32 +573,6 @@
       <category term="python" scheme="https://ainiya.xyz/tags/python/"/>
     
       <category term="数据分析" scheme="https://ainiya.xyz/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>TCP的三次握手</title>
-    <link href="https://ainiya.xyz/2019/06/29/2019-tcp-san-ci-wo-shou/"/>
-    <id>https://ainiya.xyz/2019/06/29/2019-tcp-san-ci-wo-shou/</id>
-    <published>2019-06-29T10:32:09.000Z</published>
-    <updated>2019-09-13T11:17:53.972Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;TCP三次握手&quot;&gt;&lt;a href=&quot;#TCP三次握手&quot; class=&quot;headerlink&quot; title=&quot;TCP三次握手&quot;&gt;&lt;/a&gt;TCP三次握手&lt;/h1&gt;&lt;h2 id=&quot;TCP-IP协议&quot;&gt;&lt;a href=&quot;#TCP-IP协议&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="计科" scheme="https://ainiya.xyz/categories/%E8%AE%A1%E7%A7%91/"/>
-    
-    
-      <category term="计算机网络" scheme="https://ainiya.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
